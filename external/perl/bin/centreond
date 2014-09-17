@@ -1,0 +1,150 @@
+#!/usr/bin/perl
+
+use strict;
+use Getopt::Long;
+use Config::IniFiles;
+use Sys::Hostname;
+use DBI;
+use Module::Util qw(:all);
+use centreon::common::logger;
+use centreon::daemon::crypt;
+use centreon::daemon::processus;
+use centreon::daemon::events qw(emit);
+
+my $configFile = '/etc/centreon/centreon.ini';
+my $keygen = 0;
+GetOptions(
+  "config=s" => \$configFile,
+  "keygen" => \$keygen
+) or die("Error in command line arguments.");
+
+if (!-f $configFile) {
+    print("The configuration file does not exists.\n");
+    exit 2;
+}
+
+my $config = Config::IniFiles->new(
+  -file => $configFile,
+  -nomultiline => 1
+);
+
+# Generate keyfile if ask
+if ($keygen) {
+    centreon::daemon::crypt::generateKeys("/tmp", "central", "test");
+    exit 1;
+}
+
+# List of server type
+#
+# central : Run server in Central with database
+# poller : Run server to a poller
+my $serverType = "central";
+if ($config->exists("centreond", "type")) {
+    $serverType = $config->val("centreond", "type");
+}
+my $pollername = hostname();
+
+# Initialize log file
+our $logger = centreon::common::logger->new();
+if ($config->exists("centreond", "log_lvl")) {
+    $logger->severity($config->val("centreond", "log_lvl"));
+}
+if ($config->exists("centreond", "log_file")) {
+    $logger->file_mode($config->val("centreond", "log_file"));
+}
+
+# Load module
+my @modules;
+if ($config->exists("centreond", "module")) {
+    @modules = $config->val("centreond", "module");
+}
+
+$logger->writeLogInfo("Initialize daemon");
+foreach my $module (@modules) {
+    if (find_installed($module)) {
+        $logger->writeLogInfo("Load module : $module");
+        eval "use ${module}";
+        my $registerFunc = "${module}::register_events";
+        ${module}->register_events($serverType);
+    }
+}
+
+if ($serverType eq "central") {
+    $logger->writeLogInfo("Initialize for Central");
+    my @childrenPid;
+    # Open connection to database
+    # if (!$config->exists("db_centreon", "dsn")) {
+    #     print("The database is not configured.\n");
+    #     exit 2;
+    # }
+    # my $dbh = DBI->connect(
+    #     $config->val("db_centreon", "dsn"),
+    #     $config->val("db_centreon", "username"),
+    #     $config->val("db_centreon", "password")
+    # );
+    my @pollers;
+
+    # Pollers for test
+    my %poller1 = (
+        "name" => "TEST1",
+        "url" => "tcp://127.0.0.1:5557"
+    );
+    push(@pollers, \%poller1);
+
+    # Fork for router
+    my $routerPid = fork();
+    if ($routerPid) {
+        push(@childrenPid, $routerPid);
+    } elsif ($routerPid == 0) {
+        centreon::daemon::processus::runRouter();
+    } else {
+        $logger->writeLogError("Error when fork process.");
+        $logger->writeLogDebug($!);
+        exit 2;
+    }
+
+    sleep(1);
+
+    # Fork for action listener
+    my $actionListenPid = fork();
+    if ($actionListenPid) {
+        push(@childrenPid, $actionListenPid);
+    } elsif ($actionListenPid == 0) {
+        centreon::daemon::processus::runActionListener(5555);
+    } else {
+        $logger->writeLogError("Error when fork process.");
+        $logger->writeLogDebug($!);
+        exit 2;
+    } 
+
+    # Fork for poller listener
+    my $pollerListenPid = fork();
+    if ($pollerListenPid) {
+        push(@childrenPid, $actionListenPid);
+    } elsif ($pollerListenPid == 0) {
+        centreon::daemon::processus::runPollerListener(5556);
+    } else {
+        $logger->writeLogError("Error when fork process.");
+        $logger->writeLogDebug($!);
+        exit 2;
+    }
+
+    # Connect to poller
+    foreach my $poller (@pollers) {
+        sleep(1);
+        my $pollerConnectPid = fork();
+        if ($pollerConnectPid) {
+            push(@childrenPid, $pollerConnectPid);
+        } elsif ($pollerConnectPid == 0) {
+            centreon::daemon::processus::runConnectToPoller(
+                $poller->{"name"},
+                $poller->{"url"}
+            );
+        }
+    }
+
+    while (wait() != -1) {}
+} else {
+    centreon::daemon::processus::runPoller(5557);
+}
+

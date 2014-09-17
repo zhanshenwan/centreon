@@ -69,8 +69,12 @@ my %severities = (1 => LOG_INFO,
                   2 => LOG_ERR,
                   4 => LOG_DEBUG);
 
+my $singleton = undef;
+
 sub new {
     my $class = shift;
+
+    return $singleton if defined $singleton;
 
     my $self = bless
       {
@@ -85,7 +89,8 @@ sub new {
        log_facility => undef,
        log_option => LOG_PID,
       }, $class;
-    return $self;
+    $singleton = $self;
+    return $singleton;
 }
 
 sub file_mode($$) {
