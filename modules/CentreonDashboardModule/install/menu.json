@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Home",
+        "short_name": "home",
+        "icon_class": "fa fa-home",
+        "bgcolor": "#CCC",
+        "menus": [
+            {
+                "name": "Home page",
+                "short_name": "dashboards",
+                "icon_class": "fa fa-home",
+                "route": "/centreon-dashboard"
+            }
+        ]
+    },
+    {
+        "name": "Extensions",
+        "short_name": "extensions",
+        "menus": [
+            {
+                "name": "Widgets",
+                "short_name": "adminwidgets",
+                "route": "/centreon-dashboard/extensions/widgets"
+            }
+        ]
+    }
+]

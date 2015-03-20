@@ -33,61 +33,61 @@
  * For more information : contact@centreon.com
  * 
  */
-namespace Centreon\Internal\Install;
+namespace CentreonDashboard\Internal\Dashboard;
 
 /**
- * Description of AbstractInstall
+ * Description of Element
  *
  * @author lionel
  */
-class AbstractInstall
+class Element
 {
     /**
      *
-     * @var array Core Modules of Centreon
+     * @var type 
      */
-    private static $coreModules = array(
-        'centreon-main',
-        'centreon-security',
-        'centreon-administration',
-        'centreon-configuration',
-        'centreon-realtime',
-        'centreon-dashboard'
-    );
+    private $id;
+    
+    /**
+     *
+     * @var type 
+     */
+    private $dashboardId;
+    
+    /**
+     *
+     * @var type 
+     */
+    private $widgetId;
+    
+    /**
+     *
+     * @var type 
+     */
+    private $layoutSlug;
+    
+    /**
+     *
+     * @var type 
+     */
+    private $route;
     
     /**
      * 
-     * @return array
-     * @throws \Exception
+     * @param type $id
+     * @param type $layoutSlug
+     * @param type $route
+     * @param type $dashboardId
+     * @param type $widgetId
      */
-    protected static function getCoreModules()
+    public function __construct($id, $layoutSlug = '', $route = '', $dashboardId = null, $widgetId = null)
     {
-        $result = array('moduleCheck' => true, 'errorMessages' => '', 'modules' => array());
-        $centreonPath = rtrim(\Centreon\Internal\Di::getDefault()->get('config')->get('global', 'centreon_path'), '/');
-
-        foreach (self::$coreModules as $coreModule) {
-            $commonName = str_replace(' ', '', ucwords(str_replace('-', ' ', $coreModule)));
-            $moduleDirectory = $centreonPath . '/modules/' . $commonName . 'Module/';
-
-            if (!file_exists(realpath($moduleDirectory . 'install/config.json'))) {
-                throw new \Exception("The module $commonName is not valid because of a missing configuration file");
-            }
-            $moduleInfo = json_decode(file_get_contents($moduleDirectory . 'install/config.json'), true);
-            $classCall = '\\'.$commonName.'\\Install\\Installer';
-
-            // Check if all dependencies are satisfied
-            try {
-                $result['modules'][$coreModule] = array(
-                    'classCall' => $classCall,
-                    'directory' => $moduleDirectory,
-                    'infos' => $moduleInfo
-                );
-            } catch (\Exception $e) {
-                $result['moduleCheck'] = false;
-                $result['errorMessages'] = $e->getMessage() . "\n";
-            }
-        }
-        
-        return $result;
+        $this->id = $id;
+        $this->layoutSlug = $layoutSlug;
+        $this->dashboardId = $dashboardId;
+        $this->widgetId = $widgetId;
+        $this->route = $route;
     }
+    
+    
 }

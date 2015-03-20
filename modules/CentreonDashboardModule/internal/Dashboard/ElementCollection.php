@@ -33,61 +33,84 @@
  * For more information : contact@centreon.com
  * 
  */
-namespace Centreon\Internal\Install;
+namespace CentreonDashboard\Internal\Dashboard;
+
+use CentreonDashboard\Internal\Dashboard\Element;
+use CentreonDashboard\Models\Dashboardelement;
 
 /**
- * Description of AbstractInstall
+ * Description of ElementCollection
  *
  * @author lionel
  */
-class AbstractInstall
+class ElementCollection
 {
     /**
      *
-     * @var array Core Modules of Centreon
+     * @var array 
      */
-    private static $coreModules = array(
-        'centreon-main',
-        'centreon-security',
-        'centreon-administration',
-        'centreon-configuration',
-        'centreon-realtime',
-        'centreon-dashboard'
-    );
+    private $items = array();
     
     /**
      * 
-     * @return array
-     * @throws \Exception
+     * @param type $dashboardId
      */
-    protected static function getCoreModules()
+    public function __construct($dashboardId = null)
     {
-        $result = array('moduleCheck' => true, 'errorMessages' => '', 'modules' => array());
-        $centreonPath = rtrim(\Centreon\Internal\Di::getDefault()->get('config')->get('global', 'centreon_path'), '/');
-
-        foreach (self::$coreModules as $coreModule) {
-            $commonName = str_replace(' ', '', ucwords(str_replace('-', ' ', $coreModule)));
-            $moduleDirectory = $centreonPath . '/modules/' . $commonName . 'Module/';
-
-            if (!file_exists(realpath($moduleDirectory . 'install/config.json'))) {
-                throw new \Exception("The module $commonName is not valid because of a missing configuration file");
-            }
-            $moduleInfo = json_decode(file_get_contents($moduleDirectory . 'install/config.json'), true);
-            $classCall = '\\'.$commonName.'\\Install\\Installer';
-
-            // Check if all dependencies are satisfied
-            try {
-                $result['modules'][$coreModule] = array(
-                    'classCall' => $classCall,
-                    'directory' => $moduleDirectory,
-                    'infos' => $moduleInfo
-                );
-            } catch (\Exception $e) {
-                $result['moduleCheck'] = false;
-                $result['errorMessages'] = $e->getMessage() . "\n";
-            }
+        if (!is_null($dashboardId)) {
+            $this->load($dashboardId);
         }
+    }
+    
+    /**
+     * 
+     * @param Element $element
+     * @param type $key
+     */
+    public function addItem(Element $element, $key = null)
+    {
+        if (is_null($key)) {
+            $this->items[] = $element;
+        } else {
+            $this->items[$key] = $element;
+        }
+    }
+    
+    /**
+     * 
+     * @param integer $key
+     */
+    public function deleteItem($key)
+    {
+        unset($this->items[$key]);
+    }
+    
+    /**
+     * 
+     * @param integer $key
+     */
+    public function getItem($key)
+    {
         
-        return $result;
+        return $this->items[$key];
+    }
+    
+    /**
+     * 
+     * @param type $dashboardId
+     */
+    public function load($dashboardId)
+    {
+        $listOfElements = Dashboardelement::getList('*', -1, 0, null, 'ASC', array('dashboard_id' => $dashboardId));
+        foreach ($listOfElements as $element) {
+            $newElement = new Element(
+                $element['dashboard_element_id'],
+                $element['layout_slug'],
+                $element['route'],
+                $dashboardId,
+                $element['widget_id']
+            );
+            $this->addItem($newElement);
+        }
     }
 }

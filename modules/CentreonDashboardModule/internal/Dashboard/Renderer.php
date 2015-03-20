@@ -33,61 +33,55 @@
  * For more information : contact@centreon.com
  * 
  */
-namespace Centreon\Internal\Install;
+namespace CentreonDashboard\Internal\Dashboard;
+
+use Centreon\Internal\Template;
 
 /**
- * Description of AbstractInstall
+ * Description of Renderer
  *
  * @author lionel
  */
-class AbstractInstall
+class Renderer
 {
     /**
      *
-     * @var array Core Modules of Centreon
+     * @var type 
      */
-    private static $coreModules = array(
-        'centreon-main',
-        'centreon-security',
-        'centreon-administration',
-        'centreon-configuration',
-        'centreon-realtime',
-        'centreon-dashboard'
-    );
+    private $tplRenderer;
+    
+    /**
+     *
+     * @var type 
+     */
+    private $templateFile;
     
     /**
      * 
-     * @return array
-     * @throws \Exception
+     * @param string $templateFile
      */
-    protected static function getCoreModules()
+    public function __construct($templateFile = null)
     {
-        $result = array('moduleCheck' => true, 'errorMessages' => '', 'modules' => array());
-        $centreonPath = rtrim(\Centreon\Internal\Di::getDefault()->get('config')->get('global', 'centreon_path'), '/');
-
-        foreach (self::$coreModules as $coreModule) {
-            $commonName = str_replace(' ', '', ucwords(str_replace('-', ' ', $coreModule)));
-            $moduleDirectory = $centreonPath . '/modules/' . $commonName . 'Module/';
-
-            if (!file_exists(realpath($moduleDirectory . 'install/config.json'))) {
-                throw new \Exception("The module $commonName is not valid because of a missing configuration file");
-            }
-            $moduleInfo = json_decode(file_get_contents($moduleDirectory . 'install/config.json'), true);
-            $classCall = '\\'.$commonName.'\\Install\\Installer';
-
-            // Check if all dependencies are satisfied
-            try {
-                $result['modules'][$coreModule] = array(
-                    'classCall' => $classCall,
-                    'directory' => $moduleDirectory,
-                    'infos' => $moduleInfo
-                );
-            } catch (\Exception $e) {
-                $result['moduleCheck'] = false;
-                $result['errorMessages'] = $e->getMessage() . "\n";
-            }
+        if (!is_null($templateFile)) {
+            $origin = 'file:[CentreonDashboardModule]dashboardLayouts/';
+            $this->templateFile = $origin . $templateFile;
+            $this->tplRenderer = new Template($this->templateFile);
         }
-        
-        return $result;
+    }
+    
+    public function setTemplate($templateFile)
+    {
+        $origin = 'file:[CentreonDashboardModule]dashboardLayouts/';
+        $this->templateFile = $origin . $templateFile;
+        $this->tplRenderer = new Template($this->templateFile);
+    }
+    
+    /**
+     * 
+     * @return string
+     */
+    public function renderFinal()
+    {
+        return $this->tplRenderer->fetch($this->templateFile);
     }
 }

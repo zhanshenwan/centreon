@@ -33,61 +33,64 @@
  * For more information : contact@centreon.com
  * 
  */
-namespace Centreon\Internal\Install;
+namespace CentreonDashboard\Controllers;
+
+use Centreon\Internal\Controller;
+use CentreonDashboard\Internal\Dashboard;
 
 /**
- * Description of AbstractInstall
+ * Description of DashboardController
  *
  * @author lionel
  */
-class AbstractInstall
+class DashboardController extends Controller
 {
     /**
      *
-     * @var array Core Modules of Centreon
+     * @var string 
      */
-    private static $coreModules = array(
-        'centreon-main',
-        'centreon-security',
-        'centreon-administration',
-        'centreon-configuration',
-        'centreon-realtime',
-        'centreon-dashboard'
-    );
+    public static $moduleName = 'CentreonDashboard';
     
     /**
      * 
-     * @return array
-     * @throws \Exception
+     * @method get
+     * @route /[i:id]?
      */
-    protected static function getCoreModules()
+    public function mainDashboardAction()
     {
-        $result = array('moduleCheck' => true, 'errorMessages' => '', 'modules' => array());
-        $centreonPath = rtrim(\Centreon\Internal\Di::getDefault()->get('config')->get('global', 'centreon_path'), '/');
+        $this->tpl->addJs('centreon-dashboard.js', 'bottom', 'centreon-dashboard');
+        $this->display('mainDashboard.tpl');
+    }
+    
+    /**
+     * 
+     * @method get
+     * @route /container/[a:container]
+     */
+    public function getContainerAction()
+    {
+        $params = $this->getParams('named');
+        var_dump($params);
+    }
 
-        foreach (self::$coreModules as $coreModule) {
-            $commonName = str_replace(' ', '', ucwords(str_replace('-', ' ', $coreModule)));
-            $moduleDirectory = $centreonPath . '/modules/' . $commonName . 'Module/';
 
-            if (!file_exists(realpath($moduleDirectory . 'install/config.json'))) {
-                throw new \Exception("The module $commonName is not valid because of a missing configuration file");
-            }
-            $moduleInfo = json_decode(file_get_contents($moduleDirectory . 'install/config.json'), true);
-            $classCall = '\\'.$commonName.'\\Install\\Installer';
-
-            // Check if all dependencies are satisfied
-            try {
-                $result['modules'][$coreModule] = array(
-                    'classCall' => $classCall,
-                    'directory' => $moduleDirectory,
-                    'infos' => $moduleInfo
-                );
-            } catch (\Exception $e) {
-                $result['moduleCheck'] = false;
-                $result['errorMessages'] = $e->getMessage() . "\n";
-            }
+    /**
+     * 
+     * @method get
+     * @route /dashboard/[i:id]
+     */
+    public function displayDashboardAction()
+    {
+        $params = $this->getParams('named');
+        
+        if (is_null($params['id'])) {
+            $params['id'] = 1;
         }
         
-        return $result;
+        $myDashboard = new Dashboard($params['id'], false);
+        $this->assignVarToTpl('dashboardLayout', $myDashboard->render());
+        $this->tpl->addJs('centreon-dashboard.js', 'bottom', 'centreon-dashboard');
+        
+        $this->display('dashboardPanel.tpl');
     }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="centreon" package="centreon_dashboard" defaultIdMethod="native">
+    <table name="cfg_dashboards_containers" phpName="DashboardContainer" idMethod="native">
+        <column name="dashboard_container_id" phpName="DashboardContainerId" primaryKey="true" type="INTEGER" size="10" sqlType="int(10) unsigned" autoIncrement="true" required="true"/>
+        <column name="name" phpName="Name" type="VARCHAR" size="255" required="true"/>
+        <column name="mode" phpName="Mode" type="VARCHAR" size="255" required="false"/>
+        <unique name="dashboard_name">
+            <unique-column name="name"/>
+        </unique>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+</database>

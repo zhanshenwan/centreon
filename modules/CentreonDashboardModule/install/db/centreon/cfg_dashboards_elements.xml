@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="centreon" package="centreon_dashboard" defaultIdMethod="native">
+    <table name="cfg_dashboards_elements" phpName="DashboardWidget" idMethod="native">
+        <column name="dashboard_element_id" primaryKey="true" phpName="DashboardWidgetId" type="INTEGER" size="10" sqlType="int(10) unsigned" autoIncrement="true" required="true"/>
+        <column name="dashboard_id" phpName="DashboardId" type="INTEGER" size="10" sqlType="int(10) unsigned" required="true"/>
+        <column name="widget_id" phpName="WidgetId" type="INTEGER" size="10" sqlType="int(10) unsigned" required="false"/>
+        <column name="route" phpName="Route" type="VARCHAR" size="255" required="true"/>
+        <column name="layout_slug" phpName="LayoutSlug" type="VARCHAR" size="255" required="true"/>
+        <foreign-key foreignTable="cfg_dashboards" name="dashboard_element_ibfk_1" onDelete="CASCADE" onUpdate="RESTRICT">
+            <reference local="dashboard_id" foreign="dashboard_id"/>
+        </foreign-key>
+        <foreign-key foreignTable="cfg_widgets" name="dashboard_element_ibfk_2" onDelete="CASCADE" onUpdate="RESTRICT">
+            <reference local="widget_id" foreign="widget_id"/>
+        </foreign-key>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+</database>

@@ -33,61 +33,98 @@
  * For more information : contact@centreon.com
  * 
  */
-namespace Centreon\Internal\Install;
+
+namespace CentreonDashboard\Internal;
+
+use CentreonDashboard\Models\Dashboard as DashboardModel;
+use CentreonAdministration\Models\User;
+use CentreonDashboard\Internal\Dashboard\Layout;
+use CentreonDashboard\Internal\Dashboard\ElementCollection;
+use CentreonDashboard\Internal\Dashboard\Renderer;
 
 /**
- * Description of AbstractInstall
+ * Description of Dashboard
  *
  * @author lionel
  */
-class AbstractInstall
+class Dashboard
 {
     /**
      *
-     * @var array Core Modules of Centreon
+     * @var integer 
      */
-    private static $coreModules = array(
-        'centreon-main',
-        'centreon-security',
-        'centreon-administration',
-        'centreon-configuration',
-        'centreon-realtime',
-        'centreon-dashboard'
-    );
+    private $id;
+    
+    /**
+     *
+     * @var string 
+     */
+    private $name;
+    
+    /**
+     *
+     * @var string 
+     */
+    private $description;
+    
+    /**
+     *
+     * @var type 
+     */
+    private $user;
+    
+    /**
+     *
+     * @var type 
+     */
+    private $layout;
+    
+    /**
+     *
+     * @var type 
+     */
+    private $elements;
+    
+    /**
+     *
+     * @var type 
+     */
+    private $renderer;
     
     /**
      * 
-     * @return array
-     * @throws \Exception
+     * @param type $id
+     * @param type $lazy
      */
-    protected static function getCoreModules()
+    public function __construct($id, $lazy = true)
     {
-        $result = array('moduleCheck' => true, 'errorMessages' => '', 'modules' => array());
-        $centreonPath = rtrim(\Centreon\Internal\Di::getDefault()->get('config')->get('global', 'centreon_path'), '/');
-
-        foreach (self::$coreModules as $coreModule) {
-            $commonName = str_replace(' ', '', ucwords(str_replace('-', ' ', $coreModule)));
-            $moduleDirectory = $centreonPath . '/modules/' . $commonName . 'Module/';
-
-            if (!file_exists(realpath($moduleDirectory . 'install/config.json'))) {
-                throw new \Exception("The module $commonName is not valid because of a missing configuration file");
-            }
-            $moduleInfo = json_decode(file_get_contents($moduleDirectory . 'install/config.json'), true);
-            $classCall = '\\'.$commonName.'\\Install\\Installer';
-
-            // Check if all dependencies are satisfied
-            try {
-                $result['modules'][$coreModule] = array(
-                    'classCall' => $classCall,
-                    'directory' => $moduleDirectory,
-                    'infos' => $moduleInfo
-                );
-            } catch (\Exception $e) {
-                $result['moduleCheck'] = false;
-                $result['errorMessages'] = $e->getMessage() . "\n";
+        $this->id = $id;
+        $dashboardDatas = DashboardModel::get($this->id);
+        $this->name = $dashboardDatas['name'];
+        $this->description = $dashboardDatas['description'];
+        
+        if ($lazy) {
+            $this->user = $dashboardDatas['user_id'];
+            $this->layout = $dashboardDatas['user_id'];
+        } else {
+            $this->user = User::get($dashboardDatas['user_id']);
+            if (!is_null($dashboardDatas['layout_id'])) {
+                $this->layout = new Layout($dashboardDatas['layout_id']);
             }
         }
         
-        return $result;
+        $this->elements = new ElementCollection($id);
+        
+        if (!is_null($this->layout)) {
+            $this->renderer = new Renderer($this->layout->getTemplate());
+        }
+    }
+    
+    /**
+     * 
+     */
+    public function render()
+    {
+        return $this->renderer->renderFinal();
     }
 }

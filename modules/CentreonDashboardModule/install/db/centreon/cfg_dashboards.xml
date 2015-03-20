@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="centreon" package="centreon_dashboard" defaultIdMethod="native">
+    <table name="cfg_dashboards" phpName="Dashboard" idMethod="native">
+        <column name="dashboard_id" phpName="DashboardId" primaryKey="true" type="INTEGER" size="10" sqlType="int(10) unsigned" autoIncrement="true" required="true"/>
+        <column name="name" phpName="Name" type="VARCHAR" size="255" required="true"/>
+        <column name="description" phpName="Description" type="VARCHAR" size="255" required="false"/>
+        <column name="user_id" phpName="UserId" type="INTEGER" size="10" sqlType="int(10) unsigned" required="true"/>
+        <column name="layout_id" phpName="LayoutId" type="INTEGER" size="10" sqlType="int(10) unsigned" required="false"/>
+        <unique name="dashboard_name">
+            <unique-column name="name"/>
+        </unique>
+        <foreign-key foreignTable="cfg_users" name="dashboard_ibfk_1" onDelete="CASCADE" onUpdate="RESTRICT">
+            <reference local="user_id" foreign="user_id"/>
+        </foreign-key>
+        <foreign-key foreignTable="cfg_dashboards_layouts" name="dashboard_ibfk_2" onDelete="CASCADE" onUpdate="RESTRICT">
+            <reference local="layout_id" foreign="dashboard_layout_id"/>
+        </foreign-key>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+</database>

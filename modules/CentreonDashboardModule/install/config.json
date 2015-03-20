@@ -1,0 +1,28 @@
+{
+    "name": "Centreon Dashboard",
+    "shortname" : "centreon-dashboard",
+    "version": "3.0.0",
+    "author" : [
+        "Centreon"
+    ],
+    "isuninstallable" : false,
+    "isdisableable" : true,
+    "url" : "",
+    "description" : "Centreon Dashboard Module",
+    "core version" : "3.0.0",
+    "dependencies" : [
+        {
+            "name" : "centreon-administration",
+            "version" : "3.0.0"
+        }
+    ],
+    "optionnal dependencies" : [
+        
+    ],
+    "php module dependencies" : [
+        
+    ],
+    "program dependencies" : [
+        
+    ]
+}

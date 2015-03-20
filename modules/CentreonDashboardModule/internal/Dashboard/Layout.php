@@ -33,61 +33,106 @@
  * For more information : contact@centreon.com
  * 
  */
-namespace Centreon\Internal\Install;
+namespace CentreonDashboard\Internal\Dashboard;
+
+use CentreonDashboard\Models\Dashboardlayout;
+use CentreonDashboard\Repository\LayoutRepository;
+use CentreonDashboard\Repository\BlockRepository;
 
 /**
- * Description of AbstractInstall
+ * Description of Layout
  *
  * @author lionel
  */
-class AbstractInstall
+class Layout
 {
     /**
      *
-     * @var array Core Modules of Centreon
+     * @var type 
      */
-    private static $coreModules = array(
-        'centreon-main',
-        'centreon-security',
-        'centreon-administration',
-        'centreon-configuration',
-        'centreon-realtime',
-        'centreon-dashboard'
-    );
+    private $id;
+    
+    /**
+     *
+     * @var type 
+     */
+    private $name;
+    
+    /**
+     *
+     * @var type 
+     */
+    private $description;
+    
+    /**
+     *
+     * @var type 
+     */
+    private $template;
+    
+    /**
+     *
+     * @var type 
+     */
+    private $blocks;
     
     /**
      * 
-     * @return array
-     * @throws \Exception
+     * @param type $id
      */
-    protected static function getCoreModules()
+    public function __construct($id)
     {
-        $result = array('moduleCheck' => true, 'errorMessages' => '', 'modules' => array());
-        $centreonPath = rtrim(\Centreon\Internal\Di::getDefault()->get('config')->get('global', 'centreon_path'), '/');
+        $this->id = $id;
+        $layoutDatas = Dashboardlayout::get($id);
+        $this->name = $layoutDatas['name'];
+        $this->description = $layoutDatas['description'];
+        $this->template = $layoutDatas['template'];
+    }
+    
+    /**
+     * 
+     * @return type
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+    
+    /**
+     * 
+     * @return type
+     */
+    public function getTemplate()
+    {
+        return $this->template;
+    }
 
-        foreach (self::$coreModules as $coreModule) {
-            $commonName = str_replace(' ', '', ucwords(str_replace('-', ' ', $coreModule)));
-            $moduleDirectory = $centreonPath . '/modules/' . $commonName . 'Module/';
 
-            if (!file_exists(realpath($moduleDirectory . 'install/config.json'))) {
-                throw new \Exception("The module $commonName is not valid because of a missing configuration file");
-            }
-            $moduleInfo = json_decode(file_get_contents($moduleDirectory . 'install/config.json'), true);
-            $classCall = '\\'.$commonName.'\\Install\\Installer';
-
-            // Check if all dependencies are satisfied
-            try {
-                $result['modules'][$coreModule] = array(
-                    'classCall' => $classCall,
-                    'directory' => $moduleDirectory,
-                    'infos' => $moduleInfo
-                );
-            } catch (\Exception $e) {
-                $result['moduleCheck'] = false;
-                $result['errorMessages'] = $e->getMessage() . "\n";
-            }
-        }
+    /**
+     * 
+     */
+    private function loadBlocks()
+    {
         
-        return $result;
+    }
+    
+    /**
+     * 
+     * @param type $layoutFile
+     */
+    public static function installLayouts($layoutFile)
+    {
+        $layoutContent = json_decode(file_get_contents($layoutFile), true);
+        $layoutParams = array(
+            'name' => $layoutContent['name'],
+            'description' => $layoutContent['description'],
+            'template' => $layoutContent['template'],
+        );
+        
+        $layoutId = LayoutRepository::add($layoutParams);
+        
+        foreach ($layoutContent['blocks'] as $block) {
+            BlockRepository::add($layoutId, $block);
+        }
     }
 }
