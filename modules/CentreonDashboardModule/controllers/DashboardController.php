@@ -37,6 +37,9 @@ namespace CentreonDashboard\Controllers;
 
 use Centreon\Internal\Controller;
 use CentreonDashboard\Internal\Dashboard;
+use CentreonDashboard\Internal\DashboardContainer;
+use Centreon\Internal\Form\Generator\Web\Wizard;
+use Centreon\Internal\Di;
 
 /**
  * Description of DashboardController
@@ -54,23 +57,58 @@ class DashboardController extends Controller
     /**
      * 
      * @method get
-     * @route /[i:id]?
+     * @route /[i:dashboard]?
      */
     public function mainDashboardAction()
     {
-        $this->tpl->addJs('centreon-dashboard.js', 'bottom', 'centreon-dashboard');
+        $params = $this->getParams();
+        $this->tpl->addCss('block.css', 'centreon-dashboard')
+                    ->addCss('select2.css')
+                    ->addCss('select2-bootstrap.css');
+        $this->tpl->addJs('centreon-dashboard.js', 'bottom', 'centreon-dashboard')
+                    ->addJs('jquery.select2/select2.min.js', 'bottom')
+                    ->addJs('centreon-wizard.js', 'bottom');
+        $this->tpl->assign('baseUrl', Di::getDefault()->get('config')->get('global', 'base_url'));
+        
+        $currentDashboard = 0;
+        if (isset($params['dashboard'])) {
+            $currentDashboard = $params['dashboard'];
+        }
+        
+        $this->tpl->assign('currentDashboard', $currentDashboard);
         $this->display('mainDashboard.tpl');
     }
     
     /**
      * 
      * @method get
-     * @route /container/[a:container]
+     * @route /container/[a:container]/[i:dashboard]?
      */
     public function getContainerAction()
     {
-        $params = $this->getParams('named');
-        var_dump($params);
+        $params = $this->getParams();
+        $container = DashboardContainer::getContainerByName($params['container']);
+        $container->loadDashboards();
+        
+        $dashboardList = $container->getDashboardList(true);
+        if (isset($params['dashboard'])) {
+            $currentDashboard = $params['dashboard'];
+        } else {
+            if (count($dashboardList) > 0) {
+            $currentDashboard = $dashboardList[0]['id'];
+            } else {
+                $currentDashboard = 0;
+            }
+        }
+        
+        $containerParams = array(
+            'template' => $container->render(),
+            'dashboardList' => $dashboardList,
+            'currentDashboard' => $currentDashboard
+        );
+        
+        $this->router->response()->json($containerParams);
+        
     }
 
 
@@ -88,9 +126,29 @@ class DashboardController extends Controller
         }
         
         $myDashboard = new Dashboard($params['id'], false);
-        $this->assignVarToTpl('dashboardLayout', $myDashboard->render());
-        $this->tpl->addJs('centreon-dashboard.js', 'bottom', 'centreon-dashboard');
+        echo $myDashboard->render();
+        /*$this->tpl->addJs('centreon-dashboard.js', 'bottom', 'centreon-dashboard');
         
-        $this->display('dashboardPanel.tpl');
+        $this->display('dashboardPanel.tpl');*/
+    }
+    
+    /**
+     * 
+     */
+    public function displayWidgetSelectionAction()
+    {
+        
+    }
+    
+    /**
+     * 
+     * @method get
+     * @route /dashboard/updatedashboard
+     */
+    public function getDashboardWizardAction()
+    {
+        $myWizard = new Wizard('/centreon-dashboard/dashboard/updatedashboard');
+        $myWizard->getFormFromDatabase();
+        echo $myWizard->generate();
     }
 }

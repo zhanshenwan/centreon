@@ -1,6 +1,7 @@
 [
     {
-        "name": "main-dashboard",
+        "dashboard_container_id": 1,
+        "name": "mainDashboard",
         "mode": "full"
     }
 ]

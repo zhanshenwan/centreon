@@ -1,0 +1,10 @@
+[
+    {
+        "dashboard_id": 1,
+        "name": "Default Dashboard",
+        "description": "full",
+        "layout_id": 1,
+        "container_id": 1,
+        "user_id": 1
+    }
+]

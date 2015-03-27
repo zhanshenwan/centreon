@@ -1,5 +1,5 @@
 /*
- * Copyright 2005-2014 CENTREON
+ * Copyright 2005-2015 CENTREON
  * Centreon is developped by : Julien Mathis and Romain Le Merlus under
  * GPL Licence 2.0.
  * 
@@ -35,20 +35,84 @@
     
     $.fn.centreonDashboard = function(options) {
         
+        var $dashboardContainer = $(this);
+        
         // Define defaults settings for the dashboard
         var settings = $.extend({
-            mode: "full"
+            mode: "full",
+            currentDashboard: 0
         }, options );
-        
-        
         
         // Get Dashboard Container
         $.ajax({
-            url: encodeURI('/centreon-dashboard/container/' + options.container)
+            url: encodeURI(settings.baseUrl + '/centreon-dashboard/container/' + options.container)
+        }).done(function(data) {
+            loadContainer(this, settings, $dashboardContainer, data);
         });
-        
         
         return this;
     };
     
+    function loadContainer(obj, settings, dashboardContainer, data) {
+        dashboardContainer.html(data.template);
+        
+        $('#dashboard_add').on('click', function(event) {
+            console.log('detected');
+            $('#modal').removeData('bs.modal');
+            $('#modal').removeData('centreonWizard');
+            $('#modal .modal-content').text('');
+            $('#modal').one('loaded.bs.modal', function(e) {
+                $(this).centreonWizard();
+            });
+            $('#modal').modal({
+                remote: encodeURI(settings.baseUrl + '/centreon-dashboard/dashboard/updatedashboard')
+            });
+        });
+        
+        $('#dashboard_settings').on('click', function(event) {
+            console.log('Display Dashboard Settings');
+        });
+        
+        $('#dashboard_delete').on('click', function(event) {
+            console.log('Delete Dashboard');
+        });
+        
+        $('#dashboard_default').on('click', function(event) {
+            console.log('Set Dashboard As Default');
+        });
+        
+        $('#dashboard_default').on('click', function(event) {
+            console.log('Set Dashboard As Default');
+        });
+        
+        buildDashboardSelector(obj, settings, data.dashboardList);
+        
+        var currentDashboard;
+        if (settings.currentDashboard > 0) {
+            currentDashboard = settings.currentDashboard;
+        } else if (data.currentDashboard > 0) {
+            currentDashboard = data.currentDashboard;
+        }
+        loadDashboard(obj, settings, currentDashboard);
+    };
+    
+    function loadDashboard(obj, settings, dashboardId) {
+        var $dashboardBody = $('#dashboardBody');
+        $dashboardBody.empty();
+        
+        // Get Dashboard
+        $.ajax({
+            url: encodeURI(settings.baseUrl + '/centreon-dashboard/dashboard/' + dashboardId)
+        }).done(function(data) {
+            $dashboardBody.html(data);
+        });
+    };
+    
+    function buildDashboardSelector(obj, settings, dashboardList) {
+        var $dashboardSelector = $('#dashboardSelector');
+        $.each(dashboardList, function(key, value) {
+            $dashboardSelector.append('<option value="'+ value.id +'">' + value.name + '</option>');
+        });
+    };
+        
 }(jQuery));

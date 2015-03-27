@@ -33,51 +33,27 @@
  * For more information : contact@centreon.com
  * 
  */
-namespace CentreonDashboard\Repository;
+namespace CentreonDashboard\Controllers;
 
-use CentreonDashboard\Models\Dashboardlayout as Layout;
+use Centreon\Internal\Controller;
+use CentreonDashboard\Repository\LayoutRepository;
 
 /**
- * Description of LayoutRepository
+ * Description of LayoutController
  *
  * @author lionel
  */
-class LayoutRepository
+class LayoutController extends Controller
 {
-    /**
-     * 
-     * @param array $layoutParams
-     * @return integer
-     */
-    public static function add($layoutParams)
-    {
-        $layoutId = Layout::insert($layoutParams);
-        return $layoutId;
-    }
     
     /**
-     * Get list of objects
-     *
-     * @param string $searchStr
-     * @return array
+     * 
+     * @method get
+     * @route /layout/formlist
      */
-    public static function getFormList($searchStr = "")
+    public function formlistAction()
     {
-
-        $idField = Layout::getPrimaryKey();
-        $uniqueField = Layout::getUniqueLabelField();
-        $filters = array(
-            $uniqueField => '%'.$searchStr.'%'
-        );
-
-        $list = Layout::getList(array($idField, $uniqueField), -1, 0, null, "ASC", $filters, "AND");
-        $finalList = array();
-        foreach ($list as $obj) {
-            $finalList[] = array(
-                "id" => $obj[$idField],
-                "text" => $obj[$uniqueField]
-            );
-        }
-        return $finalList;
+        $requestParams = $this->getParams('get');
+        $this->router->response()->json(LayoutRepository::getFormList($requestParams['q']));
     }
 }

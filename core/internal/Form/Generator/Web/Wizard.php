@@ -65,8 +65,6 @@ class Wizard extends Full
         $di = Di::getDefault();
         $dbconn = $di->get('db_centreon');
         $route = $this->formRoute;
-        /*$baseUrl = rtrim($di->get('config')->get('global', 'base_url'), '/');
-        $route = str_replace($baseUrl, '', $route);*/
 
         $query = "SELECT f.field_id as field_id, w.name as wizard_name, s.name as step_name, 
             s.rank as step_rank, f.mandatory as mandatory,
@@ -77,7 +75,6 @@ class Wizard extends Full
                 AND s.step_id = sf.step_id
                 AND sf.field_id = f.field_id
             ORDER BY s.rank, sf.rank";
-        //echo $query . '<br />' . $route;
         $stmt = $dbconn->prepare($query);
         $stmt->bindParam(':route', $route);
         $stmt->execute();

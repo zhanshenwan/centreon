@@ -1,0 +1,18 @@
+.centreon-dashboard-block {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    height: 25%;
+}
+
+#dashboardList {
+    height: 20%;
+}
+
+#dashboardBody {
+    height: 80%;
+}
+
+#mainDashboard {
+    height: 100%;
+}

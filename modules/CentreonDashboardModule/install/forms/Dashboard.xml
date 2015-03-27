@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms>
+    <form name="dashboard_form">
+        <route>/centreon-dashboard/dashboard/updatedashboard</route>
+        <section name="General">
+            <block name="General information">
+                <field advanced="0" default_value="" label="Name" mandatory="1" name="name" type="text"></field>
+                <field advanced="0" default_value="" label="Description" mandatory="0" name="description" type="text"></field>
+                <field advanced="0" default_value="" label="Layout" mandatory="1" name="layout" type="select">
+                    <attributes>
+						<defaultValuesRoute>/centreon-dashboard/layout/formlist</defaultValuesRoute>
+						<multiple>false</multiple>
+                        <help></help>
+                    </attributes>
+                </field>
+            </block>
+        </section>
+    </form>
+    <wizard name="add_dashboard">
+        <route>/centreon-dashboard/dashboard/updatedashboard</route>
+        <step name="General">
+            <field name="name" mandatory="1"></field>
+            <field name="description" mandatory="0"></field>
+            <field name="layout" mandatory="1"></field>
+        </step>
+    </wizard>
+</forms>

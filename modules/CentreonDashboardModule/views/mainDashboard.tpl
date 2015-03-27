@@ -3,19 +3,16 @@
 {block name="title"}Centreon Dashboard{/block}
 
 {block name="content"}
-    
     <div id="mainDashboard"></div>
-    
-    {*<div id="dashboardToolbar">Dashboard Toolbar</div>
-    <div id="widgetList">Widget List Here</div>
-    <div id="blocks">{$dashboardLayout}</div>*}
 {/block}
 
-{block name="javascript-bottom"}
+{block name="javascript-bottom" append}
     <script>
         $("#mainDashboard").centreonDashboard({
             mode: 'full',
-            container: 'main-dashboard'
+            container: 'mainDashboard',
+            baseUrl: '{$baseUrl}',
+            currentDashboard: '{$currentDashboard}'
         });
     </script>
 {/block}

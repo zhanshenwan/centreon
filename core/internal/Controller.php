@@ -95,7 +95,7 @@ abstract class Controller extends HttpCore
         $tplDirectory = 'file:['. static::$moduleName . 'Module]';
         $this->tpl->display($tplDirectory . $tplFile);
     }
-    
+
     /**
      *
      */

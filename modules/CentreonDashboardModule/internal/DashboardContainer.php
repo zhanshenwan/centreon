@@ -37,112 +37,122 @@
 namespace CentreonDashboard\Internal;
 
 use CentreonDashboard\Models\Dashboard as DashboardModel;
-use CentreonAdministration\Models\User;
-use CentreonDashboard\Internal\Dashboard\Layout;
-use CentreonDashboard\Internal\Dashboard\ElementCollection;
-use CentreonDashboard\Internal\Dashboard\Renderer;
+use CentreonDashboard\Models\Dashboardcontainer as DashboardContainerModel;
+use Centreon\Internal\Template;
 
 /**
- * Description of Dashboard
+ * Description of DashboardContainer
  *
  * @author lionel
  */
-class Dashboard
+class DashboardContainer
 {
     /**
      *
-     * @var integer 
+     * @var type 
      */
     private $id;
     
     /**
      *
-     * @var string 
+     * @var type 
      */
     private $name;
     
     /**
      *
-     * @var string 
+     * @var type 
      */
-    private $description;
+    private $mode;
     
     /**
      *
      * @var type 
      */
-    private $user;
-    
-    /**
-     *
-     * @var type 
-     */
-    private $layout;
-    
-    /**
-     *
-     * @var type 
-     */
-    private $elements;
-    
-    /**
-     *
-     * @var type 
-     */
-    private $renderer;
+    private $dashboards;
     
     /**
      * 
      * @param type $id
-     * @param type $lazy
+     * @param type $name
+     * @param type $mode
      */
-    public function __construct($id, $lazy = true)
+    public function __construct($id, $name, $mode = 'full')
     {
         $this->id = $id;
-        $dashboardDatas = DashboardModel::get($this->id);
-        $this->name = $dashboardDatas['name'];
-        $this->description = $dashboardDatas['description'];
-        
-        if ($lazy) {
-            $this->user = $dashboardDatas['user_id'];
-            $this->layout = $dashboardDatas['user_id'];
-        } else {
-            $this->user = User::get($dashboardDatas['user_id']);
-            if (!is_null($dashboardDatas['layout_id'])) {
-                $this->layout = new Layout($dashboardDatas['layout_id']);
+        $this->name = $name;
+        $this->mode = $mode;
+        $this->dashboards = array();
+    }
+    
+    /**
+     * 
+     */
+    public function loadDashboards()
+    {
+        $dashboardList = DashboardModel::getList('dashboard_id', -1, 0, null, 'ASC', array('container_id' => $this->id));
+        foreach ($dashboardList as $dashboard) {
+            $this->dashboards[] = new Dashboard($dashboard['dashboard_id'], false);
+        }
+    }
+    
+    /**
+     * 
+     * @param boolean $onlyName
+     */
+    public function getDashboardList($onlyName = false)
+    {
+        $finalList = array();
+        if ($onlyName) {
+            foreach ($this->dashboards as $myDashboard) {
+                $finalList[] = array(
+                    'id' => $myDashboard->getId(),
+                    'name' => $myDashboard->getName()
+                );
             }
+        } else {
+            $finalList = $this->dashboards;
         }
         
-        $this->elements = new ElementCollection($id);
-        
-        if (!is_null($this->layout)) {
-            $this->renderer = new Renderer($this->layout->getTemplate());
-        }
+        return $finalList;
     }
     
     /**
      * 
      * @return type
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-    
-    /**
-     * 
-     * @return type
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-    
-    /**
-     * 
      */
     public function render()
     {
-        return $this->renderer->renderFinal();
+        $origin = 'file:[CentreonDashboardModule]';
+        if ($this->mode == 'light') {
+            $origin .= 'container-light.tpl/';
+        } elseif ($this->mode == 'full') {
+            $origin .= 'container-full.tpl/';
+        }
+        $containerTpl = new Template($origin);
+        
+        return $containerTpl->fetch($origin);
+    }
+    
+    /**
+     * 
+     * @param string $containerName
+     * @return \CentreonDashboard\Internal\DashboardContainer
+     */
+    public static function getContainerByName($containerName)
+    {
+        $id = DashboardContainerModel::getIdByParameter('name', $containerName);
+        return self::getContainerById($id[0]);
+    }
+    
+    /**
+     * 
+     * @param integer $id
+     * @return \CentreonDashboard\Internal\DashboardContainer
+     */
+    public static function getContainerById($id)
+    {
+        $containerDatas = DashboardContainerModel::get($id);
+        return new DashboardContainer($id, $containerDatas['name'], $containerDatas['mode']);
     }
 }

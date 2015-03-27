@@ -60,6 +60,7 @@ class ConnectorController extends FormController
      */
     public function commandsForConnectorAction()
     {
-        parent::getSimpleRelation('connector_id', '\CentreonConfiguration\Models\Command', true);
+        $params = $this->getParams('named');
+        parent::getSimpleRelation('connector_id', '\CentreonConfiguration\Models\Command', $params['id'], true);
     }
 }

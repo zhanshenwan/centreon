@@ -6,6 +6,7 @@
         <column name="description" phpName="Description" type="VARCHAR" size="255" required="false"/>
         <column name="user_id" phpName="UserId" type="INTEGER" size="10" sqlType="int(10) unsigned" required="true"/>
         <column name="layout_id" phpName="LayoutId" type="INTEGER" size="10" sqlType="int(10) unsigned" required="false"/>
+        <column name="container_id" phpName="LayoutId" type="INTEGER" size="10" sqlType="int(10) unsigned" required="false"/>
         <unique name="dashboard_name">
             <unique-column name="name"/>
         </unique>
@@ -14,6 +15,9 @@
         </foreign-key>
         <foreign-key foreignTable="cfg_dashboards_layouts" name="dashboard_ibfk_2" onDelete="CASCADE" onUpdate="RESTRICT">
             <reference local="layout_id" foreign="dashboard_layout_id"/>
+        </foreign-key>
+        <foreign-key foreignTable="cfg_dashboards_containers" name="dashboard_ibfk_3" onDelete="CASCADE" onUpdate="RESTRICT">
+            <reference local="layout_id" foreign="dashboard_container_id"/>
         </foreign-key>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>

@@ -1,0 +1,8 @@
+[
+    {
+        "dashboard_layout_id": 1,
+        "name": "quarter-grid",
+        "description": "Quarter Grid layout",
+        "template": "quarterGrid"
+    }
+]

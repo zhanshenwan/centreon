@@ -45,6 +45,17 @@ class MenuController extends Controller
      * Get menu
      *
      * @method get
+     * @route /menu/loadmenu
+     */
+    public function menuAction()
+    {
+        $this->loadFullMenu();
+    }
+    
+    /**
+     * Get menu
+     *
+     * @method get
      * @route /menu/getmenu/
      */
     public function getmenuAction()

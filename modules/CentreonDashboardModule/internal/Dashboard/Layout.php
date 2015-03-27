@@ -135,4 +135,10 @@ class Layout
             BlockRepository::add($layoutId, $block);
         }
     }
+    
+    
+    public static function getLayoutList()
+    {
+        
+    }
 }

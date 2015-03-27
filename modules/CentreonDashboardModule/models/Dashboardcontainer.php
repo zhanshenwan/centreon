@@ -33,51 +33,19 @@
  * For more information : contact@centreon.com
  * 
  */
-namespace CentreonDashboard\Repository;
 
-use CentreonDashboard\Models\Dashboardlayout as Layout;
+namespace CentreonDashboard\Models;
+
+use Centreon\Models\CentreonBaseModel;
 
 /**
- * Description of LayoutRepository
+ * Model for Dasboard
  *
- * @author lionel
+ * @author Lionel Assepo <lassepo@centreon.com>
  */
-class LayoutRepository
+class Dashboardcontainer extends CentreonBaseModel
 {
-    /**
-     * 
-     * @param array $layoutParams
-     * @return integer
-     */
-    public static function add($layoutParams)
-    {
-        $layoutId = Layout::insert($layoutParams);
-        return $layoutId;
-    }
-    
-    /**
-     * Get list of objects
-     *
-     * @param string $searchStr
-     * @return array
-     */
-    public static function getFormList($searchStr = "")
-    {
-
-        $idField = Layout::getPrimaryKey();
-        $uniqueField = Layout::getUniqueLabelField();
-        $filters = array(
-            $uniqueField => '%'.$searchStr.'%'
-        );
-
-        $list = Layout::getList(array($idField, $uniqueField), -1, 0, null, "ASC", $filters, "AND");
-        $finalList = array();
-        foreach ($list as $obj) {
-            $finalList[] = array(
-                "id" => $obj[$idField],
-                "text" => $obj[$uniqueField]
-            );
-        }
-        return $finalList;
-    }
+    protected static $table = "cfg_dashboards_containers";
+    protected static $primaryKey = "dashboard_container_id";
+    protected static $uniqueLabelField = "name";
 }
