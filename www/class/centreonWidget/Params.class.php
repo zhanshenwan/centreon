@@ -51,7 +51,6 @@ abstract class CentreonWidgetParams implements CentreonWidgetParamsInterface
         'serviceMulti'
     );
 
-
     /**
      * Constructor
      *
@@ -134,6 +133,35 @@ abstract class CentreonWidgetParams implements CentreonWidgetParamsInterface
     public function init($params)
     {
         $this->params = $params;
+    }
+
+    /**
+     * Set Value
+     *
+     * @param array $params
+     * @return void
+     */
+    public function setValue($params)
+    {
+        $userPref = $this->getUserPreferences($params);
+        if (isset($userPref)) {
+            if (in_array($params['ft_typename'], $this->multiType) && strpos($userPref, ',')) {
+                $userPref = explode(',', $userPref);
+            }
+            $this->quickform->setDefaults(array('param_' . $params['parameter_id'] => $userPref));
+        } elseif (isset($params['default_value']) && $params['default_value'] != "") {
+            $this->quickform->setDefaults(array('param_' . $params['parameter_id'] => $params['default_value']));
+        }
+    }
+
+    /**
+     * Get Element
+     *
+     * @return HTML_Quickform
+     */
+    public function getElement()
+    {
+        return $this->element;
     }
 
     /**
