@@ -64,7 +64,8 @@ class Broker extends AbstractObjectXML {
     protected $attributes_engine_parameters = '
         id,
         name,
-        centreonbroker_module_path
+        centreonbroker_module_path,
+        centreonbroker_cfg_path
     ';
     protected $exclude_parameters = array(
         'blockId'
@@ -76,10 +77,10 @@ class Broker extends AbstractObjectXML {
     protected $stmt_broker = null;
     protected $stmt_broker_parameters = null;
     protected $stmt_engine_parameters = null;
-    
+
     private function generate($poller_id) {
         if (is_null($this->stmt_broker)) {
-            $this->stmt_broker = $this->backend_instance->db->prepare("SELECT 
+            $this->stmt_broker = $this->backend_instance->db->prepare("SELECT
               $this->attributes_select
             FROM cfg_centreonbroker
             WHERE ns_nagios_server = :poller_id AND config_activate = '1'
@@ -180,6 +181,14 @@ class Broker extends AbstractObjectXML {
                 $flow_count++;
             }
 
+            if ($correlation_activate == '1') {
+                $object[$flow_count]['correlation'] = array(
+                    'file' => $this->engine['cfg_path'] . '/correlation.xml',
+                    'retention' => $retention_path . '/correlation.sav'
+                );
+                $flow_count++;
+            }
+
             # Generate file
             $this->generateFile($object, true, 'centreonBroker');
             $this->writeFile($this->backend_instance->getPath());
@@ -202,6 +211,7 @@ class Broker extends AbstractObjectXML {
             $this->engine['id'] = $row['id'];
             $this->engine['name'] = $row['name'];
             $this->engine['broker_modules_path'] = $row['centreonbroker_module_path'];
+            $this->engine['cfg_path'] = $row['centreonbroker_cfg_path'];
         } catch (Exception $e) {
             throw new Exception('Exception received : ' .  $e->getMessage() . "\n");
         }

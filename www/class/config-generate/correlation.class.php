@@ -45,7 +45,7 @@ class Correlation extends AbstractObjectXML {
     private $has_correlation = null;
     private $correlation_file_path = null;
     private $poller_ids = array();
-    
+
     public function generateFromPollerId($poller_id, $localhost) {
         if ($localhost) {
             $this->generateMainCorrelation();
@@ -60,7 +60,7 @@ class Correlation extends AbstractObjectXML {
 
         # Generate correlation files
         $this->generateFile($this->correlation_object, false, 'conf');
-        $this->writeFile($this->backend_instance->getPath());        
+        $this->writeFile($this->backend_instance->getPath());
     }
 
     private function generateMainCorrelation() {
@@ -238,18 +238,18 @@ class Correlation extends AbstractObjectXML {
             return $this->has_correlation;
         }
         if (is_null($this->stmt_correlation)) {
-            $this->stmt_correlation = $this->backend_instance->db->prepare("SELECT
-              config_value
-            FROM cfg_centreonbroker_info
-            WHERE config_key = 'file' AND config_group = 'correlation'
-            ");
+            $this->stmt_correlation = $this->backend_instance->db->prepare('SELECT COUNT(config_id) as nb
+            FROM cfg_centreonbroker
+            WHERE correlation_activate = 1');
         }
         $this->stmt_correlation->execute();
         $this->has_correlation = 0;
         if ($this->stmt_correlation->rowCount()) {
             $row = $this->stmt_correlation->fetch(PDO::FETCH_ASSOC);
-            $this->has_correlation = 1;
-            $this->correlation_file_path = $row['config_value'];
+            if ($row['nb'] > 0) {
+                $this->has_correlation = 1;
+                $this->correlation_file_path = $this->getCentreonBrokerConfigurationPath() . '/correlation.xml';
+            }
         }
     }
 
@@ -268,6 +268,17 @@ class Correlation extends AbstractObjectXML {
             ");
         $stmt->execute();
         $this->poller_ids = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+
+    public function getCentreonBrokerConfigurationPath()
+    {
+        $query = 'SELECT centreonbroker_cfg_path FROM nagios_server WHERE localhost = "1"';
+        $stmt = $this->backend_instance->db->query($query);
+        if ($stmt->rowCount() === 0) {
+            throw \Exception('Missing Centreon Broker configuration path.');
+        }
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row['centreonbroker_cfg_path'];
     }
 
     public function reset() {
