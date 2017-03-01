@@ -416,9 +416,9 @@ class CentreonConfigCentreonBroker
 	    $query = "INSERT INTO cfg_centreonbroker "
                 . "(config_name, config_filename, ns_nagios_server, config_activate, config_write_timestamp, config_write_thread_id, stats_activate, correlation_activate, retention_path, event_queue_max_size) "
                 . "VALUES (
-                '" . $this->db->escape($values['name']) . "', 
-                '" . $this->db->escape($values['filename']) . "', 
-                " . $this->db->escape($values['ns_nagios_server']) . ", 
+                '" . $this->db->escape($values['name']) . "',
+                '" . $this->db->escape($values['filename']) . "',
+                " . $this->db->escape($values['ns_nagios_server']) . ",
                 '" . $this->db->escape($values['activate']['activate']) . "',
                 '" . $this->db->escape($values['write_timestamp']['write_timestamp']) . "',
                 '" . $this->db->escape($values['write_thread_id']['write_thread_id']) . "',
@@ -430,7 +430,7 @@ class CentreonConfigCentreonBroker
 	    if (PEAR::isError($this->db->query($query))) {
 	        return false;
 	    }
-        
+
         $iIdServer = $values['ns_nagios_server'];
         $iId = insertServerInCfgNagios($iIdServer, $values['name']);
         if (!empty($iId)) {
@@ -462,13 +462,13 @@ class CentreonConfigCentreonBroker
         /*
 	     * Insert the Centreon Broker configuration
 	     */
-	    $query = "UPDATE cfg_centreonbroker SET 
-                config_name = '" . $this->db->escape($values['name']) . "', 
-                config_filename = '"  . $this->db->escape($values['filename']) . "', 
+	    $query = "UPDATE cfg_centreonbroker SET
+                config_name = '" . $this->db->escape($values['name']) . "',
+                config_filename = '"  . $this->db->escape($values['filename']) . "',
                 ns_nagios_server = "  . $this->db->escape($values['ns_nagios_server']) . ",
-                config_activate = '"  . $this->db->escape($values['activate']['activate']) . "', 
-                config_write_timestamp = '" . $this->db->escape($values['write_timestamp']['write_timestamp']) . "', 
-                config_write_thread_id = '" . $this->db->escape($values['write_thread_id']['write_thread_id']) . "', 
+                config_activate = '"  . $this->db->escape($values['activate']['activate']) . "',
+                config_write_timestamp = '" . $this->db->escape($values['write_timestamp']['write_timestamp']) . "',
+                config_write_thread_id = '" . $this->db->escape($values['write_thread_id']['write_thread_id']) . "',
                 stats_activate = '" . $this->db->escape($values['stats_activate']['stats_activate']) . "',
                 correlation_activate = '" . $this->db->escape($values['correlation_activate']['correlation_activate']) . "',
                 retention_path = '" . $this->db->escape($values['retention_path']) . "',
@@ -567,7 +567,7 @@ class CentreonConfigCentreonBroker
     {
         $query = "SELECT config_key, config_value, config_group_id, grp_level, parent_grp_id
         	FROM cfg_centreonbroker_info
-		WHERE config_id = %d 
+		WHERE config_id = %d
 		    AND config_group = '%s'
 		    AND subgrp_id IS NULL
         	ORDER BY config_group_id";
@@ -625,15 +625,18 @@ class CentreonConfigCentreonBroker
      */
     public function getCorrelationFile()
     {
-        $query = "SELECT config_value
-        	FROM cfg_centreonbroker_info
-        	WHERE config_key = 'file' AND config_group = 'correlation'";
+        $query = 'SELECT correlation_activate FROM cfg_centreonbroker WHERE correlation_activate = "1"';
+        $res = $this->db->query($query);
+        if (PEAR::isError($res) || $res->numRows() == 0) {
+            return false;
+        }
+        $query = 'SELECT centreonbroker_cfg_path FROM nagios_server WHERE localhost = "1"';
         $res = $this->db->query($query);
         if (PEAR::isError($res) || $res->numRows() == 0) {
             return false;
         }
         $row = $res->fetchRow();
-        return $row['config_value'];
+        return $row['centreonbroker_cfg_path'] . '/correlation.xml';
     }
 
     /**
@@ -907,17 +910,17 @@ class CentreonConfigCentreonBroker
         }
         return $result;
     }
-    
+
     /**
      * Check event max queue size value
-     * 
+     *
      * if the value is too small, centreon broker will spend time
-     * to write information directly to hard drive. So we prefer to 
+     * to write information directly to hard drive. So we prefer to
      * use more memory in order to avoid IO.
-     * 
+     *
      * @param int maximum number of event in the queue
      * @return int maximum number of event in the queue
-     * 
+     *
      */
     private function checkEventMaxQueueSizeValue($value) {
 		if (!isset($value) || $value == "" || $value < 50000) {
@@ -934,7 +937,7 @@ class CentreonConfigCentreonBroker
      * @param array $field The field information
      * @return string
      */
-    private function getElementName($tag, $formId, $field) { 
+    private function getElementName($tag, $formId, $field) {
         $elementName = $tag . '[' . $formId . '][';
         if ($field['group'] !== '') {
             $elementName .= $this->getParentGroups($field['group']);
@@ -976,7 +979,7 @@ class CentreonConfigCentreonBroker
        if ($info['grp_level'] != 0) {
            $res = $this->db->query(sprintf("SELECT config_key, config_value, config_group_id, grp_level, parent_grp_id
                FROM cfg_centreonbroker_info
-               WHERE config_id = %d 
+               WHERE config_id = %d
                    AND config_group = '%s'
 		   AND subgrp_id = %d
 		   AND grp_level = %d
@@ -989,7 +992,7 @@ class CentreonConfigCentreonBroker
        }
        return $elemStr;
     }
-    
+
     /**
      * Update the command file field
      *
@@ -1016,9 +1019,9 @@ class CentreonConfigCentreonBroker
         }
         $sth = $this->db->query($query);
     }
-    
+
     /**
-     * 
+     *
      * @return array
      */
     public function isExist($sName)
@@ -1027,7 +1030,7 @@ class CentreonConfigCentreonBroker
         if (empty($sName)) {
             return $bExist;
         }
-        
+
         $query = "SELECT COUNT(config_id) as nb FROm cfg_centreonbroker WHERE config_name = '".$this->db->escape($sName)."'";
         $res = $this->db->query($query);
         $row = $res->fetchRow();
@@ -1037,6 +1040,6 @@ class CentreonConfigCentreonBroker
 
         return $bExist;
     }
-    
+
 }
 ?>
