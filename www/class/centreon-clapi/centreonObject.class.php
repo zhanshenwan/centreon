@@ -49,6 +49,7 @@ abstract class CentreonObject
     const UNKNOWN_METHOD = "Method not implemented into Centreon API";
     const NAMEALREADYINUSE = "Name is already in use";
     const NB_UPDATE_PARAMS = 3;
+    const NB_GET_PARAMS = 2;
     const UNKNOWNPARAMETER = "Unknown parameter";
     const OBJECTALREADYLINKED = "Objects already linked";
     const OBJECTNOTLINKED = "Objects are not linked";
@@ -276,6 +277,47 @@ abstract class CentreonObject
                 $p[$uniqueField],
                 $params
             );
+        }
+    }
+
+    /**
+     * Get Param
+     *
+     * @param int $objectId
+     * @param array $params
+     * @param array $tabConvert
+     */
+    public function getparam($objectId, $params, $tabConvert = null)
+    {
+        $p = $this->object->getParameters($objectId, $params);
+        if ($tabConvert) {
+            $result = $tabConvert[$p[$params[0]]];
+        } else {
+            $result = $p[$params[0]];
+        }
+        echo $params[0].$this->delim.$result."\n";
+    }
+
+    /**
+     * @param int $objectId
+     * @param string $dbTablePrefix
+     * @param array $params
+     * @param array $tabSetParams
+     * @return boolean
+     */
+    public function isGetParam($objectId, $dbTablePrefix, $params, $tabSetParams)
+    {
+        if (count($params) != self::NB_GET_PARAMS) {
+            throw new CentreonClapiException(self::MISSINGPARAMETER);
+        }
+        if (($objectId = $this->getObjectId($params[0])) != 0) {
+            if (in_array($dbTablePrefix.$params[1], $tabSetParams)) {
+                return true;
+            } else {
+                throw new CentreonClapiException(self::UNKNOWN_METHOD);
+            }
+        } else {
+            throw new CentreonClapiException(self::OBJECT_NOT_FOUND . ":" . $params[0]);
         }
     }
 
