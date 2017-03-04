@@ -78,6 +78,7 @@ class CentreonTimePeriod extends CentreonObject
         $this->insertParams = array("tp_name", "tp_alias");
         $this->exportExcludedParams = array_merge($this->insertParams, array($this->object->getPrimaryKey()));
         $this->action = "TP";
+        $this->dbTablePrefix = "tp_";
         $this->nbOfCompulsoryParams = count($this->insertParams);
     }
 
@@ -149,6 +150,26 @@ class CentreonTimePeriod extends CentreonObject
             }
         } else {
             throw new CentreonClapiException(self::OBJECT_NOT_FOUND.":".$params[self::ORDER_UNIQUENAME]);
+        }
+    }
+
+    /**
+     * Get parameters
+     *
+     * @param string $parameters
+     * @return array parameters
+     * @throws CentreonClapiException
+     */
+    public function getparam($parameters)
+    {
+        $params = explode($this->delim, $parameters);
+        $objectId = $this->getObjectId($params[self::ORDER_UNIQUENAME]);
+        $allParams = array('tp_id', 'tp_name', 'tp_alias', 'tp_sunday', 'tp_monday', 'tp_tuesday', 'tp_wednesday',
+                        'tp_thursday', 'tp_friday', 'tp_saturday');
+        if ($this->isGetParam($objectId, $this->dbTablePrefix, $params, $allParams)) {
+            parent::getparam($objectId, array($this->dbTablePrefix.$params[1]));
+        } else {
+            throw new CentreonClapiException(self::OBJECT_NOT_FOUND . ":" . $params[self::ORDER_UNIQUENAME]);
         }
     }
 
