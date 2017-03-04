@@ -83,6 +83,7 @@ class CentreonCommand extends CentreonObject
             array($this->object->getPrimaryKey(), "graph_id", "cmd_cat_id")
         );
         $this->action = "CMD";
+        $this->dbTablePrefix = "command_";
         $this->nbOfCompulsoryParams = count($this->insertParams);
         $this->typeConversion = array(
             "notif" => 1,
@@ -183,6 +184,27 @@ class CentreonCommand extends CentreonObject
             }
             $updateParams = array($params[1] => $params[2]);
             parent::setparam($objectId, $updateParams);
+        } else {
+            throw new CentreonClapiException(self::OBJECT_NOT_FOUND . ":" . $params[self::ORDER_UNIQUENAME]);
+        }
+    }
+
+    /**
+     * Get parameters
+     *
+     * @param string $parameters
+     * @throws CentreonClapiException
+     */
+    public function getparam($parameters)
+    {
+        $params = explode($this->delim, $parameters);
+        $objectId = $this->getObjectId($params[self::ORDER_UNIQUENAME]);
+        if ($this->isGetParam($objectId, $this->dbTablePrefix, $params, $this->insertParams)) {
+            if ($params[1] == "type") {
+                parent::getparam($objectId, array($this->dbTablePrefix.$params[1]), $this->typeConversion);
+            } else {
+                parent::getparam($objectId, array($this->dbTablePrefix.$params[1]));
+            }
         } else {
             throw new CentreonClapiException(self::OBJECT_NOT_FOUND . ":" . $params[self::ORDER_UNIQUENAME]);
         }
