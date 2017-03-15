@@ -16,7 +16,6 @@
         this.confirmBox = null;
         this.remoteData = false;
         this.extendedAction = false;
-        this.savedSearch = '';
         this.ajaxOptions = {};
 
         this.init();
@@ -66,10 +65,22 @@
                 this.multicheckboxOptions.ajax = this.ajaxOptions;
             }
 
-            this.$elem.multicheckbox(this.multicheckboxOptions);
+         //   this.$elem.multicheckbox(this.multicheckboxOptions);
+
+            $.ajax({
+                url: this.multicheckboxOptions.ajax.url,
+                success: function (data) {
+                    var i = 0;
+                    for (i = 0; i < data.items.length; i++) {
+                      html ="<label><input type=\"checkbox\" value=\"" + data.items[i].id + "\" ";
+                      html += "/>" + data.items[i].text + "</label>";
+                        $( "#host_cs" ).append( html );
+                    }
+                }
+            });
+
 
             this.initNiceScroll();
-            this.initSaveSearch();
             this.initEvents();
 
             if (this.settings.allowClear) {
@@ -81,7 +92,6 @@
 
             this.resizeMulticheckbox();
         },
-
         resizeMulticheckbox: function() {
             var formSpan = jQuery(".formTable span.multicheckbox-container");
             formSpan.css({
@@ -134,36 +144,6 @@
             this.$elem.on('multicheckbox:closing', function (e) {
                 if (self.extendedAction) {
                     e.preventDefault();
-                }
-            });
-        },
-        /**
-         * Initialize the event for save and restore the search
-         */
-        initSaveSearch: function () {
-            var self = this;
-
-          /* Save the current search */
-            this.$elem.on('multicheckbox:closing', function (e) {
-                self.savedSearch = self.$elem.data()
-                    .multicheckbox.$container.find(".multicheckbox-search__field")
-                    .val();
-            });
-
-            this.$elem.on('multicheckbox:open', function (e) {
-                if (self.savedSearch) {
-                    self.$elem.data()
-                        .multicheckbox.$container.find(".multicheckbox-search__field")
-                        .val(self.savedSearch);
-                  /* Wait for multicheckbox finish to open */
-                    setTimeout(function () {
-                        self.$elem.data().multicheckbox.trigger(
-                            'query',
-                            {
-                                term: self.savedSearch
-                            }
-                        );
-                    }, 10);
                 }
             });
         },

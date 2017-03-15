@@ -256,17 +256,11 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
 
                     . '</div>';
 
-
-
-
-
         $strHtml .= $this->getJsInit();
-       $strHtml = str_replace('%%DEFAULT_SELECTED_VALUES%%', $this->_defaultSelectedOptions, $strHtml);
+        $strHtml = str_replace('%%DEFAULT_SELECTED_VALUES%%', $this->_defaultSelectedOptions, $strHtml);
 
         return $strHtml;
     }
-
-
 
     /**
      *
@@ -274,17 +268,12 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
      */
     function getJsInit()
     {
-
         $ajaxOption = '';
         $defaultData = '';
         if ($this->_ajaxSource) {
             $ajaxOption = 'ajax: {
                 url: "' . $this->_availableDatasetRoute . '"
             },';
-
-
-
-            var_dump($ajaxOption);
 
             if ($this->_defaultDatasetRoute && is_null($this->_defaultDataset)) {
                 $additionnalJs = $this->setDefaultAjaxDatas();
@@ -297,7 +286,6 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
         }
 
         $additionnalJs .= ' ' . $this->_jsCallback;
-
 
         $javascriptString = '<script>
             jQuery(function () {
@@ -312,7 +300,6 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
                 ' . $additionnalJs . '
             });
          </script>';
-
 
         return $javascriptString;
     }
@@ -408,7 +395,7 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
      * @return string
      */
     public function setDefaultAjaxDatas()
-    {/*
+    {
         $ajaxDefaultDatas = '$request' . $this->getName() . ' = jQuery.ajax({
             url: "'. $this->_defaultDatasetRoute .'",
         });
@@ -435,7 +422,7 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
         ';
 
         return $ajaxDefaultDatas;
-        */
+
     }
 
     /**
