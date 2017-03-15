@@ -742,7 +742,7 @@ $attrContacts = array(
 
 //$form->addElement('select2', 'host_cs', _("Linked Contacts"), array(), $attrContact1);
 
-$form->addElement('multicheckbox', '3333host_cs', _("Linked Contacts"), array(), $attrContacts);
+$form->addElement('multicheckbox', 'host_cs', _("Linked Contacts"), array(), $attrContacts);
 
 
 

@@ -234,4 +234,11 @@ class CentreonContact
         }
         return $items;
     }
+
+
+    public function getObjectForMulticheckbox($values = array(), $options = array())
+    {
+        return $this->getObjectForSelect2($values, $options);
+    }
+
 }
