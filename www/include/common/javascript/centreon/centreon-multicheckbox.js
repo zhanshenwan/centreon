@@ -32,7 +32,7 @@
             this.initLocale();
             this.initAjax();
 
-          /* Template for result display */
+            /* Template for result display */
             this.multicheckboxOptions.templateResult = function (item) {
                 var text = item.text;
                 var $result;
@@ -50,7 +50,7 @@
                 }
                 return text;
             };
-          /* Template for selection */
+            /* Template for selection */
             this.multicheckboxOptions.templateSelection = function (data, container) {
                 if (data.hasOwnProperty('element') && data.element.hidden) {
                     $(container).hide();
@@ -65,16 +65,18 @@
                 this.multicheckboxOptions.ajax = this.ajaxOptions;
             }
 
-         //   this.$elem.multicheckbox(this.multicheckboxOptions);
+
+            var parentName = this.multicheckboxOptions.checkboxparent;
 
             $.ajax({
                 url: this.multicheckboxOptions.ajax.url,
                 success: function (data) {
                     var i = 0;
                     for (i = 0; i < data.items.length; i++) {
-                      html ="<label><input type=\"checkbox\" value=\"" + data.items[i].id + "\" ";
-                      html += "/>" + data.items[i].text + "</label>";
-                        $( "#host_cs" ).append( html );
+                        html = "<label><input type=\"checkbox\" value=\"" + data.items[i].id + "\" ";
+                        html += " name=\"" + parentName + "[]\" ";
+                        html += "/>" + data.items[i].text + "</label>";
+                        $("#"+ parentName).append(html);
                     }
                 }
             });
@@ -92,7 +94,7 @@
 
             this.resizeMulticheckbox();
         },
-        resizeMulticheckbox: function() {
+        resizeMulticheckbox: function () {
             var formSpan = jQuery(".formTable span.multicheckbox-container");
             formSpan.css({
                 'min-width': '360px',
@@ -140,7 +142,7 @@
         initEvents: function () {
             var self = this;
 
-          /* Prevent closing when advanced event is running */
+            /* Prevent closing when advanced event is running */
             this.$elem.on('multicheckbox:closing', function (e) {
                 if (self.extendedAction) {
                     e.preventDefault();
@@ -189,22 +191,22 @@
             var selectedElements;
 
             if (this.remoteData) {
-              /* Append new elements */
+                /* Append new elements */
                 for (var i = 0; i < elements.length; i++) {
                     item = elements[i];
 
-                  /* Create DOM option that is pre-selected by default */
+                    /* Create DOM option that is pre-selected by default */
                     option = '<option selected value="' + item.id + '"';
                     if (item.hide === true) {
                         option += ' hidden';
                     }
                     option += '>' + item.text + '</option>';
 
-                  /* Append it to select */
+                    /* Append it to select */
                     self.$elem.append(option);
                 }
             } else {
-              /* Select existing elements */
+                /* Select existing elements */
                 selectedElements = elements.map(function (object) {
                     return object.id;
                 });
@@ -228,7 +230,7 @@
             var tmpIds;
 
             if (this.remoteData) {
-              /* Remove elements */
+                /* Remove elements */
                 tmpIds = elements.map(function (object) {
                     return object.id;
                 });
@@ -238,7 +240,7 @@
                     }
                 });
             } else {
-              /* Select existing elements */
+                /* Select existing elements */
                 currentValues = self.$elem.val();
                 tmpIds = elements.map(function (object) {
                     return object.id;

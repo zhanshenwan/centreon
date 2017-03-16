@@ -726,10 +726,6 @@ if ($o == "mc") {
  */
 
 
-
-
-
-
 $attrContacts = array(
     'datasourceOrigin' => 'ajax',
     'availableDatasetRoute' => './include/common/webServices/rest/internal.php?object=centreon_configuration_contact&action=list',
@@ -737,10 +733,6 @@ $attrContacts = array(
     'defaultDatasetRoute' => './include/common/webServices/rest/internal.php?object=centreon_configuration_contact&action=defaultValues&target=host&field=host_cs&id=' . $host_id
 );
 
-
-
-
-//$form->addElement('select2', 'host_cs', _("Linked Contacts"), array(), $attrContact1);
 
 $form->addElement('multicheckbox', 'host_cs', _("Linked Contacts"), array(), $attrContacts);
 
@@ -1235,6 +1227,11 @@ if ($form->validate() && $from_list_menu == false) {
     if ($form->getSubmitValue("submitA")) {
         $hostObj->setValue(insertHostInDB());
     } elseif ($form->getSubmitValue("submitC")) {
+/*
+echo '<pre>';
+        var_dump($form->getSubmitValues());
+        exit;
+*/
         updateHostInDB($hostObj->getValue());
     } elseif ($form->getSubmitValue("submitMC")) {
         $select = explode(",", $select);

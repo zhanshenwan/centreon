@@ -146,7 +146,6 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
         $attributes = null,
         $sort = null
     ) {
-
         global $centreon;
         $this->_ajaxSource = false;
         $this->HTML_QuickForm_checkbox($elementName, $elementLabel, $options, $attributes);
@@ -179,7 +178,6 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
             }
         }
 
-
         if (isset($attributes['linkedObject'])) {
             $this->_linkedObject = $attributes['linkedObject'];
         }
@@ -193,10 +191,10 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
      */
     function getElementJs($raw = true, $min = false)
     {
-        $jsFile2 = './include/common/javascript/centreon/centreon-multicheckbox.js';
+        $jsFile = './include/common/javascript/centreon/centreon-multicheckbox.js';
 
         $js = '<script type="text/javascript" '
-            . 'src="' . $jsFile2 . '">'
+            . 'src="' . $jsFile . '">'
             . '</script>';
 
         return $js;
@@ -220,41 +218,16 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
         $strHtml = '';
         $readonly = '';
 
-/*
-        $strHtml .= '<select id="' . $this->getName()
-            . '" name="' . $this->getElementHtmlName()
-            . '" ' . $this->_multipleHtml . ' '
-            . ' style="width: 300px;" ' . $readonly . '><option></option>'
+        $strHtml .= '<div id="mcheckbox' . $this->getName() . '"'
+            . ' style="width: 300px;" ' . $readonly . '>'
+            . ' <div class="mcheckbox_filter"> '
+            . ' <input id="ppm_filter" placeholder="search..." type="text"> '
+            . '</div>'
+            . '<div class="" id="' . $this->getName()
+            . '" style="width: 300px;" ' . $readonly . '>'
             . '%%DEFAULT_SELECTED_VALUES%%'
-            . '</select>';
-*/
-
-        /*
-                $strHtml .= '<div id="' . $this->getName()
-                    . '" name="' . $this->getElementHtmlName()
-                    . ' style="width: 300px;" ' . $readonly . '>'
-                    . '%%DEFAULT_SELECTED_VALS%%'
-                    . '</div>';
-
-        /*
-           */
-
-
-
-                $strHtml .= '<div id="mcheckbox' . $this->getName()
-                    . ' style="width: 300px;" ' . $readonly . '>'
-                    . ' <div class="mcheckbox_filter"> '
-                    . ' <input id="mfilter" placeholder="search..." type="text"> '
-                    . '</div>'
-
-
-.'<div id="' . $this->getName()
-. '" name="' . $this->getElementHtmlName()
-. ' style="width: 300px;" ' . $readonly . '>'
-. '%%DEFAULT_SELECTED_VALUES%%'
-. '</div>'
-
-                    . '</div>';
+            . '</div>'
+            . '</div>';
 
         $strHtml .= $this->getJsInit();
         $strHtml = str_replace('%%DEFAULT_SELECTED_VALUES%%', $this->_defaultSelectedOptions, $strHtml);
@@ -289,12 +262,13 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
 
         $javascriptString = '<script>
             jQuery(function () {
-                var $currentMulticheckboxObject'. $this->getName() . ' = jQuery("#' . $this->getName() . '").centreonMulticheckbox({
+                var $currentMulticheckboxObject' . $this->getName() . ' = jQuery("#' . $this->getName() . '").centreonMulticheckbox({
                     pageLimit: ' . $this->_pagination . ',
                     multicheckbox: {
                         ' . $ajaxOption . '
                         ' . $defaultData . '
-                        placeholder: "' . $this->getLabel() . '"
+                        placeholder: "' . $this->getLabel() . '",
+                        checkboxparent: "' . $this->getName() . '"
                     }
                 });
                 ' . $additionnalJs . '
@@ -313,7 +287,7 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
         $datas = 'data: [';
 
         // Set default values
-        $strValues = is_array($this->_values)? array_map('strval', $this->_values): array();
+        $strValues = is_array($this->_values) ? array_map('strval', $this->_values) : array();
 
         foreach ($this->_options as $option) {
             if (empty($option["attr"]["value"])) {
@@ -321,13 +295,14 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
             }
 
             if (!is_numeric($option["attr"]["value"])) {
-                $option["attr"]["value"] = '"' . $option["attr"]["value"] .'"';
+                $option["attr"]["value"] = '"' . $option["attr"]["value"] . '"';
             }
 
             $datas .= '{id: ' . $option["attr"]["value"] . ', text: "' . $option['text'] . '"},';
             if (!empty($strValues) && in_array($option['attr']['value'], $strValues, true)) {
                 $option['attr']['selected'] = 'selected';
-                $this->_defaultSelectedOptions .= "<label> <input type=\"checkbox\" "
+                $this->_defaultSelectedOptions .= "<label><input type=\"checkbox\" "
+                    . "name=\"" . $this->getName() . "[]\""
                     . $this->_getAttrString($option['attr']) . ' />'
                     . $option['text'] . "</label>";
             }
@@ -338,6 +313,7 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
     }
 
     var $_memOptions = array();
+
     /**
      *
      */
@@ -354,7 +330,8 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
 
 
             foreach ($finalDataset as $dataSet) {
-                $currentOption = '<label><input type="checkbox" checked="checked" value="' . $dataSet['id'] . '" />'
+                $currentOption = '<label><input type="checkbox" checked="checked" value="' . $dataSet['id'] . '"'
+                    . ' name="' . $this->getName() . '[]"/>'
                     . $dataSet['text'] . "</label>";
 
                 if (!in_array($dataSet['id'], $this->_memOptions)) {
@@ -366,7 +343,8 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
             foreach ($this->_defaultDataset as $elementName => $elementValue) {
 
                 $currentOption = '<label><input type="checkbox" checked="checked" value="'
-                    . $elementValue . '" />'
+                    . $elementValue . '"'
+                    . ' name="' . $this->getName() . '[]"/>'
                     . $elementName . "</label>";
 
                 if (!in_array($elementValue, $this->_memOptions)) {
@@ -397,7 +375,7 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
     public function setDefaultAjaxDatas()
     {
         $ajaxDefaultDatas = '$request' . $this->getName() . ' = jQuery.ajax({
-            url: "'. $this->_defaultDatasetRoute .'",
+            url: "' . $this->_defaultDatasetRoute . '",
         });
         
         $request' . $this->getName() . '.success(function (data) {
@@ -409,11 +387,11 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
                 option += "/>" + item.text + "</label>";
               
                 // Append it to the select
-                $currentMulticheckboxObject'.$this->getName().'.append(option);
+                $currentMulticheckboxObject' . $this->getName() . '.append(option);
             }
  
             // Update the selected options that are displayed
-            $currentMulticheckboxObject'.$this->getName().'.trigger("change",[{origin:\'multicheckboxdefaultinit\'}]);
+            $currentMulticheckboxObject' . $this->getName() . '.trigger("change",[{origin:\'multicheckboxdefaultinit\'}]);
         });
 
         $request' . $this->getName() . '.error(function(data) {
@@ -442,6 +420,7 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
      * @param type $caller
      * @return boolean
      */
+
     function onQuickFormEvent($event, $arg, &$caller)
     {
         if ('updateValue' == $event) {
@@ -454,9 +433,7 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
                     $value = $this->_defaultDataset;
                 }
 
-                // Fix for bug #4465 & #5269
-                // XXX: should we push this to element::onQuickFormEvent()?
-                if (null === $value && (!$caller->isSubmitted() || !$this->getMultiple())) {
+                if (null === $value && (!$caller->isSubmitted())) {
                     $value = $this->_findValue($caller->_defaultValues);
                 }
             }
@@ -473,7 +450,11 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
             return parent::onQuickFormEvent($event, $arg, $caller);
         }
     }
+
+
+
 }
+
 
 if (class_exists('HTML_QuickForm')) {
     HTML_QuickForm::registerElementType(
