@@ -44,7 +44,8 @@ $GLOBALS['HTML_QUICKFORM_ELEMENT_TYPES'] =
             'hidden'        =>array('HTML/QuickForm/hidden.php','HTML_QuickForm_hidden'),
             'reset'         =>array('HTML/QuickForm/reset.php','HTML_QuickForm_reset'),
             'checkbox'      =>array('HTML/QuickForm/checkbox.php','HTML_QuickForm_checkbox'),
-            'customcheckbox'      =>array('HTML/QuickForm/customcheckbox.php','HTML_QuickForm_customcheckbox'),
+            'customcheckbox'=>array('HTML/QuickForm/customcheckbox.php','HTML_QuickForm_customcheckbox'),
+            'multicheckbox' =>array('HTML/QuickForm/multicheckbox.php','HTML_QuickForm_multicheckbox'),
             'file'          =>array('HTML/QuickForm/file.php','HTML_QuickForm_file'),
             'image'         =>array('HTML/QuickForm/image.php','HTML_QuickForm_image'),
             'password'      =>array('HTML/QuickForm/password.php','HTML_QuickForm_password'),
@@ -1012,6 +1013,7 @@ class HTML_QuickForm extends HTML_Common
 
     // }}}
     // {{{ removeElement()
+
 
     /**
      * Removes an element
