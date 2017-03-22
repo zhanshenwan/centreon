@@ -37,10 +37,10 @@
 /**
  * Base class for form elements
  */
-require_once 'HTML/QuickForm/checkbox.php';
+require_once 'HTML/QuickForm/select.php';
 
 
-class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
+class HTML_QuickForm_multiselect extends HTML_QuickForm_select
 {
     /**
      *
@@ -139,7 +139,7 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
      * @param array $attributes
      * @param string $sort
      */
-    function HTML_QuickForm_multicheckbox(
+    function HTML_QuickForm_multiselect(
         $elementName = null,
         $elementLabel = null,
         $options = null,
@@ -148,7 +148,7 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
     ) {
         global $centreon;
         $this->_ajaxSource = false;
-        $this->HTML_QuickForm_checkbox($elementName, $elementLabel, $options, $attributes);
+        $this->HTML_QuickForm_select($elementName, $elementLabel, $options, $attributes);
         $this->_elementHtmlName = $this->getName();
         $this->_defaultDataset = null;
         $this->_defaultDatasetOptions = array();
@@ -189,9 +189,9 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
      * @param boolean $min
      * @return string
      */
-    function getElementJs($raw = true, $min = false)
+    function getElementJs()
     {
-        $jsFile = './include/common/javascript/centreon/centreon-multicheckbox.js';
+        $jsFile = './include/common/javascript/centreon/centreonMultiSelect2.js';
 
         $js = '<script type="text/javascript" '
             . 'src="' . $jsFile . '">'
@@ -262,9 +262,9 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
 
         $javascriptString = '<script>
             jQuery(function () {
-                var $currentMulticheckboxObject' . $this->getName() . ' = jQuery("#' . $this->getName() . '").centreonMulticheckbox({
+                var $currentObject' . $this->getName() . ' = jQuery("#' . $this->getName() . '").centreonMultiSelect2({
                     pageLimit: ' . $this->_pagination . ',
-                    multicheckbox: {
+                    multiSelect: {
                         ' . $ajaxOption . '
                         ' . $defaultData . '
                         placeholder: "' . $this->getLabel() . '",
@@ -326,7 +326,7 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
             $objectFinalName = ucfirst($this->_linkedObject);
 
             $myObject = new $objectFinalName($pearDB);
-            $finalDataset = $myObject->getObjectForMulticheckbox($this->_defaultDataset, $this->_defaultDatasetOptions);
+            $finalDataset = $myObject->getObjectForSelect2($this->_defaultDataset, $this->_defaultDatasetOptions);
 
 
             foreach ($finalDataset as $dataSet) {
@@ -387,11 +387,11 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
                 option += "/>" + item.text + "</label>";
               
                 // Append it to the select
-                $currentMulticheckboxObject' . $this->getName() . '.append(option);
+                $currentObject' . $this->getName() . '.append(option);
             }
  
             // Update the selected options that are displayed
-            $currentMulticheckboxObject' . $this->getName() . '.trigger("change",[{origin:\'multicheckboxdefaultinit\'}]);
+            $currentObject' . $this->getName() . '.trigger("change",[{origin:\'multiselectdefaultinit\'}]);
         });
 
         $request' . $this->getName() . '.error(function(data) {
@@ -400,7 +400,6 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
         ';
 
         return $ajaxDefaultDatas;
-
     }
 
     /**
@@ -450,16 +449,12 @@ class HTML_QuickForm_multicheckbox extends HTML_QuickForm_checkbox
             return parent::onQuickFormEvent($event, $arg, $caller);
         }
     }
-
-
-
 }
-
 
 if (class_exists('HTML_QuickForm')) {
     HTML_QuickForm::registerElementType(
-        'multicheckbox',
-        'HTML/QuickForm/multicheckbox.php',
-        'HTML_QuickForm_multicheckbox'
+        'multiselect',
+        'HTML/QuickForm/multiselect.php',
+        'HTML_QuickForm_multiselect'
     );
 }

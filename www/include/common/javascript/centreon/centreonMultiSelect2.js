@@ -1,11 +1,11 @@
-/* global jQuery, navigator, centreonMulticheckboxLocales */
+/* global jQuery, navigator, centreonMultiSelectLocales */
 (function ($) {
-    function CentreonMulticheckbox(settings, $elem) {
+    function CentreonMultiSelect(settings, $elem) {
 
-        this.internal = new CentreonMulticheckboxInternal(settings, $elem);
+        this.internal = new CentreonMultiSelectInternal(settings, $elem);
     }
 
-    function CentreonMulticheckboxInternal(settings, $elem) {
+    function CentreonMultiSelectInternal(settings, $elem) {
         this.settings = settings;
         this.$elem = $elem;
         this.parent = $elem.parent();
@@ -21,19 +21,19 @@
         this.init();
     }
 
-    CentreonMulticheckboxInternal.prototype = {
+    CentreonMultiSelectInternal.prototype = {
         /**
-         * Initialize multicheckbox
+         * Initialize multiSelect
          */
         init: function () {
             var self = this;
-            this.multicheckboxOptions = this.settings.multicheckbox;
+            this.multiSelectOptions = this.settings.multiSelect;
 
             this.initLocale();
             this.initAjax();
 
             /* Template for result display */
-            this.multicheckboxOptions.templateResult = function (item) {
+            this.multiSelectOptions.templateResult = function (item) {
                 var text = item.text;
                 var $result;
                 if (self.settings.templateResult !== null) {
@@ -51,7 +51,7 @@
                 return text;
             };
             /* Template for selection */
-            this.multicheckboxOptions.templateSelection = function (data, container) {
+            this.multiSelectOptions.templateSelection = function (data, container) {
                 if (data.hasOwnProperty('element') && data.element.hidden) {
                     $(container).hide();
                 }
@@ -62,14 +62,14 @@
             };
 
             if (this.remoteData) {
-                this.multicheckboxOptions.ajax = this.ajaxOptions;
+                this.multiSelectOptions.ajax = this.ajaxOptions;
             }
 
 
-            var parentName = this.multicheckboxOptions.checkboxparent;
+            var parentName = this.multiSelectOptions.checkboxparent;
 
             $.ajax({
-                url: this.multicheckboxOptions.ajax.url,
+                url: this.multiSelectOptions.ajax.url,
                 success: function (data) {
                     var i = 0;
                     for (i = 0; i < data.items.length; i++) {
@@ -92,9 +92,9 @@
                 this.initMultiple();
             }
 
-            this.resizeMulticheckbox();
+            this.resizeMultiSelect();
         },
-        resizeMulticheckbox: function () {
+        resizeMultiSelect: function () {
             var formSpan = jQuery(".formTable span.multicheckbox-container");
             formSpan.css({
                 'min-width': '360px',
@@ -113,13 +113,13 @@
                 this.locale = navigator.language || navigator.userLanguage;
             }
 
-            if (typeof centreonMulticheckboxLocales !== 'undefined' &&
-                centreonMulticheckboxLocales.hasOwnProperty(this.locale)) {
-                this.messages = centreonMulticheckboxLocales[this.locale];
+            if (typeof centreonMultiSelectLocales !== 'undefined' &&
+                centreonMultiSelectLocales.hasOwnProperty(this.locale)) {
+                this.messages = centreonMultiSelectLocales[this.locale];
             }
         },
         /**
-         * Initialize the nice scroll when opening multicheckbox
+         * Initialize the nice scroll when opening MultiSelect
          */
         initNiceScroll: function () {
             var self = this;
@@ -143,7 +143,7 @@
             var self = this;
 
             /* Prevent closing when advanced event is running */
-            this.$elem.on('multicheckbox:closing', function (e) {
+            this.$elem.on('MultiSelect:closing', function (e) {
                 if (self.extendedAction) {
                     e.preventDefault();
                 }
@@ -155,10 +155,10 @@
         initAjax: function () {
             var self = this;
 
-            if (self.settings.multicheckbox.hasOwnProperty('ajax') &&
-                self.settings.multicheckbox.ajax.hasOwnProperty('url')) {
+            if (self.settings.multiSelect.hasOwnProperty('ajax') &&
+                self.settings.multiSelect.ajax.hasOwnProperty('url')) {
                 self.remoteData = true;
-                self.ajaxOptions = self.settings.multicheckbox.ajax;
+                self.ajaxOptions = self.settings.multiSelect.ajax;
                 self.ajaxOptions.data = function (params) {
                     return self.ajaxData(params);
                 };
@@ -310,7 +310,7 @@
         }
     };
 
-    CentreonMulticheckbox.prototype = {
+    CentreonMultiSelect.prototype = {
         /**
          * Action add nice scroll
          */
@@ -337,36 +337,36 @@
          * Destroy the element
          */
         destroy: function () {
-            this.internal.$elem.multicheckbox('destroy');
-            this.internal.$elem.removeData('centreonMulticheckbox');
+            this.internal.$elem.MultiSelect('destroy');
+            this.internal.$elem.removeData('centreonMultiSelect');
         },
         /**
-         * Update multicheckbox settings
+         * Update MultiSelect settings
          *
          * @param {Object} settings - New settings, only differentials
          */
         updateSettings: function (settings) {
-            this.internal.multicheckboxOptions = $.extend(
+            this.internal.multiSelectOptions = $.extend(
                 {},
-                this.internal.multicheckboxOptions,
+                this.internal.multiSelectOptions,
                 settings
             );
-            this.internal.$elem.multicheckbox('destroy');
-            this.internal.$elem.multicheckbox(this.internal.multicheckboxOptions);
+            this.internal.$elem.multiSelect('destroy');
+            this.internal.$elem.multiSelect(this.internal.multiSelectOptions);
         }
     };
 
-    $.fn.centreonMulticheckbox = function (options) {
+    $.fn.centreonMultiSelect = function (options) {
 
         var args = Array.prototype.slice.call(arguments, 1);
-        var settings = $.extend({}, $.fn.centreonMulticheckbox.defaults, options);
+        var settings = $.extend({}, $.fn.centreonMultiSelect.defaults, options);
         var methodReturn;
         var $set = this.each(function () {
             var $this = $(this);
             var data = $this.data("centreonMulticheckbox");
 
             if (!data) {
-                $this.data("centreonMulticheckbox", ( data = new CentreonMulticheckbox(settings, $this)));
+                $this.data("centreonMulticheckbox", ( data = new CentreonMultiSelect(settings, $this)));
                 data.addNiceScroll();
             }
 
@@ -378,14 +378,14 @@
         return (methodReturn === undefined) ? $set : methodReturn;
     };
 
-    $.fn.centreonMulticheckbox.defaults = {
+    $.fn.centreonMultiSelect.defaults = {
         allowClear: false,
         confirmMinNumber: 0,
         locale: null,
         templateResult: null,
         pageLimit: 20,
         additionnalFilters: {},
-        multicheckbox: {
+        multiSelect: {
             allowClear: true
         }
     };
