@@ -719,14 +719,57 @@ if ($o == "mc") {
     $form->addElement('checkbox', 'contact_additive_inheritance', '', _('Contact additive inheritance'));
     $form->addElement('checkbox', 'cg_additive_inheritance', '', _('Contact group additive inheritance'));
 }
+
+
 /*
  *  Contacts
  */
-$attrContact1 = array_merge(
-    $attrContacts,
-    array('defaultDatasetRoute' => './include/common/webServices/rest/internal.php?object=centreon_configuration_contact&action=defaultValues&target=host&field=host_cs&id=' . $host_id)
+
+
+$attrContacts = array(
+    'datasourceOrigin' => 'ajax',
+    'availableDatasetRoute' => './include/common/webServices/rest/internal.php?object=centreon_configuration_contact&action=list',
+    'linkedObject' => 'centreonContact',
+    'defaultDatasetRoute' => './include/common/webServices/rest/internal.php?object=centreon_configuration_contact&action=defaultValues&target=host&field=host_cs&id=' . $host_id
 );
-$form->addElement('select2', 'host_cs', _("Linked Contacts"), array(), $attrContact1);
+
+
+$form->addElement('multiselect', 'host_cs', _("Linked Contacts"), array(), $attrContacts);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
  *  Contact groups
@@ -1164,6 +1207,11 @@ if ($form->validate() && $from_list_menu == false) {
     if ($form->getSubmitValue("submitA")) {
         $hostObj->setValue(insertHostInDB());
     } elseif ($form->getSubmitValue("submitC")) {
+/*
+echo '<pre>';
+        var_dump($form->getSubmitValues());
+        exit;
+*/
         updateHostInDB($hostObj->getValue());
     } elseif ($form->getSubmitValue("submitMC")) {
         $select = explode(",", $select);

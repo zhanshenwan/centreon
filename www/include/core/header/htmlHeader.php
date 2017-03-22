@@ -39,8 +39,10 @@ if (!isset($centreon)) {
 
 print "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
 
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $centreon->user->lang; ?>">
+?>
+
+<!DOCTYPE html>
+<html lang="<?php echo $centreon->user->lang; ?>">
 <head>
     <title>Centreon - IT & Network Monitoring</title>
     <link rel="shortcut icon" href="./img/favicon.ico"/>
@@ -56,6 +58,9 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
     <link href="./include/common/javascript/jquery/plugins/timepicker/jquery.ui.timepicker.css" rel="stylesheet" type="text/css" media="screen"/>
     <link href="./include/common/javascript/jquery/plugins/select2/css/select2.css" rel="stylesheet" type="text/css" media="screen"/>
     <link href="./Themes/Centreon-2/jquery-ui/jquery-ui.css" rel="stylesheet" type="text/css"/>
+
+
+
     <link href="./Themes/Centreon-2/jquery-ui/jquery-ui-centreon.css" rel="stylesheet" type="text/css"/>
     <link href="./include/common/javascript/jquery/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="./include/configuration/configCentreonBroker/wizard/css/style.css" />
@@ -77,6 +82,7 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
         <script type="text/javascript" src="./include/common/javascript/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="./include/common/javascript/jquery/plugins/select2/js/select2.full.min.js"></script>
         <script type="text/javascript" src="./include/common/javascript/centreon/centreon-select2.js"></script>
+        <script type="text/javascript" src="./include/common/javascript/centreon/centreonMultiSelect2.js"></script>
         <script type="text/javascript" src="./include/common/javascript/jquery/jquery-ui.js"></script>
         <script type="text/javascript">jQuery.noConflict();</script>
         <script type="text/javascript" src="./include/common/javascript/jquery/plugins/colorbox/jquery.colorbox-min.js"></script>
