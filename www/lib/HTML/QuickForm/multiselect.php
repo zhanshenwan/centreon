@@ -215,23 +215,7 @@ class HTML_QuickForm_multiselect extends HTML_QuickForm_select
      */
     function toHtml()
     {
-        $strHtml = '';
-        $readonly = '';
-
-        $strHtml .= '<div id="mcheckbox' . $this->getName() . '"'
-            . ' style="width: 300px;" ' . $readonly . '>'
-            . ' <div class="mcheckbox_filter"> '
-            . ' <input id="ppm_filter" placeholder="search..." type="text"> '
-            . '</div>'
-            . '<div class="" id="' . $this->getName()
-            . '" style="width: 300px;" ' . $readonly . '>'
-            . '%%DEFAULT_SELECTED_VALUES%%'
-            . '</div>'
-            . '</div>';
-
-        $strHtml .= $this->getJsInit();
-        $strHtml = str_replace('%%DEFAULT_SELECTED_VALUES%%', $this->_defaultSelectedOptions, $strHtml);
-
+        $strHtml = 'toto';
         return $strHtml;
     }
 
@@ -301,10 +285,12 @@ class HTML_QuickForm_multiselect extends HTML_QuickForm_select
             $datas .= '{id: ' . $option["attr"]["value"] . ', text: "' . $option['text'] . '"},';
             if (!empty($strValues) && in_array($option['attr']['value'], $strValues, true)) {
                 $option['attr']['selected'] = 'selected';
-                $this->_defaultSelectedOptions .= "<label><input type=\"checkbox\" "
-                    . "name=\"" . $this->getName() . "[]\""
+                $this->_defaultSelectedOptions .= '<div class="ms-elem">'
+                    . '<label><input type="checkbox" '
+                    . 'name="' . $this->getName() . '"[]"'
                     . $this->_getAttrString($option['attr']) . ' />'
-                    . $option['text'] . "</label>";
+                    . $option['text']
+                    . '</label></div>';
             }
         }
         $datas .= ']';
@@ -330,9 +316,11 @@ class HTML_QuickForm_multiselect extends HTML_QuickForm_select
 
 
             foreach ($finalDataset as $dataSet) {
-                $currentOption = '<label><input type="checkbox" checked="checked" value="' . $dataSet['id'] . '"'
+                $currentOption = '<div class="ms-elem">'
+                    . '<label><input type="checkbox" checked="checked" value="' . $dataSet['id'] . '"'
                     . ' name="' . $this->getName() . '[]"/>'
-                    . $dataSet['text'] . "</label>";
+                    . $dataSet['text']
+                    . "</div></label>";
 
                 if (!in_array($dataSet['id'], $this->_memOptions)) {
                     $this->_memOptions[] = $dataSet['id'];
@@ -342,10 +330,11 @@ class HTML_QuickForm_multiselect extends HTML_QuickForm_select
         } else if (!is_null($this->_defaultDataset)) {
             foreach ($this->_defaultDataset as $elementName => $elementValue) {
 
-                $currentOption = '<label><input type="checkbox" checked="checked" value="'
+                $currentOption = '<div class="ms-elem">'
+                    . '<label><input type="checkbox" checked="checked" value="'
                     . $elementValue . '"'
                     . ' name="' . $this->getName() . '[]"/>'
-                    . $elementName . "</label>";
+                    . $elementName . "</label></div>";
 
                 if (!in_array($elementValue, $this->_memOptions)) {
                     $this->_memOptions[] = $elementValue;
@@ -383,8 +372,9 @@ class HTML_QuickForm_multiselect extends HTML_QuickForm_select
                 var item = data[d];
                 
                 // Create the DOM option that is pre-selected by default
-                var checkbox = "<label><input type=\"checkbox\" checked=\"checked\" value=\"" + item.id + "\" ";
-                option += "/>" + item.text + "</label>";
+                var checkbox = "<div class="ms-elem">" 
+                + "<label><input type=\"checkbox\" checked=\"checked\" value=\"" + item.id + "\" ";
+                option += "/>" + item.text + "</label></div>";
               
                 // Append it to the select
                 $currentObject' . $this->getName() . '.append(option);

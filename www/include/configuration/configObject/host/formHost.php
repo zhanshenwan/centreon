@@ -734,27 +734,7 @@ $attrContacts = array(
 );
 
 
-$form->addElement('multicheckbox', 'host_cs', _("Linked Contacts"), array(), $attrContacts);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$form->addElement('multiselect', 'host_cs', _("Linked Contacts"), array(), $attrContacts);
 
 
 

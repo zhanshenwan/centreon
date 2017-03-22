@@ -1,11 +1,11 @@
 /* global jQuery, navigator, centreonMultiSelectLocales */
 (function ($) {
-    function CentreonMultiSelect(settings, $elem) {
+    function CentreonMultiSelect2(settings, $elem) {
 
-        this.internal = new CentreonMultiSelectInternal(settings, $elem);
+        this.internal = new CentreonMultiSelect2Internal(settings, $elem);
     }
 
-    function CentreonMultiSelectInternal(settings, $elem) {
+    function CentreonMultiSelect2Internal(settings, $elem) {
         this.settings = settings;
         this.$elem = $elem;
         this.parent = $elem.parent();
@@ -21,7 +21,7 @@
         this.init();
     }
 
-    CentreonMultiSelectInternal.prototype = {
+    CentreonMultiSelect2Internal.prototype = {
         /**
          * Initialize multiSelect
          */
@@ -92,9 +92,9 @@
                 this.initMultiple();
             }
 
-            this.resizeMultiSelect();
+            this.resizeMultiSelect2();
         },
-        resizeMultiSelect: function () {
+        resizeMultiSelect2: function () {
             var formSpan = jQuery(".formTable span.multicheckbox-container");
             formSpan.css({
                 'min-width': '360px',
@@ -310,7 +310,7 @@
         }
     };
 
-    CentreonMultiSelect.prototype = {
+    CentreonMultiSelect2.prototype = {
         /**
          * Action add nice scroll
          */
@@ -356,17 +356,17 @@
         }
     };
 
-    $.fn.centreonMultiSelect = function (options) {
+    $.fn.centreonMultiSelect2 = function (options) {
 
         var args = Array.prototype.slice.call(arguments, 1);
-        var settings = $.extend({}, $.fn.centreonMultiSelect.defaults, options);
+        var settings = $.extend({}, $.fn.centreonMultiSelect2.defaults, options);
         var methodReturn;
         var $set = this.each(function () {
             var $this = $(this);
             var data = $this.data("centreonMulticheckbox");
 
             if (!data) {
-                $this.data("centreonMulticheckbox", ( data = new CentreonMultiSelect(settings, $this)));
+                $this.data("centreonMulticheckbox", ( data = new CentreonMultiSelect2(settings, $this)));
                 data.addNiceScroll();
             }
 
@@ -378,7 +378,7 @@
         return (methodReturn === undefined) ? $set : methodReturn;
     };
 
-    $.fn.centreonMultiSelect.defaults = {
+    $.fn.centreonMultiSelect2.defaults = {
         allowClear: false,
         confirmMinNumber: 0,
         locale: null,
