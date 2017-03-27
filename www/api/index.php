@@ -44,6 +44,16 @@ $pearDB = new CentreonDB();
 /* Purge old token */
 $pearDB->query("DELETE FROM ws_token WHERE generate_date < DATE_SUB(NOW(), INTERVAL 1 HOUR)");
 
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Headers: Content-Type, centreon-auth-token');
+    header('Access-Control-Allow-Methods: POST, GET, PUT, OPTIONS');
+    header('Access-Control-Max-Age: 1728000');
+    header("Content-Length: 0");
+    header("Content-Type: text/plain");
+    exit();
+}
+
 /* Test if the call is for authenticate */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
     isset($_GET['action']) && $_GET['action'] == 'authenticate') {
