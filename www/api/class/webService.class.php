@@ -200,6 +200,7 @@ class CentreonWebService
                 break;
         }
         header('Content-type: application/json');
+        header('Access-Control-Allow-Origin: *');
         print json_encode($data);
         exit();
     }
