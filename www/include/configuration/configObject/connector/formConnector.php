@@ -101,7 +101,8 @@ try {
     $attrsText        = array("size"=>"35");
     $attrsTextarea    = array("rows"=>"9", "cols"=>"65", "id"=>"command_line");
     $attrsAdvSelect = array("style" => "width: 300px; height: 100px;");
-    $attrCommands = array(
+
+/*    $attrCommands = array(
         'datasourceOrigin' => 'ajax',
         'multiple' => true,
         'defaultDatasetRoute' => './include/common/webServices/rest/internal.php?'
@@ -111,6 +112,7 @@ try {
         . 'object=centreon_configuration_command&action=list',
         'linkedObject' => 'centreonCommand'
     );
+*/
 
     $attrTest = array(
         'datasourceOrigin' => 'ajax',

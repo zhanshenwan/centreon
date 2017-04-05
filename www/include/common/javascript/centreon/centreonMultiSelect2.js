@@ -146,5 +146,5 @@ mutliSelect.prototype = {
  */
 $.fn.centreonMultiSelect2.defaults = {
     url: null,
-    limit: 10
+    pageLimit: 10
 };
