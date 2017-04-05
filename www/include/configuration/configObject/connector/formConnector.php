@@ -112,6 +112,16 @@ try {
         'linkedObject' => 'centreonCommand'
     );
 
+    $attrTest = array(
+        'datasourceOrigin' => 'ajax',
+        'defaultDatasetRoute' => './include/common/webServices/rest/internal.php?'
+            . 'object=centreon_configuration_command&action=defaultValues&target=connector&field=command_id&id='
+            . $connector_id,
+        'availableDatasetRoute' => './include/common/webServices/rest/internal.php?'
+            . 'object=centreon_configuration_command&action=list',
+        'linkedObject' => 'centreonCommand'
+    );
+
     $form->addElement('text', 'connector_name', _("Connector Name"), $attrsText);
     $form->addElement('text', 'connector_description', _("Connector Description"), $attrsText);
     $form->addElement('textarea', 'command_line', _("Command Line"), $attrsTextarea);
@@ -122,6 +132,8 @@ try {
     $form->addElement('select', 'plugins', null, $availableConnectors_list);
 
     $form->addElement('select2', 'command_id', _("Used by command"), array(), $attrCommands);
+
+    $form->addElement('multiselect', 'test', _("Coco"), array(), $attrTest);
 
     $cntStatus = array();
     $cntStatus[] = HTML_QuickForm::createElement('radio', 'connector_status', null, _("Enabled"), '1');

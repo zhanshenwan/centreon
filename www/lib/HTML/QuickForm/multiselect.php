@@ -215,7 +215,9 @@ class HTML_QuickForm_multiselect extends HTML_QuickForm_select
      */
     function toHtml()
     {
-        $strHtml = 'toto';
+        $strHtml = '<div id="'.$this->getName().'"></div>';
+
+        $strHtml .= $this->getJsInit();
         return $strHtml;
     }
 
@@ -251,9 +253,7 @@ class HTML_QuickForm_multiselect extends HTML_QuickForm_select
                     multiSelect: {
                         ' . $ajaxOption . '
                         ' . $defaultData . '
-                        placeholder: "' . $this->getLabel() . '",
-                        checkboxparent: "' . $this->getName() . '"
-                    }
+                        placeholder: "' . $this->getLabel() . '"                    }
                 });
                 ' . $additionnalJs . '
             });
