@@ -233,10 +233,10 @@ class HTML_QuickForm_multiselect extends HTML_QuickForm_select
             $ajaxOption = 'ajax: {
                 url: "' . $this->_availableDatasetRoute . '"
             },';
+            $defaultData .= $this->_defaultDatasetRoute;
 
         } else {
-            $defaultData = $this->setFixedDatas() . ',';
-            $this->setDefaultFixedDatas();
+
         }
 
         $additionnalJs .= ' ' . $this->_jsCallback;
@@ -245,9 +245,9 @@ class HTML_QuickForm_multiselect extends HTML_QuickForm_select
             jQuery(function () {
                 var $currentObject' . $this->getName() . ' = jQuery("#' . $this->getName() . '").centreonMultiSelect2({
                     pageLimit: ' . $this->_pagination . ',
+                    url: "' . $defaultData . '",
                     multiSelect: {
                         ' . $ajaxOption . '
-                        ' . $defaultData . '
                         placeholder: "' . $this->getLabel() . '"                    }
                 });
                 ' . $additionnalJs . '
