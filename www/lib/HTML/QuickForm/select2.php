@@ -459,12 +459,12 @@ class HTML_QuickForm_select2 extends HTML_QuickForm_select
                 // Append it to the select
                 $currentSelect2Object'.$this->getName().'.append(option);
             }
- 
-            // Update the selected options that are displayed
+
+           // Update the selected options that are displayed
             $currentSelect2Object'.$this->getName().'.trigger("change",[{origin:\'select2defaultinit\'}]);
         });
 
-        $request' . $this->getName() . '.error(function(data) {
+       $request' . $this->getName() . '.error(function(data) {
             
         });
         ';

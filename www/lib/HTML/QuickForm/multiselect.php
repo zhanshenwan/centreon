@@ -372,7 +372,7 @@ class HTML_QuickForm_multiselect extends HTML_QuickForm_select
                 var item = data[d];
                 
                 // Create the DOM option that is pre-selected by default
-                var checkbox = "<div class="ms-elem">" 
+                var checkbox = "<div class=\"ms-elem\">" 
                 + "<label><input type=\"checkbox\" checked=\"checked\" value=\"" + item.id + "\" ";
                 option += "/>" + item.text + "</label></div>";
               
