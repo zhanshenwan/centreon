@@ -7,6 +7,8 @@ function mutliSelect(settings, elem) {
     self.page = 1;
     self.elem = elem;
     self.elem.addClass('ms-bloc');
+    self.ajax = self.settings.multiSelect.ajax;
+    self.hasFilteredDatas = false;
 
     /* Add event to infinite scroll */
     self.elem.on("scroll", function (e) {
@@ -20,6 +22,8 @@ function mutliSelect(settings, elem) {
     self.getData(self.page);
     self.initNiceScroll(elem);
     self.searchData();
+
+    console.log('settings : ', self.settings);
 }
 
 mutliSelect.prototype = {
@@ -27,9 +31,9 @@ mutliSelect.prototype = {
     initElements: function() {
         var self=this;
 
-        self.elem.parent = $('<div class="multiselect-elem">');
+        self.elem.parent = jQuery('<div class="multiselect-elem">');
         self.elem.wrap(self.elem.parent);
-        self.elem.searchBox = $('<div class="ms-filter">');
+        self.elem.searchBox = jQuery('<div class="ms-filter">');
         self.elem.before(self.elem.searchBox);
     },
 
@@ -37,15 +41,15 @@ mutliSelect.prototype = {
         var self = this,
             input;
 
-        input = $('<input type="text" value="" placeholder="Search..."/>');
+        input = jQuery('<input type="text" value="" placeholder="Search..."/>');
         self.elem.searchBox.append(input);
 
-        $(input).on('keypress', function() {
+        jQuery(input).on('keypress', function() {
             var keyword = input.val();
 
             var url = self.settings.url + '&q=' + keyword;
             if(keyword != '') {
-                $.ajax({
+                jQuery.ajax({
                     url: url,
                     type : 'GET',
                     dataType: 'json',
@@ -53,7 +57,7 @@ mutliSelect.prototype = {
                     success: function(data) {
                         var datas = '';
                         if (data != null) {
-                            $.each(data.items, function(idx,value) {
+                            jQuery.each(data.items, function(idx,value) {
                                 datas += '<div class="ms-elem">' +
                                     '<input type="checkbox" id="elem_' + value.id + '" />' +
                                     '<label for="elem_' + value.id + '">' + value.text + '</label>' +
@@ -80,43 +84,83 @@ mutliSelect.prototype = {
 
     },
 
+    getUrlForAjax: function() {
+        var self = this;
+
+        if (self.settings.url !== null) {
+            self.hasFilteredDatas = true;
+            self.compareRenderedDatas(self.hasFilteredDatas);
+        } else {
+            self.getData(self.page);
+        }
+    },
+
+    compareRenderedDatas: function (hasFilteredDatas) {
+
+        if (hasFilteredDatas) {
+            jQuery.ajax({
+                url: self.settings.url,
+                type : 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(data) {
+                    if(data != null) {
+                        total = Math.round(Math.ceil(data.total / self.settings.pageLimit));
+
+                        if (nb_page <= total) {
+                            jQuery.each(data.items, function(idx,value) {
+                                self.elem.append(
+                                    '<div class="ms-elem">' +
+                                    '<input type="checkbox" id="elem_' + value.id + '" />' +
+                                    '<label for="elem_' + value.id + '">' + value.text + '</label>' +
+                                    '</div>');
+                            })
+                        }
+                    }
+                }
+            });
+        }
+    },
+
     getData: function(nb_page) {
         var self = this,
             total;
 
         /*http://10.30.2.170/centreon/include/common/webServices/rest/internal.php?object=centreon_configuration_host&action=list&page_limit=60&page=1
-
          http://10.30.2.170/centreon/api/index.php?object=centreon_configuration_host&action=list
-
          http://10.30.2.170/centreon/api/index.php?action=authenticate
-
          username=superadmin&password=centreon
          */
 
-        var url = self.settings.url + '&page_limit=' + self.settings.limit + '&page=' + nb_page;
+        if (self.settings.multiSelect.hasOwnProperty('ajax')) {
 
+            var url = self.ajax.url + '&page_limit=' + self.settings.pageLimit + '&page=' + nb_page;
 
-        $.ajax({
-            url: url,
-            type : 'GET',
-            dataType: 'json',
-            contentType: 'application/json',
-            success: function(data) {
-                if(data != null) {
-                    total = Math.round(Math.ceil(data.total / self.settings.limit));
+            jQuery.ajax({
+                url: url,
+                type : 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(data) {
+                    if(data != null) {
+                        total = Math.round(Math.ceil(data.total / self.settings.pageLimit));
 
-                    if (nb_page <= total) {
-                        $.each(data.items, function(idx,value) {
-                            self.elem.append(
-                                '<div class="ms-elem">' +
-                                '<input type="checkbox" id="elem_' + value.id + '" />' +
-                                '<label for="elem_' + value.id + '">' + value.text + '</label>' +
-                                '</div>');
-                        })
+                        if (nb_page <= total) {
+                            jQuery.each(data.items, function(idx,value) {
+                                self.elem.append(
+                                    '<div class="ms-elem">' +
+                                    '<input type="checkbox" id="elem_' + value.id + '" />' +
+                                    '<label for="elem_' + value.id + '">' + value.text + '</label>' +
+                                    '</div>');
+                            })
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
+
+        //var url = self.settings.url + '&page_limit=' + self.settings.pageLimit + '&page=' + nb_page;
+
     },
 
     initNiceScroll: function(elem) {
@@ -127,13 +171,13 @@ mutliSelect.prototype = {
     }
 };
 
-(function($) {
-    $.fn.centreonMultiSelect2 = function(options) {
+(function(jQuery) {
+    jQuery.fn.centreonMultiSelect2 = function(options) {
 
-        var settings = $.extend({}, $.fn.centreonMultiSelect2.defaults, options);
+        var settings = jQuery.extend({}, jQuery.fn.centreonMultiSelect2.defaults, options);
 
         this.each(function () {
-            var self = $(this);
+            var self = jQuery(this);
             that = new mutliSelect(settings, self);
         });
 
@@ -144,7 +188,9 @@ mutliSelect.prototype = {
 /**
  * defaults options
  */
-$.fn.centreonMultiSelect2.defaults = {
+jQuery.fn.centreonMultiSelect2.defaults = {
     url: null,
-    pageLimit: 10
+    pageLimit: 10,
+    multiSelect: {
+    }
 };
