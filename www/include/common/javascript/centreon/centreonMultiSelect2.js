@@ -9,21 +9,13 @@ function mutliSelect(settings, elem) {
     self.elem.addClass('ms-bloc');
     self.ajax = self.settings.multiSelect.ajax;
     self.hasFilteredDatas = false;
+    self.selectedDatas = {};
 
-    /* Add event to infinite scroll */
-    self.elem.on("scroll", function (e) {
-        if (self.elem.scrollTop() + self.elem.height() > self.elem.height() * self.page) {
-            self.page ++;
-            self.getData(self.page);
-        }
-    });
 
     self.initElements();
-    self.getData(self.page);
     self.initNiceScroll(elem);
     self.searchData();
-
-    console.log('settings : ', self.settings);
+    self.displayDatas();
 }
 
 mutliSelect.prototype = {
@@ -78,59 +70,88 @@ mutliSelect.prototype = {
                     }
                 });
             } else {
-                self.getData(self.page);
+                self.getData(self.page, self.selectedDatas);
             }
         });
 
     },
 
-    getUrlForAjax: function() {
-        var self = this;
+    displayDatas: function() {
+        var self = this,
+            hasSelectedDatas;
 
         if (self.settings.url !== null) {
-            self.hasFilteredDatas = true;
-            self.compareRenderedDatas(self.hasFilteredDatas);
-        } else {
-            self.getData(self.page);
-        }
-    },
 
-    compareRenderedDatas: function (hasFilteredDatas) {
-
-        if (hasFilteredDatas) {
             jQuery.ajax({
                 url: self.settings.url,
                 type : 'GET',
                 dataType: 'json',
                 contentType: 'application/json',
-                success: function(data) {
-                    if(data != null) {
-                        total = Math.round(Math.ceil(data.total / self.settings.pageLimit));
-
-                        if (nb_page <= total) {
-                            jQuery.each(data.items, function(idx,value) {
-                                self.elem.append(
-                                    '<div class="ms-elem">' +
-                                    '<input type="checkbox" id="elem_' + value.id + '" />' +
-                                    '<label for="elem_' + value.id + '">' + value.text + '</label>' +
-                                    '</div>');
-                            })
-                        }
+                success: function(datas) {
+                    if (datas != null) {
+                            self.selectedDatas = datas;
                     }
+                },
+                error: function(XMLHttpRequest, textStatus, error) {
+                    console.log(error);
                 }
+            }).done(function() {
+                if (self.selectedDatas.length === 0 || self.selectedDatas === undefined) {
+                    hasSelectedDatas = false;
+                } else {
+                    hasSelectedDatas = true;
+                }
+
+                self.renderIntialDatas(hasSelectedDatas,self.selectedDatas);
             });
+
+        } else {
+            console.log('url undefined !');
         }
     },
 
-    getData: function(nb_page) {
-        var self = this,
-            total;
+    renderIntialDatas: function(hasSelectedDatas, selectedDatas) {
+        var self = this;
 
-        /*http://10.30.2.170/centreon/include/common/webServices/rest/internal.php?object=centreon_configuration_host&action=list&page_limit=60&page=1
-         http://10.30.2.170/centreon/api/index.php?object=centreon_configuration_host&action=list
-         http://10.30.2.170/centreon/api/index.php?action=authenticate
-         username=superadmin&password=centreon
-         */
+        self.getData(self.page, hasSelectedDatas, selectedDatas, false);
+
+        /* Add event to infinite scroll */
+        self.elem.on("scroll", function (e) {
+            if (self.elem.scrollTop() + self.elem.height() > self.elem.height() * self.page) {
+                self.page ++;
+                //self.displayDatas();
+                self.getData(self.page, hasSelectedDatas, selectedDatas, false);
+            }
+        });
+
+        if (hasSelectedDatas) {
+            self.renderSelectedDatas(selectedDatas, true);
+        }
+    },
+
+    renderSelectedDatas: function(selectedDatas, isChecked) {
+        var self = this,
+            element,
+            attrChecked = '';
+
+            if (isChecked) {
+                attrChecked = 'checked';
+            }
+
+            jQuery.each(selectedDatas, function(i, selectedValue) {
+                self.elem.append(
+                    '<div class="ms-elem">' +
+                    '<input type="checkbox" ' + attrChecked + ' id="elem_' + selectedValue.id + '" />' +
+                    '<label for="elem_' + selectedValue.id + '">' + selectedValue.text + '</label>' +
+                    '</div>'
+                );
+            });
+        },
+
+    getData: function(nb_page, hasSelectedDatas, selectedDatas, isChecked) {
+        var self = this,
+            renderedDatas = [],
+            total;
 
         if (self.settings.multiSelect.hasOwnProperty('ajax')) {
 
@@ -144,23 +165,28 @@ mutliSelect.prototype = {
                 success: function(data) {
                     if(data != null) {
                         total = Math.round(Math.ceil(data.total / self.settings.pageLimit));
-
                         if (nb_page <= total) {
-                            jQuery.each(data.items, function(idx,value) {
-                                self.elem.append(
-                                    '<div class="ms-elem">' +
-                                    '<input type="checkbox" id="elem_' + value.id + '" />' +
-                                    '<label for="elem_' + value.id + '">' + value.text + '</label>' +
-                                    '</div>');
-                            })
+                            if (hasSelectedDatas) {
+                                jQuery.each(data.items, function(idx,value) {
+                                    jQuery.each(selectedDatas, function(i, selectedValue) {
+                                        if (value.text !== selectedValue.text) {
+                                            renderedDatas.push({
+                                                id: value.id,
+                                                text: value.text
+                                            });
+                                        }
+                                    });
+                                });
+                            } else {
+                                renderedDatas = data.items;
+                            }
+
+                            self.renderSelectedDatas(renderedDatas, isChecked);
                         }
                     }
                 }
             });
         }
-
-        //var url = self.settings.url + '&page_limit=' + self.settings.pageLimit + '&page=' + nb_page;
-
     },
 
     initNiceScroll: function(elem) {
@@ -191,6 +217,5 @@ mutliSelect.prototype = {
 jQuery.fn.centreonMultiSelect2.defaults = {
     url: null,
     pageLimit: 10,
-    multiSelect: {
-    }
+    multiSelect: {}
 };
