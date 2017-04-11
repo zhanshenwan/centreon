@@ -215,7 +215,9 @@ class HTML_QuickForm_multiselect extends HTML_QuickForm_select
      */
     function toHtml()
     {
-        $strHtml = 'toto';
+        $strHtml = '<div id="'.$this->getName().'"></div>';
+
+        $strHtml .= $this->getJsInit();
         return $strHtml;
     }
 
@@ -231,15 +233,10 @@ class HTML_QuickForm_multiselect extends HTML_QuickForm_select
             $ajaxOption = 'ajax: {
                 url: "' . $this->_availableDatasetRoute . '"
             },';
+            $defaultData .= $this->_defaultDatasetRoute;
 
-            if ($this->_defaultDatasetRoute && is_null($this->_defaultDataset)) {
-                $additionnalJs = $this->setDefaultAjaxDatas();
-            } else {
-                $this->setDefaultFixedDatas();
-            }
         } else {
-            $defaultData = $this->setFixedDatas() . ',';
-            $this->setDefaultFixedDatas();
+
         }
 
         $additionnalJs .= ' ' . $this->_jsCallback;
@@ -248,12 +245,10 @@ class HTML_QuickForm_multiselect extends HTML_QuickForm_select
             jQuery(function () {
                 var $currentObject' . $this->getName() . ' = jQuery("#' . $this->getName() . '").centreonMultiSelect2({
                     pageLimit: ' . $this->_pagination . ',
+                    url: "' . $defaultData . '",
                     multiSelect: {
                         ' . $ajaxOption . '
-                        ' . $defaultData . '
-                        placeholder: "' . $this->getLabel() . '",
-                        checkboxparent: "' . $this->getName() . '"
-                    }
+                        placeholder: "' . $this->getLabel() . '"                    }
                 });
                 ' . $additionnalJs . '
             });
@@ -302,51 +297,6 @@ class HTML_QuickForm_multiselect extends HTML_QuickForm_select
 
     /**
      *
-     */
-    function setDefaultFixedDatas()
-    {
-        global $pearDB;
-
-        if (!is_null($this->_linkedObject)) {
-            require_once _CENTREON_PATH_ . '/www/class/' . $this->_linkedObject . '.class.php';
-            $objectFinalName = ucfirst($this->_linkedObject);
-
-            $myObject = new $objectFinalName($pearDB);
-            $finalDataset = $myObject->getObjectForSelect2($this->_defaultDataset, $this->_defaultDatasetOptions);
-
-
-            foreach ($finalDataset as $dataSet) {
-                $currentOption = '<div class="ms-elem">'
-                    . '<label><input type="checkbox" checked="checked" value="' . $dataSet['id'] . '"'
-                    . ' name="' . $this->getName() . '[]"/>'
-                    . $dataSet['text']
-                    . "</div></label>";
-
-                if (!in_array($dataSet['id'], $this->_memOptions)) {
-                    $this->_memOptions[] = $dataSet['id'];
-                    $this->_defaultSelectedOptions .= $currentOption;
-                }
-            }
-        } else if (!is_null($this->_defaultDataset)) {
-            foreach ($this->_defaultDataset as $elementName => $elementValue) {
-
-                $currentOption = '<div class="ms-elem">'
-                    . '<label><input type="checkbox" checked="checked" value="'
-                    . $elementValue . '"'
-                    . ' name="' . $this->getName() . '[]"/>'
-                    . $elementName . "</label></div>";
-
-                if (!in_array($elementValue, $this->_memOptions)) {
-                    $this->_memOptions[] = $elementValue;
-                    $this->_defaultSelectedOptions .= $currentOption;
-                }
-            }
-        }
-
-    }
-
-    /**
-     *
      * @param string $event
      * @param string $callback
      */
@@ -357,40 +307,6 @@ class HTML_QuickForm_multiselect extends HTML_QuickForm_select
             . ' }); ';
     }
 
-    /**
-     *
-     * @return string
-     */
-    public function setDefaultAjaxDatas()
-    {
-        $ajaxDefaultDatas = '$request' . $this->getName() . ' = jQuery.ajax({
-            url: "' . $this->_defaultDatasetRoute . '",
-        });
-        
-        $request' . $this->getName() . '.success(function (data) {
-            for (var d = 0; d < data.length; d++) {
-                var item = data[d];
-                
-                // Create the DOM option that is pre-selected by default
-                var checkbox = "<div class="ms-elem">" 
-                + "<label><input type=\"checkbox\" checked=\"checked\" value=\"" + item.id + "\" ";
-                option += "/>" + item.text + "</label></div>";
-              
-                // Append it to the select
-                $currentObject' . $this->getName() . '.append(option);
-            }
- 
-            // Update the selected options that are displayed
-            $currentObject' . $this->getName() . '.trigger("change",[{origin:\'multiselectdefaultinit\'}]);
-        });
-
-        $request' . $this->getName() . '.error(function(data) {
-            
-        });
-        ';
-
-        return $ajaxDefaultDatas;
-    }
 
     /**
      *
@@ -432,7 +348,6 @@ class HTML_QuickForm_multiselect extends HTML_QuickForm_select
                     $value = array($value);
                 }
                 $this->_defaultDataset = $value;
-                $this->setDefaultFixedDatas();
             }
             return true;
         } else {
