@@ -14,7 +14,7 @@ function mutliSelect(settings, elem) {
 
     self.initElements();
     self.initNiceScroll(elem);
-    self.searchData();
+    self.handleEvent();
     self.displayDatas();
 }
 
@@ -29,53 +29,75 @@ mutliSelect.prototype = {
         self.elem.before(self.elem.searchBox);
     },
 
-    searchData: function() {
+    /**
+     * Handle keypress event on search
+     */
+    handleEvent: function() {
         var self = this,
+            keyword,
             input;
 
         input = jQuery('<input type="text" value="" placeholder="Search..."/>');
         self.elem.searchBox.append(input);
 
-        jQuery(input).on('keypress', function() {
-            var keyword = input.val();
+        jQuery(input).on('keyup', function(e) {
+            keyword = input.val();
 
-            var url = self.settings.url + '&q=' + keyword;
-            if(keyword != '') {
-                jQuery.ajax({
-                    url: url,
-                    type : 'GET',
-                    dataType: 'json',
-                    contentType: 'application/json',
-                    success: function(data) {
-                        var datas = '';
-                        if (data != null) {
-                            jQuery.each(data.items, function(idx,value) {
-                                datas += '<div class="ms-elem">' +
-                                    '<input type="checkbox" id="elem_' + value.id + '" />' +
-                                    '<label for="elem_' + value.id + '">' + value.text + '</label>' +
-                                    '</div>';
-                            })
-                            if (datas == ''){
-                                self.elem.html('<p class="ms-elem">Element not found !</p>');
-                            } else {
-                                self.elem.html(datas);
-                            }
-
-                        } else {
-                            console.log('Element not found !');
-                        }
-                    },
-                    error: function() {
-                        console.log('Element not found !');
-                    }
-                });
-            } else {
-                self.getData(self.page, self.selectedDatas);
+            if (e.which == 13) {
+                return false;
             }
-        });
 
+            console.log(keyword);
+
+            if(keyword.length >= 3) {
+                self.searchData(keyword);
+            } else if(keyword === '') {
+                self.displayDatas();
+            }
+        })
     },
 
+    /**
+     * Search by keyword and display results
+     * @param keyword
+     */
+    searchData: function(keyword) {
+        var self = this,
+            url = self.ajax.url + '&q=' + keyword;
+
+            jQuery.ajax({
+                url: url,
+                type : 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(data) {
+                    var datas = '';
+                    if (data != null) {
+                        jQuery.each(data.items, function(idx,value) {
+                            datas += '<div class="ms-elem">' +
+                                '<input type="checkbox" id="elem_' + value.id + '" />' +
+                                '<label for="elem_' + value.id + '">' + value.text + '</label>' +
+                                '</div>';
+                        })
+                        if (datas == ''){
+                            self.elem.html('<p class="ms-elem">Element not found !</p>');
+                        } else {
+                            self.elem.html(datas);
+                        }
+
+                    } else {
+                        console.log('Element not found !');
+                    }
+                },
+                error: function() {
+                    console.log('Element not found !');
+                }
+            });
+    },
+
+    /**
+     * Get selected Datas if they exist
+     */
     displayDatas: function() {
         var self = this,
             hasSelectedDatas;
@@ -102,7 +124,7 @@ mutliSelect.prototype = {
                     hasSelectedDatas = true;
                 }
 
-                self.renderIntialDatas(hasSelectedDatas,self.selectedDatas);
+                self.getIntialDatas(hasSelectedDatas,self.selectedDatas);
             });
 
         } else {
@@ -110,7 +132,12 @@ mutliSelect.prototype = {
         }
     },
 
-    renderIntialDatas: function(hasSelectedDatas, selectedDatas) {
+    /**
+     * Get datas with infinite scroll
+     * @param hasSelectedDatas
+     * @param selectedDatas
+     */
+    getIntialDatas: function(hasSelectedDatas, selectedDatas) {
         var self = this;
 
         self.getData(self.page, hasSelectedDatas, selectedDatas, false);
@@ -119,19 +146,22 @@ mutliSelect.prototype = {
         self.elem.on("scroll", function (e) {
             if (self.elem.scrollTop() + self.elem.height() > self.elem.height() * self.page) {
                 self.page ++;
-                //self.displayDatas();
                 self.getData(self.page, hasSelectedDatas, selectedDatas, false);
             }
         });
 
         if (hasSelectedDatas) {
-            self.renderSelectedDatas(selectedDatas, true);
+            self.renderDatas(selectedDatas, true);
         }
     },
 
-    renderSelectedDatas: function(selectedDatas, isChecked) {
+    /**
+     * Display Datas
+     * @param selectedDatas
+     * @param isChecked
+     */
+    renderDatas: function(selectedDatas, isChecked) {
         var self = this,
-            element,
             attrChecked = '';
 
             if (isChecked) {
@@ -148,6 +178,13 @@ mutliSelect.prototype = {
             });
         },
 
+    /**
+     * Get datas by ajax call
+     * @param nb_page
+     * @param hasSelectedDatas
+     * @param selectedDatas
+     * @param isChecked
+     */
     getData: function(nb_page, hasSelectedDatas, selectedDatas, isChecked) {
         var self = this,
             renderedDatas = [],
@@ -167,8 +204,8 @@ mutliSelect.prototype = {
                         total = Math.round(Math.ceil(data.total / self.settings.pageLimit));
                         if (nb_page <= total) {
                             if (hasSelectedDatas) {
-                                jQuery.each(data.items, function(idx,value) {
-                                    jQuery.each(selectedDatas, function(i, selectedValue) {
+                                jQuery.each(selectedDatas, function(i, selectedValue) {
+                                    jQuery.each(data.items, function(idx,value) {
                                         if (value.text !== selectedValue.text) {
                                             renderedDatas.push({
                                                 id: value.id,
@@ -181,7 +218,7 @@ mutliSelect.prototype = {
                                 renderedDatas = data.items;
                             }
 
-                            self.renderSelectedDatas(renderedDatas, isChecked);
+                            self.renderDatas(renderedDatas, isChecked);
                         }
                     }
                 }
@@ -189,6 +226,10 @@ mutliSelect.prototype = {
         }
     },
 
+    /**
+     * Init nice scroll
+     * @param elem
+     */
     initNiceScroll: function(elem) {
         elem.niceScroll({
             cursoropacitymin: 0.2,
