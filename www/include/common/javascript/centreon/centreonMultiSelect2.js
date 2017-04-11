@@ -10,7 +10,7 @@ function mutliSelect(settings, elem) {
     self.ajax = self.settings.multiSelect.ajax;
     self.hasFilteredDatas = false;
     self.selectedDatas = {};
-
+    self.id = self.elem.attr('id');
 
     self.initElements();
     self.initNiceScroll(elem);
@@ -75,7 +75,7 @@ mutliSelect.prototype = {
                     if (data != null) {
                         jQuery.each(data.items, function(idx,value) {
                             datas += '<div class="ms-elem">' +
-                                '<input type="checkbox" id="elem_' + value.id + '" />' +
+                                '<input type="checkbox" name="' + self.id + '[]" id="elem_' + value.id + '" value="' + value.id + '" />' +
                                 '<label for="elem_' + value.id + '">' + value.text + '</label>' +
                                 '</div>';
                         })
@@ -171,7 +171,8 @@ mutliSelect.prototype = {
             jQuery.each(selectedDatas, function(i, selectedValue) {
                 self.elem.append(
                     '<div class="ms-elem">' +
-                    '<input type="checkbox" ' + attrChecked + ' id="elem_' + selectedValue.id + '" />' +
+                    '<input type="checkbox" ' + attrChecked + ' id="elem_' + selectedValue.id
+                    + '" value="' + selectedValue.id + '" name="' + self.id + '[]" />' +
                     '<label for="elem_' + selectedValue.id + '">' + selectedValue.text + '</label>' +
                     '</div>'
                 );
