@@ -76,7 +76,7 @@ mutliSelect.prototype = {
                         jQuery.each(data.items, function(idx,value) {
                             datas += '<div class="ms-elem">' +
                                 '<input type="checkbox" id="elem_' + value.id + '" />' +
-                                '<label for="elem_' + value.id + '">' + value.text + '</label>' +
+                                '<label for="elem_' + value.id + '" class="checkbox-label">' + value.text + '</label>' +
                                 '</div>';
                         })
                         if (datas == ''){
@@ -172,7 +172,7 @@ mutliSelect.prototype = {
                 self.elem.append(
                     '<div class="ms-elem">' +
                     '<input type="checkbox" ' + attrChecked + ' id="elem_' + selectedValue.id + '" />' +
-                    '<label for="elem_' + selectedValue.id + '">' + selectedValue.text + '</label>' +
+                    '<label for="elem_' + selectedValue.id + '" class="checkbox-label">' + selectedValue.text + '</label>' +
                     '</div>'
                 );
             });

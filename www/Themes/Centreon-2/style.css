@@ -1929,26 +1929,7 @@ td.ui-timepicker-minute-cell a, td.ui-timepicker-minute-cell span{
 
 /* --------- Bloc Elements -------------- */
 
-.elemBloc {
-    border: 1px solid #D1D2D4;
-    height: 174px;
-    overflow: hidden;
-}
-
-.elemBloc:not(.advancedForm) label, .elemBloc:not(.advancedFormService) label {
-    cursor: pointer;
-    position: relative;
-    padding-left: 16px;
-    margin-right: 10px;
-}
-
-.elemBloc input[type=checkbox] {
-    display: none;
-    height: 118px;
-    overflow: hidden;
-}
-
-.elemBloc:not(.advancedForm) label:before, .elemBloc:not(.advancedFormService) label:before {
+.checkbox-label:before{
     content: "";
     display: inline-block;
     width: 10px;
@@ -1961,7 +1942,43 @@ td.ui-timepicker-minute-cell a, td.ui-timepicker-minute-cell span{
     border: 1px solid #bcbdc0;
 }
 
-input.included[type=checkbox]:checked + label:before {
+.elemBloc {
+    border: 1px solid #D1D2D4;
+    height: 174px;
+    overflow: hidden;
+}
+
+.elemBloc:not(.advancedForm) label, .elemBloc:not(.advancedFormService) label,
+.checkbox-label{
+    cursor: pointer;
+    position: relative;
+    padding-left: 16px;
+    margin-right: 10px;
+}
+
+.elemBloc input[type=checkbox]
+{
+    display: none;
+    height: 118px;
+    overflow: hidden;
+}
+
+.elemBloc:not(.advancedForm) label:before, .elemBloc:not(.advancedFormService) label:before,
+.checkbox-label:before{
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    background-color: #fff;
+    border: 1px solid #bcbdc0;
+}
+
+input.included[type=checkbox]:checked + label:before,
+.ms-elem input[type=checkbox]:checked + .checkbox-label:before {
     content: "\2714";
     color: #fff;
     text-align: center;
