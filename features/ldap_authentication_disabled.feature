@@ -1,4 +1,4 @@
-    Feature: LDAP_authentication_disabled
+    Feature: LDAP_Manual_Import
         As a company administrator
         I want to import manually users
         In order to filter the ones who can access to Centreon Web
