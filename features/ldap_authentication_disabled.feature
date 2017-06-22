@@ -6,13 +6,14 @@
     Background:
         Given I am logged in a Centreon server
         And a LDAP configuration has been created 
-        And "No" has been set to option Enable LDAP authentication 
-        And "No" has been set to option Auto Import users
+        And LDAP authentication is disabled
+        And users auto import is disabled
 
     Scenario: Search and import one user whose alias contains an accent
-        When I search a specific user whose alias contains a special character such as an accent
-        Then the LDAP search result displays the expected alias
-        And the user is visible in Configuration > Users page
+        Given I search a specific user whose alias contains a special character such as an accent
+        And the LDAP search result displays the expected alias
+	When I import the user
+        Then the user is created
 		
     Scenario: LDAP manually imported user can authenticate to Centreon Web
         Given one alias with an accent has been manually imported                              
