@@ -6,7 +6,7 @@
     Background:
         Given I am logged in a Centreon server
         And a LDAP configuration has been created 
-        And LDAP authentication is disabled
+        And LDAP authentication is enabled
         And users auto import is disabled
 
     Scenario: Search and import one user whose alias contains an accent
