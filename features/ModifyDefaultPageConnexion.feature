@@ -4,7 +4,7 @@
         To access directly to the one I have chosen
         
     Background: 
-        Given I'm logged in a Centreon server
+        Given I am logged in a Centreon server
         And I have access to all menus
         
     Scenario: Changing default page connexion for an admin user
