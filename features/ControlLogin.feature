@@ -4,7 +4,8 @@
         In order to protect our IT infrastructure
 	
     Background:
-        Given one existing user able to connect to Centreon Web
+        Given I am logged in a Centreon server
+        And one existing user able to connect to Centreon Web
 
     Scenario: Wrong alias
         When I type a wrong alias but a correct password
