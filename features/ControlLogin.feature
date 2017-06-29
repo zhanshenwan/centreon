@@ -13,5 +13,5 @@
 		
     Scenario: Bad password
         When I type a wrong password but a correct alias
-        Then I cannot access to Centreon
+        Then I am not able to access to Centreon
 
