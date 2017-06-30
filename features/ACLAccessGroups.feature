@@ -11,17 +11,17 @@ Feature: AclAccessGroups
         And the access group is saved with its properties
         Then all linked users have the access list group displayed in Centreon authentication tab
         
-   Scenario: Creating ACL access group with linked contact group
+    Scenario: Creating ACL access group with linked contact group
         When I add a new access group with linked contact group
         And the access group is saved with its properties
         Then the Contact group has the access list group displayed in Relations informations
 
-   Scenario: Modify ACL access group properties
+    Scenario: Modify ACL access group properties
         Given one existing ACL access group
         When I modify its properties
         Then all modified properties are updated
         
-   Scenario: Duplicate ACL access group
+    Scenario: Duplicate ACL access group
         Given one existing ACL access group
         When I duplicate the access group
         Then a new access group appears with similar properties
