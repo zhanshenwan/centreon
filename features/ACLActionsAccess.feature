@@ -12,7 +12,15 @@ Feature: ACL Actions Access
         When I add a new Actions access linked with the access groups
         Then the Actions access record is saved with its properties
         And all linked access group display the new Actions access in Authorized information tab
-        
+	
+    Scenario: Creating Actions Access by selecting authorized actions one by one
+        When I select one by one all actions to authorize them in a Actions access record I create
+	Then all radio-buttons have to be checked.
+	
+    Scenario: Creating Actions Access by selecting authorized actions by lots
+        When I check button-radio for a lot of actions
+	Then all buttons-radio of the authorized actions lot are checked
+            
     Scenario: Remove one access group from Actions access 
         Given one existing Actions access linked with one access group
         When I remove the access group
