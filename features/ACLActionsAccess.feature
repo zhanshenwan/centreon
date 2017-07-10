@@ -6,7 +6,7 @@ Feature: ACL Actions Access
     Background:
         Given I am logged in a Centreon server
         And one ACL access groups including non admin users exists
-        And one ACL access group including one admin user exists
+        And one ACL access group linked to a Contact group including an admin user exists
                                 
     Scenario: Creating Actions Access linked to one non admin access groups and to one admin access group
         When I add a new Actions access linked with the access groups
