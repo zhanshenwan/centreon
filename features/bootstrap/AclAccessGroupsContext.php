@@ -4,89 +4,119 @@ use Centreon\Test\Behat\CentreonContext;
 use Centreon\Test\Behat\Configuration\ContactConfigurationPage;
 use Centreon\Test\Behat\Configuration\ContactGroupsConfigurationPage;
 use Centreon\Test\Behat\Configuration\ContactGroupConfigurationListingPage;
-use Centreon\Test\Behat\Configuration\ContactConfigurationListingPage;
 use Centreon\Test\Behat\Administration\ACLGroupConfigurationPage;
 use Centreon\Test\Behat\Administration\ACLGroupConfigurationListingPage;
+use Centreon\Test\Behat\Administration\ACLMenuConfigurationPage;
+use Centreon\Test\Behat\Administration\ACLActionConfigurationPage;
+use Centreon\Test\Behat\Administration\ACLResourceConfigurationPage;
 
 class AclAccessGroupsContext extends CentreonContext
 {
-    protected $page;
-    protected $firstContactName = 'firstContactName';
-    protected $firstContactAlias = 'firstContactAlias';
-    protected $secondContactName = 'secondContactName';
-    protected $secondContactAlias = 'secondContactAlias';
-    protected $contactGroupName = 'contactGroupName';
-    protected $contactGroupAlias = 'contactGroupAlias';
-    protected $accessContactName = 'accessContactName';
-    protected $accessContactAlias = 'accessContactAlias';
-    protected $accessGroupsName = 'accessGroupsName';
-    protected $accessGroupsAlias = 'accessGroupsAlias';
+    protected $currentPage;
+
+    protected $adminContact1 = array(
+        'name' => 'adminContact1Name',
+        'alias' => 'adminContact1Alias',
+        'email' => 'adminContact1@localhost',
+        'admin' => 1
+    );
+
+    protected $adminContact2 = array(
+        'name' => 'adminContact2Name',
+        'alias' => 'adminContact2Alias',
+        'email' => 'adminContact2@localhost',
+        'admin' => 1
+    );
+
+    protected $adminContactGroup = array(
+        'name' => 'adminContactGroupName',
+        'alias' => 'adminContactGroupAlias',
+        'contacts' => array(
+            'adminContact2Name',
+            'adminContact1Name'
+        )
+    );
+
+    protected $nonAdminContactGroup = array(
+        'name' => 'nonAdminContactGroupName',
+        'alias' => 'nonAdminContactGroupAlias',
+        'contacts' => array(
+            'Guest',
+            'User'
+        )
+    );
+
+    protected $aclGroupScenario1 = array(
+        'group_name' => 'scenario1Name',
+        'group_alias' => 'scenario1Alias',
+        'contactgroups' => 'nonAdminContactGroupName'
+    );
+
+
+    protected $aclGroupScenario2 = array(
+        'group_name' => 'scenario2Name',
+        'group_alias' => 'scenario2Alias',
+        'contactgroups' => 'adminContactGroupName'
+    );
+
+    protected $aclResource1 = array(
+        'acl_name' => 'aclResource1Name'
+    );
+
+    protected $aclAction1 = array(
+        'acl_name' => 'aclAction1Name',
+        'acl_alias' => 'aclActionAlias',
+        'acl_groups' => 'ALL'
+    );
+
+    protected $aclMenu1 = array(
+        'acl_name' => 'aclMenu1Name'
+    );
+
+    protected $aclMenu2 = array(
+        'acl_name' => 'aclMenu2Name'
+    );
+
+    protected $initialProperties = array(
+        'group_name' => 'aclGroupName',
+        'group_alias' => 'aclGroupAlias',
+        'contacts' => 'Guest',
+        'contactgroups' => 'Supervisors',
+        'status' => 1,
+        'resources' => 'aclResource1Name',
+        'menu' => 'aclMenu1Name',
+        'actions' => 'aclAction1Name'
+    );
+
+    protected $updatedProperties = array(
+        'group_name' => 'aclGroupNameChanged',
+        'group_alias' => 'aclGroupAliasChanged',
+        'contacts' => 'User',
+        'contactgroups' => 'Guest',
+        'status' => 1,
+        'resources' => 'All Resources',
+        'menu' => 'aclMenu2Name',
+        'actions' => 'Simple User'
+    );
 
     /**
      * @When one contact group exists including two non admin contacts
      */
     public function oneContactGroupExistsIncludingTwoNonAdminContacts()
     {
-        $this->page = new ContactConfigurationPage($this);
-        $this->page->setProperties(array(
-            'alias' => $this->firstContactAlias,
-            'name' => $this->firstContactName,
-            'email' => 'test@centreon.com',
-            'password' => 'firstContactPassword',
-            'password2' => 'firstContactPassword',
-            'admin' => 0
-        ));
-        $this->page->save();
-        $this->page = new ContactConfigurationPage($this);
-        $this->page->setProperties(array(
-            'alias' => $this->secondContactAlias,
-            'name' => $this->secondContactName,
-            'email' => 'test2@centreon.com',
-            'password' => 'secondContactPassword',
-            'password2' => 'secondContactPassword',
-            'admin' => 0
-        ));
-        $this->page->save();
-        $this->page = new ContactGroupsConfigurationPage($this);
-        $this->page->setProperties(array(
-            'name' => $this->contactGroupName,
-            'alias' => $this->contactGroupAlias
-        ));
-        $this->assertFind('css', 'span[class="select2-selection select2-selection--multiple"]')->click();
-        $this->spin(
-            function ($context) {
-                return $context->getSession()->getPage()->has('css', 'span ul li div[title="'
-                    . $this->firstContactName . '"]');
-            },
-            'The user: ' . $this->firstContactName . ' does not exist or has not been found',
-            5
-        );
-        $this->assertFind('css', 'span ul li div[title="' . $this->firstContactName . '"]')->click();
-        $this->assertFind('css', 'span[class="select2-selection select2-selection--multiple"]')->click();
-        $this->spin(
-            function ($context) {
-                return $context->getSession()->getPage()->has('css', 'span ul li div[title="'
-                    . $this->secondContactName . '"]');
-            },
-            'The user: ' . $this->secondContactName . ' does not exist or has not been found',
-            5
-        );
-        $this->assertFind('css', 'span ul li div[title="' . $this->secondContactName . '"]')->click();
-        $this->page->save();
+        $this->currentPage = new ContactGroupsConfigurationPage($this);
+        $this->currentPage->setProperties($this->nonAdminContactGroup);
+        $this->currentPage->save();
     }
 
     /**
-     * @When the access group is saved with its properties
+     * @When the non admin access group is saved with its properties
      */
-    public function theAccessGroupIsSavedWithItsProperties()
+    public function theNonAdminAccessGroupIsSavedWithItsProperties()
     {
-        $this->page = new ACLGroupConfigurationPage($this);
-        $this->page->setProperties(array(
-            'group_name' => $this->accessContactName,
-            'group_alias' => $this->accessContactAlias,
-            'contacts' => array($this->firstContactName, $this->secondContactName)
-        ));
-        $this->page->save();
+        $this->currentPage = new ACLGroupConfigurationPage($this);
+        $this->currentPage->setProperties($this->aclGroupScenario1);
+        $this->currentPage->save();
     }
 
     /**
@@ -94,22 +124,16 @@ class AclAccessGroupsContext extends CentreonContext
      */
     public function allLinkedUsersHaveTheAccessListGroupDisplayedInCentreonAuthenticationTab()
     {
-        $this->page = new ContactConfigurationListingPage($this);
-        $this->page = $this->page->inspect($this->firstContactAlias);
-        $this->assertFind('css', 'li#c2 a')->click();
-        $value = $this->assertFind('css', 'span[title="' . $this->accessContactName . '"]')->getText();
-        if ($value != $this->accessContactName) {
-
-            throw new \Exception($this->firstContactAlias . ' have no Access list groups displayed');
-        }
-
-        $this->page = new ContactConfigurationListingPage($this);
-        $this->page = $this->page->inspect($this->secondContactAlias);
-        $this->assertFind('css', 'li#c2 a')->click();
-        $value = $this->assertFind('css', 'span[title="' . $this->accessContactName . '"]')->getText();
-        if ($value != $this->accessContactName) {
-            throw new \Exception($this->secondContactAlias . ' have no Access list groups displayed');
-        }
+        $this->spin(
+            function ($context) {
+                $this->currentPage = new ContactGroupConfigurationListingPage($this);
+                $this->currentPage = $this->currentPage->inspect($this->nonAdminContactGroup['name']);
+                $object = $this->currentPage->getProperties();
+                return $object['acl'] == $this->aclGroupScenario1['group_name'];
+            },
+            "The contact group is not linked with the acl group.",
+            5
+        );
     }
 
     /**
@@ -117,21 +141,25 @@ class AclAccessGroupsContext extends CentreonContext
      */
     public function iAddANewAccessGroupWithLinkedContactGroup()
     {
-        $this->oneContactGroupExistsIncludingTwoNonAdminContacts();
-        $this->page = new ACLGroupConfigurationPage($this);
-        $this->page->setProperties(array(
-            'group_name' => 'accessGroupLinkedContactName',
-            'group_alias' => 'accessGroupLinkedContactAlias',
-            'contacts' => array($this->firstContactName, $this->secondContactName)
-        ));
-        $this->page->save();
-        $this->page = new ACLGroupConfigurationPage($this);
-        $this->page->setProperties(array(
-            'group_name' => $this->accessGroupsName,
-            'group_alias' => $this->accessGroupsAlias,
-            'contactgroups' => $this->contactGroupName
-        ));
-        $this->page->save();
+        $this->currentPage = new ContactConfigurationPage($this);
+        $this->currentPage->setProperties($this->adminContact1);
+        $this->currentPage->save();
+        $this->currentPage = new ContactConfigurationPage($this);
+        $this->currentPage->setProperties($this->adminContact2);
+        $this->currentPage->save();
+        $this->currentPage = new ContactGroupsConfigurationPage($this);
+        $this->currentPage->setProperties($this->adminContactGroup);
+        $this->currentPage->save();
+    }
+
+    /**
+     * @When the admin access group is saved with its properties
+     */
+    public function theAdminAccessGroupIsSavedWithItsProperties()
+    {
+        $this->currentPage = new ACLGroupConfigurationPage($this);
+        $this->currentPage->setProperties($this->aclGroupScenario2);
+        $this->currentPage->save();
     }
 
     /**
@@ -139,12 +167,16 @@ class AclAccessGroupsContext extends CentreonContext
      */
     public function theContactGroupHasTheAccessListGroupDisplayedInRelationsInformations()
     {
-        $this->page = new ContactGroupConfigurationListingPage($this);
-        $this->page = $this->page->inspect($this->contactGroupName);
-        $value = $this->assertFind('css', 'span[title="' . $this->accessGroupsName . '"]')->getText();
-        if ($value != $this->accessGroupsName) {
-            throw new \Exception($this->contactGroupName . ' have no Linked ACL groups displayed');
-        }
+        $this->spin(
+            function ($context) {
+                $this->currentPage = new ContactGroupConfigurationListingPage($this);
+                $this->currentPage = $this->currentPage->inspect($this->adminContactGroup['name']);
+                $object = $this->currentPage->getProperties();
+                return $object['acl'] == $this->aclGroupScenario2['group_name'];
+            },
+            "The contact group is not linked with the acl group.",
+            5
+        );
     }
 
     /**
@@ -152,8 +184,21 @@ class AclAccessGroupsContext extends CentreonContext
      */
     public function oneExistingAclAccessGroup()
     {
-        $this->iAddANewAccessGroupWithLinkedContactGroup();
-        $this->page = new ACLGroupConfigurationListingPage($this);
+        $this->currentPage = new ACLResourceConfigurationPage($this);
+        $this->currentPage->setProperties($this->aclResource1);
+        $this->currentPage->save();
+        $this->currentPage = new ACLActionConfigurationPage($this);
+        $this->currentPage->setProperties($this->aclAction1);
+        $this->currentPage->save();
+        $this->currentPage = new ACLMenuConfigurationPage($this);
+        $this->currentPage->setProperties($this->aclMenu1);
+        $this->currentPage->save();
+        $this->currentPage = new ACLMenuConfigurationPage($this);
+        $this->currentPage->setProperties($this->aclMenu2);
+        $this->currentPage->save();
+        $this->currentPage = new ACLGroupConfigurationPage($this);
+        $this->currentPage->setProperties($this->initialProperties);
+        $this->currentPage->save();
     }
 
     /**
@@ -161,12 +206,10 @@ class AclAccessGroupsContext extends CentreonContext
      */
     public function iModifyItsProperties()
     {
-        $this->page = $this->page->inspect($this->accessGroupsName);
-        $this->page->setProperties(array(
-            'group_name' => 'newGroupName',
-            'group_alias' => 'newGroupAlias'
-        ));
-        $this->page->save();
+        $this->currentPage = new ACLGroupConfigurationListingPage($this);
+        $this->currentPage = $this->currentPage->inspect($this->initialProperties['group_name']);
+        $this->currentPage->setProperties($this->updatedProperties);
+        $this->currentPage->save();
     }
 
     /**
@@ -174,10 +217,31 @@ class AclAccessGroupsContext extends CentreonContext
      */
     public function allModifiedPropertiesAreUpdated()
     {
-        $this->page = new ACLGroupConfigurationListingPage($this);
-        $objet = $this->page->getEntries();
-        if (!$objet['newGroupName'] && $objet['newGroupName']['description'] != 'newGroupAlias') {
-            throw new \Exception('updates has not changed');
+        $this->tableau = array();
+        try {
+            $this->spin(
+                function ($context) {
+                    $this->currentPage = new ACLGroupConfigurationListingPage($this);
+                    $this->currentPage = $this->currentPage->inspect($this->updatedProperties['group_name']);
+                    $object = $this->currentPage->getProperties();
+                    foreach ($this->updatedProperties as $key => $value) {
+                        if ($value != $object[$key]) {
+                            if (is_array($object[$key])) {
+                                $value = array($value);
+                            }
+                            if ($value != $object[$key]) {
+                                $this->tableau[] = $key;
+                            }
+                        }
+                    }
+                    return count($this->tableau) == 0;
+                },
+                "Some properties are not being updated : ",
+                5
+            );
+        } catch (\Exception $e) {
+            $this->tableau = array_unique($this->tableau);
+            throw new \Exception("Some properties are not being updated : " . implode(',', $this->tableau));
         }
     }
 
@@ -186,8 +250,9 @@ class AclAccessGroupsContext extends CentreonContext
      */
     public function iDuplicateTheAccessGroup()
     {
-        $object = $this->page->getEntry($this->accessGroupsName);
-        $this->page->selectMoreAction($object, 'Duplicate');
+        $this->currentPage = new ACLGroupConfigurationListingPage($this);
+        $object = $this->currentPage->getEntry($this->initialProperties['group_name']);
+        $this->currentPage->selectMoreAction($object, 'Duplicate');
     }
 
     /**
@@ -195,13 +260,31 @@ class AclAccessGroupsContext extends CentreonContext
      */
     public function aNewAccessGroupAppearsWithSimilarProperties()
     {
-        $objects = $this->page->getEntries();
-        if ($objects['accessGroupsName_1']) {
-            if ($objects['accessGroupsName_1']['description'] != $this->accessGroupsAlias) {
-                throw new \Exception('properties has not been duplicated');
-            }
-        } else {
-            throw new Exception('the duplication did not work');
+        $this->tableau = array();
+        try {
+            $this->spin(
+                function ($context) {
+                    $this->currentPage = new ACLGroupConfigurationListingPage($this);
+                    $this->currentPage = $this->currentPage->inspect($this->initialProperties['group_name'] . '_1');
+                    $object = $this->currentPage->getProperties();
+                    foreach ($this->initialProperties as $key => $value) {
+                        if ($key != 'group_name' && $value != $object[$key]) {
+                            if (is_array($object[$key])) {
+                                $value = array($value);
+                            }
+                            if ($value != $object[$key]) {
+                                $this->tableau[] = $key;
+                            }
+                        }
+                    }
+                    return count($this->tableau) == 0;
+                },
+                "Some properties are not being updated : ",
+                5
+            );
+        } catch (\Exception $e) {
+            $this->tableau = array_unique($this->tableau);
+            throw new \Exception("Some properties are not being updated : " . implode(',', $this->tableau));
         }
     }
 
@@ -210,8 +293,9 @@ class AclAccessGroupsContext extends CentreonContext
      */
     public function iDeleteTheAccessGroup()
     {
-        $object = $this->page->getEntry($this->accessGroupsName);
-        $this->page->selectMoreAction($object, 'Delete');
+        $this->currentPage = new ACLGroupConfigurationListingPage($this);
+        $object = $this->currentPage->getEntry($this->initialProperties['group_name']);
+        $this->currentPage->selectMoreAction($object, 'Delete');
     }
 
     /**
@@ -219,8 +303,9 @@ class AclAccessGroupsContext extends CentreonContext
      */
     public function itDoesNotExistAnymore()
     {
-        $objects = $this->page->getEntries();
-        if (key_exists($this->accessGroupsName, $objects)) {
+        $this->currentPage = new ACLGroupConfigurationListingPage($this);
+        $objects = $this->currentPage->getEntries();
+        if (key_exists($this->initialProperties['group_name'], $objects)) {
             throw new Exception($this->accessGroupsName . ' is still existing');
         }
     }
@@ -230,8 +315,21 @@ class AclAccessGroupsContext extends CentreonContext
      */
     public function oneExistingEnabledAclAccessGroup()
     {
-        $this->iAddANewAccessGroupWithLinkedContactGroup();
-        $this->page = new ACLGroupConfigurationListingPage($this);
+        $this->currentPage = new ACLResourceConfigurationPage($this);
+        $this->currentPage->setProperties($this->aclResource1);
+        $this->currentPage->save();
+        $this->currentPage = new ACLActionConfigurationPage($this);
+        $this->currentPage->setProperties($this->aclAction1);
+        $this->currentPage->save();
+        $this->currentPage = new ACLMenuConfigurationPage($this);
+        $this->currentPage->setProperties($this->aclMenu1);
+        $this->currentPage->save();
+        $this->currentPage = new ACLMenuConfigurationPage($this);
+        $this->currentPage->setProperties($this->aclMenu2);
+        $this->currentPage->save();
+        $this->currentPage = new ACLGroupConfigurationPage($this);
+        $this->currentPage->setProperties($this->initialProperties);
+        $this->currentPage->save();
     }
 
     /**
@@ -239,9 +337,18 @@ class AclAccessGroupsContext extends CentreonContext
      */
     public function iDisableIt()
     {
-        $this->page = $this->page->inspect($this->accessGroupsName);
-        $this->page->setProperties(array('status' => 0));
-        $this->page->save();
+        $this->currentPage = new ACLGroupConfigurationListingPage($this);
+        $options = $this->getSession()->getPage()->findAll(
+            'css',
+            'table[class="ListTable"] tr'
+        );
+        foreach ($options as $element) {
+            if ($this->assertFindIn($element, 'css', 'td:nth-child(2)')->getText() ==
+                $this->initialProperties['group_name']
+            ) {
+                $this->assertFindIn($element, 'css', 'img[src="img/icons/disabled.png"]')->click();
+            }
+        }
     }
 
     /**
@@ -249,8 +356,8 @@ class AclAccessGroupsContext extends CentreonContext
      */
     public function itsStatusIsModified()
     {
-        $this->page = new ACLGroupConfigurationListingPage($this);
-        $object = $this->page->getEntry($this->accessGroupsName);
+        $this->currentPage = new ACLGroupConfigurationListingPage($this);
+        $object = $this->currentPage->getEntry($this->initialProperties['group_name']);
         if ($object['status'] != 0) {
             throw new Exception($this->accessGroupsName . ' is still enabled');
         }

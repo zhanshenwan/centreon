@@ -8,12 +8,12 @@ Feature: AclAccessGroups
         
     Scenario: Creating ACL access group with linked contacts
         When one contact group exists including two non admin contacts
-        And the access group is saved with its properties
+        And the non admin access group is saved with its properties
         Then all linked users have the access list group displayed in Centreon authentication tab
 		
     Scenario: Creating ACL access group with linked contact group
         When I add a new access group with linked contact group
-        And the access group is saved with its properties
+        And the admin access group is saved with its properties
         Then the Contact group has the access list group displayed in Relations informations
 
     Scenario: Modify ACL access group properties
