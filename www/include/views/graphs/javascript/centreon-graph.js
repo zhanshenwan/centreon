@@ -238,7 +238,7 @@
           });
       }
 
-      this.buildLegend(data.legends);
+      this.buildLegend(data.metrics);
     },
     /**
      * Load data from rest api in ajax
@@ -667,19 +667,21 @@
      */
     buildLegend: function (legends) {
       var self = this;
+      var legend;
       var legendDiv;
       var legendInfo;
       var legendLabel;
       var legendExtra;
       var curveId;
       var i;
-      for (legend in legends) {
-        if (legends.hasOwnProperty(legend) && self.ids.hasOwnProperty(legend)) {
-          curveId = self.ids[legend];
+      var j;
+      for (i = 0; i < legends.length; i++) {
+        legend = legends[i];
+          curveId = self.ids[legend.legend];
           var fct = self.getAxisTickFormat(self.getBase());
           legendDiv = jQuery('<div>').addClass('chart-legend')
             .data('curveid', curveId)
-            .data('legend', legend);
+            .data('legend', i);
 
           /* Build legend for a curve */
           legendLabel = jQuery('<div>')
@@ -692,20 +694,16 @@
                 })
             )
             .append(
-              jQuery('<span>').text(legend)
+              jQuery('<span>').text(legend.legend)
             );
           legendLabel.appendTo(legendDiv);
 
           /* Build legend extra */
-          for (i = 0; i < legends[legend].extras.length; i++) {
+          for (j = 0; j < legend.prints.length; j++) {
             legendExtra = jQuery('<div>').addClass('extra')
               .append(
                 jQuery('<span>')
-                  .text(legends[legend].extras[i].name + ' :')
-              )
-              .append(
-                jQuery('<span>')
-                  .text(fct(legends[legend].extras[i].value))
+                  .text(legend.prints[j])
               )
             legendExtra.appendTo(legendDiv);
           }
@@ -723,7 +721,6 @@
             });
 
           legendDiv.appendTo(this.legendDiv);
-        }
       }
       /* Append actions button */
       actionDiv = jQuery('<div>').addClass('chart-legend-action');
