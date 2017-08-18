@@ -208,11 +208,7 @@
               return moment(x).format('YYYY-MM-DD HH:mm:ss');
             },
             value: function (value, ratio, id) {
-              /* Test if the curve is inversed */
-              var fct = self.getAxisTickFormat(
-                self.getBase(),
-                self.isInversed(id)
-              );
+              var fct = self.getAxisTickFormat(self.getBase());
               return fct(value);
             }
           }
@@ -290,17 +286,6 @@
      * @return {Object} - The converted data
      */
     buildMetricData: function (dataRaw) {
-      var convertType = {
-        /* 
-         * line: 'spline',
-         * area: 'area-spline'
-         */
-        /*
-         * No more artifacts on curves
-         */
-        line: 'line',
-        area: 'area'
-      };
       var i = 0;
       var data = {
         columns: [],
@@ -343,13 +328,8 @@
           units[dataRaw.metrics[i].unit].push(name);
         }
         data.names[name] = legend;
-        data.types[name] = 'line';
-        data.colors[name] ="#e00b3d"
-        /*
-        data.types[name] = convertType.hasOwnProperty(dataRaw.metrics[i].type) !== -1 ?
-          convertType[dataRaw.metrics[i].type] : dataRaw.metrics[i].type;
-        data.colors[name] = dataRaw.metrics[i].color;
-        */
+        data.types[name] = dataRaw.metrics[i].ds_data.ds_filled == 1 ? 'area' : 'line';
+        data.colors[name] = dataRaw.metrics[i].ds_data.ds_color_line;
       }
 
       if (Object.keys(units).length === 2) {
@@ -638,15 +618,9 @@
      * @param {Integer} base - The value to transform
      * @return {Function} - The function for round the axes tick
      */
-    getAxisTickFormat: function (base, inversed) {
+    getAxisTickFormat: function (base) {
       if (base === 1024 || base === '1024') {
-        if (inversed) {
-          return this.inverseRoundTickByte;
-        }
         return this.roundTickByte;
-      }
-      if (inversed) {
-        return this.inverseRoundTick;
       }
       return this.roundTick;
     },
@@ -674,40 +648,7 @@
       }
       return numeral(value).format('0.0[0]0ib').replace(/iB/, 'B');
     },
-    /**
-     * Round the value of a point and transform to humanreadable
-     * and inverse the value if the curve is inversed
-     *
-     * @param {Float} value - The value to transform
-     * @return {String} - The value transformed
-     */
-    inverseRoundTick: function (value) {
-      return '-' + numeral(Math.abs(value)).format('0.0[0]0b').replace(/B/, '');
-    },
-    /**
-     * Round the value of a point and transform to humanreadable for bytes
-     * and inverse the value if the curve is inversed
-     *
-     * @param {Float} value - The value to transform
-     * @return {String} - The value transformed
-     */
-    inverseRoundTickByte: function (value) {
-      return '-' +  numeral(Math.abs(value)).format('0.0[0]0ib').replace(/iB/, 'B');
-    },
-    /**
-     * Return is the curve is inversed / negative
-     *
-     * @param {String} id - The curve id
-     * @return {Boolean} - If the curve is inversed
-     */
-    isInversed: function (id) {
-      return false;
-      var pos = parseInt(id.replace('data', ''), 10) - 1;
-      if (id === 'crit' || id === 'warn') {
-        return false;
-      }
-      return this.chartData.data[pos].negative;
-    },
+
     /**
      * Get base for 1000 or 1024 for a curve
      *
@@ -736,10 +677,7 @@
       for (legend in legends) {
         if (legends.hasOwnProperty(legend) && self.ids.hasOwnProperty(legend)) {
           curveId = self.ids[legend];
-          var fct = self.getAxisTickFormat(
-              self.getBase(),
-              self.isInversed(curveId)
-          );
+          var fct = self.getAxisTickFormat(self.getBase());
           legendDiv = jQuery('<div>').addClass('chart-legend')
             .data('curveid', curveId)
             .data('legend', legend);
@@ -827,10 +765,7 @@
           return true;
         }
         var curveId = self.ids[legendName];
-        var fct = self.getAxisTickFormat(
-          self.getBase(),
-          self.isInversed(curveId)
-        );
+        var fct = self.getAxisTickFormat(self.getBase());
         jQuery(el).find('.extra').remove();
         if (legends.hasOwnProperty(legendName)) {
           for (i = 0; i < legends[legendName].extras.length; i++) {
