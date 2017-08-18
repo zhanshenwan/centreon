@@ -677,50 +677,50 @@
       var j;
       for (i = 0; i < legends.length; i++) {
         legend = legends[i];
-          curveId = self.ids[legend.legend];
-          var fct = self.getAxisTickFormat(self.getBase());
-          legendDiv = jQuery('<div>').addClass('chart-legend')
-            .data('curveid', curveId)
-            .data('legend', i);
+        curveId = self.ids[legend.legend];
+        var fct = self.getAxisTickFormat(self.getBase());
+        legendDiv = jQuery('<div>').addClass('chart-legend')
+          .data('curveid', curveId)
+          .data('legend', i);
 
-          /* Build legend for a curve */
-          legendLabel = jQuery('<div>')
+        /* Build legend for a curve */
+        legendLabel = jQuery('<div>')
+          .append(
+            /* Color */
+            jQuery('<div>')
+              .addClass('chart-legend-color')
+              .css({
+                'background-color': self.chart.color(curveId)
+              })
+          )
+          .append(
+            jQuery('<span>').text(legend.legend)
+          );
+        legendLabel.appendTo(legendDiv);
+
+        /* Build legend extra */
+        for (j = 0; j < legend.prints.length; j++) {
+          legendExtra = jQuery('<div>').addClass('extra')
             .append(
-              /* Color */
-              jQuery('<div>')
-                .addClass('chart-legend-color')
-                .css({
-                  'background-color': self.chart.color(curveId)
-                })
+              jQuery('<span>')
+                .text(legend.prints[j])
             )
-            .append(
-              jQuery('<span>').text(legend.legend)
-            );
-          legendLabel.appendTo(legendDiv);
+          legendExtra.appendTo(legendDiv);
+        }
 
-          /* Build legend extra */
-          for (j = 0; j < legend.prints.length; j++) {
-            legendExtra = jQuery('<div>').addClass('extra')
-              .append(
-                jQuery('<span>')
-                  .text(legend.prints[j])
-              )
-            legendExtra.appendTo(legendDiv);
-          }
+        legendDiv
+          .on('mouseover', 'div', function (e) {
+            var curveId = jQuery(e.currentTarget).parent().data('curveid');
+            self.chart.focus(curveId);
+          })
+          .on('mouseout', 'div', function () { self.chart.revert(); })
+          .on('click', function (e) {
+            var curveId = jQuery(e.currentTarget).data('curveid');
+            jQuery(e.currentTarget).toggleClass('hidden');
+            self.chart.toggle(curveId);
+          });
 
-          legendDiv
-            .on('mouseover', 'div', function (e) {
-              var curveId = jQuery(e.currentTarget).parent().data('curveid');
-              self.chart.focus(curveId);
-            })
-            .on('mouseout', 'div', function () { self.chart.revert(); })
-            .on('click', function (e) {
-              var curveId = jQuery(e.currentTarget).data('curveid');
-              jQuery(e.currentTarget).toggleClass('hidden');
-              self.chart.toggle(curveId);
-            });
-
-          legendDiv.appendTo(this.legendDiv);
+        legendDiv.appendTo(this.legendDiv);
       }
       /* Append actions button */
       actionDiv = jQuery('<div>').addClass('chart-legend-action');
