@@ -259,6 +259,7 @@
       url += '&action=' + action[this.type];
       url += '&ids=' + this.id;
       url += '&start=' + start + '&end=' + end;
+      url += '&type=ng';
       $.ajax({
         url: url,
         type: 'GET',

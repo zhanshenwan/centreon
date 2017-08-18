@@ -161,10 +161,6 @@ class CentreonMetric extends CentreonWebService
         $ids = explode(',', $this->arguments['ids']);
         $result = array();
 
-        foreach ($ids as $id) {
-            $result[] = $this->serviceDatasNg($id);
-        }
-        /*
         if (isset($this->arguments['type']) && $this->arguments['type'] == 'ng') {
             foreach ($ids as $id) {
                 $result[] = $this->serviceDatasNg($id);
@@ -174,7 +170,6 @@ class CentreonMetric extends CentreonWebService
                 $result[] = $this->serviceDatas($id);
             }
         }
-        */
 
         return $result;
     }
