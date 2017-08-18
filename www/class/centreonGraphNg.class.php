@@ -44,6 +44,36 @@ require_once _CENTREON_PATH_."www/class/centreonService.class.php";
 require_once _CENTREON_PATH_."www/class/centreonSession.class.php";
 require_once _CENTREON_PATH_."www/include/common/common-Func.php";
 
+function _process_toposort($pointer, &$dependency, &$order, &$pre_processing){
+    if (isset($pre_processing[$pointer])) {
+        return false;
+    } else { 
+        $pre_processing[$pointer] = $pointer;
+    }
+ 
+    foreach($dependency[$pointer] as $i=>$v){
+        if(isset($dependency[$v])){
+            if(!_process_toposort($v, $dependency, $order, $pre_processing)) return false;
+        }
+        $order[$v] = $v;
+        unset($pre_processing[$v]);
+    }
+    $order[$pointer] = $pointer;
+    unset($pre_processing[$pointer]);
+    return true;
+}
+ 
+function _topological_sort($data, $dependency){
+    $order = array();
+    $pre_processing = array();
+    $order = array_diff_key($data, $dependency);
+    $data = array_diff_key($data, $order);
+    foreach($data as $i=>$v){
+        if(!_process_toposort($i,$dependency,$order, $pre_processing)) return false;
+    }
+    return $order;
+}
+
 class CentreonGraphNg {
     /*
      * Objects
@@ -78,7 +108,6 @@ class CentreonGraphNg {
     var $vname;
     var $metrics;
     var $onecurve;
-    var $format_json = 1;
 
     private function _initDatabase() {
         global $conf_centreon;
@@ -102,6 +131,11 @@ class CentreonGraphNg {
     public function __construct($host_id, $service_id, $user_id) {        
         $this->_initDatabase();
         
+        $this->cache_all_metrics = array();
+        $this->vnodes = array();
+        $this->vnodes_dependencies = array();
+        $this->vmetrics_order = array();
+        
         $this->ds_default = null;
         $this->color_cache = null;
         $this->user_id = $user_id;
@@ -109,6 +143,7 @@ class CentreonGraphNg {
         $this->components_ds_cache = null; 
         $this->listMetricsId = array();
         $this->metrics = array();
+        $this->vmetrics = array();
         $this->extra_datas = array();
         $this->index_id = $this->getIndexDataId($host_id, $service_id);
         if ($this->index_id == 0) {
@@ -200,7 +235,7 @@ class CentreonGraphNg {
             $metricPattern = str_replace('*', '.*', $metricPattern);
 
             # Check associated
-            if (($ds_val['host_id'] == $metric['host_id'] || $ds_val['host_id'] == '') &&
+            if (isset($metric['host_id']) && isset($metric['service_id']) && ($ds_val['host_id'] == $metric['host_id'] || $ds_val['host_id'] == '') &&
                 ($ds_val['service_id'] == $metric['service_id'] || $ds_val['service_id'] == '') &&
                 preg_match($metricPattern, $metric['metric_name'])) {
                 $ds_data_associated = $ds_val;
@@ -208,7 +243,7 @@ class CentreonGraphNg {
             }
 
             /* Check regular */
-            if (is_null($ds_data_regular) && preg_match('/^' . preg_quote($ds_val['ds_name'], '/') . '$/i', $metric["metric_name"])) {
+            if (is_null($ds_data_regular) && preg_match('/^' . preg_quote($ds_val['ds_name'], '/') . '$/i', $metric['metric_name'])) {
                 $ds_data_regular = $ds_val;
             }
         }
@@ -234,6 +269,67 @@ class CentreonGraphNg {
         
         return $ds_data;
     }
+    
+    private function _getLegend($metric) {
+        $legend = '';
+        if (isset($metric['ds_data']['ds_legend']) && strlen($metric['ds_data']['ds_legend']) > 0 ) {
+            $legend = str_replace('"', '\"', $metric['ds_data']['ds_legend']);
+        } else {
+            if (!isset($metric['ds_data']['ds_name']) || !preg_match('/DS/', $metric['ds_data']['ds_name'], $matches)){
+                 $legend = $this->cleanupDsNameForLegend($metric['metric']);
+            } else {
+                 $legend = (isset($metric['ds_data']['ds_name']) ? $metric['ds_data']['ds_name'] : "");
+            }
+            $legend = str_replace(":", "\:", $legend);
+        }
+
+        if ($metric["unit"] != "") {
+            $legend .= " (" . $metric["unit"] . ")";
+        }
+        
+        return $legend;
+    }
+    
+    function dfs(Node $node, $paths=array(), $visited = array()) {        
+        $visited[] = $node->name;
+        $not_visited = $node->not_visited_nodes($visited);
+        if (empty($not_visited)) {
+            array_push($paths, $node->name);
+            $this->total_paths[] = $paths;
+            return;
+        }
+        foreach ($not_visited as $n) {
+            array_push($paths, $node->name);
+            $this->dfs($n, $paths, $visited);
+            array_pop($paths);
+        }
+    }
+    
+    private function _manageMetrics() {
+        $this->vmetrics_order = array();
+        
+        if (count($this->vmetrics) == 0) {
+            return 0;
+        }
+        foreach ($this->vmetrics as $vmetric_id => &$tm) {
+            $this->vnodes[$vmetric_id] = $vmetric_id;
+            
+            $rpns = explode(',', $tm['rpn_function']);
+            foreach ($rpns as &$rpn) {
+                if (isset($this->cache_all_metrics['r:' . $rpn])) {
+                    $rpn = 'v' . $this->cache_all_metrics['r:' . $rpn];
+                } else if (isset($this->cache_all_metrics['v:' . $rpn])) {
+                    $vmetric_id_child = $this->cache_all_metrics['v:' . $rpn];                    
+                    $this->vnodes_dependencies[$vmetric_id][] = $vmetric_id_child;
+                    $rpn = 'vv' . $vmetric_id_child;
+                }
+            }
+            
+            $tm['rpn_function'] = implode(',', $rpns);
+        }
+        
+        $this->vmetrics_order = _topological_sort($this->vnodes, $this->vnodes_dependencies);
+    }
 
     public function initCurveList() {
         $stmt = $this->db_cs->prepare("SELECT host_id, service_id, metric_id, metric_name, unit_name, min, max, warn, warn_low, crit, crit_low
@@ -246,69 +342,93 @@ class CentreonGraphNg {
         $stmt->execute();
         $metrics = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        
+        $stmt = $this->db->prepare("SELECT *
+                                    FROM virtual_metrics
+                                    WHERE index_id = :index_id
+                                    AND vmetric_activate = '1'
+                                    ORDER BY vmetric_name");
+        $stmt->bindParam(':index_id', $this->index_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $vmetrics = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
         #$mmetrics = array_merge($this->rmetrics, $this->vmetrics);
         $components_ds_cache = NULL;
 
-        for ($i = 0; $i < count($metrics); $i++) {
-            if ($this->CheckDBAvailability($metrics[$i]["metric_id"])) {
-                $this->_log("found metric ". $metrics[$i]["metric_id"]);
+        foreach ($metrics as $metric) {
+            if ($this->CheckDBAvailability($metric["metric_id"])) {
+                $this->_log("found metric ". $metric["metric_id"]);
 
                 /*
                  * List of id metrics for rrdcached
                  */
-                $this->listMetricsId[] = $metrics[$i]["metric_id"];
+                $this->listMetricsId[] = $metric["metric_id"];
 
-                $this->metrics[$metrics[$i]["metric_id"]] = array(
-                    'metric_id' => $metrics[$i]["metric_id"],
-                    'metric' => $metrics[$i]["metric_name"],
-                    'metric_legend' => $this->cleanupDsNameForLegend($metrics[$i]["metric_name"]),
-                    'unit' => $metrics[$i]["unit_name"],
-                    'display' => 1,
-                    'min' => $metrics[$i]["min"],
-                    'max' => $metrics[$i]["max"],
+                $this->metrics[$metric["metric_id"]] = array(
+                    'metric_id' => $metric["metric_id"],
+                    'metric' => $metric["metric_name"],
+                    'metric_legend' => $this->cleanupDsNameForLegend($metric["metric_name"]),
+                    'unit' => $metric["unit_name"],
+                    'hidden' => 0,
+                    'min' => $metric["min"],
+                    'max' => $metric["max"],
+                    'virtual' => 0,
                 );
+                
+                $this->cache_all_metrics['r:' . $metric["metric_name"]] = $metric["metric_id"];
 
-                $ds_data = $this->getCurveDsConfig($metrics[$i]);
-                $this->metrics[$metrics[$i]["metric_id"]]['ds_data'] = $ds_data;
+                $ds_data = $this->getCurveDsConfig($metric);
+                $this->metrics[$metric['metric_id']]['ds_data'] = $ds_data;
 
-                if (isset($ds_data["ds_legend"]) && strlen($ds_data["ds_legend"]) > 0 ) {
-                    $this->metrics[$metrics[$i]["metric_id"]]["legend"] = str_replace('"', '\"', $ds_data["ds_legend"]);
-                } else {
-                    if (!isset($ds_data["ds_name"]) || !preg_match('/DS/', $ds_data["ds_name"], $matches)){
-                         $this->metrics[$metrics[$i]["metric_id"]]["legend"] = $this->cleanupDsNameForLegend($metrics[$i]["metric_name"]);
-                    } else {
-                         $this->metrics[$metrics[$i]["metric_id"]]["legend"] = (isset($ds_data["ds_name"]) ? $ds_data["ds_name"] : "");
-                    }
-                    $this->metrics[$metrics[$i]["metric_id"]]["legend"] = str_replace(":", "\:", $this->metrics[$metrics[$i]["metric_id"]]["legend"]);
-                }
+                $this->metrics[$metric['metric_id']]['legend'] = $this->_getLegend($this->metrics[$metric["metric_id"]]);
 
-                if ($metrics[$i]["unit_name"] != "") {
-                    $this->metrics[$metrics[$i]["metric_id"]]["legend"] .= " (" . $metrics[$i]["unit_name"] . ")";
-                }
-
-                $this->metrics[$metrics[$i]["metric_id"]]["stack"] = (isset($ds_data["ds_stack"]) && $ds_data["ds_stack"] ? $ds_data["ds_stack"] : 0);
+                $this->metrics[$metric['metric_id']]["stack"] = (isset($ds_data["ds_stack"]) && $ds_data["ds_stack"] ? $ds_data["ds_stack"] : 0);
                 
                 # Look also ds invert
-                $this->metrics[$metrics[$i]["metric_id"]]["warn"] = $metrics[$i]["warn"];
-                $this->metrics[$metrics[$i]["metric_id"]]["warn_low"] = $metrics[$i]["warn_low"];
-                $this->metrics[$metrics[$i]["metric_id"]]["crit"] = $metrics[$i]["crit"];
-                $this->metrics[$metrics[$i]["metric_id"]]["crit_low"] = $metrics[$i]["crit_low"];
+                $this->metrics[$metric["metric_id"]]["warn"] = $metric["warn"];
+                $this->metrics[$metric["metric_id"]]["warn_low"] = $metric["warn_low"];
+                $this->metrics[$metric["metric_id"]]["crit"] = $metric["crit"];
+                $this->metrics[$metric["metric_id"]]["crit_low"] = $metric["crit_low"];
                 if (!isset($ds_data["ds_color_area_warn"]) || empty($ds_data["ds_color_area_warn"])) {
-                    $this->metrics[$metrics[$i]["metric_id"]]["ds_color_area_warn"] = $this->general_opt["color_warning"]['value'];
+                    $this->metrics[$metric["metric_id"]]["ds_color_area_warn"] = $this->general_opt["color_warning"]['value'];
                 }
                 if (!isset($ds_data["ds_color_area_crit"]) || empty($ds_data["ds_color_area_crit"])) {
-                    $this->metrics[$metrics[$i]["metric_id"]]["ds_color_area_crit"] = $this->general_opt["color_critical"]['value'];
+                    $this->metrics[$metric["metric_id"]]["ds_color_area_crit"] = $this->general_opt["color_critical"]['value'];
                 }
                 
-                $this->metrics[$metrics[$i]["metric_id"]]["ds_order"] = (isset($ds_data["ds_order"]) && $ds_data["ds_order"] ? $ds_data["ds_order"] : 0);
-                
-                $this->metrics[$metrics[$i]["metric_id"]]["def_type"] = isset($metrics[$i]["def_type"]) ? $metrics[$i]["def_type"] : NULL;
-                #$this->metrics[$metrics[$i]["metric_id"]]["cdef_order"] = isset($metrics[$i]["cdef_order"]) ? $metrics[$i]["cdef_order"] : NULL;
-                #$this->metrics[$metrics[$i]["metric_id"]]["rpn_function"] = isset($metrics[$i]["cdef_order"]) ? $metrics[$i]["rpn_function"] : NULL;
-                $this->metrics[$metrics[$i]["metric_id"]]["ds_hidecurve"] = isset($metrics[$i]["cdef_order"]) ? $metrics[$i]["ds_hidecurve"] : NULL;
+                $this->metrics[$metric["metric_id"]]["ds_order"] = (isset($ds_data["ds_order"]) && $ds_data["ds_order"] ? $ds_data["ds_order"] : 0);
             }
         }
-
+        
+        foreach ($vmetrics as $vmetric) {
+            $this->_log("found vmetric ". $vmetric["vmetric_id"]);
+            $this->vmetrics[$vmetric["vmetric_id"]] = array(
+                'vmetric_id' => $vmetric["vmetric_id"],
+                'metric' => $vmetric["vmetric_name"],
+                'metric_legend' => $vmetric["vmetric_name"],
+                'unit' => $vmetric['unit_name'],
+                'hidden' => isset($vmetric['hidden']) && $vmetric['hidden'] == 1 ? 1 : 0,
+                'warn' => $vmetric['warn'],
+                'crit' => $vmetric['crit'],
+                'def_type' => $vmetric['def_type'] == 1 ? 'VDEF' : 'CDEF',
+                'rpn_function' => $vmetric['rpn_function'],
+                'virtual' => 1,
+            );
+            
+            $this->cache_all_metrics['v:' . $vmetric["vmetric_name"]] = $vmetric["vmetric_id"];
+            
+            if ($this->vmetrics[$vmetric["vmetric_id"]]['hidden'] == 0) {
+                # Not cleaning. Should have is own metric_id for ods_view_details
+                $vmetric['metric_name'] = $vmetric["vmetric_name"];
+                $vmetric['metric_id'] = $vmetric["vmetric_id"];
+                $ds_data = $this->getCurveDsConfig($vmetric);
+                $this->vmetrics[$vmetric["vmetric_id"]]['ds_data'] = $ds_data;
+                
+                $this->vmetrics[$vmetric["vmetric_id"]]['legend'] = $this->_getLegend($this->vmetrics[$vmetric["vmetric_id"]]);
+                $this->vmetrics[$vmetric["vmetric_id"]]["ds_order"] = (isset($ds_data["ds_order"]) && $ds_data["ds_order"] ? $ds_data["ds_order"] : 0);
+            }
+        }
+        
         /*
          * Sort by ds_order,then legend
          */
@@ -326,8 +446,15 @@ class CentreonGraphNg {
 
                 $this->addArgument("DEF:vi" . $metric_id . "=" . $this->dbPath . $metric_id . ".rrd:value:AVERAGE CDEF:v" . $metric_id . "=vi" . $metric_id . ",-1,*");
             } else {
-                $this->addArgument("DEF:v" . $metric_id . "=".$this->dbPath . $metric_id . ".rrd:value:AVERAGE");
+                $this->addArgument("DEF:v" . $metric_id . "=" . $this->dbPath . $metric_id . ".rrd:value:AVERAGE");
             }
+        }
+        
+        # Order is mandatory for CDEF and VDEF...
+        $this->_manageMetrics();
+        
+        foreach ($this->vmetrics_order as $vmetric_id) {
+            $this->addArgument($this->vmetrics[$vmetric_id]['def_type'] . ":vv" . $vmetric_id . "=" . $this->vmetrics[$vmetric_id]['rpn_function']);
         }
     }
     
@@ -361,8 +488,7 @@ class CentreonGraphNg {
     * @param bool $reverse set to true if we want to retrieve the original string to display
     * @return string
     */
-    protected function cleanupDsNameForLegend($dsname)
-    {
+    protected function cleanupDsNameForLegend($dsname) {
         $newDsName = str_replace(array("'", "\\"), array(" ", "\\\\"), $dsname);
         return $newDsName;
     }
@@ -380,49 +506,67 @@ class CentreonGraphNg {
             $this->metricsEnabled = array($metrics);
         }
     }
+    
+    private function _legendAddPrint($metric, $metric_id, $is_virtual=0) {
+        $vdefs = "";
+        $prints = "";
+        $prefix = 'v';
+        if ($is_virtual == 1) {
+            $prefix = 'vv';
+        }
+        
+        foreach (array("last" => "LAST", "min" => "MINIMUM", "max" => "MAXIMUM",
+                       "average" => "AVERAGE", "total" => "TOTAL") as $name => $cf) {
+            if (!$metric['ds_data']['ds_' . $name]) {
+                continue;
+            }
+            
+            $dispname = ucfirst($name);
+            if (isset($metric['ds_data']['ds_invert']) && $metric['ds_data']['ds_invert']) {
+                $vdefs .= "VDEF:" . $prefix . "i" . $metric_id . $dispname . "="
+                . $prefix . 'i' . $metric_id . "," . $cf . " ";
+            } else {
+                $vdefs .= "VDEF:" . $prefix . $metric_id . $dispname . "="
+                    . $prefix . $metric_id . "," . $cf . " ";
+            }
+            if (($name == "min" || $name == "max") &&
+                (isset($metric['ds_data']['ds_minmax_int']) && $metric['ds_data']['ds_minmax_int'])) {
+                $displayformat = "%.0lf";
+            } else {
+                $displayformat = "%.2lf";
+            }
+            if (isset($metric['ds_data']['ds_invert']) && $metric['ds_data']['ds_invert']) {
+                $prints .= "GPRINT:" . $prefix . "i" . $metric_id . $dispname . ":\""
+                    . $dispname . "\:" . $displayformat. "\" ";
+            } else {
+                $prints .= "GPRINT:" . $prefix . $metric_id  . $dispname . ":\""
+                    . $dispname . "\:" . $displayformat . "\" ";
+            }
+        }
+        
+        $this->addArgument($vdefs);
+        $this->addArgument($prints);
+    }
 
     /**
      *
      * Create Legend on the graph
      */
-    public function createLegend() {        
+    public function createLegend() {
         foreach ($this->metrics as $metric_id => $tm) {
             $arg = "LINE1:v" . $metric_id . "#0000ff:v" . $metric_id;
             $this->addArgument($arg);
-
-            $vdefs = "";
-            $prints = "";                
-            foreach (array("last" => "LAST", "min" => "MINIMUM", "max" => "MAXIMUM",
-                           "average" => "AVERAGE", "total" => "TOTAL") as $name => $cf) {
-                if (!$tm['ds_data']["ds_" . $name]) {
-                    continue;
-                }
-                
-                $dispname = ucfirst($name);
-                if (isset($tm['ds_data']['ds_invert']) && $tm['ds_data']['ds_invert']) {
-                    $vdefs .= "VDEF:vi" . $metric_id . $dispname . "="
-                    . 'vi' . $metric_id . "," . $cf . " ";
-                } else {
-                    $vdefs .= "VDEF:v" . $metric_id . $dispname . "="
-                        . 'v' . $metric_id . "," . $cf . " ";
-                }
-                if (($name == "min" || $name == "max") &&
-                    (isset($tm['ds_data']['ds_minmax_int']) && $tm['ds_data']['ds_minmax_int'])) {
-                    $displayformat = "%.0lf";
-                } else {
-                    $displayformat = "%.2lf";
-                }
-                if (isset($tm['ds_data']['ds_invert']) && $tm['ds_data']['ds_invert']) {
-                    $prints .= "GPRINT:vi" . $metric_id . $dispname . ":\""
-                        . $dispname . "\:" . $displayformat. "\" ";
-                } else {
-                    $prints .= "GPRINT:v" . $metric_id  . $dispname . ":\""
-                        . $dispname . "\:" . $displayformat . "\" ";
-                }
+            $this->_legendAddPrint($tm, $metric_id);
+        }
+        
+        foreach ($this->vmetrics_order as $vmetric_id) {
+            if ($this->vmetrics[$vmetric_id]['hidden'] == 1) {
+                continue;
             }
             
-            $this->addArgument($vdefs);
-            $this->addArgument($prints);
+            $arg = "LINE1:vv" . $vmetric_id . "#0000ff:vv" . $vmetric_id;
+            $this->addArgument($arg);
+            $this->_legendAddPrint($this->vmetrics[$vmetric_id], $vmetric_id, 1);
         }
     }
 
@@ -661,9 +805,14 @@ class CentreonGraphNg {
             $metric['prints'] = array();
             
             $insert = 0;
+            if ($metric['virtual'] == 0) {
+                $metric_fullname = 'v' . $metric['metric_id'];
+            } else {
+                $metric_fullname = 'vv' . $metric['vmetric_id'];
+            }
             for (; $gprints_pos < $gprints_size; $gprints_pos++) {
                 if (isset($rrd_data['meta']['gprints'][$gprints_pos]['line'])) {
-                    if ($rrd_data['meta']['gprints'][$gprints_pos]['line'] == 'v' . $metric['metric_id']) {
+                    if ($rrd_data['meta']['gprints'][$gprints_pos]['line'] == $metric_fullname) {
                         $insert = 1;
                     } else {
                         break;
@@ -731,6 +880,13 @@ class CentreonGraphNg {
         foreach ($this->metrics as $metric) {
             $this->graph_data['metrics'][] = $metric;
         }
+        foreach ($this->vmetrics_order as $vmetric_id) {
+            if ($this->vmetrics[$vmetric_id]['hidden'] == 1) {
+                continue;
+            }
+            
+            $this->graph_data['metrics'][] = $this->vmetrics[$vmetric_id];
+        }
         
         if (is_resource($process)) {
             fwrite($pipes[0], $commandLine);
@@ -743,13 +899,7 @@ class CentreonGraphNg {
             $rrd_data = json_decode($str, true);
         }
         
-        if ($this->format_json == 1) {
-            $this->_formatByMetrics($rrd_data);
-        } else {
-            unset($rrd_data['meta']['legend']);
-            $this->graph_data['data'] = $rrd_data;
-        }
-        
+        $this->_formatByMetrics($rrd_data);
         return $this->graph_data;
     }
 
@@ -869,7 +1019,7 @@ class CentreonGraphNg {
      */
     private function _log($message) {
         if ($this->general_opt['debug_rrdtool']['value'] && is_writable($this->general_opt['debug_path']['value'])) {
-            error_log("[" . date("d/m/Y H:i") ."] RDDTOOL : ".$message." \n", 3, $this->general_opt['fdebug_path']['value'] . "rrdtool.log");
+            error_log("[" . date("d/m/Y H:i") ."] RDDTOOL : ".$message." \n", 3, $this->general_opt['debug_path']['value'] . "rrdtool.log");
         }
     }
 
