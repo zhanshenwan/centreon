@@ -159,13 +159,16 @@
           }
         }
       };
+
       /* Add Y axis range */
+      /*
       if (data.limits.min) {
         axis.y.min = numeral(data.limits.min).value();
       }
       if (data.limits.max) {
         axis.y.max = numeral(data.limits.max).value();
       }
+      */
 
       var parsedData = this.buildMetricData(data);
 
@@ -176,7 +179,7 @@
         };
       }
 
-      if (data.data.length > 15) {
+      if (data.metrics.length > 15) {
           datasToAppend = {
             x: parsedData.data.x,
             columns: [],
@@ -230,7 +233,7 @@
         }
       });
 
-      if (data.data.length > 15) {
+      if (data.metrics.length > 15) {
           jQuery("#display-graph-" + self.id).css('display', 'block');
           jQuery("#display-graph-" + self.id).on('click', function (e){
               self.chart.load(parsedData.data)
@@ -325,24 +328,28 @@
       times.unshift('times');
 
       data.columns.push(times);
-      for (i = 0; i < dataRaw.data.length; i++) {
+      for (i = 0; i < dataRaw.metrics.length; i++) {
         name = 'data' + (i + 1);
-        this.ids[dataRaw.data[i].label] = name;
-        column = dataRaw.data[i].data;
+        this.ids[dataRaw.metrics[i].legend] = name;
+        column = dataRaw.metrics[i].data;
         column.unshift(name);
         data.columns.push(column);
-        legend = dataRaw.data[i].label;
-        if (dataRaw.data[i].unit) {
-          legend += '(' + dataRaw.data[i].unit + ')';
-          if (units.hasOwnProperty(dataRaw.data[i].unit) === false) {
-            units[dataRaw.data[i].unit] = [];
+        legend = dataRaw.metrics[i].legend;
+        if (dataRaw.metrics[i].unit) {
+          legend += '(' + dataRaw.metrics[i].unit + ')';
+          if (units.hasOwnProperty(dataRaw.metrics[i].unit) === false) {
+            units[dataRaw.metrics[i].unit] = [];
           }
-          units[dataRaw.data[i].unit].push(name);
+          units[dataRaw.metrics[i].unit].push(name);
         }
         data.names[name] = legend;
-        data.types[name] = convertType.hasOwnProperty(dataRaw.data[i].type) !== -1 ?
-          convertType[dataRaw.data[i].type] : dataRaw.data[i].type;
-        data.colors[name] = dataRaw.data[i].color;
+        data.types[name] = 'line';
+        data.colors[name] ="#e00b3d"
+        /*
+        data.types[name] = convertType.hasOwnProperty(dataRaw.metrics[i].type) !== -1 ?
+          convertType[dataRaw.metrics[i].type] : dataRaw.metrics[i].type;
+        data.colors[name] = dataRaw.metrics[i].color;
+        */
       }
 
       if (Object.keys(units).length === 2) {
@@ -365,8 +372,8 @@
       data.x = 'times';
 
       /* Prepare threshold */
-      if (this.settings.threshold && dataRaw.data.length === 1) {
-        nbPoints = dataRaw.data[0].data.length;
+      if (this.settings.threshold && dataRaw.metrics.length === 1) {
+        nbPoints = dataRaw.metrics[0].data.length;
         if (dataRaw.data[0].warn) {
           data.colors.warn = '#ff9a13';
           data.types.warn = 'line';
@@ -454,6 +461,7 @@
     buildRegions: function (data) {
       var regions = [];
       var i;
+/*
       for (i = 0; i < data.acknowledge.length; i++) {
         regions.push({
           start: data.acknowledge['start'] * 1000,
@@ -468,6 +476,7 @@
           class: 'region-downtime'
         });
       }
+      */
 
       return regions;
     },
@@ -482,9 +491,9 @@
       var i;
       var name;
 
-      for (i = 0; i < data.data.length; i++) {
+      for (i = 0; i < data.metrics.length; i++) {
         name = 'data' + (i + 1);
-        if (data.data[i].stack) {
+        if (data.metrics[i].stack) {
           group.push(name);
         }
       }
@@ -692,6 +701,7 @@
      * @return {Boolean} - If the curve is inversed
      */
     isInversed: function (id) {
+      return false;
       var pos = parseInt(id.replace('data', ''), 10) - 1;
       if (id === 'crit' || id === 'warn') {
         return false;

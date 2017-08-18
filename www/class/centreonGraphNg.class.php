@@ -389,7 +389,7 @@ class CentreonGraphNg
                 $this->cacheAllMetrics['r:' . $metric["metric_name"]] = $metric["metric_id"];
 
                 $dsData = $this->getCurveDsConfig($metric);
-                $this->metrics[$metric['metric_id']]['ds_data'] = $ds_data;
+                $this->metrics[$metric['metric_id']]['ds_data'] = $dsData;
 
                 $this->metrics[$metric['metric_id']]['legend'] = $this->getLegend($this->metrics[$metric["metric_id"]]);
 
