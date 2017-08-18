@@ -441,7 +441,7 @@
     buildRegions: function (data) {
       var regions = [];
       var i;
-/*
+
       for (i = 0; i < data.acknowledge.length; i++) {
         regions.push({
           start: data.acknowledge['start'] * 1000,
@@ -456,7 +456,6 @@
           class: 'region-downtime'
         });
       }
-      */
 
       return regions;
     },

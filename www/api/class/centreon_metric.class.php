@@ -395,6 +395,19 @@ class CentreonMetric extends CentreonWebService
         }
         $result = $graph->getGraph($this->arguments['start'], $this->arguments['end']);
 
+        /* Get extra information (downtime/acknowledgment) */
+        $result['acknowledge'] = array();
+        $result['downtime'] = array();
+        $query = 'SELECT `value` FROM `options` WHERE `key` = "display_downtime_chart"';
+
+        $res = $this->pearDB->query($query);
+
+        $row = $res->fetchRow();
+        if (false === is_null($row) && $row['value'] === '1') {
+            $result['acknowledge'] = $this->getAcknowlegePeriods($hostId, $serviceId, $start, $end);
+            $result['downtime'] = $this->getDowntimePeriods($hostId, $serviceId, $start, $end);
+        }
+
         return $result;
     }
 
