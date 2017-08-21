@@ -112,11 +112,11 @@ class CentreonGraphNg
     protected $generalOpt;
     protected $dbPath;
     protected $dbStatusPath;
-    protected $indexId;
     protected $indexData;
     protected $template_id;
     protected $templateInformations;
     protected $metrics;
+    protected $indexIds;
     
     protected $dsDefault;
     protected $colorCache;
@@ -148,7 +148,7 @@ class CentreonGraphNg
         $this->dbCs->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public function __construct($hostId, $serviceId, $userId)
+    public function __construct($userId)
     {
         $this->initDatabase();
         $this->metricUtils = MetricUtils::getInstance();
@@ -158,6 +158,8 @@ class CentreonGraphNg
         $this->vnodesDependencies = array();
         $this->vmetricsOrder = array();
         
+        $this->arguments = array();
+        $this->indexIds = array();
         $this->dsDefault = null;
         $this->colorCache = null;
         $this->userId = $userId;
@@ -167,10 +169,6 @@ class CentreonGraphNg
         $this->metrics = array();
         $this->vmetrics = array();
         $this->extraDatas = array();
-        $this->indexId = $this->getIndexDataId($hostId, $serviceId);
-        if ($this->indexId == 0) {
-            throw new Exception('Graph not found.');
-        }
         
         $stmt = $this->dbCs->prepare("SELECT RRDdatabase_path, RRDdatabase_status_path FROM config");
         $stmt->execute();
@@ -185,6 +183,11 @@ class CentreonGraphNg
     
     public function getGraph($start, $end)
     {
+        /* 
+         * For the title and also get the graph template
+         * With multiple index_id, we get the last
+         * Need to think about it
+         */
         $this->getIndexData();
         $this->extraDatas['start'] = $start;
         $this->extraDatas['end'] = $end;
@@ -290,7 +293,7 @@ class CentreonGraphNg
         }
         
         if ($dsData['ds_color_line_mode'] == '1') {
-            $dsData['ds_color_line'] = $this->getOVDColor($metric['metric_id']);
+            $dsData['ds_color_line'] = $this->getOVDColor($metric['index_id'], $metric['metric_id']);
         }
         
         return $dsData;
@@ -343,111 +346,192 @@ class CentreonGraphNg
         
         $this->vmetricsOrder = $this->metricUtils->topologicalSort($this->vnodes, $this->vnodesDependencies);
     }
-
-    public function initCurveList()
+    
+    private function addRealMetric($metric, $hidden=null)
     {
-        $stmt = $this->dbCs->prepare("SELECT host_id, service_id, metric_id, metric_name, unit_name, min, max, warn, warn_low, crit, crit_low
+        if (!$this->CheckDBAvailability($metric["metric_id"])) {
+            return ;
+        }
+        if (isset($this->metrics[$metric['metric_id']])) {
+            return ;
+        }
+        
+        $this->log("found metric ". $metric["metric_id"]);
+
+        /*
+         * List of id metrics for rrdcached
+         */
+        $this->listMetricsId[] = $metric['metric_id'];
+
+        $this->metrics[$metric['metric_id']] = array(
+            'index_id' => $metric['index_id'],
+            'metric_id' => $metric['metric_id'],
+            'metric' => $metric['metric_name'],
+            'metric_legend' => $this->cleanupDsNameForLegend($metric['metric_name']),
+            'unit' => $metric['unit_name'],
+            'hidden' => 0,
+            'min' => $metric['min'],
+            'max' => $metric['max'],
+            'virtual' => 0,
+        );
+        
+        $this->cacheAllMetrics['r:' . $metric["metric_name"]] = $metric["metric_id"];
+
+        $dsData = $this->getCurveDsConfig($metric);
+        $this->metrics[$metric['metric_id']]['ds_data'] = $dsData;
+
+        $this->metrics[$metric['metric_id']]['legend'] = $this->getLegend($this->metrics[$metric["metric_id"]]);
+
+        $this->metrics[$metric['metric_id']]["stack"] = (isset($dsData["ds_stack"]) && $dsData["ds_stack"] ? $dsData["ds_stack"] : 0);
+        
+        # Look also ds invert
+        $this->metrics[$metric["metric_id"]]["warn"] = $metric["warn"];
+        $this->metrics[$metric["metric_id"]]["warn_low"] = $metric["warn_low"];
+        $this->metrics[$metric["metric_id"]]["crit"] = $metric["crit"];
+        $this->metrics[$metric["metric_id"]]["crit_low"] = $metric["crit_low"];
+        if (!isset($dsData["ds_color_area_warn"]) || empty($dsData["ds_color_area_warn"])) {
+            $this->metrics[$metric["metric_id"]]["ds_color_area_warn"] = $this->generalOpt["color_warning"]['value'];
+        }
+        if (!isset($dsData["ds_color_area_crit"]) || empty($dsData["ds_color_area_crit"])) {
+            $this->metrics[$metric["metric_id"]]["ds_color_area_crit"] = $this->generalOpt["color_critical"]['value'];
+        }
+        
+        $this->metrics[$metric["metric_id"]]["ds_order"] = (isset($dsData["ds_order"]) && $dsData["ds_order"] ? $dsData["ds_order"] : 0);
+        
+        $this->metrics[$metric['metric_id']]['hidden'] = is_null($hidden) ? 0 : $hidden;
+    }
+    
+    private function addVirtualMetric($vmetric, $hidden=null)
+    {
+        if (isset($this->vmetrics[$vmetric['vmetric_id']])) {
+            return ;
+        }
+        
+        $this->log("found vmetric ". $vmetric["vmetric_id"]);
+        $this->vmetrics[$vmetric['vmetric_id']] = array(
+            'index_id' => $vmetric['index_id'],
+            'vmetric_id' => $vmetric['vmetric_id'],
+            'metric' => $vmetric['vmetric_name'],
+            'metric_legend' => $vmetric['vmetric_name'],
+            'unit' => $vmetric['unit_name'],
+            'hidden' => isset($vmetric['hidden']) && $vmetric['hidden'] == 1 ? 1 : 0,
+            'warn' => $vmetric['warn'],
+            'crit' => $vmetric['crit'],
+            'def_type' => $vmetric['def_type'] == 1 ? 'VDEF' : 'CDEF',
+            'rpn_function' => $vmetric['rpn_function'],
+            'virtual' => 1,
+        );
+        
+        if (!is_null($hidden)) {
+            $this->vmetrics[$vmetric['vmetric_id']]['hidden'] = $hidden; 
+        }
+        
+        $this->cacheAllMetrics['v:' . $vmetric['vmetric_name']] = $vmetric['vmetric_id'];
+        
+        if ($this->vmetrics[$vmetric['vmetric_id']]['hidden'] == 0) {
+            # Not cleaning. Should have is own metric_id for ods_view_details
+            $vmetric['metric_name'] = $vmetric['vmetric_name'];
+            $vmetric['metric_id'] = $vmetric['vmetric_id'];
+            $dsData = $this->getCurveDsConfig($vmetric);
+            $this->vmetrics[$vmetric['vmetric_id']]['ds_data'] = $dsData;
+            
+            $this->vmetrics[$vmetric['vmetric_id']]['legend'] = $this->getLegend($this->vmetrics[$vmetric["vmetric_id"]]);
+            $this->vmetrics[$vmetric['vmetric_id']]['ds_order'] = (isset($dsData["ds_order"]) && $dsData["ds_order"] ? $dsData["ds_order"] : 0);
+        }
+    }
+    
+    public function addServiceMetrics($hostId, $serviceId)
+    {        
+        $indexId = null;
+        $stmt = $this->dbCs->prepare("SELECT m.index_id, host_id, service_id, metric_id, metric_name, unit_name, min, max, warn, warn_low, crit, crit_low
                                        FROM metrics AS m, index_data AS i
-                                       WHERE index_id = id
-                                       AND index_id = :index_id
-                                       AND m.hidden = '0'
-                                       ORDER BY m.metric_name");
-        $stmt->bindParam(':index_id', $this->indexId, PDO::PARAM_INT);
+                                       WHERE i.host_id = :host_id
+                                       AND i.service_id = :service_id
+                                       AND i.id = m.index_id 
+                                       AND m.hidden = '0'");
+        $stmt->bindParam(':host_id', $hostId, PDO::PARAM_INT);
+        $stmt->bindParam(':service_id', $serviceId, PDO::PARAM_INT);
         $stmt->execute();
         $metrics = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+        foreach ($metrics as $metric) {
+            $indexId = $metric['index_id'];
+            $this->addIndexId($metric['index_id']);
+            $this->addRealMetric($metric);
+        }
+        
+        # We take the first index
         $stmt = $this->db->prepare("SELECT *
                                     FROM virtual_metrics
                                     WHERE index_id = :index_id
                                     AND vmetric_activate = '1'
-                                    ORDER BY vmetric_name");
-        $stmt->bindParam(':index_id', $this->indexId, PDO::PARAM_INT);
+                                    ");
+        $stmt->bindParam(':index_id', $indexId, PDO::PARAM_INT);
         $stmt->execute();
         $vmetrics = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
-        $this->componentsDsCache = null;
-        foreach ($metrics as $metric) {
-            if ($this->CheckDBAvailability($metric["metric_id"])) {
-                $this->log("found metric ". $metric["metric_id"]);
-
-                /*
-                 * List of id metrics for rrdcached
-                 */
-                $this->listMetricsId[] = $metric["metric_id"];
-
-                $this->metrics[$metric["metric_id"]] = array(
-                    'metric_id' => $metric["metric_id"],
-                    'metric' => $metric["metric_name"],
-                    'metric_legend' => $this->cleanupDsNameForLegend($metric["metric_name"]),
-                    'unit' => $metric["unit_name"],
-                    'hidden' => 0,
-                    'min' => $metric["min"],
-                    'max' => $metric["max"],
-                    'virtual' => 0,
-                );
-                
-                $this->cacheAllMetrics['r:' . $metric["metric_name"]] = $metric["metric_id"];
-
-                $dsData = $this->getCurveDsConfig($metric);
-                $this->metrics[$metric['metric_id']]['ds_data'] = $dsData;
-
-                $this->metrics[$metric['metric_id']]['legend'] = $this->getLegend($this->metrics[$metric["metric_id"]]);
-
-                $this->metrics[$metric['metric_id']]["stack"] = (isset($dsData["ds_stack"]) && $dsData["ds_stack"] ? $dsData["ds_stack"] : 0);
-                
-                # Look also ds invert
-                $this->metrics[$metric["metric_id"]]["warn"] = $metric["warn"];
-                $this->metrics[$metric["metric_id"]]["warn_low"] = $metric["warn_low"];
-                $this->metrics[$metric["metric_id"]]["crit"] = $metric["crit"];
-                $this->metrics[$metric["metric_id"]]["crit_low"] = $metric["crit_low"];
-                if (!isset($dsData["ds_color_area_warn"]) || empty($dsData["ds_color_area_warn"])) {
-                    $this->metrics[$metric["metric_id"]]["ds_color_area_warn"] = $this->generalOpt["color_warning"]['value'];
-                }
-                if (!isset($dsData["ds_color_area_crit"]) || empty($dsData["ds_color_area_crit"])) {
-                    $this->metrics[$metric["metric_id"]]["ds_color_area_crit"] = $this->generalOpt["color_critical"]['value'];
-                }
-                
-                $this->metrics[$metric["metric_id"]]["ds_order"] = (isset($dsData["ds_order"]) && $dsData["ds_order"] ? $dsData["ds_order"] : 0);
-            }
-        }
-        
         foreach ($vmetrics as $vmetric) {
-            $this->log("found vmetric ". $vmetric["vmetric_id"]);
-            $this->vmetrics[$vmetric["vmetric_id"]] = array(
-                'vmetric_id' => $vmetric["vmetric_id"],
-                'metric' => $vmetric["vmetric_name"],
-                'metric_legend' => $vmetric["vmetric_name"],
-                'unit' => $vmetric['unit_name'],
-                'hidden' => isset($vmetric['hidden']) && $vmetric['hidden'] == 1 ? 1 : 0,
-                'warn' => $vmetric['warn'],
-                'crit' => $vmetric['crit'],
-                'def_type' => $vmetric['def_type'] == 1 ? 'VDEF' : 'CDEF',
-                'rpn_function' => $vmetric['rpn_function'],
-                'virtual' => 1,
-            );
-            
-            $this->cacheAllMetrics['v:' . $vmetric["vmetric_name"]] = $vmetric["vmetric_id"];
-            
-            if ($this->vmetrics[$vmetric["vmetric_id"]]['hidden'] == 0) {
-                # Not cleaning. Should have is own metric_id for ods_view_details
-                $vmetric['metric_name'] = $vmetric["vmetric_name"];
-                $vmetric['metric_id'] = $vmetric["vmetric_id"];
-                $dsData = $this->getCurveDsConfig($vmetric);
-                $this->vmetrics[$vmetric["vmetric_id"]]['ds_data'] = $dsData;
-                
-                $this->vmetrics[$vmetric["vmetric_id"]]['legend'] = $this->getLegend($this->vmetrics[$vmetric["vmetric_id"]]);
-                $this->vmetrics[$vmetric["vmetric_id"]]['ds_order'] = (isset($dsData["ds_order"]) && $dsData["ds_order"] ? $dsData["ds_order"] : 0);
+            $this->addVirtualMetric($vmetric);
+        }
+    }
+    
+    public function addMetric($metricId, $isVirtual=0)
+    {
+        if ($isVirtual == 0) {
+            $stmt = $this->dbCs->prepare("SELECT m.index_id, host_id, service_id, metric_id, metric_name, unit_name, min, max, warn, warn_low, crit, crit_low
+                                          FROM metrics AS m, index_data AS i
+                                            WHERE m.metric_id = :metric_id
+                                            AND m.hidden = '0'
+                                            AND m.index_id = i.id");
+            $stmt->bindParam(':metric_id', $metricId, PDO::PARAM_INT);
+            $stmt->execute();
+            $metric = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (is_null($metric)) {
+                return;
             }
+            
+            $this->addIndexId($metric['index_id']);
+            $this->addRealMetric($metric);
+            
+            return ;
         }
         
+        $stmt = $this->db->prepare("SELECT *
+                                    FROM virtual_metrics
+                                    WHERE vmetric_id = :vmetric_id
+                                    AND vmetric_activate = '1'
+                                    ");
+        $stmt->bindParam(':vmetric_id', $metricId, PDO::PARAM_INT);
+        $stmt->execute();
+        $vmetric = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (is_null($vmetric)) {
+            return;
+        }
+            
+        $this->addIndexId($vmetric['index_id']);
+        $this->addVirtualMetric($vmetric);
+        
+        /*
+         * Brutal: we get all vmetrics and metrics, with hidden
+         */
+        $metrics = $this->getRealMetricsByIndexId($vmetric['index_id']);
+        foreach ($metrics as $metric) {
+            $this->addIndexId($metric['index_id']);
+            $this->addRealMetric($metric, 1);
+        }
+        
+        $vmetrics = $this->getVirtualMetricsByIndexId($vmetric['index_id']);
+        foreach ($vmetrics as $vmetric) {
+            $this->addVirtualMetric($vmetric);
+        }
+    }
+
+    private function initCurveList()
+    {
         /*
          * Sort by ds_order,then legend
          */
         uasort($this->metrics, array("CentreonGraphNg", "cmpmultiple"));
-
-        /*
-         * add data definitions for each metric
-         */
+        
         foreach ($this->metrics as $metricId => &$tm) {
             if (isset($tm['ds_data']['ds_invert']) && $tm['ds_data']['ds_invert']) {
                 $this->addArgument("DEF:vi" . $metricId . "=" . $this->dbPath . $metricId . ".rrd:value:AVERAGE CDEF:v" . $metricId . "=vi" . $metricId . ",-1,*");
@@ -456,7 +540,6 @@ class CentreonGraphNg
             }
         }
         
-        # Order is mandatory for CDEF and VDEF...
         $this->manageMetrics();
         
         foreach ($this->vmetricsOrder as $vmetricId) {
@@ -550,6 +633,9 @@ class CentreonGraphNg
     public function createLegend()
     {
         foreach ($this->metrics as $metricId => $tm) {
+            if ($tm['hidden'] == 1) {
+                continue;
+            }
             $arg = "LINE1:v" . $metricId . "#0000ff:v" . $metricId;
             $this->addArgument($arg);
             $this->legendAddPrint($tm, $metricId);
@@ -598,7 +684,8 @@ class CentreonGraphNg
      *
      * Enter description here ...
      */
-    private function getServiceGraphID() {
+    private function getServiceGraphID()
+    {
         $serviceId = $this->indexData["service_id"];
 
         $stmt = $this->db->prepare("SELECT esi.graph_id, service_template_model_stm_id FROM service LEFT JOIN extended_service_information esi ON esi.service_service_id = service_id WHERE service_id = :service_id");
@@ -629,9 +716,15 @@ class CentreonGraphNg
      */
     private function getIndexData()
     {
-        $this->log("index_data for " . $this->indexId);
+        /*
+         * We take the first
+         */ 
+        $keys = array_keys($this->indexIds);
+        $indexId = array_shift($keys);
+        
+        $this->log("index_data for " . $indexId);
         $stmt = $this->dbCs->prepare("SELECT * FROM index_data WHERE id = :index_id");
-        $stmt->bindParam(':index_id', $this->indexId, PDO::PARAM_INT);
+        $stmt->bindParam(':index_id', $indexId, PDO::PARAM_INT);
         $stmt->execute();
         $this->indexData = $stmt->fetch(PDO::FETCH_ASSOC);
         if (preg_match("/meta_([0-9]*)/", $this->indexData["service_description"], $matches)) {
@@ -797,6 +890,9 @@ class CentreonGraphNg
             'metrics' => array(),
         );
         foreach ($this->metrics as $metric) {
+            if ($metric['hidden'] == 1) {
+                continue;
+            }
             $this->graphData['metrics'][] = $metric;
         }
         foreach ($this->vmetricsOrder as $vmetricId) {
@@ -845,13 +941,13 @@ class CentreonGraphNg
      * Enter description here ...
      * @param unknown_type $l_mid
      */
-    public function getOVDColor($metricId)
+    public function getOVDColor($indexId, $metricId)
     {
         if (is_null($this->colorCache)) {
             $this->colorCache = array();
             
             $stmt = $this->db->prepare("SELECT metric_id, rnd_color FROM `ods_view_details` WHERE `index_id` = :index_id");
-            $stmt->bindParam(':index_id', $this->indexId, PDO::PARAM_INT);
+            $stmt->bindParam(':index_id', $indexId, PDO::PARAM_INT);
             $stmt->execute();
             $this->colorCache = $stmt->fetchAll(PDO::FETCH_GROUP|PDO::FETCH_UNIQUE|PDO::FETCH_ASSOC);
             
@@ -864,7 +960,7 @@ class CentreonGraphNg
         $lRndcolor = $this->getRandomWebColor();
         $stmt = $this->db->prepare("INSERT INTO `ods_view_details` (rnd_color, index_id, metric_id) VALUES (:rnd_color, :index_id, :metric_id)");
         $stmt->bindParam(':rnd_color', $lRndcolor, PDO::PARAM_STR);
-        $stmt->bindParam(':index_id', $this->indexId, PDO::PARAM_INT);
+        $stmt->bindParam(':index_id', $indexId, PDO::PARAM_INT);
         $stmt->bindParam(':metric_id', $metricId, PDO::PARAM_INT);
         $stmt->execute();
         return $l_rndcolor;
@@ -1067,4 +1163,34 @@ class CentreonGraphNg
         return false;
     }
     
+    private function addIndexId($indexId)
+    {
+        if (!isset($this->indexIds[$indexId])) {
+            $this->indexIds[$indexId] = 1;
+        }
+    }
+
+    private function getRealMetricsByIndexId($indexId)
+    {
+        $stmt = $this->dbCs->prepare("SELECT m.index_id, host_id, service_id, metric_id, metric_name, unit_name, min, max, warn, warn_low, crit, crit_low
+                                       FROM metrics AS m, index_data AS i
+                                       WHERE i.id = :index_id
+                                       AND i.id = m.index_id 
+                                       AND m.hidden = '0'");
+        $stmt->bindParam(':index_id', $indexId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    private function getVirtualMetricsByIndexId($indexId)
+    {
+        $stmt = $this->db->prepare("SELECT *
+                                    FROM virtual_metrics
+                                    WHERE index_id = :index_id
+                                    AND vmetric_activate = '1'
+                                    ");
+        $stmt->bindParam(':index_id', $indexId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

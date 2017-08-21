@@ -384,10 +384,16 @@ class CentreonMetric extends CentreonWebService
 
         /* Prepare graph */
         try {
-            $graph = new CentreonGraphNg($hostId, $serviceId, $userId);
+            $graph = new CentreonGraphNg($userId);
+            if (is_null($metric)) {
+                $graph->addServiceMetrics($hostId, $serviceId);
+            } else {
+                $graph->addMetric($metric);
+            }
         } catch (Exception $e) {
             throw new RestNotFoundException("Graph not found");
         }
+        
         $result = $graph->getGraph($this->arguments['start'], $this->arguments['end']);
 
         /* Get extra information (downtime/acknowledgment) */
@@ -396,7 +402,7 @@ class CentreonMetric extends CentreonWebService
         $query = 'SELECT `value` FROM `options` WHERE `key` = "display_downtime_chart"';
 
         $res = $this->pearDB->query($query);
-
+        
         $row = $res->fetchRow();
         if (false === is_null($row) && $row['value'] === '1') {
             $result['acknowledge'] = $this->getAcknowlegePeriods($hostId, $serviceId, $start, $end);
