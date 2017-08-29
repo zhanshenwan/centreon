@@ -56,10 +56,7 @@ class CentreonClapi extends CentreonWebService
      */
     public function __construct()
     {
-        var_dump($this->arguments); exit;
         parent::__construct();
-
-
     }
     
     public function postAction()
@@ -124,12 +121,12 @@ class CentreonClapi extends CentreonWebService
 
         /* Load and execute clapi option */
         try {
-            $clapi = new \CentreonClapi\CentreonAPI($username, '', $action, _CENTREON_PATH_, $options);
+            $clapi = CentreonClapi\CentreonAPI::getInstance($username, '', $action, _CENTREON_PATH_, $options);
             ob_start();
             if(strtoupper($action) === 'EXPORT'){
                 $retCode = $clapi->export();
             }elseif(strtoupper($action) === 'IMPORT'){
-                $retCode = $clapi->launchActionForImport();
+
             }else{
                 $retCode = $clapi->launchAction(false);
             }

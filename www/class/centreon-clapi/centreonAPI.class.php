@@ -62,9 +62,6 @@ class CentreonAPI
 {
     private static $_instance = null;
 
-    public $exportFile;
-    public $filter;
-    public $select;
     public $dateStart;
     public $login;
     public $password;
@@ -109,26 +106,6 @@ class CentreonAPI
         $this->options = $options;
         $this->centreon_path = $centreon_path;
 
-/*
-        if (isset($options["f"])) {
-            $this->exportFile = $options["f"];
-        } else {
-            $this->exportFile = "";
-        }
-
-        if (isset($options["ftr"])) {
-            $this->filter = $options["ftr"];
-        } else {
-            $this->filter = "";
-        }
-
-        if (isset($options["s"])) {
-            $this->select = $options["s"];
-        } else {
-            $this->select = "";
-        }
-*/
-
         if (isset($options["o"])) {
             $this->object = htmlentities(strtoupper($options["o"]), ENT_QUOTES);
         } else {
@@ -140,8 +117,6 @@ class CentreonAPI
         } else {
             $this->variables = "";
         }
-
-
 
         $this->objectTable = array();
 
