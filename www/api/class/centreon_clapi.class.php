@@ -101,6 +101,9 @@ class CentreonClapi extends CentreonWebService
             if (isset($this->arguments['select'])) {
                 $options['select'] = $this->arguments['select'];
             }
+            if (isset($this->arguments['filter'])) {
+                $options['filter-type'] = $this->arguments['filter'];
+            }
         }elseif (strtoupper($action) === 'IMPORT'){
 
         } else {

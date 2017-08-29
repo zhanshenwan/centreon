@@ -83,7 +83,7 @@ class CentreonAPI
     private $objectTable;
     private $aExport = array();
 
-    public function __construct($user, $password, $action, $centreon_path, $options)
+    private function __construct($user, $password, $action, $centreon_path, $options)
     {
         global $version;
 
@@ -798,7 +798,6 @@ class CentreonAPI
         $this->sortClassExport();
 
         $this->initAllObjects();
-
 
         if (isset($this->options['select'])) {
             CentreonExported::getInstance()->set_filter(1);
