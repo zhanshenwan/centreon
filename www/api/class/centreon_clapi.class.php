@@ -56,14 +56,17 @@ class CentreonClapi extends CentreonWebService
      */
     public function __construct()
     {
+        var_dump($this->arguments); exit;
         parent::__construct();
+
+
     }
     
     public function postAction()
     {
         global $centreon;
         global $conf_centreon;
-        
+
         $dbConfig['host'] = $conf_centreon['hostCentreon'];
         $dbConfig['username'] = $conf_centreon['user'];
         $dbConfig['password'] = $conf_centreon['password'];
@@ -95,25 +98,42 @@ class CentreonClapi extends CentreonWebService
         
         /* Prepare options table */
         $action = $this->arguments['action'];
-        
-        $options = array();
-        if (isset($this->arguments['object'])) {
-            $options['o'] = $this->arguments['object'];
-        }
-        
-        if (isset($this->arguments['values'])) {
-            if (is_array($this->arguments['values'])) {
-                $options['v'] = join(';', $this->arguments['values']);
-            } else {
-                $options['v'] = $this->arguments['values'];
+
+        if(strtoupper($action) === 'EXPORT') {
+            $options = array();
+            if (isset($this->arguments['select'])) {
+                $options['select'] = $this->arguments['select'];
+            }
+        }elseif (strtoupper($action) === 'IMPORT'){
+
+        } else {
+            $options = array();
+            if (isset($this->arguments['object'])) {
+                $options['o'] = $this->arguments['object'];
+            }
+
+            if (isset($this->arguments['values'])) {
+                if (is_array($this->arguments['values'])) {
+                    $options['v'] = join(';', $this->arguments['values']);
+                } else {
+                    $options['v'] = $this->arguments['values'];
+                }
             }
         }
-        
+
+
         /* Load and execute clapi option */
         try {
             $clapi = new \CentreonClapi\CentreonAPI($username, '', $action, _CENTREON_PATH_, $options);
             ob_start();
-            $retCode = $clapi->launchAction(false);
+            if(strtoupper($action) === 'EXPORT'){
+                $retCode = $clapi->export();
+            }elseif(strtoupper($action) === 'IMPORT'){
+                $retCode = $clapi->launchActionForImport();
+            }else{
+                $retCode = $clapi->launchAction(false);
+            }
+
             $contents = ob_get_contents();
             ob_end_clean();
         } catch (\CentreonClapi\CentreonClapiException $e) {

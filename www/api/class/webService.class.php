@@ -81,6 +81,7 @@ class CentreonWebService
                 $httpParams = $_GET;
                 unset($httpParams['action']);
                 unset($httpParams['object']);
+                unset($httpParams['select']);
                 $this->arguments = $httpParams;
                 break;
             case 'POST':

@@ -62,6 +62,9 @@ class CentreonAPI
 {
     private static $_instance = null;
 
+    public $exportFile;
+    public $filter;
+    public $select;
     public $dateStart;
     public $login;
     public $password;
@@ -106,17 +109,39 @@ class CentreonAPI
         $this->options = $options;
         $this->centreon_path = $centreon_path;
 
-        if (isset($options["v"])) {
-            $this->variables = $options["v"];
+/*
+        if (isset($options["f"])) {
+            $this->exportFile = $options["f"];
         } else {
-            $this->variables = "";
+            $this->exportFile = "";
         }
+
+        if (isset($options["ftr"])) {
+            $this->filter = $options["ftr"];
+        } else {
+            $this->filter = "";
+        }
+
+        if (isset($options["s"])) {
+            $this->select = $options["s"];
+        } else {
+            $this->select = "";
+        }
+*/
 
         if (isset($options["o"])) {
             $this->object = htmlentities(strtoupper($options["o"]), ENT_QUOTES);
         } else {
             $this->object = "";
         }
+
+        if (isset($options["v"])) {
+            $this->variables = $options["v"];
+        } else {
+            $this->variables = "";
+        }
+
+
 
         $this->objectTable = array();
 
@@ -799,13 +824,16 @@ class CentreonAPI
 
         $this->initAllObjects();
 
+
         if (isset($this->options['select'])) {
             CentreonExported::getInstance()->set_filter(1);
             CentreonExported::getInstance()->set_options($this->options);
+
             $selected = $this->options['select'];
             if (!is_array($this->options['select'])) {
                 $selected = array($this->options['select']);
             }
+
             foreach ($selected as $select) {
                 $splits = explode(';', $select);
                 if (!isset($this->objectTable[$splits[0]])) {
@@ -815,12 +843,14 @@ class CentreonAPI
                 }
                 $this->export_filter($splits[0], $this->objectTable[$splits[0]]->getObjectId($splits[1]), $splits[1]);
             }
+
             # Don't want return \n
             exit($this->return_code);
         } else {
             // header
             echo "{OBJECT_TYPE}{$this->delim}{COMMAND}{$this->delim}{PARAMETERS}\n";
             if (count($this->aExport) > 0) {
+
                 foreach ($this->aExport as $oObjet) {
                     if (method_exists($this->objectTable[$oObjet], 'export')) {
                         $this->objectTable[$oObjet]->export();
