@@ -299,12 +299,17 @@ default:
       contexts:
       - MetaServiceConfigurationContext
 
-
     service_submit_result:
       paths: [ %paths.base%/features/ServiceSubmitResult.feature ]
       contexts:
       - ServiceSubmitResultContext
+
     host_dependency_configuration:
       paths: [ %paths.base%/features/HostDependencyConfiguration.feature ]
       contexts:
       - HostDependencyConfigurationContext
+
+    clapi:
+      paths: [ %paths.base%/features/Clapi.feature ]
+      contexts:
+      - ClapiContext
