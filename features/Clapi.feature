@@ -13,3 +13,15 @@ Feature: Clapi
       #  Then a file is generated
       #  And I can import this configuration
       #  And my ldap configuration is imported
+
+
+    Scenario: HOST
+        Given a host configuration
+        When I export my ldap configuration and I delete it from centreon
+        Then I can import this configuration
+
+
+    Scenario: SERVICE
+        Given a service configuration
+        When I export my ldap configuration and I delete it from centreon
+        Then I can import this configuration
