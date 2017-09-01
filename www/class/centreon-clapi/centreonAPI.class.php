@@ -366,12 +366,11 @@ class CentreonAPI
      */
     protected function requireLibs($object)
     {
-
-
         if ($object != "") {
             if (isset($this->relationObject[$object]['class'])
                 && isset($this->relationObject[$object]['module'])
-                && !class_exists("Centreon" . $this->relationObject[$object])) {
+                && !class_exists("\CentreonClapi\Centreon" . $this->relationObject[$object]['class'])
+            ) {
                 if ($this->relationObject[$object]['module'] == 'core') {
                     require_once "centreon" . $this->relationObject[$object]['class'] . ".class.php";
                 } else {
@@ -391,7 +390,8 @@ class CentreonAPI
             foreach ($this->relationObject as $sSynonyme => $oObjet) {
                 if (isset($oObjet['class'])
                     && isset($oObjet['module'])
-                    && !class_exists("\CentreonClapi\Centreon" . $oObjet['class'])) {
+                    && !class_exists("\CentreonClapi\Centreon" . $oObjet['class'])
+                ) {
                     if ($oObjet['module'] == 'core') {
                         require_once _CENTREON_PATH_
                             . "www/class/centreon-clapi/centreon"
@@ -644,7 +644,6 @@ class CentreonAPI
                 $objName = "";
             }
 
-
             if (!isset($this->relationObject[$this->object]['class']) || !class_exists($objName)) {
                 print "Object $this->object not found in Centreon API.\n";
                 return 1;
@@ -690,7 +689,7 @@ class CentreonAPI
             while ($string = fgets($handle)) {
                 $i++;
                 $tab = preg_split('/;/', $string);
-                if (strlen(trim($string)) != 0) {
+                if (strlen(trim($string)) != 0 && !preg_match('/^\{OBJECT_TYPE\}/', $string)) {
                     $this->object = trim($tab[0]);
                     $this->action = trim($tab[1]);
                     $this->variables = trim(substr($string, strlen($tab[0] . ";" . $tab[1] . ";")));
@@ -820,6 +819,7 @@ class CentreonAPI
             exit($this->return_code);
         } else {
             // header
+            echo "{OBJECT_TYPE}{$this->delim}{COMMAND}{$this->delim}{PARAMETERS}\n";
             if (count($this->aExport) > 0) {
                 foreach ($this->aExport as $oObjet) {
                     if (method_exists($this->objectTable[$oObjet], 'export')) {
