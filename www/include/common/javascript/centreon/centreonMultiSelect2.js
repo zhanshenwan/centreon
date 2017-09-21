@@ -1,6 +1,6 @@
 /* global jQuery, navigator, centreonMultiSelectLocales */
 
-function mutliSelect(settings, elem) {
+function multiSelect(settings, elem) {
     var self = this;
 
     self.settings = settings;
@@ -18,7 +18,7 @@ function mutliSelect(settings, elem) {
     self.displayDatas();
 }
 
-mutliSelect.prototype = {
+multiSelect.prototype = {
 
     initElements: function() {
         var self=this;
@@ -32,68 +32,111 @@ mutliSelect.prototype = {
     /**
      * Handle keypress event on search
      */
-    handleEvent: function() {
-        var self = this,
-            keyword,
-            input;
+     handleEvent: function() {
+         var self = this,
+             keyword,
+             input;
 
-        input = jQuery('<input type="text" value="" placeholder="Search..."/>');
-        self.elem.searchBox.append(input);
+         input = jQuery('<input type="text" value="" placeholder="Search..."/>');
+         self.elem.searchBox.append(input);
 
-        jQuery(input).on('keyup', function(e) {
-            keyword = input.val();
+         $(document).on('click', '.checkbox-label', function(e) {
 
-            if (e.which == 13) {
-                return false;
-            }
+           if(e.which == 1)
+           {
+             let idTarget = e.target.htmlFor.split("elem_");
+             let addElem = true;
+             jQuery.each(self.selectedDatas, function() {
+               jQuery.grep(self.selectedDatas, function (element, index){
+                 if(element.id === idTarget[1]) {
+                   self.selectedDatas.splice(index, 1);
+                   addElem = false;
+                   return true;
+                   }
+                 });
+               });
+               if (addElem !== false) {
+                 self.selectedDatas.push({
+                   'hide': false,
+                   'id': idTarget[1],
+                   'text': e.target.innerHTML
+                 });
+               }
+           }
 
-            console.log(keyword);
+         });
 
-            if(keyword.length >= 3) {
-                self.searchData(keyword);
-            } else if(keyword === '') {
-                self.displayDatas();
-            }
-        })
-    },
+
+         //Var permettant d'appeler displayDatas une seule fois
+         var displayDatasOnce = false;
+
+         jQuery(input).on('keyup', function(e) {
+           keyword = input.val();
+             //preventDefault ne fonctionne pas
+             if(e.which == 13) {
+               e.preventDefault();
+               return false;
+             }
+
+             if(keyword.length >= 3) {
+                 displayDatasOnce = true;
+                 setTimeout(function(){
+                   self.searchData(keyword);
+                 }, 2000);
+             }else if(keyword === "" && displayDatasOnce === true){
+                 self.page = 1;
+                 self.displayDatas();
+                 displayDatasOnce = false;
+               }
+         });
+     },
 
     /**
      * Search by keyword and display results
      * @param keyword
      */
-    searchData: function(keyword) {
-        var self = this,
-            url = self.ajax.url + '&q=' + keyword;
+     searchData: function(keyword) {
+             var self = this,
+                 url = self.ajax.url + '&q=' + keyword,
+                 selectedDatas;
 
-            jQuery.ajax({
-                url: url,
-                type : 'GET',
-                dataType: 'json',
-                contentType: 'application/json',
-                success: function(data) {
-                    var datas = '';
-                    if (data != null) {
-                        jQuery.each(data.items, function(idx,value) {
-                            datas += '<div class="ms-elem">' +
-                                '<input type="checkbox" name="' + self.id + '[]" id="elem_' + value.id + '" value="' + value.id + '" />' +
+                 jQuery.ajax({
+                     url: url,
+                     type : 'GET',
+                     dataType: 'json',
+                     contentType: 'application/json',
+                     success: function(data) {
+
+                         var datas = '';
+                         if (data != null) {
+                             jQuery.each(data.items, function(idx,value) {
+                                let attrChecked = '';
+                                jQuery.grep(self.selectedDatas, function (element, index){
+                                  if(element.text == value.text) {
+                                    attrChecked = 'checked';
+                                  }
+                                });
+                                datas += '<div class="ms-elem">' +
+                                '<input type="checkbox"' + attrChecked + ' name="' + self.id + '[]" id="elem_' + value.id + '" value="' + value.id + '" class="advancedForm"/>' +
                                 '<label for="elem_' + value.id + '" class="checkbox-label">' + value.text + '</label>' +
                                 '</div>';
-                        })
-                        if (datas == ''){
-                            self.elem.html('<p class="ms-elem">Element not found !</p>');
-                        } else {
-                            self.elem.html(datas);
-                        }
 
-                    } else {
-                        console.log('Element not found !');
-                    }
-                },
-                error: function() {
-                    console.log('Element not found !');
-                }
-            });
-    },
+                             })
+                             if (datas == ''){
+                                 self.elem.html('<p class="ms-elem">Element not found !</p>');
+                             } else {
+                                 self.elem.html(datas);
+                             }
+
+                         } else {
+                             console.log('Element not found !');
+                         }
+                     },
+                     error: function() {
+                         console.log('Element not found !');
+                     }
+                 });
+         },
 
     /**
      * Get selected Datas if they exist
@@ -101,9 +144,10 @@ mutliSelect.prototype = {
     displayDatas: function() {
         var self = this,
             hasSelectedDatas;
-
+        self.elem.html('');
         if (self.settings.url !== null) {
 
+          if (jQuery.isEmptyObject(self.selectedDatas)) {
             jQuery.ajax({
                 url: self.settings.url,
                 type : 'GET',
@@ -123,9 +167,13 @@ mutliSelect.prototype = {
                 } else {
                     hasSelectedDatas = true;
                 }
-
-                self.getIntialDatas(hasSelectedDatas,self.selectedDatas);
+                self.getInitialDatas(hasSelectedDatas,self.selectedDatas);
             });
+          }
+          else {
+            hasSelectedDatas = true;
+            self.getInitialDatas(hasSelectedDatas,self.selectedDatas);
+          }
 
         } else {
             console.log('url undefined !');
@@ -137,9 +185,8 @@ mutliSelect.prototype = {
      * @param hasSelectedDatas
      * @param selectedDatas
      */
-    getIntialDatas: function(hasSelectedDatas, selectedDatas) {
+    getInitialDatas: function(hasSelectedDatas, selectedDatas) {
         var self = this;
-
         self.getData(self.page, hasSelectedDatas, selectedDatas, false);
 
         /* Add event to infinite scroll */
@@ -153,6 +200,7 @@ mutliSelect.prototype = {
         if (hasSelectedDatas) {
             self.renderDatas(selectedDatas, true);
         }
+
     },
 
     /**
@@ -167,12 +215,11 @@ mutliSelect.prototype = {
             if (isChecked) {
                 attrChecked = 'checked';
             }
-
             jQuery.each(selectedDatas, function(i, selectedValue) {
                 self.elem.append(
                     '<div class="ms-elem">' +
                     '<input type="checkbox" ' + attrChecked + ' id="elem_' + selectedValue.id
-                    + '" value="' + selectedValue.id + '" name="' + self.id + '[]" />' +
+                    + '" value="' + selectedValue.id + '" name="' + self.id + '[]" class="advancedForm" />' +
                     '<label for="elem_' + selectedValue.id + '"class="checkbox-label">' + selectedValue.text + '</label>' +
                     '</div>'
                 );
@@ -190,11 +237,9 @@ mutliSelect.prototype = {
         var self = this,
             renderedDatas = [],
             total;
-
         if (self.settings.multiSelect.hasOwnProperty('ajax')) {
 
             var url = self.ajax.url + '&page_limit=' + self.settings.pageLimit + '&page=' + nb_page;
-
             jQuery.ajax({
                 url: url,
                 type : 'GET',
@@ -204,21 +249,24 @@ mutliSelect.prototype = {
                     if(data != null) {
                         total = Math.round(Math.ceil(data.total / self.settings.pageLimit));
                         if (nb_page <= total) {
-                            if (hasSelectedDatas) {
-                                jQuery.each(selectedDatas, function(i, selectedValue) {
-                                    jQuery.each(data.items, function(idx,value) {
-                                        if (value.text !== selectedValue.text) {
-                                            renderedDatas.push({
-                                                id: value.id,
-                                                text: value.text
-                                            });
-                                        }
-                                    });
+                            if (selectedDatas.length > 0) {
+                                let array = [];
+                                jQuery.each(data.items, function (idx,value) {
+                                  array.push({
+                                    id: value.id,
+                                    text: value.text
+                                  });
                                 });
+                                jQuery.each(selectedDatas, function(index, element){
+                                  array = array.filter(function(el) {
+                                      return el.text !== element.text;
+                                  });
+                                });
+                                renderedDatas = array;
                             } else {
                                 renderedDatas = data.items;
                             }
-
+                            data = "";
                             self.renderDatas(renderedDatas, isChecked);
                         }
                     }
@@ -236,6 +284,9 @@ mutliSelect.prototype = {
             cursoropacitymin: 0.2,
             railpadding: {right: 10}
         });
+        elem.mouseover(function() {
+          elem.getNiceScroll().resize();
+        });
     }
 };
 
@@ -246,7 +297,7 @@ mutliSelect.prototype = {
 
         this.each(function () {
             var self = jQuery(this);
-            that = new mutliSelect(settings, self);
+            that = new multiSelect(settings, self);
         });
 
         return this;
