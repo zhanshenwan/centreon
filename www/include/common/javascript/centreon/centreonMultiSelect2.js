@@ -41,53 +41,48 @@ multiSelect.prototype = {
          self.elem.searchBox.append(input);
 
          $(document).on('click', '.checkbox-label', function(e) {
-
-           if(e.which == 1)
-           {
-             let idTarget = e.target.htmlFor.split("elem_");
-             let addElem = true;
-             jQuery.each(self.selectedDatas, function() {
-               jQuery.grep(self.selectedDatas, function (element, index){
-                 if(element.id === idTarget[1]) {
-                   self.selectedDatas.splice(index, 1);
-                   addElem = false;
-                   return true;
-                   }
+             if(e.which == 1) {
+                 let idTarget = e.target.htmlFor.split("elem_");
+                 let addElem = true;
+                 jQuery.each(self.selectedDatas, function() {
+                     jQuery.grep(self.selectedDatas, function (element, index){
+                         if(element.id === idTarget[1]) {
+                             self.selectedDatas.splice(index, 1);
+                             addElem = false;
+                             return true;
+                         }
+                     });
                  });
-               });
-               if (addElem !== false) {
-                 self.selectedDatas.push({
-                   'hide': false,
-                   'id': idTarget[1],
-                   'text': e.target.innerHTML
-                 });
-               }
-           }
-
+                 if (addElem !== false) {
+                     self.selectedDatas.push({
+                         'hide': false,
+                         'id': idTarget[1],
+                         'text': e.target.innerHTML
+                     });
+                 }
+             }
          });
 
+         let displayDatasOnce = false;
 
-         //Var permettant d'appeler displayDatas une seule fois
-         var displayDatasOnce = false;
+         jQuery(input).on('keyup keypress', function(e) {
+             keyword = input.val();
 
-         jQuery(input).on('keyup', function(e) {
-           keyword = input.val();
-             //preventDefault ne fonctionne pas
-             if(e.which == 13) {
-               e.preventDefault();
-               return false;
+             if (e.which === 13) {
+                 e.preventDefault();
+                 return false;
              }
 
-             if(keyword.length >= 3) {
+             if (keyword.length >= 3) {
                  displayDatasOnce = true;
-                 setTimeout(function(){
-                   self.searchData(keyword);
+                 setTimeout(function() {
+                     self.searchData(keyword);
                  }, 2000);
-             }else if(keyword === "" && displayDatasOnce === true){
-                 self.page = 1;
-                 self.displayDatas();
-                 displayDatasOnce = false;
-               }
+             } else if(keyword === "" && displayDatasOnce === true) {
+                   self.page = 1;
+                   self.displayDatas();
+                   displayDatasOnce = false;
+             }
          });
      },
 
@@ -96,47 +91,45 @@ multiSelect.prototype = {
      * @param keyword
      */
      searchData: function(keyword) {
-             var self = this,
-                 url = self.ajax.url + '&q=' + keyword,
-                 selectedDatas;
+         var self = this,
+         url = self.ajax.url + '&q=' + keyword,
+         selectedDatas;
 
-                 jQuery.ajax({
-                     url: url,
-                     type : 'GET',
-                     dataType: 'json',
-                     contentType: 'application/json',
-                     success: function(data) {
-
-                         var datas = '';
-                         if (data != null) {
-                             jQuery.each(data.items, function(idx,value) {
-                                let attrChecked = '';
-                                jQuery.grep(self.selectedDatas, function (element, index){
-                                  if(element.text == value.text) {
-                                    attrChecked = 'checked';
-                                  }
-                                });
-                                datas += '<div class="ms-elem">' +
-                                '<input type="checkbox"' + attrChecked + ' name="' + self.id + '[]" id="elem_' + value.id + '" value="' + value.id + '" class="advancedForm"/>' +
-                                '<label for="elem_' + value.id + '" class="checkbox-label">' + value.text + '</label>' +
-                                '</div>';
-
-                             })
-                             if (datas == ''){
-                                 self.elem.html('<p class="ms-elem">Element not found !</p>');
-                             } else {
-                                 self.elem.html(datas);
+         jQuery.ajax({
+             url: url,
+             type : 'GET',
+             dataType: 'json',
+             contentType: 'application/json',
+             success: function(data) {
+                 var datas = '';
+                 if (data != null) {
+                     jQuery.each(data.items, function(idx,value) {
+                         let attrChecked = '';
+                         jQuery.grep(self.selectedDatas, function(element, index) {
+                             if (element.text == value.text) {
+                                 attrChecked = 'checked';
                              }
-
-                         } else {
-                             console.log('Element not found !');
-                         }
-                     },
-                     error: function() {
-                         console.log('Element not found !');
+                         });
+                         datas += '<div class="ms-elem">' +
+                         '<input type="checkbox"' + attrChecked + ' name="' + self.id + '[]" id="elem_' + value.id + '" value="' + value.id + '" class="advancedForm"/>' +
+                         '<label for="elem_' + value.id + '" class="checkbox-label">' + value.text + '</label>' +
+                         '</div>';
+                     })
+                     if (datas == '') {
+                         self.elem.html('<p class="ms-elem">Element not found !</p>');
+                     } else {
+                         self.elem.html(datas);
                      }
-                 });
-         },
+
+                 } else {
+                     console.log('Element not found !');
+                 }
+             },
+             error: function() {
+                 console.log('Element not found !');
+             }
+         });
+    },
 
     /**
      * Get selected Datas if they exist
@@ -145,36 +138,35 @@ multiSelect.prototype = {
         var self = this,
             hasSelectedDatas;
         self.elem.html('');
+
         if (self.settings.url !== null) {
-
-          if (jQuery.isEmptyObject(self.selectedDatas)) {
-            jQuery.ajax({
-                url: self.settings.url,
-                type : 'GET',
-                dataType: 'json',
-                contentType: 'application/json',
-                success: function(datas) {
-                    if (datas != null) {
+            if (jQuery.isEmptyObject(self.selectedDatas)) {
+                jQuery.ajax({
+                    url: self.settings.url,
+                    type : 'GET',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    success: function(datas) {
+                        if (datas != null) {
                             self.selectedDatas = datas;
+                        }
+                    },
+                    error: function(XMLHttpRequest, textStatus, error) {
+                        console.log(error);
                     }
-                },
-                error: function(XMLHttpRequest, textStatus, error) {
-                    console.log(error);
-                }
-            }).done(function() {
-                if (self.selectedDatas.length === 0 || self.selectedDatas === undefined) {
-                    hasSelectedDatas = false;
-                } else {
-                    hasSelectedDatas = true;
-                }
+                }).done(function() {
+                    if (self.selectedDatas.length === 0 || self.selectedDatas === undefined) {
+                        hasSelectedDatas = false;
+                    } else {
+                        hasSelectedDatas = true;
+                    }
+                    self.getInitialDatas(hasSelectedDatas,self.selectedDatas);
+                });
+            }
+            else {
+                hasSelectedDatas = true;
                 self.getInitialDatas(hasSelectedDatas,self.selectedDatas);
-            });
-          }
-          else {
-            hasSelectedDatas = true;
-            self.getInitialDatas(hasSelectedDatas,self.selectedDatas);
-          }
-
+            }
         } else {
             console.log('url undefined !');
         }
@@ -200,7 +192,6 @@ multiSelect.prototype = {
         if (hasSelectedDatas) {
             self.renderDatas(selectedDatas, true);
         }
-
     },
 
     /**
@@ -208,23 +199,23 @@ multiSelect.prototype = {
      * @param selectedDatas
      * @param isChecked
      */
-    renderDatas: function(selectedDatas, isChecked) {
+     renderDatas: function(selectedDatas, isChecked) {
         var self = this,
             attrChecked = '';
 
-            if (isChecked) {
-                attrChecked = 'checked';
-            }
-            jQuery.each(selectedDatas, function(i, selectedValue) {
-                self.elem.append(
-                    '<div class="ms-elem">' +
-                    '<input type="checkbox" ' + attrChecked + ' id="elem_' + selectedValue.id
-                    + '" value="' + selectedValue.id + '" name="' + self.id + '[]" class="advancedForm" />' +
-                    '<label for="elem_' + selectedValue.id + '"class="checkbox-label">' + selectedValue.text + '</label>' +
-                    '</div>'
-                );
-            });
-        },
+        if (isChecked) {
+            attrChecked = 'checked';
+        }
+        jQuery.each(selectedDatas, function(i, selectedValue) {
+            self.elem.append(
+                '<div class="ms-elem">' +
+                '<input type="checkbox" ' + attrChecked + ' id="elem_' + selectedValue.id
+                + '" value="' + selectedValue.id + '" name="' + self.id + '[]" class="advancedForm" />' +
+                '<label for="elem_' + selectedValue.id + '"class="checkbox-label">' + selectedValue.text + '</label>' +
+                '</div>'
+            );
+        });
+    },
 
     /**
      * Get datas by ajax call
@@ -237,8 +228,8 @@ multiSelect.prototype = {
         var self = this,
             renderedDatas = [],
             total;
-        if (self.settings.multiSelect.hasOwnProperty('ajax')) {
 
+        if (self.settings.multiSelect.hasOwnProperty('ajax')) {
             var url = self.ajax.url + '&page_limit=' + self.settings.pageLimit + '&page=' + nb_page;
             jQuery.ajax({
                 url: url,
@@ -246,21 +237,21 @@ multiSelect.prototype = {
                 dataType: 'json',
                 contentType: 'application/json',
                 success: function(data) {
-                    if(data != null) {
+                    if (data != null) {
                         total = Math.round(Math.ceil(data.total / self.settings.pageLimit));
                         if (nb_page <= total) {
                             if (selectedDatas.length > 0) {
                                 let array = [];
                                 jQuery.each(data.items, function (idx,value) {
-                                  array.push({
-                                    id: value.id,
-                                    text: value.text
-                                  });
+                                    array.push({
+                                      id: value.id,
+                                      text: value.text
+                                    });
                                 });
                                 jQuery.each(selectedDatas, function(index, element){
-                                  array = array.filter(function(el) {
-                                      return el.text !== element.text;
-                                  });
+                                    array = array.filter(function(el) {
+                                        return el.text !== element.text;
+                                    });
                                 });
                                 renderedDatas = array;
                             } else {
@@ -279,27 +270,24 @@ multiSelect.prototype = {
      * Init nice scroll
      * @param elem
      */
-    initNiceScroll: function(elem) {
-        elem.niceScroll({
-            cursoropacitymin: 0.2,
-            railpadding: {right: 10}
-        });
-        elem.mouseover(function() {
-          elem.getNiceScroll().resize();
-        });
-    }
+     initNiceScroll: function(elem) {
+         elem.niceScroll({
+             cursoropacitymin: 0.2,
+             railpadding: {right: 10}
+         });
+         elem.mouseover(function() {
+             elem.getNiceScroll().resize();
+         });
+     }
 };
 
 (function(jQuery) {
     jQuery.fn.centreonMultiSelect2 = function(options) {
-
         var settings = jQuery.extend({}, jQuery.fn.centreonMultiSelect2.defaults, options);
-
         this.each(function () {
             var self = jQuery(this);
             that = new multiSelect(settings, self);
         });
-
         return this;
     };
 })(jQuery);
