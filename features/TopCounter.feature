@@ -27,7 +27,6 @@ Feature:  Top Counter Status Filters
         And the number of records is exactly the same than in the top counter
         And admin user can see service not linked to any service group
 
-
     Scenario: Hosts filtered by status in Top Counter for non admin user
         When non admin user clicks on each host status of the Top Counter
         Then list of hosts filtered by status is displayed 
