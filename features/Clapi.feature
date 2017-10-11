@@ -6,6 +6,7 @@ Feature: Clapi
     Background:
         Given I am logged in a freshly installed Centreon server
 
+    @critical
     Scenario: import/export
         Given a configuration
         When I import this configuration
