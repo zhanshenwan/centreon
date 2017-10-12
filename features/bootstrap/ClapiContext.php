@@ -65,7 +65,11 @@ class ClapiContext extends CentreonContext {
      */
     public function TheConfigurationExportedIsSimilarWhenItWasImported() 
     {
-        if (file_get_contents($this->file['localpath'], FILE_USE_INCLUDE_PATH) !== file_get_contents($this->file['compare'], FILE_USE_INCLUDE_PATH)) {
+
+        $fileLocal = trim(file_get_contents($this->file['localpath'], FILE_USE_INCLUDE_PATH));
+        $fileCompare = trim(file_get_contents($this->file['compare'], FILE_USE_INCLUDE_PATH));
+
+        if ($fileLocal != $fileCompare) {
             throw new \Exception('Configuration not imported');
         }
     }
