@@ -4,7 +4,7 @@ Feature: Clapi
     To industrialize it
 
     Background:
-        Given I am logged in a freshly installed Centreon server
+        Given I am logged in a Centreon server
 
     @critical
     Scenario: import/export
