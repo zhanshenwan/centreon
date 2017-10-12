@@ -1,58 +1,56 @@
 {OBJECT_TYPE};{COMMAND};{PARAMETERS}
 ACLMENU;ADD;test_access-group;test_access-group;
 ACLMENU;SETPARAM;test_access-group;activate;1;
-ACLMENU;GRANTRW;test_access-group;0;Configuration;
-ACLMENU;GRANTRW;test_access-group;0;Configuration;Hosts;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Hosts;Hosts;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Hosts;Host Groups;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Hosts;Templates;
+ACLMENU;GRANTRW;test_access-group;0;Configuration;Hosts;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Hosts;Categories;
-ACLMENU;GRANTRW;test_access-group;0;Configuration;Services;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Services;Services by host;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Services;Services by host group;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Services;Service Groups;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Services;Templates;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Services;Categories;
+ACLMENU;GRANTRW;test_access-group;0;Configuration;Services;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Services;Meta Services;
-ACLMENU;GRANTRW;test_access-group;0;Configuration;Users;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Users;Contacts / Users;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Users;Contact Templates;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Users;Contact Groups;
+ACLMENU;GRANTRW;test_access-group;0;Configuration;Users;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Users;Time Periods;
-ACLMENU;GRANTRW;test_access-group;0;Configuration;Commands;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Commands;Checks;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Commands;Notifications;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Commands;Discovery;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Commands;Miscellaneous;
+ACLMENU;GRANTRW;test_access-group;0;Configuration;Commands;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Commands;Connectors;
-ACLMENU;GRANTRW;test_access-group;0;Configuration;Notifications;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Notifications;Escalations;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Notifications;Hosts;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Notifications;Host Groups;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Notifications;Services;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Notifications;Service Groups;
+ACLMENU;GRANTRW;test_access-group;0;Configuration;Notifications;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Notifications;Meta Services;
-ACLMENU;GRANTRW;test_access-group;0;Configuration;SNMP Traps;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;SNMP Traps;SNMP Traps;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;SNMP Traps;Manufacturer;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;SNMP Traps;Group;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;SNMP Traps;MIBs;
+ACLMENU;GRANTRW;test_access-group;0;Configuration;SNMP Traps;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;SNMP Traps;Generate;
-ACLMENU;GRANTRW;test_access-group;0;Configuration;Knowledge Base;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Knowledge Base;Hosts;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Knowledge Base;Services;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Knowledge Base;Host Templates;
+ACLMENU;GRANTRW;test_access-group;0;Configuration;Knowledge Base;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Knowledge Base;Service Templates;
-ACLMENU;GRANTRW;test_access-group;0;Configuration;Pollers;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Pollers;Export configuration;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Pollers;Pollers;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Pollers;Engine configuration;
-ACLMENU;GRANTRW;test_access-group;0;Configuration;Pollers;Broker configuration;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Pollers;Broker configuration;Wizard;
+ACLMENU;GRANTRW;test_access-group;0;Configuration;Pollers;Broker configuration;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Pollers;Broker configuration;WizardAjax;
+ACLMENU;GRANTRW;test_access-group;0;Configuration;
+ACLMENU;GRANTRW;test_access-group;0;Configuration;Pollers;
 ACLMENU;GRANTRW;test_access-group;0;Configuration;Pollers;Resources;
-ACLMENU;GRANTRW;test_access-group;0;Administration;
-ACLMENU;GRANTRW;test_access-group;0;Administration;Parameters;
 ACLMENU;GRANTRW;test_access-group;0;Administration;Parameters;Centreon UI;
 ACLMENU;GRANTRW;test_access-group;0;Administration;Parameters;Monitoring;
 ACLMENU;GRANTRW;test_access-group;0;Administration;Parameters;CentCore;
@@ -65,21 +63,23 @@ ACLMENU;GRANTRW;test_access-group;0;Administration;Parameters;CSS;
 ACLMENU;GRANTRW;test_access-group;0;Administration;Parameters;Backup;
 ACLMENU;GRANTRW;test_access-group;0;Administration;Parameters;Options;
 ACLMENU;GRANTRW;test_access-group;0;Administration;Parameters;Data;
+ACLMENU;GRANTRW;test_access-group;0;Administration;Parameters;
 ACLMENU;GRANTRW;test_access-group;0;Administration;Parameters;Images;
-ACLMENU;GRANTRW;test_access-group;0;Administration;Extensions;
 ACLMENU;GRANTRW;test_access-group;0;Administration;Extensions;Modules;
+ACLMENU;GRANTRW;test_access-group;0;Administration;Extensions;
 ACLMENU;GRANTRW;test_access-group;0;Administration;Extensions;Widgets;
-ACLMENU;GRANTRW;test_access-group;0;Administration;ACL;
 ACLMENU;GRANTRW;test_access-group;0;Administration;ACL;Access Groups;
 ACLMENU;GRANTRW;test_access-group;0;Administration;ACL;Menus Access;
 ACLMENU;GRANTRW;test_access-group;0;Administration;ACL;Resources Access;
 ACLMENU;GRANTRW;test_access-group;0;Administration;ACL;Actions Access;
+ACLMENU;GRANTRW;test_access-group;0;Administration;ACL;
 ACLMENU;GRANTRW;test_access-group;0;Administration;ACL;Reload ACL;
 ACLMENU;GRANTRW;test_access-group;0;Administration;Logs;
 ACLMENU;GRANTRW;test_access-group;0;Administration;Logs;Visualisation;
 ACLMENU;GRANTRW;test_access-group;0;Administration;Sessions;
 ACLMENU;GRANTRW;test_access-group;0;Administration;Server Status;
 ACLMENU;GRANTRW;test_access-group;0;Administration;Server Status;Databases;
+ACLMENU;GRANTRW;test_access-group;0;Administration;
 ACLMENU;GRANTRW;test_access-group;0;Administration;About;
 ACLMENU;GRANTRW;test_access-group;0;Administration;About;About;
 ACLACTION;ADD;Simple User;Simple User;
@@ -118,6 +118,7 @@ INSTANCE;setparam;test_poller;is_default;0
 INSTANCE;setparam;test_poller;ns_activate;0
 INSTANCE;setparam;test_poller;ns_status;0
 INSTANCE;setparam;test_poller;init_script;centengine
+INSTANCE;setparam;test_poller;init_system;systemv
 INSTANCE;setparam;test_poller;monitoring_engine;CENGINE
 INSTANCE;setparam;test_poller;nagios_bin;/usr/sbin/centengine
 INSTANCE;setparam;test_poller;nagiostats_bin;/usr/sbin/centenginestats
@@ -183,6 +184,152 @@ VENDOR;ADD;HP-Compaq;HP and Compaq Systems
 VENDOR;setparam;HP-Compaq;id;11
 VENDOR;setparam;HP-Compaq;name;HP-Compaq
 VENDOR;setparam;HP-Compaq;alias;HP and Compaq Systems
+CMD;ADD;check_host_alive;2;$USER1$/check_icmp -H $HOSTADDRESS$ -w 3000.0,80% -c 5000.0,100% -p 1
+CMD;setparam;check_host_alive;enable_shell;0
+CMD;setparam;check_host_alive;command_activate;1
+CMD;setparam;check_host_alive;command_locked;0
+CMD;ADD;check_disk_smb;2;$USER1$/check_disk_smb -H $HOSTADDRESS$ -s $ARG1$ -u $ARG2$ -p $ARG3$ -w $ARG4$ -c $ARG5$
+CMD;setparam;check_disk_smb;command_example;!share!user!passwd!80!90
+CMD;setparam;check_disk_smb;enable_shell;0
+CMD;setparam;check_disk_smb;command_activate;1
+CMD;setparam;check_disk_smb;command_locked;0
+CMD;ADD;check_distant_disk_space;2;$USER1$/check_distant_disk_space -H $HOSTADDRESS$ -C $ARG1$ -p $ARG2$ -w $ARG3$ -c $ARG4$
+CMD;setparam;check_distant_disk_space;enable_shell;0
+CMD;setparam;check_distant_disk_space;command_activate;1
+CMD;setparam;check_distant_disk_space;command_locked;0
+CMD;ADD;check_centreon_dummy;2;$USER1$/check_centreon_dummy -s $ARG1$ -o $ARG2$
+CMD;setparam;check_centreon_dummy;command_example;!0!OK
+CMD;setparam;check_centreon_dummy;enable_shell;0
+CMD;setparam;check_centreon_dummy;command_activate;1
+CMD;setparam;check_centreon_dummy;command_locked;0
+CMD;ADD;check_centreon_load_average;2;$USER1$/check_centreon_snmp_loadaverage -H $HOSTADDRESS$ -v $_HOSTSNMPVERSION$ -C $_HOSTSNMPCOMMUNITY$ -w $ARG1$ -c $ARG2$
+CMD;setparam;check_centreon_load_average;command_example;!4,3,2!6,5,4
+CMD;setparam;check_centreon_load_average;enable_shell;0
+CMD;setparam;check_centreon_load_average;command_activate;1
+CMD;setparam;check_centreon_load_average;graph;Load_Average
+CMD;setparam;check_centreon_load_average;command_locked;0
+CMD;ADD;check_centreon_ping;2;$USER1$/check_icmp -H $HOSTADDRESS$ -n $ARG1$ -w $ARG2$ -c $ARG3$
+CMD;setparam;check_centreon_ping;command_example;!3!200,20%!400,50%
+CMD;setparam;check_centreon_ping;enable_shell;0
+CMD;setparam;check_centreon_ping;command_activate;1
+CMD;setparam;check_centreon_ping;graph;Latency
+CMD;setparam;check_centreon_ping;command_locked;0
+CMD;ADD;check_centreon_process;2;$USER1$/check_centreon_snmp_process -H $HOSTADDRESS$ -v $_HOSTSNMPVERSION$ -C $_HOSTSNMPCOMMUNITY$ -n -p $ARG1$ -w $ARG2$ -c $ARG3$
+CMD;setparam;check_centreon_process;command_example;!httpd!warning!critical
+CMD;setparam;check_centreon_process;enable_shell;0
+CMD;setparam;check_centreon_process;command_activate;1
+CMD;setparam;check_centreon_process;command_locked;0
+CMD;ADD;check_centreon_remote_storage;2;$USER1$/check_centreon_snmp_remote_storage -H $HOSTADDRESS$ -n -d $ARG1$ -w $ARG2$ -c $ARG3$ -v $_HOSTSNMPVERSION$ -C $_HOSTSNMPCOMMUNITY$
+CMD;setparam;check_centreon_remote_storage;command_example;!/!80!90
+CMD;setparam;check_centreon_remote_storage;enable_shell;0
+CMD;setparam;check_centreon_remote_storage;command_activate;1
+CMD;setparam;check_centreon_remote_storage;graph;Storage
+CMD;setparam;check_centreon_remote_storage;command_locked;0
+CMD;ADD;check_centreon_traffic_limited;2;$USER1$/check_centreon_snmp_traffic -H $HOSTADDRESS$ -n -i $ARG1$ -w $ARG2$ -c $ARG3$ -T $ARG4$ -v $_HOSTSNMPVERSION$ -C $_HOSTSNMPCOMMUNITY$
+CMD;setparam;check_centreon_traffic_limited;command_example;!eth0!80!90!2
+CMD;setparam;check_centreon_traffic_limited;enable_shell;0
+CMD;setparam;check_centreon_traffic_limited;command_activate;1
+CMD;setparam;check_centreon_traffic_limited;graph;Traffic
+CMD;setparam;check_centreon_traffic_limited;command_locked;0
+CMD;ADD;check_hpjd;2;$USER1$/check_hpjd -H $HOSTADDRESS$ -C public
+CMD;setparam;check_hpjd;enable_shell;0
+CMD;setparam;check_hpjd;command_activate;1
+CMD;setparam;check_hpjd;command_locked;0
+CMD;ADD;check_http;2;$USER1$/check_http -H $HOSTADDRESS$
+CMD;setparam;check_http;enable_shell;0
+CMD;setparam;check_http;command_activate;1
+CMD;setparam;check_http;command_locked;0
+CMD;ADD;check_https;2;$USER1$/check_http -S $HOSTADDRESS$
+CMD;setparam;check_https;enable_shell;0
+CMD;setparam;check_https;command_activate;1
+CMD;setparam;check_https;command_locked;0
+CMD;ADD;check_local_swap;2;$USER1$/check_swap -w $ARG1$ -c $ARG2$ -v
+CMD;setparam;check_local_swap;command_example;!80!90
+CMD;setparam;check_local_swap;enable_shell;0
+CMD;setparam;check_local_swap;command_activate;1
+CMD;setparam;check_local_swap;command_locked;0
+CMD;ADD;check_local_disk;2;$USER1$/check_disk -w $ARG2$ -c $ARG3$ -p $ARG1$
+CMD;setparam;check_local_disk;enable_shell;0
+CMD;setparam;check_local_disk;command_activate;1
+CMD;setparam;check_local_disk;command_locked;0
+CMD;ADD;check_local_load;2;$USER1$/check_load -w $ARG1$ -c $ARG2$
+CMD;setparam;check_local_load;enable_shell;0
+CMD;setparam;check_local_load;command_activate;1
+CMD;setparam;check_local_load;command_locked;0
+CMD;ADD;check_local_procs;2;$USER1$/check_procs -w $ARG1$ -c $ARG2$ -u $ARG3$
+CMD;setparam;check_local_procs;enable_shell;0
+CMD;setparam;check_local_procs;command_activate;1
+CMD;setparam;check_local_procs;command_locked;0
+CMD;ADD;check_local_users;2;$USER1$/check_users -w $ARG1$ -c $ARG2$
+CMD;setparam;check_local_users;enable_shell;0
+CMD;setparam;check_local_users;command_activate;1
+CMD;setparam;check_local_users;command_locked;0
+CMD;ADD;check_nt_memuse;2;$USER1$/check_nt -H $HOSTADDRESS$ -v MEMUSE -p $ARG1$ -w $ARG2$ -c $ARG3$ -s $ARG4$
+CMD;setparam;check_nt_memuse;command_example;!12489!80!90!public
+CMD;setparam;check_nt_memuse;enable_shell;0
+CMD;setparam;check_nt_memuse;command_activate;1
+CMD;setparam;check_nt_memuse;command_locked;0
+CMD;ADD;check_nt_cpu;2;$USER1$/check_nt -H $HOSTADDRESS$ -v CPULOAD -p $ARG1$ -l 2,90,95 -s $ARG2$
+CMD;setparam;check_nt_cpu;command_example;!12489!public
+CMD;setparam;check_nt_cpu;enable_shell;0
+CMD;setparam;check_nt_cpu;command_activate;1
+CMD;setparam;check_nt_cpu;command_locked;0
+CMD;ADD;check_nt_disk;2;$USER1$/check_nt -H $HOSTADDRESS$ -v USEDDISKSPACE -p $ARG1$ -l $ARG2$ -w $ARG3$ -c $ARG4$ -s $ARG5$
+CMD;setparam;check_nt_disk;command_example;!12489!C!80!90!public
+CMD;setparam;check_nt_disk;enable_shell;0
+CMD;setparam;check_nt_disk;command_activate;1
+CMD;setparam;check_nt_disk;command_locked;0
+CMD;ADD;check_tcp;2;$USER1$/check_tcp -H $HOSTADDRESS$ -p $ARG1$ -w $ARG2$ -c $ARG3$
+CMD;setparam;check_tcp;enable_shell;0
+CMD;setparam;check_tcp;command_activate;1
+CMD;setparam;check_tcp;command_locked;0
+CMD;ADD;check_nntp;2;$USER1$/check_nntp -H $HOSTADDRESS$
+CMD;setparam;check_nntp;enable_shell;0
+CMD;setparam;check_nntp;command_activate;1
+CMD;setparam;check_nntp;command_locked;0
+CMD;ADD;check_pop;2;$USER1$/check_pop -H $HOSTADDRESS$
+CMD;setparam;check_pop;enable_shell;0
+CMD;setparam;check_pop;command_activate;1
+CMD;setparam;check_pop;command_locked;0
+CMD;ADD;check_smtp;2;$USER1$/check_smtp -H $HOSTADDRESS$
+CMD;setparam;check_smtp;enable_shell;0
+CMD;setparam;check_smtp;command_activate;1
+CMD;setparam;check_smtp;command_locked;0
+CMD;ADD;check_dns;2;$USER1$/check_dns -H $ARG1$ -s $HOSTADDRESS$
+CMD;setparam;check_dns;enable_shell;0
+CMD;setparam;check_dns;command_activate;1
+CMD;setparam;check_dns;command_locked;0
+CMD;ADD;check_ftp;2;$USER1$/check_ftp -H $HOSTADDRESS$
+CMD;setparam;check_ftp;command_example;!127.0.0.1
+CMD;setparam;check_ftp;enable_shell;0
+CMD;setparam;check_ftp;command_activate;1
+CMD;setparam;check_ftp;command_locked;0
+CMD;ADD;check_dhcp;2;$USER1$/check_dhcp -s $HOSTADDRESS$ -i $ARG1$
+CMD;setparam;check_dhcp;command_example;!eth0
+CMD;setparam;check_dhcp;enable_shell;0
+CMD;setparam;check_dhcp;command_activate;1
+CMD;setparam;check_dhcp;command_locked;0
+CMD;ADD;check_dig;2;$USER1$/check_dig -H $HOSTADDRESS$ -l $ARG1$
+CMD;setparam;check_dig;command_example;!www.centreon-nms.org
+CMD;setparam;check_dig;enable_shell;0
+CMD;setparam;check_dig;command_activate;1
+CMD;setparam;check_dig;command_locked;0
+CMD;ADD;check_snmp;2;$USER1$/check_snmp -H $HOSTADDRESS$ -o $ARG1$ -w $ARG2$ -c $ARG3$
+CMD;setparam;check_snmp;enable_shell;0
+CMD;setparam;check_snmp;command_activate;1
+CMD;setparam;check_snmp;command_locked;0
+CMD;ADD;check_telnet;2;$USER1$/check_tcp -H $HOSTADDRESS$ -p 23
+CMD;setparam;check_telnet;enable_shell;0
+CMD;setparam;check_telnet;command_activate;1
+CMD;setparam;check_telnet;command_locked;0
+CMD;ADD;check_udp;2;$USER1$/check_udp -H $HOSTADDRESS$ -p $ARG1$
+CMD;setparam;check_udp;enable_shell;0
+CMD;setparam;check_udp;command_activate;1
+CMD;setparam;check_udp;command_locked;0
+CMD;ADD;check_centreon_nt;2;$USER1$/check_nt -H $HOSTADDRESS$ -p 12489 -v $ARG1$ -l $ARG2$ -s $ARG3$ -w $ARG4$ -c $ARG5$
+CMD;setparam;check_centreon_nt;enable_shell;0
+CMD;setparam;check_centreon_nt;command_activate;1
+CMD;setparam;check_centreon_nt;command_locked;0
 CMD;ADD;host-notify-by-email;1;/usr/bin/printf &quot;%b&quot; &quot;***** centreon Notification *****#BR##BR#Type:$NOTIFICATIONTYPE$#BR#Host: $HOSTNAME$#BR#State: $HOSTSTATE$#BR#Address: $HOSTADDRESS$#BR#Info: $HOSTOUTPUT$#BR#Date/Time: $DATE$&quot; | @MAILER@ -s &quot;Host $HOSTSTATE$ alert for $HOSTNAME$!&quot; $CONTACTEMAIL$
 CMD;setparam;host-notify-by-email;enable_shell;1
 CMD;setparam;host-notify-by-email;command_activate;1
@@ -199,6 +346,49 @@ CMD;ADD;service-notify-by-epager;1;/usr/bin/printf &quot;%b&quot; &quot;Service:
 CMD;setparam;service-notify-by-epager;enable_shell;1
 CMD;setparam;service-notify-by-epager;command_activate;1
 CMD;setparam;service-notify-by-epager;command_locked;0
+CMD;ADD;submit-host-check-result;3;$USER1$/submit_host_check_result $HOSTNAME$ $HOSTSTATE$ &#039;$HOSTOUTPUT$&#039;
+CMD;setparam;submit-host-check-result;enable_shell;0
+CMD;setparam;submit-host-check-result;command_activate;1
+CMD;setparam;submit-host-check-result;command_locked;0
+CMD;ADD;submit-service-check-result;3;$USER1$/submit_service_check_result $HOSTNAME$ $SERVICEDESC$ $SERVICESTATE$ &#039;$SERVICEOUTPUT$&#039;
+CMD;setparam;submit-service-check-result;enable_shell;0
+CMD;setparam;submit-service-check-result;command_activate;1
+CMD;setparam;submit-service-check-result;command_locked;0
+CMD;ADD;process-service-perfdata;3;$USER1$/process-service-perfdata  "$LASTSERVICECHECK$" "$HOSTNAME$" "$SERVICEDESC$" "$LASTSERVICESTATE$" "$SERVICESTATE$" "$SERVICEPERFDATA$"
+CMD;setparam;process-service-perfdata;enable_shell;0
+CMD;setparam;process-service-perfdata;command_activate;1
+CMD;setparam;process-service-perfdata;command_locked;0
+CMD;ADD;check_centreon_uptime;2;$USER1$/check_centreon_snmp_uptime -H $HOSTADDRESS$ -v $_HOSTSNMPVERSION$ -C $_HOSTSNMPCOMMUNITY$ -d
+CMD;setparam;check_centreon_uptime;enable_shell;0
+CMD;setparam;check_centreon_uptime;command_activate;1
+CMD;setparam;check_centreon_uptime;command_locked;0
+CMD;ADD;check_centreon_nb_connections;2;$USER1$/check_centreon_snmp_TcpConn -H $HOSTADDRESS$ -v $_HOSTSNMPVERSION$ -C $_HOSTSNMPCOMMUNITY$ -p $ARG1$ -w $ARG2$ -c $ARG3$
+CMD;setparam;check_centreon_nb_connections;command_example;!80!70!100
+CMD;setparam;check_centreon_nb_connections;enable_shell;0
+CMD;setparam;check_centreon_nb_connections;command_activate;1
+CMD;setparam;check_centreon_nb_connections;command_locked;0
+CMD;ADD;check_centreon_traffic;2;$USER1$/check_centreon_snmp_traffic -H $HOSTADDRESS$ -n -i $ARG1$ -w $ARG2$ -c $ARG3$ -v $_HOSTSNMPVERSION$ -C $_HOSTSNMPCOMMUNITY$
+CMD;setparam;check_centreon_traffic;command_example;!eth0!80!90
+CMD;setparam;check_centreon_traffic;enable_shell;0
+CMD;setparam;check_centreon_traffic;command_activate;1
+CMD;setparam;check_centreon_traffic;graph;Traffic
+CMD;setparam;check_centreon_traffic;command_locked;0
+CMD;ADD;check_load_average;2;$USER1$/check_load $HOSTADDRESS$ -w $ARG1$ -c $ARG2$
+CMD;setparam;check_load_average;enable_shell;0
+CMD;setparam;check_load_average;command_activate;1
+CMD;setparam;check_load_average;command_locked;0
+CMD;ADD;check_local_cpu_load;2;$USER1$/check_nt -H $HOSTADDRESS$ -v CPULOAD -l $ARG1$ -s $ARG2$
+CMD;setparam;check_local_cpu_load;enable_shell;0
+CMD;setparam;check_local_cpu_load;command_activate;1
+CMD;setparam;check_local_cpu_load;command_locked;0
+CMD;ADD;check_local_disk_space;2;$USER1$/check_nt -H $HOSTADDRESS$ -v USEDDISKSPACE -l $ARG1$ -w $ARG2$ -c $ARG3$ -s $ARG2$
+CMD;setparam;check_local_disk_space;enable_shell;0
+CMD;setparam;check_local_disk_space;command_activate;1
+CMD;setparam;check_local_disk_space;command_locked;0
+CMD;ADD;check_maxq;2;$USER1$/check_maxq_script_return -r $ARG1$ -P $ARG2$
+CMD;setparam;check_maxq;enable_shell;0
+CMD;setparam;check_maxq;command_activate;1
+CMD;setparam;check_maxq;command_locked;0
 CMD;ADD;host-notify-by-jabber;1;$USER1$/notify_via_jabber  $CONTACTPAGER$ &quot;Host &#039;$HOSTALIAS$&#039; is $HOSTSTATE$ - Info: $HOSTOUTPUT$&quot;
 CMD;setparam;host-notify-by-jabber;enable_shell;0
 CMD;setparam;host-notify-by-jabber;command_activate;1
@@ -207,13 +397,34 @@ CMD;ADD;service-notify-by-jabber;1;$USER1$/notify_via_jabber $CONTACTPAGER$ &quo
 CMD;setparam;service-notify-by-jabber;enable_shell;0
 CMD;setparam;service-notify-by-jabber;command_activate;1
 CMD;setparam;service-notify-by-jabber;command_locked;0
+CMD;ADD;check_centreon_snmp_value;2;$USER1$/check_centreon_snmp_value -H $HOSTADDRESS$ -v $_HOSTSNMPVERSION$ -C $_HOSTSNMPCOMMUNITY$ -o $ARG1$ -w $ARG2$ -c $ARG53
+CMD;setparam;check_centreon_snmp_value;command_example;!1.3.6.1.4.1.705.1.8.1.0!190!210
+CMD;setparam;check_centreon_snmp_value;enable_shell;0
+CMD;setparam;check_centreon_snmp_value;command_activate;1
+CMD;setparam;check_centreon_snmp_value;command_locked;0
+CMD;ADD;check_centreon_snmp_proc_detailed;2;$USER1$/check_centreon_snmp_process_detailed -H $HOSTADDRESS$ -v $_HOSTSNMPVERSION$ -C $_HOSTSNMPCOMMUNITY$ -n $ARG1$ -m $ARG2$
+CMD;setparam;check_centreon_snmp_proc_detailed;command_example;!apache!20,50
+CMD;setparam;check_centreon_snmp_proc_detailed;enable_shell;0
+CMD;setparam;check_centreon_snmp_proc_detailed;command_activate;1
+CMD;setparam;check_centreon_snmp_proc_detailed;command_locked;0
+CMD;ADD;check_centreon_cpu;2;$USER1$/check_centreon_snmp_cpu -H $HOSTADDRESS$ -v $_HOSTSNMPVERSION$ -C $_HOSTSNMPCOMMUNITY$ -c $ARG1$ -w $ARG2$
+CMD;setparam;check_centreon_cpu;command_example;!80!90
+CMD;setparam;check_centreon_cpu;enable_shell;0
+CMD;setparam;check_centreon_cpu;command_activate;1
+CMD;setparam;check_centreon_cpu;graph;CPU
+CMD;setparam;check_centreon_cpu;command_locked;0
+CMD;ADD;check_centreon_memory;2;$USER1$/check_centreon_snmp_memory -H $HOSTADDRESS$ -v $_HOSTSNMPVERSION$ -C $_HOSTSNMPCOMMUNITY$ -w 80 -c 90
+CMD;setparam;check_centreon_memory;enable_shell;0
+CMD;setparam;check_centreon_memory;command_activate;1
+CMD;setparam;check_centreon_memory;graph;Memory
+CMD;setparam;check_centreon_memory;command_locked;0
 CMD;ADD;base_centreon_ping;2;$USER1$/check_icmp -H $HOSTADDRESS$ -n $_SERVICEPACKETNUMBER$ -w $_SERVICEWARNING$ -c $_SERVICECRITICAL$
 CMD;setparam;base_centreon_ping;enable_shell;0
 CMD;setparam;base_centreon_ping;command_activate;1
 CMD;setparam;base_centreon_ping;command_locked;0
-RESOURCECFG;ADD;$USER1$;/usr/lib/nagios/plugins;Central|test_poller;Nagios Plugins Path
+RESOURCECFG;ADD;$USER1$;/usr/lib/nagios/plugins/;Central;Nagios Plugins Path
 RESOURCECFG;setparam;$USER1$;activate;1
-RESOURCECFG;ADD;$CENTREONPLUGINS$;/usr/lib/centreon/plugins;Central|test_poller;Centreon Plugins Path
+RESOURCECFG;ADD;$CENTREONPLUGINS$;/usr/lib/centreon/plugins/;Central;Centreon Plugins Path
 RESOURCECFG;setparam;$CENTREONPLUGINS$;activate;1
 CENTBROKERCFG;ADD;central-broker-master;Central
 CENTBROKERCFG;SETPARAM;central-broker-master;filename;central-broker.xml
@@ -222,34 +433,8 @@ CENTBROKERCFG;SETPARAM;central-broker-master;stats_activate;1
 CENTBROKERCFG;SETPARAM;central-broker-master;correlation_activate;0
 CENTBROKERCFG;SETPARAM;central-broker-master;daemon;1
 CENTBROKERCFG;ADDINPUT;central-broker-master;central-broker-master-input;ipv4
-CENTBROKERCFG;SETINPUT;central-broker-master;0;port;5669
-CENTBROKERCFG;SETINPUT;central-broker-master;0;retry_interval;60
-CENTBROKERCFG;SETINPUT;central-broker-master;0;buffering_timeout;0
-CENTBROKERCFG;SETINPUT;central-broker-master;0;protocol;bbdo
-CENTBROKERCFG;SETINPUT;central-broker-master;0;tls;no
-CENTBROKERCFG;SETINPUT;central-broker-master;0;negotiation;yes
-CENTBROKERCFG;SETINPUT;central-broker-master;0;one_peer_retention_mode;no
-CENTBROKERCFG;SETINPUT;central-broker-master;0;compression;no
-CENTBROKERCFG;SETINPUT;central-broker-master;0;type;ipv4
-CENTBROKERCFG;ADDLOGGER;central-broker-master;/var/log/centreon-broker/central-broker-master.log;file
-CENTBROKERCFG;SETLOGGER;central-broker-master;0;config;yes
-CENTBROKERCFG;SETLOGGER;central-broker-master;0;debug;no
-CENTBROKERCFG;SETLOGGER;central-broker-master;0;error;yes
-CENTBROKERCFG;SETLOGGER;central-broker-master;0;info;no
-CENTBROKERCFG;SETLOGGER;central-broker-master;0;level;low
-CENTBROKERCFG;SETLOGGER;central-broker-master;0;type;file
-CENTBROKERCFG;ADDOUTPUT;central-broker-master;central-broker-master-sql;sql
-CENTBROKERCFG;SETOUTPUT;central-broker-master;0;db_type;mysql
-CENTBROKERCFG;SETOUTPUT;central-broker-master;0;retry_interval;60
-CENTBROKERCFG;SETOUTPUT;central-broker-master;0;buffering_timeout;0
-CENTBROKERCFG;SETOUTPUT;central-broker-master;0;db_host;localhost
-CENTBROKERCFG;SETOUTPUT;central-broker-master;0;db_port;3306
-CENTBROKERCFG;SETOUTPUT;central-broker-master;0;db_user;centreon
-CENTBROKERCFG;SETOUTPUT;central-broker-master;0;db_password;centreon
-CENTBROKERCFG;SETOUTPUT;central-broker-master;0;db_name;centreon_storage
-CENTBROKERCFG;SETOUTPUT;central-broker-master;0;check_replication;no
-CENTBROKERCFG;SETOUTPUT;central-broker-master;0;type;sql
-CENTBROKERCFG;ADDINPUT;central-broker-master;central-broker-master-input;ipv4
+CENTBROKERCFG;SETINPUT;central-broker-master;1;negociation;yes
+CENTBROKERCFG;SETINPUT;central-broker-master;1;type;ipv4
 CENTBROKERCFG;SETINPUT;central-broker-master;1;port;5669
 CENTBROKERCFG;SETINPUT;central-broker-master;1;retry_interval;60
 CENTBROKERCFG;SETINPUT;central-broker-master;1;buffering_timeout;0
@@ -258,43 +443,53 @@ CENTBROKERCFG;SETINPUT;central-broker-master;1;tls;no
 CENTBROKERCFG;SETINPUT;central-broker-master;1;negotiation;yes
 CENTBROKERCFG;SETINPUT;central-broker-master;1;one_peer_retention_mode;no
 CENTBROKERCFG;SETINPUT;central-broker-master;1;compression;no
-CENTBROKERCFG;SETINPUT;central-broker-master;1;type;ipv4
-CENTBROKERCFG;ADDOUTPUT;central-broker-master;centreon-broker-master-rrd;ipv4
-CENTBROKERCFG;SETOUTPUT;central-broker-master;1;port;5670
-CENTBROKERCFG;SETOUTPUT;central-broker-master;1;host;localhost
+CENTBROKERCFG;ADDLOGGER;central-broker-master;/var/log/centreon-broker//central-broker-master.log;file
+CENTBROKERCFG;SETLOGGER;central-broker-master;1;type;file
+CENTBROKERCFG;SETLOGGER;central-broker-master;1;config;yes
+CENTBROKERCFG;SETLOGGER;central-broker-master;1;debug;no
+CENTBROKERCFG;SETLOGGER;central-broker-master;1;error;yes
+CENTBROKERCFG;SETLOGGER;central-broker-master;1;info;no
+CENTBROKERCFG;SETLOGGER;central-broker-master;1;level;low
+CENTBROKERCFG;ADDOUTPUT;central-broker-master;central-broker-master-sql;sql
+CENTBROKERCFG;SETOUTPUT;central-broker-master;1;type;sql
+CENTBROKERCFG;SETOUTPUT;central-broker-master;1;db_type;mysql
+CENTBROKERCFG;SETOUTPUT;central-broker-master;1;db_host;localhost
+CENTBROKERCFG;SETOUTPUT;central-broker-master;1;db_port;3306
+CENTBROKERCFG;SETOUTPUT;central-broker-master;1;db_user;centreon
+CENTBROKERCFG;SETOUTPUT;central-broker-master;1;db_password;centreon
+CENTBROKERCFG;SETOUTPUT;central-broker-master;1;db_name;centreon_storage
 CENTBROKERCFG;SETOUTPUT;central-broker-master;1;retry_interval;60
 CENTBROKERCFG;SETOUTPUT;central-broker-master;1;buffering_timeout;0
-CENTBROKERCFG;SETOUTPUT;central-broker-master;1;protocol;bbdo
-CENTBROKERCFG;SETOUTPUT;central-broker-master;1;tls;no
-CENTBROKERCFG;SETOUTPUT;central-broker-master;1;negotiation;yes
-CENTBROKERCFG;SETOUTPUT;central-broker-master;1;one_peer_retention_mode;no
-CENTBROKERCFG;SETOUTPUT;central-broker-master;1;compression;no
-CENTBROKERCFG;SETOUTPUT;central-broker-master;1;type;ipv4
-CENTBROKERCFG;ADDINPUT;central-broker-master;central-broker-master-input;ipv4
-CENTBROKERCFG;SETINPUT;central-broker-master;2;port;5669
-CENTBROKERCFG;SETINPUT;central-broker-master;2;retry_interval;60
-CENTBROKERCFG;SETINPUT;central-broker-master;2;buffering_timeout;0
-CENTBROKERCFG;SETINPUT;central-broker-master;2;protocol;bbdo
-CENTBROKERCFG;SETINPUT;central-broker-master;2;tls;no
-CENTBROKERCFG;SETINPUT;central-broker-master;2;negotiation;yes
-CENTBROKERCFG;SETINPUT;central-broker-master;2;one_peer_retention_mode;no
-CENTBROKERCFG;SETINPUT;central-broker-master;2;compression;no
-CENTBROKERCFG;SETINPUT;central-broker-master;2;type;ipv4
-CENTBROKERCFG;ADDOUTPUT;central-broker-master;central-broker-master-perfdata;storage
-CENTBROKERCFG;SETOUTPUT;central-broker-master;2;interval;60
+CENTBROKERCFG;ADDOUTPUT;central-broker-master;centreon-broker-master-rrd;ipv4
+CENTBROKERCFG;SETOUTPUT;central-broker-master;2;negociation;yes
+CENTBROKERCFG;SETOUTPUT;central-broker-master;2;type;ipv4
+CENTBROKERCFG;SETOUTPUT;central-broker-master;2;port;5670
+CENTBROKERCFG;SETOUTPUT;central-broker-master;2;host;localhost
+CENTBROKERCFG;SETOUTPUT;central-broker-master;2;protocol;bbdo
+CENTBROKERCFG;SETOUTPUT;central-broker-master;2;tls;no
+CENTBROKERCFG;SETOUTPUT;central-broker-master;2;compression;no
 CENTBROKERCFG;SETOUTPUT;central-broker-master;2;retry_interval;60
 CENTBROKERCFG;SETOUTPUT;central-broker-master;2;buffering_timeout;0
-CENTBROKERCFG;SETOUTPUT;central-broker-master;2;length;15552000
-CENTBROKERCFG;SETOUTPUT;central-broker-master;2;db_type;mysql
-CENTBROKERCFG;SETOUTPUT;central-broker-master;2;db_host;localhost
-CENTBROKERCFG;SETOUTPUT;central-broker-master;2;db_port;3306
-CENTBROKERCFG;SETOUTPUT;central-broker-master;2;db_user;centreon
-CENTBROKERCFG;SETOUTPUT;central-broker-master;2;db_password;centreon
-CENTBROKERCFG;SETOUTPUT;central-broker-master;2;db_name;centreon_storage
-CENTBROKERCFG;SETOUTPUT;central-broker-master;2;check_replication;no
-CENTBROKERCFG;SETOUTPUT;central-broker-master;2;store_in_data_bin;yes
-CENTBROKERCFG;SETOUTPUT;central-broker-master;2;insert_in_index_data;1
-CENTBROKERCFG;SETOUTPUT;central-broker-master;2;type;storage
+CENTBROKERCFG;ADDLOGGER;central-broker-master;/var/log/centreon-broker/central-broker-master.log;file
+CENTBROKERCFG;SETLOGGER;central-broker-master;2;type;file
+CENTBROKERCFG;SETLOGGER;central-broker-master;2;config;yes
+CENTBROKERCFG;SETLOGGER;central-broker-master;2;debug;no
+CENTBROKERCFG;SETLOGGER;central-broker-master;2;error;yes
+CENTBROKERCFG;SETLOGGER;central-broker-master;2;info;no
+CENTBROKERCFG;SETLOGGER;central-broker-master;2;level;low
+CENTBROKERCFG;ADDOUTPUT;central-broker-master;central-broker-master-perfdata;storage
+CENTBROKERCFG;SETOUTPUT;central-broker-master;3;type;storage
+CENTBROKERCFG;SETOUTPUT;central-broker-master;3;interval;60
+CENTBROKERCFG;SETOUTPUT;central-broker-master;3;retry_interval;60
+CENTBROKERCFG;SETOUTPUT;central-broker-master;3;buffering_timeout;0
+CENTBROKERCFG;SETOUTPUT;central-broker-master;3;length;15552000
+CENTBROKERCFG;SETOUTPUT;central-broker-master;3;db_type;mysql
+CENTBROKERCFG;SETOUTPUT;central-broker-master;3;db_host;localhost
+CENTBROKERCFG;SETOUTPUT;central-broker-master;3;db_port;3306
+CENTBROKERCFG;SETOUTPUT;central-broker-master;3;db_user;centreon
+CENTBROKERCFG;SETOUTPUT;central-broker-master;3;db_password;centreon
+CENTBROKERCFG;SETOUTPUT;central-broker-master;3;db_name;centreon_storage
+CENTBROKERCFG;SETOUTPUT;central-broker-master;3;check_replication;no
 CENTBROKERCFG;ADD;central-rrd-master;Central
 CENTBROKERCFG;SETPARAM;central-rrd-master;filename;central-rrd.xml
 CENTBROKERCFG;SETPARAM;central-rrd-master;cache_directory;/var/lib/centreon-broker
@@ -302,22 +497,23 @@ CENTBROKERCFG;SETPARAM;central-rrd-master;stats_activate;1
 CENTBROKERCFG;SETPARAM;central-rrd-master;correlation_activate;0
 CENTBROKERCFG;SETPARAM;central-rrd-master;daemon;1
 CENTBROKERCFG;ADDINPUT;central-rrd-master;central-rrd-master-input;ipv4
+CENTBROKERCFG;SETINPUT;central-rrd-master;1;negociation;yes
+CENTBROKERCFG;SETINPUT;central-rrd-master;1;type;ipv4
 CENTBROKERCFG;SETINPUT;central-rrd-master;1;port;5670
 CENTBROKERCFG;SETINPUT;central-rrd-master;1;buffering_timeout;0
 CENTBROKERCFG;SETINPUT;central-rrd-master;1;retry_interval;60
 CENTBROKERCFG;SETINPUT;central-rrd-master;1;protocol;bbdo
 CENTBROKERCFG;SETINPUT;central-rrd-master;1;tls;auto
-CENTBROKERCFG;SETINPUT;central-rrd-master;1;negociation;yes
 CENTBROKERCFG;SETINPUT;central-rrd-master;1;compression;auto
-CENTBROKERCFG;SETINPUT;central-rrd-master;1;type;ipv4
-CENTBROKERCFG;ADDLOGGER;central-rrd-master;/var/log/centreon-broker/central-rrd-master.log;file
+CENTBROKERCFG;ADDLOGGER;central-rrd-master;/var/log/centreon-broker//central-rrd-master.log;file
+CENTBROKERCFG;SETLOGGER;central-rrd-master;1;type;file
 CENTBROKERCFG;SETLOGGER;central-rrd-master;1;config;yes
 CENTBROKERCFG;SETLOGGER;central-rrd-master;1;debug;no
 CENTBROKERCFG;SETLOGGER;central-rrd-master;1;error;yes
 CENTBROKERCFG;SETLOGGER;central-rrd-master;1;info;no
 CENTBROKERCFG;SETLOGGER;central-rrd-master;1;level;low
-CENTBROKERCFG;SETLOGGER;central-rrd-master;1;type;file
 CENTBROKERCFG;ADDOUTPUT;central-rrd-master;central-rrd-master-output;rrd
+CENTBROKERCFG;SETOUTPUT;central-rrd-master;1;type;rrd
 CENTBROKERCFG;SETOUTPUT;central-rrd-master;1;metrics_path;/var/lib/centreon/metrics
 CENTBROKERCFG;SETOUTPUT;central-rrd-master;1;status_path;/var/lib/centreon/status
 CENTBROKERCFG;SETOUTPUT;central-rrd-master;1;retry_interval;60
@@ -325,21 +521,28 @@ CENTBROKERCFG;SETOUTPUT;central-rrd-master;1;buffering_timeout;0
 CENTBROKERCFG;SETOUTPUT;central-rrd-master;1;store_in_data_bin;yes
 CENTBROKERCFG;SETOUTPUT;central-rrd-master;1;write_metrics;yes
 CENTBROKERCFG;SETOUTPUT;central-rrd-master;1;write_status;yes
-CENTBROKERCFG;SETOUTPUT;central-rrd-master;1;type;rrd
+CENTBROKERCFG;ADDLOGGER;central-rrd-master;/var/log/centreon-broker/central-rrd-master.log;file
+CENTBROKERCFG;SETLOGGER;central-rrd-master;2;type;file
+CENTBROKERCFG;SETLOGGER;central-rrd-master;2;config;yes
+CENTBROKERCFG;SETLOGGER;central-rrd-master;2;debug;no
+CENTBROKERCFG;SETLOGGER;central-rrd-master;2;error;yes
+CENTBROKERCFG;SETLOGGER;central-rrd-master;2;info;no
+CENTBROKERCFG;SETLOGGER;central-rrd-master;2;level;low
 CENTBROKERCFG;ADD;central-module-master;Central
 CENTBROKERCFG;SETPARAM;central-module-master;filename;central-module.xml
 CENTBROKERCFG;SETPARAM;central-module-master;cache_directory;/var/lib/centreon-engine
 CENTBROKERCFG;SETPARAM;central-module-master;stats_activate;1
 CENTBROKERCFG;SETPARAM;central-module-master;correlation_activate;0
 CENTBROKERCFG;SETPARAM;central-module-master;daemon;0
-CENTBROKERCFG;ADDLOGGER;central-module-master;/var/log/centreon-broker/central-module-master.log;file
+CENTBROKERCFG;ADDLOGGER;central-module-master;/var/log/centreon-broker//central-module-master.log;file
+CENTBROKERCFG;SETLOGGER;central-module-master;1;type;file
 CENTBROKERCFG;SETLOGGER;central-module-master;1;config;yes
 CENTBROKERCFG;SETLOGGER;central-module-master;1;debug;no
 CENTBROKERCFG;SETLOGGER;central-module-master;1;error;yes
 CENTBROKERCFG;SETLOGGER;central-module-master;1;info;no
 CENTBROKERCFG;SETLOGGER;central-module-master;1;level;low
-CENTBROKERCFG;SETLOGGER;central-module-master;1;type;file
 CENTBROKERCFG;ADDOUTPUT;central-module-master;central-module-master-output;ipv4
+CENTBROKERCFG;SETOUTPUT;central-module-master;1;type;ipv4
 CENTBROKERCFG;SETOUTPUT;central-module-master;1;port;5669
 CENTBROKERCFG;SETOUTPUT;central-module-master;1;host;localhost
 CENTBROKERCFG;SETOUTPUT;central-module-master;1;retry_interval;60
@@ -347,7 +550,13 @@ CENTBROKERCFG;SETOUTPUT;central-module-master;1;buffering_timeout;0
 CENTBROKERCFG;SETOUTPUT;central-module-master;1;protocol;bbdo
 CENTBROKERCFG;SETOUTPUT;central-module-master;1;tls;no
 CENTBROKERCFG;SETOUTPUT;central-module-master;1;compression;no
-CENTBROKERCFG;SETOUTPUT;central-module-master;1;type;ipv4
+CENTBROKERCFG;ADDLOGGER;central-module-master;/var/log/centreon-broker/central-module-master.log;file
+CENTBROKERCFG;SETLOGGER;central-module-master;2;type;file
+CENTBROKERCFG;SETLOGGER;central-module-master;2;config;yes
+CENTBROKERCFG;SETLOGGER;central-module-master;2;debug;no
+CENTBROKERCFG;SETLOGGER;central-module-master;2;error;yes
+CENTBROKERCFG;SETLOGGER;central-module-master;2;info;no
+CENTBROKERCFG;SETLOGGER;central-module-master;2;level;low
 ENGINECFG;ADD;Centreon Engine Central;Central;Centreon Engine
 ENGINECFG;setparam;Centreon Engine Central;log_file;/var/log/centreon-engine/centengine.log
 ENGINECFG;setparam;Centreon Engine Central;cfg_dir;/etc/centreon-engine
@@ -437,6 +646,7 @@ ENGINECFG;setparam;Centreon Engine Central_1;log_file;/var/log/centreon-engine/c
 ENGINECFG;setparam;Centreon Engine Central_1;cfg_dir;/etc/centreon-engine
 ENGINECFG;setparam;Centreon Engine Central_1;temp_file;/var/log/centreon-engine/centengine.tmp
 ENGINECFG;setparam;Centreon Engine Central_1;status_file;/var/log/centreon-engine/status.dat
+ENGINECFG;setparam;Centreon Engine Central_1;use_check_result_path;0
 ENGINECFG;setparam;Centreon Engine Central_1;nagios_user;centreon-engine
 ENGINECFG;setparam;Centreon Engine Central_1;nagios_group;centreon-engine
 ENGINECFG;setparam;Centreon Engine Central_1;enable_notifications;1
@@ -456,6 +666,7 @@ ENGINECFG;setparam;Centreon Engine Central_1;state_retention_file;/var/log/centr
 ENGINECFG;setparam;Centreon Engine Central_1;retention_update_interval;60
 ENGINECFG;setparam;Centreon Engine Central_1;use_retained_program_state;1
 ENGINECFG;setparam;Centreon Engine Central_1;use_retained_scheduling_info;1
+ENGINECFG;setparam;Centreon Engine Central_1;use_syslog;0
 ENGINECFG;setparam;Centreon Engine Central_1;log_notifications;1
 ENGINECFG;setparam;Centreon Engine Central_1;log_service_retries;1
 ENGINECFG;setparam;Centreon Engine Central_1;log_host_retries;1
@@ -471,10 +682,12 @@ ENGINECFG;setparam;Centreon Engine Central_1;check_result_reaper_frequency;5
 ENGINECFG;setparam;Centreon Engine Central_1;interval_length;60
 ENGINECFG;setparam;Centreon Engine Central_1;auto_reschedule_checks;2
 ENGINECFG;setparam;Centreon Engine Central_1;use_aggressive_host_checking;1
+ENGINECFG;setparam;Centreon Engine Central_1;enable_flap_detection;0
 ENGINECFG;setparam;Centreon Engine Central_1;low_service_flap_threshold;25.0
 ENGINECFG;setparam;Centreon Engine Central_1;high_service_flap_threshold;50.0
 ENGINECFG;setparam;Centreon Engine Central_1;low_host_flap_threshold;25.0
 ENGINECFG;setparam;Centreon Engine Central_1;high_host_flap_threshold;50.0
+ENGINECFG;setparam;Centreon Engine Central_1;soft_state_dependencies;0
 ENGINECFG;setparam;Centreon Engine Central_1;service_check_timeout;60
 ENGINECFG;setparam;Centreon Engine Central_1;host_check_timeout;12
 ENGINECFG;setparam;Centreon Engine Central_1;event_handler_timeout;30
@@ -482,9 +695,12 @@ ENGINECFG;setparam;Centreon Engine Central_1;notification_timeout;30
 ENGINECFG;setparam;Centreon Engine Central_1;ocsp_timeout;5
 ENGINECFG;setparam;Centreon Engine Central_1;ochp_timeout;5
 ENGINECFG;setparam;Centreon Engine Central_1;perfdata_timeout;5
+ENGINECFG;setparam;Centreon Engine Central_1;obsess_over_services;0
 ENGINECFG;setparam;Centreon Engine Central_1;obsess_over_hosts;2
+ENGINECFG;setparam;Centreon Engine Central_1;process_performance_data;0
 ENGINECFG;setparam;Centreon Engine Central_1;host_perfdata_file_mode;2
 ENGINECFG;setparam;Centreon Engine Central_1;service_perfdata_file_mode;2
+ENGINECFG;setparam;Centreon Engine Central_1;check_for_orphaned_services;0
 ENGINECFG;setparam;Centreon Engine Central_1;check_service_freshness;1
 ENGINECFG;setparam;Centreon Engine Central_1;check_host_freshness;2
 ENGINECFG;setparam;Centreon Engine Central_1;date_format;euro
@@ -498,20 +714,60 @@ ENGINECFG;setparam;Centreon Engine Central_1;nagios_activate;1
 ENGINECFG;setparam;Centreon Engine Central_1;event_broker_options;-1
 ENGINECFG;setparam;Centreon Engine Central_1;enable_predictive_host_dependency_checks;2
 ENGINECFG;setparam;Centreon Engine Central_1;enable_predictive_service_dependency_checks;2
+ENGINECFG;setparam;Centreon Engine Central_1;cached_host_check_horizon;60
 ENGINECFG;setparam;Centreon Engine Central_1;use_large_installation_tweaks;2
 ENGINECFG;setparam;Centreon Engine Central_1;enable_environment_macros;2
 ENGINECFG;setparam;Centreon Engine Central_1;debug_file;/var/log/centreon-engine/centengine.debug
+ENGINECFG;setparam;Centreon Engine Central_1;debug_level;0
+ENGINECFG;setparam;Centreon Engine Central_1;debug_level_opt;0
 ENGINECFG;setparam;Centreon Engine Central_1;debug_verbosity;2
 ENGINECFG;setparam;Centreon Engine Central_1;cfg_file;centengine.cfg
 ENGINECFG;setparam;Centreon Engine Central_1;log_pid;1
 ENGINECFG;setparam;Centreon Engine Central_1;broker_module;/usr/lib64/centreon-engine/externalcmd.so|/usr/lib64/nagios/cbmod.so /etc/centreon-broker/central-module.xml
+CONTACTTPL;ADD;contact_template;contact_template;;md5__d41d8cd98f00b204e9800998ecf8427e;0;;;local
+CONTACTTPL;setparam;contact_template;contact_js_effects;0
+CONTACTTPL;setparam;contact_template;timezone;
+CONTACTTPL;setparam;contact_template;reach_api;0
+CONTACTTPL;setparam;contact_template;contact_enable_notifications;2
+CONTACTTPL;setparam;contact_template;contact_type_msg;txt
+CONTACTTPL;setparam;contact_template;contact_activate;1
 CONTACTTPL;ADD;test_name;test_contact-template;;md5__b0e52a1510c9012ebae9e9dc1ae0c46e;;;;local
 CONTACTTPL;setparam;test_contact-template;hostnotifopt;n
 CONTACTTPL;setparam;test_contact-template;servicenotifopt;n
 CONTACTTPL;setparam;test_contact-template;contact_js_effects;0
+CONTACTTPL;setparam;test_contact-template;timezone;
+CONTACTTPL;setparam;test_contact-template;reach_api;0
 CONTACTTPL;setparam;test_contact-template;contact_enable_notifications;0
+CONTACTTPL;setparam;test_contact-template;contact_type_msg;txt
 CONTACTTPL;setparam;test_contact-template;contact_activate;1
-LDAP;ADD;test_configuration-LDAP;test_configuration-LDAP (mamène);
+LDAP;ADD;openldap;openldap;
+LDAP;SETPARAM;openldap;enable;1;
+LDAP;ADDSERVER;openldap;openldap;389;0;0;
+LDAP;SETPARAM;openldap;alias;uid;
+LDAP;SETPARAM;openldap;bind_dn;cn=admin,dc=centreon,dc=com;
+LDAP;SETPARAM;openldap;bind_pass;centreon;
+LDAP;SETPARAM;openldap;group_base_search;dc=centreon,dc=com;
+LDAP;SETPARAM;openldap;group_filter;(&(cn=%s)(objectClass=groupOfNames));
+LDAP;SETPARAM;openldap;group_member;member;
+LDAP;SETPARAM;openldap;group_name;cn;
+LDAP;SETPARAM;openldap;ldap_auto_import;1;
+LDAP;SETPARAM;openldap;ldap_contact_tmpl;contact_template;
+LDAP;SETPARAM;openldap;ldap_dns_use_domain;;
+LDAP;SETPARAM;openldap;ldap_search_limit;60;
+LDAP;SETPARAM;openldap;ldap_search_timeout;60;
+LDAP;SETPARAM;openldap;ldap_srv_dns;0;
+LDAP;SETPARAM;openldap;ldap_store_password;1;
+LDAP;SETPARAM;openldap;ldap_template;Posix;
+LDAP;SETPARAM;openldap;protocol_version;3;
+LDAP;SETPARAM;openldap;user_base_search;dc=centreon,dc=com;
+LDAP;SETPARAM;openldap;user_email;mail;
+LDAP;SETPARAM;openldap;user_filter;(&(uid=%s)(objectClass=posixAccount));
+LDAP;SETPARAM;openldap;user_firstname;givenname;
+LDAP;SETPARAM;openldap;user_group;;
+LDAP;SETPARAM;openldap;user_lastname;sn;
+LDAP;SETPARAM;openldap;user_name;cn;
+LDAP;SETPARAM;openldap;user_pager;mobile;
+LDAP;ADD;test_configuration-LDAP;test_configuration-LDAP;
 LDAP;SETPARAM;test_configuration-LDAP;enable;0;
 LDAP;SETPARAM;test_configuration-LDAP;alias;samaccountname;
 LDAP;SETPARAM;test_configuration-LDAP;bind_dn;;
@@ -521,7 +777,6 @@ LDAP;SETPARAM;test_configuration-LDAP;group_filter;(&(samAccountName=%s)(objectC
 LDAP;SETPARAM;test_configuration-LDAP;group_member;member;
 LDAP;SETPARAM;test_configuration-LDAP;group_name;samaccountname;
 LDAP;SETPARAM;test_configuration-LDAP;ldap_auto_import;1;
-LDAP;SETPARAM;test_configuration-LDAP;ldap_contact_tmpl;test_name;
 LDAP;SETPARAM;test_configuration-LDAP;ldap_dns_use_domain;;
 LDAP;SETPARAM;test_configuration-LDAP;ldap_search_limit;60;
 LDAP;SETPARAM;test_configuration-LDAP;ldap_search_timeout;60;
@@ -537,7 +792,7 @@ LDAP;SETPARAM;test_configuration-LDAP;user_group;memberOf;
 LDAP;SETPARAM;test_configuration-LDAP;user_lastname;sn;
 LDAP;SETPARAM;test_configuration-LDAP;user_name;name;
 LDAP;SETPARAM;test_configuration-LDAP;user_pager;mobile;
-CONTACT;ADD;Guillaume toto;admin;gbaldo@centreon.com;md5__2f0a912f1c89b4f4fc9edd324d9d1c89;1;1;en_US;local
+CONTACT;ADD;admin admin;admin;admin@centreon.com;md5__2f0a912f1c89b4f4fc9edd324d9d1c89;1;1;en_US;local
 CONTACT;setparam;admin;hostnotifperiod;24x7
 CONTACT;setparam;admin;svcnotifperiod;24x7
 CONTACT;setparam;admin;hostnotifopt;n
@@ -548,6 +803,8 @@ CONTACT;setparam;admin;reach_api;0
 CONTACT;setparam;admin;contact_enable_notifications;1
 CONTACT;setparam;admin;contact_type_msg;txt
 CONTACT;setparam;admin;contact_activate;1
+CONTACT;setparam;admin;hostnotifcmd;host-notify-by-email
+CONTACT;setparam;admin;svcnotifcmd;service-notify-by-email
 CONTACT;ADD;Guest;guest;guest@localhost;md5__d41d8cd98f00b204e9800998ecf8427e;0;0;en_US;local
 CONTACT;setparam;guest;hostnotifperiod;24x7
 CONTACT;setparam;guest;svcnotifperiod;24x7
@@ -559,6 +816,8 @@ CONTACT;setparam;guest;reach_api;0
 CONTACT;setparam;guest;contact_enable_notifications;2
 CONTACT;setparam;guest;contact_type_msg;txt
 CONTACT;setparam;guest;contact_activate;0
+CONTACT;setparam;guest;hostnotifcmd;host-notify-by-email
+CONTACT;setparam;guest;svcnotifcmd;service-notify-by-email
 CONTACT;ADD;User;user;user@localhost;md5__d41d8cd98f00b204e9800998ecf8427e;0;0;en_US;local
 CONTACT;setparam;user;hostnotifperiod;24x7
 CONTACT;setparam;user;svcnotifperiod;24x7
@@ -570,17 +829,25 @@ CONTACT;setparam;user;reach_api;0
 CONTACT;setparam;user;contact_enable_notifications;2
 CONTACT;setparam;user;contact_type_msg;txt
 CONTACT;setparam;user;contact_activate;0
+CONTACT;setparam;user;hostnotifcmd;host-notify-by-email
+CONTACT;setparam;user;svcnotifcmd;service-notify-by-email
 CONTACT;ADD;test_contact;test_contact;test@localhost;md5__b0e52a1510c9012ebae9e9dc1ae0c46e;0;0;en_US;local
 CONTACT;setparam;test_contact;hostnotifopt;n
 CONTACT;setparam;test_contact;servicenotifopt;n
 CONTACT;setparam;test_contact;contact_js_effects;0
+CONTACT;setparam;test_contact;timezone;
 CONTACT;setparam;test_contact;reach_api;0
 CONTACT;setparam;test_contact;contact_enable_notifications;0
+CONTACT;setparam;test_contact;contact_type_msg;txt
 CONTACT;setparam;test_contact;contact_activate;1
 CONTACT;ADD;Jean-Pierre;jeanpierre;Jean-Pierre@hotmail.fr;md5__d41d8cd98f00b204e9800998ecf8427e;0;1;browser;local
+CONTACT;setparam;jeanpierre;hostnotifopt;n
+CONTACT;setparam;jeanpierre;servicenotifopt;n
 CONTACT;setparam;jeanpierre;contact_js_effects;0
+CONTACT;setparam;jeanpierre;timezone;
 CONTACT;setparam;jeanpierre;reach_api;0
 CONTACT;setparam;jeanpierre;contact_enable_notifications;2
+CONTACT;setparam;jeanpierre;contact_type_msg;txt
 CONTACT;setparam;jeanpierre;contact_activate;1
 TRAP;ADD;linkDown;.1.3.6.1.6.3.1.1.5.3
 TRAP;setparam;linkDown;traps_name;linkDown
@@ -598,7 +865,7 @@ TRAP;setparam;linkDown;traps_log;0
 TRAP;setparam;linkDown;traps_routing_mode;0
 TRAP;setparam;linkDown;traps_exec_method;0
 TRAP;setparam;linkDown;traps_downtime;0
-TRAP;setparam;linkDown;traps_comments;A linkDown(2) trap signifies that the sending protocol entity recognizes a failure in one of the communication links represented in the agent&#039;s configuration.
+TRAP;setparam;linkDown;traps_comments;A linkDown(2) trap signifies that the sending protocol entity recognizes a failure in one of the communication links represented in the agent&#039
 TRAP;ADD;linkUp;.1.3.6.1.6.3.1.1.5.4
 TRAP;setparam;linkUp;traps_name;linkUp
 TRAP;setparam;linkUp;traps_oid;.1.3.6.1.6.3.1.1.5.4
@@ -615,7 +882,7 @@ TRAP;setparam;linkUp;traps_log;0
 TRAP;setparam;linkUp;traps_routing_mode;0
 TRAP;setparam;linkUp;traps_exec_method;0
 TRAP;setparam;linkUp;traps_downtime;0
-TRAP;setparam;linkUp;traps_comments;A linkUp(3) trap signifies that the sending protocol entity recognizes that one of the communication links represented in the agent&#039;s configuration has come up.
+TRAP;setparam;linkUp;traps_comments;A linkUp(3) trap signifies that the sending protocol entity recognizes that one of the communication links represented in the agent&#039
 TRAP;ADD;warmStart;.1.3.6.1.6.3.1.1.5.2
 TRAP;setparam;warmStart;traps_name;warmStart
 TRAP;setparam;warmStart;traps_oid;.1.3.6.1.6.3.1.1.5.2
@@ -649,7 +916,7 @@ TRAP;setparam;coldStart;traps_log;0
 TRAP;setparam;coldStart;traps_routing_mode;0
 TRAP;setparam;coldStart;traps_exec_method;0
 TRAP;setparam;coldStart;traps_downtime;0
-TRAP;setparam;coldStart;traps_comments;A coldStart(0) trap signifies that the sending protocol entity is reinitializing itself such that the agent&#039;s configuration or the protocol entity implementation may be altered.
+TRAP;setparam;coldStart;traps_comments;A coldStart(0) trap signifies that the sending protocol entity is reinitializing itself such that the agent&#039
 TRAP;ADD;unitDeparture;.1.3.6.1.4.1.43.0.89
 TRAP;setparam;unitDeparture;traps_name;unitDeparture
 TRAP;setparam;unitDeparture;traps_oid;.1.3.6.1.4.1.43.0.89
@@ -4220,6 +4487,241 @@ TRAP;setparam;ccmCTIDRolledOver;traps_routing_mode;0
 TRAP;setparam;ccmCTIDRolledOver;traps_exec_method;0
 TRAP;setparam;ccmCTIDRolledOver;traps_downtime;0
 TRAP;setparam;ccmCTIDRolledOver;traps_comments;This notification indicates that the Config Change Tracking<br/>ID has rolled over and will be reset.<br/>Variables:<br/>
+HTPL;ADD;generic-host;generic-host;;;;
+HTPL;setparam;generic-host;check_command;check_host_alive
+HTPL;setparam;generic-host;check_period;24x7
+HTPL;setparam;generic-host;notification_period;24x7
+HTPL;setparam;generic-host;host_max_check_attempts;5
+HTPL;setparam;generic-host;host_active_checks_enabled;1
+HTPL;setparam;generic-host;host_passive_checks_enabled;0
+HTPL;setparam;generic-host;host_checks_enabled;2
+HTPL;setparam;generic-host;host_obsess_over_host;2
+HTPL;setparam;generic-host;host_check_freshness;2
+HTPL;setparam;generic-host;host_event_handler_enabled;2
+HTPL;setparam;generic-host;host_flap_detection_enabled;2
+HTPL;setparam;generic-host;host_process_perf_data;2
+HTPL;setparam;generic-host;host_retain_status_information;2
+HTPL;setparam;generic-host;host_retain_nonstatus_information;2
+HTPL;setparam;generic-host;host_notification_interval;0
+HTPL;setparam;generic-host;host_notification_options;d,r
+HTPL;setparam;generic-host;host_notifications_enabled;0
+HTPL;setparam;generic-host;contact_additive_inheritance;0
+HTPL;setparam;generic-host;cg_additive_inheritance;0
+HTPL;setparam;generic-host;host_snmp_community;public
+HTPL;setparam;generic-host;host_snmp_version;2c
+HTPL;setparam;generic-host;timezone;0
+HTPL;setparam;generic-host;host_locked;0
+HTPL;setparam;generic-host;host_register;0
+HTPL;setparam;generic-host;host_activate;1
+HTPL;ADD;Servers-Linux;Linux Servers;;;;
+HTPL;setparam;Servers-Linux;host_active_checks_enabled;2
+HTPL;setparam;Servers-Linux;host_passive_checks_enabled;2
+HTPL;setparam;Servers-Linux;host_checks_enabled;2
+HTPL;setparam;Servers-Linux;host_obsess_over_host;2
+HTPL;setparam;Servers-Linux;host_check_freshness;2
+HTPL;setparam;Servers-Linux;host_event_handler_enabled;2
+HTPL;setparam;Servers-Linux;host_flap_detection_enabled;2
+HTPL;setparam;Servers-Linux;host_process_perf_data;2
+HTPL;setparam;Servers-Linux;host_retain_status_information;2
+HTPL;setparam;Servers-Linux;host_retain_nonstatus_information;2
+HTPL;setparam;Servers-Linux;host_notifications_enabled;2
+HTPL;setparam;Servers-Linux;contact_additive_inheritance;0
+HTPL;setparam;Servers-Linux;cg_additive_inheritance;0
+HTPL;setparam;Servers-Linux;host_snmp_version;0
+HTPL;setparam;Servers-Linux;timezone;0
+HTPL;setparam;Servers-Linux;host_locked;0
+HTPL;setparam;Servers-Linux;host_register;0
+HTPL;setparam;Servers-Linux;host_activate;1
+HTPL;ADD;Servers-Win2K;Windows 2000 Servers;;;;
+HTPL;setparam;Servers-Win2K;host_active_checks_enabled;2
+HTPL;setparam;Servers-Win2K;host_passive_checks_enabled;2
+HTPL;setparam;Servers-Win2K;host_checks_enabled;2
+HTPL;setparam;Servers-Win2K;host_obsess_over_host;2
+HTPL;setparam;Servers-Win2K;host_check_freshness;2
+HTPL;setparam;Servers-Win2K;host_event_handler_enabled;2
+HTPL;setparam;Servers-Win2K;host_flap_detection_enabled;2
+HTPL;setparam;Servers-Win2K;host_process_perf_data;2
+HTPL;setparam;Servers-Win2K;host_retain_status_information;2
+HTPL;setparam;Servers-Win2K;host_retain_nonstatus_information;2
+HTPL;setparam;Servers-Win2K;host_notifications_enabled;2
+HTPL;setparam;Servers-Win2K;contact_additive_inheritance;0
+HTPL;setparam;Servers-Win2K;cg_additive_inheritance;0
+HTPL;setparam;Servers-Win2K;host_snmp_version;0
+HTPL;setparam;Servers-Win2K;timezone;0
+HTPL;setparam;Servers-Win2K;host_locked;0
+HTPL;setparam;Servers-Win2K;host_register;0
+HTPL;setparam;Servers-Win2K;host_activate;1
+HTPL;ADD;Servers-Win2K3;Windows 2003 Servers;;;;
+HTPL;setparam;Servers-Win2K3;host_active_checks_enabled;2
+HTPL;setparam;Servers-Win2K3;host_passive_checks_enabled;2
+HTPL;setparam;Servers-Win2K3;host_checks_enabled;2
+HTPL;setparam;Servers-Win2K3;host_obsess_over_host;2
+HTPL;setparam;Servers-Win2K3;host_check_freshness;2
+HTPL;setparam;Servers-Win2K3;host_event_handler_enabled;2
+HTPL;setparam;Servers-Win2K3;host_flap_detection_enabled;2
+HTPL;setparam;Servers-Win2K3;host_process_perf_data;2
+HTPL;setparam;Servers-Win2K3;host_retain_status_information;2
+HTPL;setparam;Servers-Win2K3;host_retain_nonstatus_information;2
+HTPL;setparam;Servers-Win2K3;host_notifications_enabled;2
+HTPL;setparam;Servers-Win2K3;contact_additive_inheritance;0
+HTPL;setparam;Servers-Win2K3;cg_additive_inheritance;0
+HTPL;setparam;Servers-Win2K3;host_snmp_version;0
+HTPL;setparam;Servers-Win2K3;timezone;0
+HTPL;setparam;Servers-Win2K3;host_locked;0
+HTPL;setparam;Servers-Win2K3;host_register;0
+HTPL;setparam;Servers-Win2K3;host_activate;1
+HTPL;ADD;Switchs-Cisco;Cisco Switchs;;;;
+HTPL;setparam;Switchs-Cisco;host_active_checks_enabled;2
+HTPL;setparam;Switchs-Cisco;host_passive_checks_enabled;2
+HTPL;setparam;Switchs-Cisco;host_checks_enabled;2
+HTPL;setparam;Switchs-Cisco;host_obsess_over_host;2
+HTPL;setparam;Switchs-Cisco;host_check_freshness;2
+HTPL;setparam;Switchs-Cisco;host_event_handler_enabled;2
+HTPL;setparam;Switchs-Cisco;host_flap_detection_enabled;2
+HTPL;setparam;Switchs-Cisco;host_process_perf_data;2
+HTPL;setparam;Switchs-Cisco;host_retain_status_information;2
+HTPL;setparam;Switchs-Cisco;host_retain_nonstatus_information;2
+HTPL;setparam;Switchs-Cisco;host_notifications_enabled;2
+HTPL;setparam;Switchs-Cisco;contact_additive_inheritance;0
+HTPL;setparam;Switchs-Cisco;cg_additive_inheritance;0
+HTPL;setparam;Switchs-Cisco;host_snmp_version;0
+HTPL;setparam;Switchs-Cisco;timezone;0
+HTPL;setparam;Switchs-Cisco;host_locked;0
+HTPL;setparam;Switchs-Cisco;host_register;0
+HTPL;setparam;Switchs-Cisco;host_activate;1
+HTPL;ADD;Switchs-3Com;3Com Switchs;;;;
+HTPL;setparam;Switchs-3Com;host_active_checks_enabled;2
+HTPL;setparam;Switchs-3Com;host_passive_checks_enabled;2
+HTPL;setparam;Switchs-3Com;host_checks_enabled;2
+HTPL;setparam;Switchs-3Com;host_obsess_over_host;2
+HTPL;setparam;Switchs-3Com;host_check_freshness;2
+HTPL;setparam;Switchs-3Com;host_event_handler_enabled;2
+HTPL;setparam;Switchs-3Com;host_flap_detection_enabled;2
+HTPL;setparam;Switchs-3Com;host_process_perf_data;2
+HTPL;setparam;Switchs-3Com;host_retain_status_information;2
+HTPL;setparam;Switchs-3Com;host_retain_nonstatus_information;2
+HTPL;setparam;Switchs-3Com;host_notifications_enabled;2
+HTPL;setparam;Switchs-3Com;contact_additive_inheritance;0
+HTPL;setparam;Switchs-3Com;cg_additive_inheritance;0
+HTPL;setparam;Switchs-3Com;host_snmp_version;0
+HTPL;setparam;Switchs-3Com;timezone;0
+HTPL;setparam;Switchs-3Com;host_locked;0
+HTPL;setparam;Switchs-3Com;host_register;0
+HTPL;setparam;Switchs-3Com;host_activate;1
+HTPL;ADD;Switchs-HP;HP Switchs;;;;
+HTPL;setparam;Switchs-HP;host_active_checks_enabled;2
+HTPL;setparam;Switchs-HP;host_passive_checks_enabled;2
+HTPL;setparam;Switchs-HP;host_checks_enabled;2
+HTPL;setparam;Switchs-HP;host_obsess_over_host;2
+HTPL;setparam;Switchs-HP;host_check_freshness;2
+HTPL;setparam;Switchs-HP;host_event_handler_enabled;2
+HTPL;setparam;Switchs-HP;host_flap_detection_enabled;2
+HTPL;setparam;Switchs-HP;host_process_perf_data;2
+HTPL;setparam;Switchs-HP;host_retain_status_information;2
+HTPL;setparam;Switchs-HP;host_retain_nonstatus_information;2
+HTPL;setparam;Switchs-HP;host_notifications_enabled;2
+HTPL;setparam;Switchs-HP;contact_additive_inheritance;0
+HTPL;setparam;Switchs-HP;cg_additive_inheritance;0
+HTPL;setparam;Switchs-HP;host_snmp_version;0
+HTPL;setparam;Switchs-HP;timezone;0
+HTPL;setparam;Switchs-HP;host_locked;0
+HTPL;setparam;Switchs-HP;host_register;0
+HTPL;setparam;Switchs-HP;host_activate;1
+HTPL;ADD;Switchs-NORTEL;NORTEL Switchs;;;;
+HTPL;setparam;Switchs-NORTEL;host_active_checks_enabled;2
+HTPL;setparam;Switchs-NORTEL;host_passive_checks_enabled;2
+HTPL;setparam;Switchs-NORTEL;host_checks_enabled;2
+HTPL;setparam;Switchs-NORTEL;host_obsess_over_host;2
+HTPL;setparam;Switchs-NORTEL;host_check_freshness;2
+HTPL;setparam;Switchs-NORTEL;host_event_handler_enabled;2
+HTPL;setparam;Switchs-NORTEL;host_flap_detection_enabled;2
+HTPL;setparam;Switchs-NORTEL;host_process_perf_data;2
+HTPL;setparam;Switchs-NORTEL;host_retain_status_information;2
+HTPL;setparam;Switchs-NORTEL;host_retain_nonstatus_information;2
+HTPL;setparam;Switchs-NORTEL;host_notifications_enabled;2
+HTPL;setparam;Switchs-NORTEL;contact_additive_inheritance;0
+HTPL;setparam;Switchs-NORTEL;cg_additive_inheritance;0
+HTPL;setparam;Switchs-NORTEL;host_snmp_version;0
+HTPL;setparam;Switchs-NORTEL;timezone;0
+HTPL;setparam;Switchs-NORTEL;host_locked;0
+HTPL;setparam;Switchs-NORTEL;host_register;0
+HTPL;setparam;Switchs-NORTEL;host_activate;1
+HTPL;ADD;Router-Cisco;Cisco Routers;;;;
+HTPL;setparam;Router-Cisco;host_active_checks_enabled;2
+HTPL;setparam;Router-Cisco;host_passive_checks_enabled;2
+HTPL;setparam;Router-Cisco;host_checks_enabled;2
+HTPL;setparam;Router-Cisco;host_obsess_over_host;2
+HTPL;setparam;Router-Cisco;host_check_freshness;2
+HTPL;setparam;Router-Cisco;host_event_handler_enabled;2
+HTPL;setparam;Router-Cisco;host_flap_detection_enabled;2
+HTPL;setparam;Router-Cisco;host_process_perf_data;2
+HTPL;setparam;Router-Cisco;host_retain_status_information;2
+HTPL;setparam;Router-Cisco;host_retain_nonstatus_information;2
+HTPL;setparam;Router-Cisco;host_notifications_enabled;2
+HTPL;setparam;Router-Cisco;contact_additive_inheritance;0
+HTPL;setparam;Router-Cisco;cg_additive_inheritance;0
+HTPL;setparam;Router-Cisco;host_snmp_version;0
+HTPL;setparam;Router-Cisco;timezone;0
+HTPL;setparam;Router-Cisco;host_locked;0
+HTPL;setparam;Router-Cisco;host_register;0
+HTPL;setparam;Router-Cisco;host_activate;1
+HTPL;ADD;Router-HP;HP Routers;;;;
+HTPL;setparam;Router-HP;host_active_checks_enabled;2
+HTPL;setparam;Router-HP;host_passive_checks_enabled;2
+HTPL;setparam;Router-HP;host_checks_enabled;2
+HTPL;setparam;Router-HP;host_obsess_over_host;2
+HTPL;setparam;Router-HP;host_check_freshness;2
+HTPL;setparam;Router-HP;host_event_handler_enabled;2
+HTPL;setparam;Router-HP;host_flap_detection_enabled;2
+HTPL;setparam;Router-HP;host_process_perf_data;2
+HTPL;setparam;Router-HP;host_retain_status_information;2
+HTPL;setparam;Router-HP;host_retain_nonstatus_information;2
+HTPL;setparam;Router-HP;host_notifications_enabled;2
+HTPL;setparam;Router-HP;contact_additive_inheritance;0
+HTPL;setparam;Router-HP;cg_additive_inheritance;0
+HTPL;setparam;Router-HP;host_snmp_version;0
+HTPL;setparam;Router-HP;timezone;0
+HTPL;setparam;Router-HP;host_locked;0
+HTPL;setparam;Router-HP;host_register;0
+HTPL;setparam;Router-HP;host_activate;1
+HTPL;ADD;Printers;Printers;;;;
+HTPL;setparam;Printers;host_active_checks_enabled;2
+HTPL;setparam;Printers;host_passive_checks_enabled;2
+HTPL;setparam;Printers;host_checks_enabled;2
+HTPL;setparam;Printers;host_obsess_over_host;2
+HTPL;setparam;Printers;host_check_freshness;2
+HTPL;setparam;Printers;host_event_handler_enabled;2
+HTPL;setparam;Printers;host_flap_detection_enabled;2
+HTPL;setparam;Printers;host_process_perf_data;2
+HTPL;setparam;Printers;host_retain_status_information;2
+HTPL;setparam;Printers;host_retain_nonstatus_information;2
+HTPL;setparam;Printers;host_notifications_enabled;2
+HTPL;setparam;Printers;contact_additive_inheritance;0
+HTPL;setparam;Printers;cg_additive_inheritance;0
+HTPL;setparam;Printers;host_snmp_version;0
+HTPL;setparam;Printers;timezone;0
+HTPL;setparam;Printers;host_locked;0
+HTPL;setparam;Printers;host_register;0
+HTPL;setparam;Printers;host_activate;1
+HTPL;ADD;UPS;UPS;;;;
+HTPL;setparam;UPS;host_active_checks_enabled;2
+HTPL;setparam;UPS;host_passive_checks_enabled;2
+HTPL;setparam;UPS;host_checks_enabled;2
+HTPL;setparam;UPS;host_obsess_over_host;2
+HTPL;setparam;UPS;host_check_freshness;2
+HTPL;setparam;UPS;host_event_handler_enabled;2
+HTPL;setparam;UPS;host_flap_detection_enabled;2
+HTPL;setparam;UPS;host_process_perf_data;2
+HTPL;setparam;UPS;host_retain_status_information;2
+HTPL;setparam;UPS;host_retain_nonstatus_information;2
+HTPL;setparam;UPS;host_notifications_enabled;2
+HTPL;setparam;UPS;contact_additive_inheritance;0
+HTPL;setparam;UPS;cg_additive_inheritance;0
+HTPL;setparam;UPS;host_snmp_version;0
+HTPL;setparam;UPS;timezone;0
+HTPL;setparam;UPS;host_locked;0
+HTPL;setparam;UPS;host_register;0
+HTPL;setparam;UPS;host_activate;1
 HTPL;ADD;my_htpl-test;my_htpl-test;0.0.0.0;;;
 HTPL;setparam;my_htpl-test;host_active_checks_enabled;2
 HTPL;setparam;my_htpl-test;host_passive_checks_enabled;2
@@ -4234,9 +4736,22 @@ HTPL;setparam;my_htpl-test;host_retain_nonstatus_information;2
 HTPL;setparam;my_htpl-test;host_notifications_enabled;2
 HTPL;setparam;my_htpl-test;contact_additive_inheritance;0
 HTPL;setparam;my_htpl-test;cg_additive_inheritance;0
+HTPL;setparam;my_htpl-test;timezone;0
 HTPL;setparam;my_htpl-test;host_locked;0
 HTPL;setparam;my_htpl-test;host_register;0
 HTPL;setparam;my_htpl-test;host_activate;1
+HTPL;addcontactgroup;generic-host;Supervisors
+HTPL;addtemplate;Printers;generic-host
+HTPL;addtemplate;Router-Cisco;generic-host
+HTPL;addtemplate;Router-HP;generic-host
+HTPL;addtemplate;Servers-Linux;generic-host
+HTPL;addtemplate;Servers-Win2K;generic-host
+HTPL;addtemplate;Servers-Win2K3;generic-host
+HTPL;addtemplate;Switchs-3Com;generic-host
+HTPL;addtemplate;Switchs-Cisco;generic-host
+HTPL;addtemplate;Switchs-HP;generic-host
+HTPL;addtemplate;Switchs-NORTEL;generic-host
+HTPL;addtemplate;UPS;generic-host
 CG;ADD;Guest;Guests Group
 CG;setparam;Guest;cg_activate;1
 CG;setparam;Guest;cg_type;local
@@ -4250,6 +4765,25 @@ CG;addcontact;Guest;guest;guest
 CG;addcontact;Guest;user;user
 CG;addcontact;Supervisors;admin;admin
 CG;addcontact;test_contact-group;test_contact;test_contact
+HOST;ADD;Centreon-Server;Monitoring Server;127.0.0.1;;Central;
+HOST;setparam;Centreon-Server;host_active_checks_enabled;2
+HOST;setparam;Centreon-Server;host_passive_checks_enabled;2
+HOST;setparam;Centreon-Server;host_checks_enabled;2
+HOST;setparam;Centreon-Server;host_obsess_over_host;2
+HOST;setparam;Centreon-Server;host_check_freshness;2
+HOST;setparam;Centreon-Server;host_event_handler_enabled;2
+HOST;setparam;Centreon-Server;host_flap_detection_enabled;2
+HOST;setparam;Centreon-Server;host_process_perf_data;2
+HOST;setparam;Centreon-Server;host_retain_status_information;2
+HOST;setparam;Centreon-Server;host_retain_nonstatus_information;2
+HOST;setparam;Centreon-Server;host_notifications_enabled;2
+HOST;setparam;Centreon-Server;contact_additive_inheritance;0
+HOST;setparam;Centreon-Server;cg_additive_inheritance;0
+HOST;setparam;Centreon-Server;host_snmp_version;0
+HOST;setparam;Centreon-Server;timezone;0
+HOST;setparam;Centreon-Server;host_locked;0
+HOST;setparam;Centreon-Server;host_register;1
+HOST;setparam;Centreon-Server;host_activate;1
 HOST;ADD;test_host;test_host;0.0.0.0;;Central;
 HOST;setparam;test_host;host_active_checks_enabled;2
 HOST;setparam;test_host;host_passive_checks_enabled;2
@@ -4268,7 +4802,386 @@ HOST;setparam;test_host;timezone;0
 HOST;setparam;test_host;host_locked;0
 HOST;setparam;test_host;host_register;1
 HOST;setparam;test_host;host_activate;1
+HOST;addtemplate;Centreon-Server;generic-host
 HOST;addtemplate;test_host;my_htpl-test
+STPL;ADD;generic-service;generic-service;
+STPL;setparam;generic-service;check_period;24x7
+STPL;setparam;generic-service;notification_period;24x7
+STPL;setparam;generic-service;service_is_volatile;0
+STPL;setparam;generic-service;service_max_check_attempts;3
+STPL;setparam;generic-service;service_normal_check_interval;5
+STPL;setparam;generic-service;service_retry_check_interval;1
+STPL;setparam;generic-service;service_active_checks_enabled;1
+STPL;setparam;generic-service;service_passive_checks_enabled;0
+STPL;setparam;generic-service;service_parallelize_check;2
+STPL;setparam;generic-service;service_obsess_over_service;2
+STPL;setparam;generic-service;service_check_freshness;2
+STPL;setparam;generic-service;service_event_handler_enabled;2
+STPL;setparam;generic-service;service_flap_detection_enabled;2
+STPL;setparam;generic-service;service_process_perf_data;2
+STPL;setparam;generic-service;service_retain_status_information;2
+STPL;setparam;generic-service;service_retain_nonstatus_information;2
+STPL;setparam;generic-service;service_notification_interval;0
+STPL;setparam;generic-service;service_notification_options;w,c,r
+STPL;setparam;generic-service;service_notifications_enabled;0
+STPL;setparam;generic-service;contact_additive_inheritance;0
+STPL;setparam;generic-service;cg_additive_inheritance;0
+STPL;setparam;generic-service;service_inherit_contacts_from_host;1
+STPL;setparam;generic-service;service_use_only_contacts_from_host;0
+STPL;setparam;generic-service;service_locked;0
+STPL;setparam;generic-service;service_register;0
+STPL;setparam;generic-service;service_activate;1
+STPL;ADD;Ping-LAN;Ping;generic-service
+STPL;setparam;Ping-LAN;check_command;check_centreon_ping
+STPL;setparam;Ping-LAN;service_is_volatile;2
+STPL;setparam;Ping-LAN;service_active_checks_enabled;2
+STPL;setparam;Ping-LAN;service_passive_checks_enabled;2
+STPL;setparam;Ping-LAN;service_parallelize_check;2
+STPL;setparam;Ping-LAN;service_obsess_over_service;2
+STPL;setparam;Ping-LAN;service_check_freshness;2
+STPL;setparam;Ping-LAN;service_event_handler_enabled;2
+STPL;setparam;Ping-LAN;service_flap_detection_enabled;2
+STPL;setparam;Ping-LAN;service_process_perf_data;2
+STPL;setparam;Ping-LAN;service_retain_status_information;2
+STPL;setparam;Ping-LAN;service_retain_nonstatus_information;2
+STPL;setparam;Ping-LAN;service_notifications_enabled;2
+STPL;setparam;Ping-LAN;contact_additive_inheritance;0
+STPL;setparam;Ping-LAN;cg_additive_inheritance;0
+STPL;setparam;Ping-LAN;service_inherit_contacts_from_host;1
+STPL;setparam;Ping-LAN;service_use_only_contacts_from_host;0
+STPL;setparam;Ping-LAN;check_command_arguments;!3!200,20%!400,50%
+STPL;setparam;Ping-LAN;service_locked;0
+STPL;setparam;Ping-LAN;service_register;0
+STPL;setparam;Ping-LAN;service_activate;1
+STPL;ADD;Ping-WAN;Ping;generic-service
+STPL;setparam;Ping-WAN;check_command;check_centreon_ping
+STPL;setparam;Ping-WAN;service_is_volatile;2
+STPL;setparam;Ping-WAN;service_active_checks_enabled;2
+STPL;setparam;Ping-WAN;service_passive_checks_enabled;2
+STPL;setparam;Ping-WAN;service_parallelize_check;2
+STPL;setparam;Ping-WAN;service_obsess_over_service;2
+STPL;setparam;Ping-WAN;service_check_freshness;2
+STPL;setparam;Ping-WAN;service_event_handler_enabled;2
+STPL;setparam;Ping-WAN;service_flap_detection_enabled;2
+STPL;setparam;Ping-WAN;service_process_perf_data;2
+STPL;setparam;Ping-WAN;service_retain_status_information;2
+STPL;setparam;Ping-WAN;service_retain_nonstatus_information;2
+STPL;setparam;Ping-WAN;service_notifications_enabled;2
+STPL;setparam;Ping-WAN;contact_additive_inheritance;0
+STPL;setparam;Ping-WAN;cg_additive_inheritance;0
+STPL;setparam;Ping-WAN;service_inherit_contacts_from_host;1
+STPL;setparam;Ping-WAN;service_use_only_contacts_from_host;0
+STPL;setparam;Ping-WAN;check_command_arguments;!3!400,20%!600,50%
+STPL;setparam;Ping-WAN;service_locked;0
+STPL;setparam;Ping-WAN;service_register;0
+STPL;setparam;Ping-WAN;service_activate;1
+STPL;ADD;SNMP-DISK-/;Disk-/;generic-service
+STPL;setparam;SNMP-DISK-/;check_command;check_centreon_remote_storage
+STPL;setparam;SNMP-DISK-/;service_is_volatile;2
+STPL;setparam;SNMP-DISK-/;service_active_checks_enabled;2
+STPL;setparam;SNMP-DISK-/;service_passive_checks_enabled;2
+STPL;setparam;SNMP-DISK-/;service_parallelize_check;2
+STPL;setparam;SNMP-DISK-/;service_obsess_over_service;2
+STPL;setparam;SNMP-DISK-/;service_check_freshness;2
+STPL;setparam;SNMP-DISK-/;service_event_handler_enabled;2
+STPL;setparam;SNMP-DISK-/;service_flap_detection_enabled;2
+STPL;setparam;SNMP-DISK-/;service_process_perf_data;2
+STPL;setparam;SNMP-DISK-/;service_retain_status_information;2
+STPL;setparam;SNMP-DISK-/;service_retain_nonstatus_information;2
+STPL;setparam;SNMP-DISK-/;service_notifications_enabled;2
+STPL;setparam;SNMP-DISK-/;contact_additive_inheritance;0
+STPL;setparam;SNMP-DISK-/;cg_additive_inheritance;0
+STPL;setparam;SNMP-DISK-/;service_inherit_contacts_from_host;1
+STPL;setparam;SNMP-DISK-/;service_use_only_contacts_from_host;0
+STPL;setparam;SNMP-DISK-/;check_command_arguments;!/!80!90
+STPL;setparam;SNMP-DISK-/;service_locked;0
+STPL;setparam;SNMP-DISK-/;service_register;0
+STPL;setparam;SNMP-DISK-/;service_activate;1
+STPL;ADD;SNMP-DISK-/var;Disk-/var;generic-service
+STPL;setparam;SNMP-DISK-/var;check_command;check_centreon_remote_storage
+STPL;setparam;SNMP-DISK-/var;service_is_volatile;2
+STPL;setparam;SNMP-DISK-/var;service_active_checks_enabled;2
+STPL;setparam;SNMP-DISK-/var;service_passive_checks_enabled;2
+STPL;setparam;SNMP-DISK-/var;service_parallelize_check;2
+STPL;setparam;SNMP-DISK-/var;service_obsess_over_service;2
+STPL;setparam;SNMP-DISK-/var;service_check_freshness;2
+STPL;setparam;SNMP-DISK-/var;service_event_handler_enabled;2
+STPL;setparam;SNMP-DISK-/var;service_flap_detection_enabled;2
+STPL;setparam;SNMP-DISK-/var;service_process_perf_data;2
+STPL;setparam;SNMP-DISK-/var;service_retain_status_information;2
+STPL;setparam;SNMP-DISK-/var;service_retain_nonstatus_information;2
+STPL;setparam;SNMP-DISK-/var;service_notifications_enabled;2
+STPL;setparam;SNMP-DISK-/var;contact_additive_inheritance;0
+STPL;setparam;SNMP-DISK-/var;cg_additive_inheritance;0
+STPL;setparam;SNMP-DISK-/var;service_inherit_contacts_from_host;1
+STPL;setparam;SNMP-DISK-/var;service_use_only_contacts_from_host;0
+STPL;setparam;SNMP-DISK-/var;check_command_arguments;!/var!80!90
+STPL;setparam;SNMP-DISK-/var;service_locked;0
+STPL;setparam;SNMP-DISK-/var;service_register;0
+STPL;setparam;SNMP-DISK-/var;service_activate;1
+STPL;ADD;SNMP-DISK-/usr;Disk-/usr;generic-service
+STPL;setparam;SNMP-DISK-/usr;check_command;check_centreon_remote_storage
+STPL;setparam;SNMP-DISK-/usr;service_is_volatile;2
+STPL;setparam;SNMP-DISK-/usr;service_active_checks_enabled;2
+STPL;setparam;SNMP-DISK-/usr;service_passive_checks_enabled;2
+STPL;setparam;SNMP-DISK-/usr;service_parallelize_check;2
+STPL;setparam;SNMP-DISK-/usr;service_obsess_over_service;2
+STPL;setparam;SNMP-DISK-/usr;service_check_freshness;2
+STPL;setparam;SNMP-DISK-/usr;service_event_handler_enabled;2
+STPL;setparam;SNMP-DISK-/usr;service_flap_detection_enabled;2
+STPL;setparam;SNMP-DISK-/usr;service_process_perf_data;2
+STPL;setparam;SNMP-DISK-/usr;service_retain_status_information;2
+STPL;setparam;SNMP-DISK-/usr;service_retain_nonstatus_information;2
+STPL;setparam;SNMP-DISK-/usr;service_notifications_enabled;2
+STPL;setparam;SNMP-DISK-/usr;contact_additive_inheritance;0
+STPL;setparam;SNMP-DISK-/usr;cg_additive_inheritance;0
+STPL;setparam;SNMP-DISK-/usr;service_inherit_contacts_from_host;1
+STPL;setparam;SNMP-DISK-/usr;service_use_only_contacts_from_host;0
+STPL;setparam;SNMP-DISK-/usr;check_command_arguments;!/usr!80!90
+STPL;setparam;SNMP-DISK-/usr;service_locked;0
+STPL;setparam;SNMP-DISK-/usr;service_register;0
+STPL;setparam;SNMP-DISK-/usr;service_activate;1
+STPL;ADD;SNMP-DISK-/home;Disk-/home;generic-service
+STPL;setparam;SNMP-DISK-/home;check_command;check_centreon_remote_storage
+STPL;setparam;SNMP-DISK-/home;service_is_volatile;2
+STPL;setparam;SNMP-DISK-/home;service_active_checks_enabled;2
+STPL;setparam;SNMP-DISK-/home;service_passive_checks_enabled;2
+STPL;setparam;SNMP-DISK-/home;service_parallelize_check;2
+STPL;setparam;SNMP-DISK-/home;service_obsess_over_service;2
+STPL;setparam;SNMP-DISK-/home;service_check_freshness;2
+STPL;setparam;SNMP-DISK-/home;service_event_handler_enabled;2
+STPL;setparam;SNMP-DISK-/home;service_flap_detection_enabled;2
+STPL;setparam;SNMP-DISK-/home;service_process_perf_data;2
+STPL;setparam;SNMP-DISK-/home;service_retain_status_information;2
+STPL;setparam;SNMP-DISK-/home;service_retain_nonstatus_information;2
+STPL;setparam;SNMP-DISK-/home;service_notifications_enabled;2
+STPL;setparam;SNMP-DISK-/home;contact_additive_inheritance;0
+STPL;setparam;SNMP-DISK-/home;cg_additive_inheritance;0
+STPL;setparam;SNMP-DISK-/home;service_inherit_contacts_from_host;1
+STPL;setparam;SNMP-DISK-/home;service_use_only_contacts_from_host;0
+STPL;setparam;SNMP-DISK-/home;check_command_arguments;!/home!80!90
+STPL;setparam;SNMP-DISK-/home;service_locked;0
+STPL;setparam;SNMP-DISK-/home;service_register;0
+STPL;setparam;SNMP-DISK-/home;service_activate;1
+STPL;ADD;SNMP-DISK-/opt;Disk-/opt;generic-service
+STPL;setparam;SNMP-DISK-/opt;check_command;check_centreon_remote_storage
+STPL;setparam;SNMP-DISK-/opt;service_is_volatile;2
+STPL;setparam;SNMP-DISK-/opt;service_active_checks_enabled;2
+STPL;setparam;SNMP-DISK-/opt;service_passive_checks_enabled;2
+STPL;setparam;SNMP-DISK-/opt;service_parallelize_check;2
+STPL;setparam;SNMP-DISK-/opt;service_obsess_over_service;2
+STPL;setparam;SNMP-DISK-/opt;service_check_freshness;2
+STPL;setparam;SNMP-DISK-/opt;service_event_handler_enabled;2
+STPL;setparam;SNMP-DISK-/opt;service_flap_detection_enabled;2
+STPL;setparam;SNMP-DISK-/opt;service_process_perf_data;2
+STPL;setparam;SNMP-DISK-/opt;service_retain_status_information;2
+STPL;setparam;SNMP-DISK-/opt;service_retain_nonstatus_information;2
+STPL;setparam;SNMP-DISK-/opt;service_notifications_enabled;2
+STPL;setparam;SNMP-DISK-/opt;contact_additive_inheritance;0
+STPL;setparam;SNMP-DISK-/opt;cg_additive_inheritance;0
+STPL;setparam;SNMP-DISK-/opt;service_inherit_contacts_from_host;1
+STPL;setparam;SNMP-DISK-/opt;service_use_only_contacts_from_host;0
+STPL;setparam;SNMP-DISK-/opt;check_command_arguments;!/opt!80!90
+STPL;setparam;SNMP-DISK-/opt;service_locked;0
+STPL;setparam;SNMP-DISK-/opt;service_register;0
+STPL;setparam;SNMP-DISK-/opt;service_activate;1
+STPL;ADD;SNMP-DISK-C:;Disk-C;generic-service
+STPL;setparam;SNMP-DISK-C:;check_command;check_centreon_remote_storage
+STPL;setparam;SNMP-DISK-C:;service_is_volatile;2
+STPL;setparam;SNMP-DISK-C:;service_active_checks_enabled;2
+STPL;setparam;SNMP-DISK-C:;service_passive_checks_enabled;2
+STPL;setparam;SNMP-DISK-C:;service_parallelize_check;2
+STPL;setparam;SNMP-DISK-C:;service_obsess_over_service;2
+STPL;setparam;SNMP-DISK-C:;service_check_freshness;2
+STPL;setparam;SNMP-DISK-C:;service_event_handler_enabled;2
+STPL;setparam;SNMP-DISK-C:;service_flap_detection_enabled;2
+STPL;setparam;SNMP-DISK-C:;service_process_perf_data;2
+STPL;setparam;SNMP-DISK-C:;service_retain_status_information;2
+STPL;setparam;SNMP-DISK-C:;service_retain_nonstatus_information;2
+STPL;setparam;SNMP-DISK-C:;service_notifications_enabled;2
+STPL;setparam;SNMP-DISK-C:;contact_additive_inheritance;0
+STPL;setparam;SNMP-DISK-C:;cg_additive_inheritance;0
+STPL;setparam;SNMP-DISK-C:;service_inherit_contacts_from_host;1
+STPL;setparam;SNMP-DISK-C:;service_use_only_contacts_from_host;0
+STPL;setparam;SNMP-DISK-C:;check_command_arguments;!C:!80!90
+STPL;setparam;SNMP-DISK-C:;service_locked;0
+STPL;setparam;SNMP-DISK-C:;service_register;0
+STPL;setparam;SNMP-DISK-C:;service_activate;1
+STPL;ADD;SNMP-DISK-E:;Disk-E;generic-service
+STPL;setparam;SNMP-DISK-E:;check_command;check_centreon_remote_storage
+STPL;setparam;SNMP-DISK-E:;service_is_volatile;2
+STPL;setparam;SNMP-DISK-E:;service_active_checks_enabled;2
+STPL;setparam;SNMP-DISK-E:;service_passive_checks_enabled;2
+STPL;setparam;SNMP-DISK-E:;service_parallelize_check;2
+STPL;setparam;SNMP-DISK-E:;service_obsess_over_service;2
+STPL;setparam;SNMP-DISK-E:;service_check_freshness;2
+STPL;setparam;SNMP-DISK-E:;service_event_handler_enabled;2
+STPL;setparam;SNMP-DISK-E:;service_flap_detection_enabled;2
+STPL;setparam;SNMP-DISK-E:;service_process_perf_data;2
+STPL;setparam;SNMP-DISK-E:;service_retain_status_information;2
+STPL;setparam;SNMP-DISK-E:;service_retain_nonstatus_information;2
+STPL;setparam;SNMP-DISK-E:;service_notifications_enabled;2
+STPL;setparam;SNMP-DISK-E:;contact_additive_inheritance;0
+STPL;setparam;SNMP-DISK-E:;cg_additive_inheritance;0
+STPL;setparam;SNMP-DISK-E:;service_inherit_contacts_from_host;1
+STPL;setparam;SNMP-DISK-E:;service_use_only_contacts_from_host;0
+STPL;setparam;SNMP-DISK-E:;check_command_arguments;!E:!80!90
+STPL;setparam;SNMP-DISK-E:;service_locked;0
+STPL;setparam;SNMP-DISK-E:;service_register;0
+STPL;setparam;SNMP-DISK-E:;service_activate;1
+STPL;ADD;SNMP-Linux-Load-Average;Load;generic-service
+STPL;setparam;SNMP-Linux-Load-Average;check_command;check_centreon_load_average
+STPL;setparam;SNMP-Linux-Load-Average;service_is_volatile;2
+STPL;setparam;SNMP-Linux-Load-Average;service_active_checks_enabled;2
+STPL;setparam;SNMP-Linux-Load-Average;service_passive_checks_enabled;2
+STPL;setparam;SNMP-Linux-Load-Average;service_parallelize_check;2
+STPL;setparam;SNMP-Linux-Load-Average;service_obsess_over_service;2
+STPL;setparam;SNMP-Linux-Load-Average;service_check_freshness;2
+STPL;setparam;SNMP-Linux-Load-Average;service_event_handler_enabled;2
+STPL;setparam;SNMP-Linux-Load-Average;service_flap_detection_enabled;2
+STPL;setparam;SNMP-Linux-Load-Average;service_process_perf_data;2
+STPL;setparam;SNMP-Linux-Load-Average;service_retain_status_information;2
+STPL;setparam;SNMP-Linux-Load-Average;service_retain_nonstatus_information;2
+STPL;setparam;SNMP-Linux-Load-Average;service_notifications_enabled;2
+STPL;setparam;SNMP-Linux-Load-Average;contact_additive_inheritance;0
+STPL;setparam;SNMP-Linux-Load-Average;cg_additive_inheritance;0
+STPL;setparam;SNMP-Linux-Load-Average;service_inherit_contacts_from_host;1
+STPL;setparam;SNMP-Linux-Load-Average;service_use_only_contacts_from_host;0
+STPL;setparam;SNMP-Linux-Load-Average;check_command_arguments;!4,3,2!6,5,4
+STPL;setparam;SNMP-Linux-Load-Average;service_locked;0
+STPL;setparam;SNMP-Linux-Load-Average;service_register;0
+STPL;setparam;SNMP-Linux-Load-Average;service_activate;1
+STPL;ADD;SNMP-Linux-Memory;Memory;generic-service
+STPL;setparam;SNMP-Linux-Memory;check_command;check_centreon_memory
+STPL;setparam;SNMP-Linux-Memory;service_is_volatile;2
+STPL;setparam;SNMP-Linux-Memory;service_active_checks_enabled;2
+STPL;setparam;SNMP-Linux-Memory;service_passive_checks_enabled;2
+STPL;setparam;SNMP-Linux-Memory;service_parallelize_check;2
+STPL;setparam;SNMP-Linux-Memory;service_obsess_over_service;2
+STPL;setparam;SNMP-Linux-Memory;service_check_freshness;2
+STPL;setparam;SNMP-Linux-Memory;service_event_handler_enabled;2
+STPL;setparam;SNMP-Linux-Memory;service_flap_detection_enabled;2
+STPL;setparam;SNMP-Linux-Memory;service_process_perf_data;2
+STPL;setparam;SNMP-Linux-Memory;service_retain_status_information;2
+STPL;setparam;SNMP-Linux-Memory;service_retain_nonstatus_information;2
+STPL;setparam;SNMP-Linux-Memory;service_notifications_enabled;2
+STPL;setparam;SNMP-Linux-Memory;contact_additive_inheritance;0
+STPL;setparam;SNMP-Linux-Memory;cg_additive_inheritance;0
+STPL;setparam;SNMP-Linux-Memory;service_inherit_contacts_from_host;1
+STPL;setparam;SNMP-Linux-Memory;service_use_only_contacts_from_host;0
+STPL;setparam;SNMP-Linux-Memory;service_locked;0
+STPL;setparam;SNMP-Linux-Memory;service_register;0
+STPL;setparam;SNMP-Linux-Memory;service_activate;1
+STPL;ADD;SNMP-Linux-Swap;Swap;generic-service
+STPL;setparam;SNMP-Linux-Swap;check_command;check_centreon_remote_storage
+STPL;setparam;SNMP-Linux-Swap;service_is_volatile;2
+STPL;setparam;SNMP-Linux-Swap;service_active_checks_enabled;2
+STPL;setparam;SNMP-Linux-Swap;service_passive_checks_enabled;2
+STPL;setparam;SNMP-Linux-Swap;service_parallelize_check;2
+STPL;setparam;SNMP-Linux-Swap;service_obsess_over_service;2
+STPL;setparam;SNMP-Linux-Swap;service_check_freshness;2
+STPL;setparam;SNMP-Linux-Swap;service_event_handler_enabled;2
+STPL;setparam;SNMP-Linux-Swap;service_flap_detection_enabled;2
+STPL;setparam;SNMP-Linux-Swap;service_process_perf_data;2
+STPL;setparam;SNMP-Linux-Swap;service_retain_status_information;2
+STPL;setparam;SNMP-Linux-Swap;service_retain_nonstatus_information;2
+STPL;setparam;SNMP-Linux-Swap;service_notifications_enabled;2
+STPL;setparam;SNMP-Linux-Swap;contact_additive_inheritance;0
+STPL;setparam;SNMP-Linux-Swap;cg_additive_inheritance;0
+STPL;setparam;SNMP-Linux-Swap;service_inherit_contacts_from_host;1
+STPL;setparam;SNMP-Linux-Swap;service_use_only_contacts_from_host;0
+STPL;setparam;SNMP-Linux-Swap;check_command_arguments;!"Swap Space"!80!90
+STPL;setparam;SNMP-Linux-Swap;service_locked;0
+STPL;setparam;SNMP-Linux-Swap;service_register;0
+STPL;setparam;SNMP-Linux-Swap;service_activate;1
+STPL;ADD;SNMP-Win2K3-Memory;Memory;generic-service
+STPL;setparam;SNMP-Win2K3-Memory;check_command;check_centreon_remote_storage
+STPL;setparam;SNMP-Win2K3-Memory;service_is_volatile;2
+STPL;setparam;SNMP-Win2K3-Memory;service_active_checks_enabled;2
+STPL;setparam;SNMP-Win2K3-Memory;service_passive_checks_enabled;2
+STPL;setparam;SNMP-Win2K3-Memory;service_parallelize_check;2
+STPL;setparam;SNMP-Win2K3-Memory;service_obsess_over_service;2
+STPL;setparam;SNMP-Win2K3-Memory;service_check_freshness;2
+STPL;setparam;SNMP-Win2K3-Memory;service_event_handler_enabled;2
+STPL;setparam;SNMP-Win2K3-Memory;service_flap_detection_enabled;2
+STPL;setparam;SNMP-Win2K3-Memory;service_process_perf_data;2
+STPL;setparam;SNMP-Win2K3-Memory;service_retain_status_information;2
+STPL;setparam;SNMP-Win2K3-Memory;service_retain_nonstatus_information;2
+STPL;setparam;SNMP-Win2K3-Memory;service_notifications_enabled;2
+STPL;setparam;SNMP-Win2K3-Memory;contact_additive_inheritance;0
+STPL;setparam;SNMP-Win2K3-Memory;cg_additive_inheritance;0
+STPL;setparam;SNMP-Win2K3-Memory;service_inherit_contacts_from_host;1
+STPL;setparam;SNMP-Win2K3-Memory;service_use_only_contacts_from_host;0
+STPL;setparam;SNMP-Win2K3-Memory;check_command_arguments;!"Physical Memory"!80!90
+STPL;setparam;SNMP-Win2K3-Memory;service_locked;0
+STPL;setparam;SNMP-Win2K3-Memory;service_register;0
+STPL;setparam;SNMP-Win2K3-Memory;service_activate;1
+STPL;ADD;SNMP-Win2K3-Swap;Swap;generic-service
+STPL;setparam;SNMP-Win2K3-Swap;check_command;check_centreon_remote_storage
+STPL;setparam;SNMP-Win2K3-Swap;service_is_volatile;2
+STPL;setparam;SNMP-Win2K3-Swap;service_active_checks_enabled;2
+STPL;setparam;SNMP-Win2K3-Swap;service_passive_checks_enabled;2
+STPL;setparam;SNMP-Win2K3-Swap;service_parallelize_check;2
+STPL;setparam;SNMP-Win2K3-Swap;service_obsess_over_service;2
+STPL;setparam;SNMP-Win2K3-Swap;service_check_freshness;2
+STPL;setparam;SNMP-Win2K3-Swap;service_event_handler_enabled;2
+STPL;setparam;SNMP-Win2K3-Swap;service_flap_detection_enabled;2
+STPL;setparam;SNMP-Win2K3-Swap;service_process_perf_data;2
+STPL;setparam;SNMP-Win2K3-Swap;service_retain_status_information;2
+STPL;setparam;SNMP-Win2K3-Swap;service_retain_nonstatus_information;2
+STPL;setparam;SNMP-Win2K3-Swap;service_notifications_enabled;2
+STPL;setparam;SNMP-Win2K3-Swap;contact_additive_inheritance;0
+STPL;setparam;SNMP-Win2K3-Swap;cg_additive_inheritance;0
+STPL;setparam;SNMP-Win2K3-Swap;service_inherit_contacts_from_host;1
+STPL;setparam;SNMP-Win2K3-Swap;service_use_only_contacts_from_host;0
+STPL;setparam;SNMP-Win2K3-Swap;check_command_arguments;!"Virtual Memory"!80!90
+STPL;setparam;SNMP-Win2K3-Swap;service_locked;0
+STPL;setparam;SNMP-Win2K3-Swap;service_register;0
+STPL;setparam;SNMP-Win2K3-Swap;service_activate;1
+STPL;ADD;SNMP-Win2K-memory;Memory;generic-service
+STPL;setparam;SNMP-Win2K-memory;check_command;check_centreon_remote_storage
+STPL;setparam;SNMP-Win2K-memory;service_is_volatile;2
+STPL;setparam;SNMP-Win2K-memory;service_active_checks_enabled;2
+STPL;setparam;SNMP-Win2K-memory;service_passive_checks_enabled;2
+STPL;setparam;SNMP-Win2K-memory;service_parallelize_check;2
+STPL;setparam;SNMP-Win2K-memory;service_obsess_over_service;2
+STPL;setparam;SNMP-Win2K-memory;service_check_freshness;2
+STPL;setparam;SNMP-Win2K-memory;service_event_handler_enabled;2
+STPL;setparam;SNMP-Win2K-memory;service_flap_detection_enabled;2
+STPL;setparam;SNMP-Win2K-memory;service_process_perf_data;2
+STPL;setparam;SNMP-Win2K-memory;service_retain_status_information;2
+STPL;setparam;SNMP-Win2K-memory;service_retain_nonstatus_information;2
+STPL;setparam;SNMP-Win2K-memory;service_notifications_enabled;2
+STPL;setparam;SNMP-Win2K-memory;contact_additive_inheritance;0
+STPL;setparam;SNMP-Win2K-memory;cg_additive_inheritance;0
+STPL;setparam;SNMP-Win2K-memory;service_inherit_contacts_from_host;1
+STPL;setparam;SNMP-Win2K-memory;service_use_only_contacts_from_host;0
+STPL;setparam;SNMP-Win2K-memory;check_command_arguments;!"Virtual Memory"!80!90
+STPL;setparam;SNMP-Win2K-memory;service_locked;0
+STPL;setparam;SNMP-Win2K-memory;service_register;0
+STPL;setparam;SNMP-Win2K-memory;service_activate;1
+STPL;ADD;SNMP-Windows-CPU;CPU;generic-service
+STPL;setparam;SNMP-Windows-CPU;check_command;check_centreon_cpu
+STPL;setparam;SNMP-Windows-CPU;service_is_volatile;2
+STPL;setparam;SNMP-Windows-CPU;service_active_checks_enabled;2
+STPL;setparam;SNMP-Windows-CPU;service_passive_checks_enabled;2
+STPL;setparam;SNMP-Windows-CPU;service_parallelize_check;2
+STPL;setparam;SNMP-Windows-CPU;service_obsess_over_service;2
+STPL;setparam;SNMP-Windows-CPU;service_check_freshness;2
+STPL;setparam;SNMP-Windows-CPU;service_event_handler_enabled;2
+STPL;setparam;SNMP-Windows-CPU;service_flap_detection_enabled;2
+STPL;setparam;SNMP-Windows-CPU;service_process_perf_data;2
+STPL;setparam;SNMP-Windows-CPU;service_retain_status_information;2
+STPL;setparam;SNMP-Windows-CPU;service_retain_nonstatus_information;2
+STPL;setparam;SNMP-Windows-CPU;service_notifications_enabled;2
+STPL;setparam;SNMP-Windows-CPU;contact_additive_inheritance;0
+STPL;setparam;SNMP-Windows-CPU;cg_additive_inheritance;0
+STPL;setparam;SNMP-Windows-CPU;service_inherit_contacts_from_host;1
+STPL;setparam;SNMP-Windows-CPU;service_use_only_contacts_from_host;0
+STPL;setparam;SNMP-Windows-CPU;check_command_arguments;!80!90
+STPL;setparam;SNMP-Windows-CPU;service_locked;0
+STPL;setparam;SNMP-Windows-CPU;service_register;0
+STPL;setparam;SNMP-Windows-CPU;service_activate;1
 STPL;ADD;test_stpl;test_stpl;
 STPL;setparam;test_stpl;check_command;base_centreon_ping
 STPL;setparam;test_stpl;service_is_volatile;2
@@ -4286,16 +5199,207 @@ STPL;setparam;test_stpl;service_notifications_enabled;2
 STPL;setparam;test_stpl;contact_additive_inheritance;0
 STPL;setparam;test_stpl;cg_additive_inheritance;0
 STPL;setparam;test_stpl;service_inherit_contacts_from_host;1
+STPL;setparam;test_stpl;service_use_only_contacts_from_host;0
 STPL;setparam;test_stpl;service_locked;0
 STPL;setparam;test_stpl;service_register;0
 STPL;setparam;test_stpl;service_activate;1
+STPL;addcontactgroup;generic-service;Supervisors
+STPL;addhosttemplate;Ping-LAN;generic-host
+STPL;addhosttemplate;SNMP-DISK-/;Servers-Linux
+STPL;addhosttemplate;SNMP-Linux-Load-Average;Servers-Linux
+STPL;addhosttemplate;SNMP-Linux-Memory;Servers-Linux
+STPL;addhosttemplate;SNMP-Linux-Swap;Servers-Linux
+STPL;addhosttemplate;SNMP-DISK-E:;Servers-Win2K
+STPL;addhosttemplate;SNMP-Win2K-memory;Servers-Win2K
+STPL;addhosttemplate;SNMP-Windows-CPU;Servers-Win2K
+STPL;addhosttemplate;SNMP-DISK-E:;Servers-Win2K3
+STPL;addhosttemplate;SNMP-Win2K3-Memory;Servers-Win2K3
+STPL;addhosttemplate;SNMP-Win2K3-Swap;Servers-Win2K3
+STPL;addhosttemplate;SNMP-Windows-CPU;Servers-Win2K3
 HC;ADD;test_category;test_category
 HC;setparam;test_category;hc_activate;1
-HC;addmember;test_category;test_host
 HC;addmember;test_category;my_htpl-test
+HC;addmember;test_category;test_host
+HG;ADD;Linux-Servers;All linux servers
+HG;setparam;Linux-Servers;hg_activate;1
+HG;ADD;Windows-Servers;All windows servers
+HG;setparam;Windows-Servers;hg_activate;1
+HG;ADD;Networks;All other equipments
+HG;setparam;Networks;hg_activate;1
+HG;ADD;Printers;All printers
+HG;setparam;Printers;hg_activate;1
+HG;ADD;Routers;All routers
+HG;setparam;Routers;hg_activate;1
+HG;ADD;Switchs;All switchs
+HG;setparam;Switchs;hg_activate;1
+HG;ADD;Firewall;All firewalls
+HG;setparam;Firewall;hg_activate;1
+HG;ADD;Unix-Servers;All unix servers
+HG;setparam;Unix-Servers;hg_activate;1
 HG;ADD;test_host-group;test_host-group
 HG;setparam;test_host-group;hg_activate;1
+HG;addhost;Linux-Servers;Centreon-Server
 HG;addhost;test_host-group;test_host
+SERVICE;ADD;Centreon-Server;Disk-/;SNMP-DISK-/
+SERVICE;setparam;Centreon-Server;Disk-/;service_is_volatile;2
+SERVICE;setparam;Centreon-Server;Disk-/;service_active_checks_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/;service_passive_checks_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/;service_parallelize_check;2
+SERVICE;setparam;Centreon-Server;Disk-/;service_obsess_over_service;2
+SERVICE;setparam;Centreon-Server;Disk-/;service_check_freshness;2
+SERVICE;setparam;Centreon-Server;Disk-/;service_event_handler_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/;service_flap_detection_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/;service_process_perf_data;2
+SERVICE;setparam;Centreon-Server;Disk-/;service_retain_status_information;2
+SERVICE;setparam;Centreon-Server;Disk-/;service_retain_nonstatus_information;2
+SERVICE;setparam;Centreon-Server;Disk-/;service_notifications_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/;contact_additive_inheritance;0
+SERVICE;setparam;Centreon-Server;Disk-/;cg_additive_inheritance;0
+SERVICE;setparam;Centreon-Server;Disk-/;service_inherit_contacts_from_host;1
+SERVICE;setparam;Centreon-Server;Disk-/;service_use_only_contacts_from_host;0
+SERVICE;setparam;Centreon-Server;Disk-/;service_locked;0
+SERVICE;setparam;Centreon-Server;Disk-/;service_register;1
+SERVICE;setparam;Centreon-Server;Disk-/;service_activate;1
+SERVICE;ADD;Centreon-Server;Disk-/home;SNMP-DISK-/home
+SERVICE;setparam;Centreon-Server;Disk-/home;service_is_volatile;2
+SERVICE;setparam;Centreon-Server;Disk-/home;service_active_checks_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/home;service_passive_checks_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/home;service_parallelize_check;2
+SERVICE;setparam;Centreon-Server;Disk-/home;service_obsess_over_service;2
+SERVICE;setparam;Centreon-Server;Disk-/home;service_check_freshness;2
+SERVICE;setparam;Centreon-Server;Disk-/home;service_event_handler_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/home;service_flap_detection_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/home;service_process_perf_data;2
+SERVICE;setparam;Centreon-Server;Disk-/home;service_retain_status_information;2
+SERVICE;setparam;Centreon-Server;Disk-/home;service_retain_nonstatus_information;2
+SERVICE;setparam;Centreon-Server;Disk-/home;service_notifications_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/home;contact_additive_inheritance;0
+SERVICE;setparam;Centreon-Server;Disk-/home;cg_additive_inheritance;0
+SERVICE;setparam;Centreon-Server;Disk-/home;service_inherit_contacts_from_host;1
+SERVICE;setparam;Centreon-Server;Disk-/home;service_use_only_contacts_from_host;0
+SERVICE;setparam;Centreon-Server;Disk-/home;service_locked;0
+SERVICE;setparam;Centreon-Server;Disk-/home;service_register;1
+SERVICE;setparam;Centreon-Server;Disk-/home;service_activate;0
+SERVICE;ADD;Centreon-Server;Disk-/opt;SNMP-DISK-/opt
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_is_volatile;2
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_active_checks_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_passive_checks_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_parallelize_check;2
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_obsess_over_service;2
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_check_freshness;2
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_event_handler_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_flap_detection_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_process_perf_data;2
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_retain_status_information;2
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_retain_nonstatus_information;2
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_notifications_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/opt;contact_additive_inheritance;0
+SERVICE;setparam;Centreon-Server;Disk-/opt;cg_additive_inheritance;0
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_inherit_contacts_from_host;1
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_use_only_contacts_from_host;0
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_locked;0
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_register;1
+SERVICE;setparam;Centreon-Server;Disk-/opt;service_activate;0
+SERVICE;ADD;Centreon-Server;Disk-/usr;SNMP-DISK-/usr
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_is_volatile;2
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_active_checks_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_passive_checks_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_parallelize_check;2
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_obsess_over_service;2
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_check_freshness;2
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_event_handler_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_flap_detection_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_process_perf_data;2
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_retain_status_information;2
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_retain_nonstatus_information;2
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_notifications_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/usr;contact_additive_inheritance;0
+SERVICE;setparam;Centreon-Server;Disk-/usr;cg_additive_inheritance;0
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_inherit_contacts_from_host;1
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_use_only_contacts_from_host;0
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_locked;0
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_register;1
+SERVICE;setparam;Centreon-Server;Disk-/usr;service_activate;0
+SERVICE;ADD;Centreon-Server;Disk-/var;SNMP-DISK-/var
+SERVICE;setparam;Centreon-Server;Disk-/var;service_is_volatile;2
+SERVICE;setparam;Centreon-Server;Disk-/var;service_active_checks_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/var;service_passive_checks_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/var;service_parallelize_check;2
+SERVICE;setparam;Centreon-Server;Disk-/var;service_obsess_over_service;2
+SERVICE;setparam;Centreon-Server;Disk-/var;service_check_freshness;2
+SERVICE;setparam;Centreon-Server;Disk-/var;service_event_handler_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/var;service_flap_detection_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/var;service_process_perf_data;2
+SERVICE;setparam;Centreon-Server;Disk-/var;service_retain_status_information;2
+SERVICE;setparam;Centreon-Server;Disk-/var;service_retain_nonstatus_information;2
+SERVICE;setparam;Centreon-Server;Disk-/var;service_notifications_enabled;2
+SERVICE;setparam;Centreon-Server;Disk-/var;contact_additive_inheritance;0
+SERVICE;setparam;Centreon-Server;Disk-/var;cg_additive_inheritance;0
+SERVICE;setparam;Centreon-Server;Disk-/var;service_inherit_contacts_from_host;1
+SERVICE;setparam;Centreon-Server;Disk-/var;service_use_only_contacts_from_host;0
+SERVICE;setparam;Centreon-Server;Disk-/var;service_locked;0
+SERVICE;setparam;Centreon-Server;Disk-/var;service_register;1
+SERVICE;setparam;Centreon-Server;Disk-/var;service_activate;0
+SERVICE;ADD;Centreon-Server;Load;SNMP-Linux-Load-Average
+SERVICE;setparam;Centreon-Server;Load;service_is_volatile;2
+SERVICE;setparam;Centreon-Server;Load;service_active_checks_enabled;2
+SERVICE;setparam;Centreon-Server;Load;service_passive_checks_enabled;2
+SERVICE;setparam;Centreon-Server;Load;service_parallelize_check;2
+SERVICE;setparam;Centreon-Server;Load;service_obsess_over_service;2
+SERVICE;setparam;Centreon-Server;Load;service_check_freshness;2
+SERVICE;setparam;Centreon-Server;Load;service_event_handler_enabled;2
+SERVICE;setparam;Centreon-Server;Load;service_flap_detection_enabled;2
+SERVICE;setparam;Centreon-Server;Load;service_process_perf_data;2
+SERVICE;setparam;Centreon-Server;Load;service_retain_status_information;2
+SERVICE;setparam;Centreon-Server;Load;service_retain_nonstatus_information;2
+SERVICE;setparam;Centreon-Server;Load;service_notifications_enabled;2
+SERVICE;setparam;Centreon-Server;Load;contact_additive_inheritance;0
+SERVICE;setparam;Centreon-Server;Load;cg_additive_inheritance;0
+SERVICE;setparam;Centreon-Server;Load;service_inherit_contacts_from_host;1
+SERVICE;setparam;Centreon-Server;Load;service_use_only_contacts_from_host;0
+SERVICE;setparam;Centreon-Server;Load;service_locked;0
+SERVICE;setparam;Centreon-Server;Load;service_register;1
+SERVICE;setparam;Centreon-Server;Load;service_activate;1
+SERVICE;ADD;Centreon-Server;Memory;SNMP-Linux-Memory
+SERVICE;setparam;Centreon-Server;Memory;service_is_volatile;2
+SERVICE;setparam;Centreon-Server;Memory;service_active_checks_enabled;2
+SERVICE;setparam;Centreon-Server;Memory;service_passive_checks_enabled;2
+SERVICE;setparam;Centreon-Server;Memory;service_parallelize_check;2
+SERVICE;setparam;Centreon-Server;Memory;service_obsess_over_service;2
+SERVICE;setparam;Centreon-Server;Memory;service_check_freshness;2
+SERVICE;setparam;Centreon-Server;Memory;service_event_handler_enabled;2
+SERVICE;setparam;Centreon-Server;Memory;service_flap_detection_enabled;2
+SERVICE;setparam;Centreon-Server;Memory;service_process_perf_data;2
+SERVICE;setparam;Centreon-Server;Memory;service_retain_status_information;2
+SERVICE;setparam;Centreon-Server;Memory;service_retain_nonstatus_information;2
+SERVICE;setparam;Centreon-Server;Memory;service_notifications_enabled;2
+SERVICE;setparam;Centreon-Server;Memory;contact_additive_inheritance;0
+SERVICE;setparam;Centreon-Server;Memory;cg_additive_inheritance;0
+SERVICE;setparam;Centreon-Server;Memory;service_inherit_contacts_from_host;1
+SERVICE;setparam;Centreon-Server;Memory;service_use_only_contacts_from_host;0
+SERVICE;setparam;Centreon-Server;Memory;service_locked;0
+SERVICE;setparam;Centreon-Server;Memory;service_register;1
+SERVICE;setparam;Centreon-Server;Memory;service_activate;1
+SERVICE;ADD;Centreon-Server;Ping;Ping-LAN
+SERVICE;setparam;Centreon-Server;Ping;service_is_volatile;2
+SERVICE;setparam;Centreon-Server;Ping;service_active_checks_enabled;2
+SERVICE;setparam;Centreon-Server;Ping;service_passive_checks_enabled;2
+SERVICE;setparam;Centreon-Server;Ping;service_parallelize_check;2
+SERVICE;setparam;Centreon-Server;Ping;service_obsess_over_service;2
+SERVICE;setparam;Centreon-Server;Ping;service_check_freshness;2
+SERVICE;setparam;Centreon-Server;Ping;service_event_handler_enabled;2
+SERVICE;setparam;Centreon-Server;Ping;service_flap_detection_enabled;2
+SERVICE;setparam;Centreon-Server;Ping;service_process_perf_data;2
+SERVICE;setparam;Centreon-Server;Ping;service_retain_status_information;2
+SERVICE;setparam;Centreon-Server;Ping;service_retain_nonstatus_information;2
+SERVICE;setparam;Centreon-Server;Ping;service_notifications_enabled;2
+SERVICE;setparam;Centreon-Server;Ping;contact_additive_inheritance;0
+SERVICE;setparam;Centreon-Server;Ping;cg_additive_inheritance;0
+SERVICE;setparam;Centreon-Server;Ping;service_inherit_contacts_from_host;1
+SERVICE;setparam;Centreon-Server;Ping;service_use_only_contacts_from_host;0
+SERVICE;setparam;Centreon-Server;Ping;service_locked;0
+SERVICE;setparam;Centreon-Server;Ping;service_register;1
+SERVICE;setparam;Centreon-Server;Ping;service_activate;1
 SERVICE;ADD;test_host;service_test;test_stpl
 SERVICE;setparam;test_host;service_test;service_is_volatile;2
 SERVICE;setparam;test_host;service_test;service_active_checks_enabled;2
@@ -4316,7 +5420,21 @@ SERVICE;setparam;test_host;service_test;service_use_only_contacts_from_host;0
 SERVICE;setparam;test_host;service_test;service_locked;0
 SERVICE;setparam;test_host;service_test;service_register;1
 SERVICE;setparam;test_host;service_test;service_activate;1
+SC;addservicetemplate;Ping;Ping-LAN
+SC;addservicetemplate;Ping;Ping-WAN
 SC;addservicetemplate;Ping;test_stpl
+SC;addservicetemplate;Disk;SNMP-DISK-/
+SC;addservicetemplate;Disk;SNMP-DISK-/home
+SC;addservicetemplate;Disk;SNMP-DISK-/opt
+SC;addservicetemplate;Disk;SNMP-DISK-/usr
+SC;addservicetemplate;Disk;SNMP-DISK-/var
+SC;addservicetemplate;Disk;SNMP-DISK-C:
+SC;addservicetemplate;Disk;SNMP-DISK-E:
+SC;addservicetemplate;Memory;SNMP-Linux-Swap
+SC;addservicetemplate;Memory;SNMP-Win2K-memory
+SC;addservicetemplate;Memory;SNMP-Win2K3-Memory
+SC;addservicetemplate;Memory;SNMP-Win2K3-Swap
+SC;addservicetemplate;Memory;SNMP-Linux-Memory
 ACLRESOURCE;ADD;All Resources;All Resources;
 ACLRESOURCE;SETPARAM;All Resources;activate;1;
 ACLRESOURCE;GRANT_HOST;All Resources;*;
