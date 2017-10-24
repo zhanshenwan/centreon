@@ -223,7 +223,7 @@ save_timestamp=$(date '+%s')
 # Do snapshot
 ###
 output_log "Create LVM snapshot"
-lvcreate -l $free_pe -s -n dbbackup $lv_name
+sudo lvcreate -l $free_pe -s -n dbbackup $lv_name
 
 ###
 # Start server
@@ -291,7 +291,7 @@ cd -
 ###
 output_log "Umount and Delete LVM snapshot"
 umount "$SNAPSHOT_MOUNT"
-lvremove -f /dev/$vg_name/dbbackup
+sudo lvremove -f /dev/$vg_name/dbbackup
 
 echo "$save_timestamp" > "$SAVE_LAST_DIR/$SAVE_LAST_FILE"
 

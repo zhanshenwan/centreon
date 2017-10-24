@@ -33,4 +33,8 @@ CENTREON   ALL = NOPASSWD: /usr/sbin/service cbd stop
 CENTREON   ALL = NOPASSWD: /usr/sbin/service cbd restart
 CENTREON   ALL = NOPASSWD: /usr/sbin/service cbd reload
 
+#centreon Backup
+CENTREON   ALL = NOPASSWD: /usr/sbin/lvcreate *
+CENTREON   ALL = NOPASSWD: /usr/sbin/lvremove *
+
 ## END: CENTREON SUDO
