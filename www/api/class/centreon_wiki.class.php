@@ -51,14 +51,20 @@ class CentreonWiki extends CentreonWebService
         $password = $this->arguments['pwd'];
         $db = $this->arguments['name'];
 
-        try {
-            new PDO('mysql:host=' . $host . ';port=' . $port . ';dbname=' . $db, $user, $password);
-            $outcome = true;
-            $message = _('Connection Successful');
-        } catch (PDOException $e) {
+        if (!empty($sql_host)) {
+            try {
+                new PDO('mysql:host=' . $host . ';port=' . $port . ';dbname=' . $db, $user, $password);
+                $outcome = true;
+                $message = _('Connection Successful');
+            } catch (PDOException $e) {
+                $outcome = false;
+                $message = $e->getMessage();
+            }
+        } else {
             $outcome = false;
-            $message = $e->getMessage();
+            $message = _('Connection Unsuccessful');
         }
+
 
         return array(
             'outcome' => $outcome,
