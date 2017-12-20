@@ -89,11 +89,11 @@ class WikiApi
         curl_setopt($this->curl, CURLOPT_POSTFIELDS, $postfields);
         $result = curl_exec($this->curl);
         $result = json_decode($result, true);
-
         $version = $result['query']['general']['generator'];
         $version = explode(' ', $version);
         if (isset($version[1])) {
-            return (float)$version[1];
+            $wikiVersion = explode('.', $version[1]);
+            return $wikiVersion[0] . '.' . $wikiVersion[1];
         } else {
             throw new \Exception("An error occured, please check your Knowledge base configuration");
         }
@@ -108,11 +108,20 @@ class WikiApi
         curl_setopt($this->curl, CURLOPT_HEADER, true);
 
         // Get Connection Cookie/Token
-        $postfields = array(
-            'action' => 'login',
-            'format' => 'json',
-            'lgname' => $this->username
-        );
+        if($this->version <= 1.27){
+            $postfields = array(
+                'action' => 'login',
+                'format' => 'json',
+                'lgname' => $this->username
+            );
+        } else {
+            $postfields = array(
+                'action' => 'query',
+                'meta' => 'tokens',
+                'type' => 'login',
+                'format' => 'json',
+            );
+        }
 
         curl_setopt($this->curl, CURLOPT_POSTFIELDS, $postfields);
         $result = curl_exec($this->curl);
@@ -133,11 +142,23 @@ class WikiApi
             $token = $result['login']['lgtoken'];
         } elseif (isset($result['login']['token'])) {
             $token = $result['login']['token'];
+        } elseif (isset($result['query']['tokens']['logintoken'])) {
+            $token = $result['query']['tokens']['logintoken'];
         }
 
         // Launch Connection
-        $postfields['lgpassword'] = $this->password;
-        $postfields['lgtoken'] = $token;
+        if($this->version > 1.27){
+            $postfields = array(
+                'action' => 'login',
+                'lgname' => $this->username,
+                'lgpassword' => $this->password,
+                'lgtoken' => $token,
+                'format' => 'json',
+            );
+        }else {
+            $postfields['lgpassword'] = $this->password;
+            $postfields['lgtoken'] = $token;
+        }
 
         curl_setopt($this->curl, CURLOPT_POSTFIELDS, $postfields);
         $result = curl_exec($this->curl);
@@ -247,6 +268,7 @@ class WikiApi
         if($token){
             $postfields = array(
                 'action' => 'delete',
+                'format' => 'json',
                 'title' => $title,
                 'token' => $token
             );
