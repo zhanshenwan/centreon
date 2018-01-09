@@ -72,7 +72,7 @@ class CentreonStatistics extends CentreonWebService
 
         $modulesData = $this->getModulesInfo();
 
-        return $data;
+        return array_merge($data, $modulesData);
     }
 
     private function getModulesInfo()
@@ -86,7 +86,7 @@ class CentreonStatistics extends CentreonWebService
             );
             foreach ($webServicePaths as $filename) {
                 require_once $filename;
-                $explodedClassName = explode('_', $filename);
+                $explodedClassName = explode('_', str_replace('.class.php', '', basename($filename)));
                 $className = "";
                 foreach ($explodedClassName as $partClassName) {
                     $className .= ucfirst(strtolower($partClassName));
@@ -100,6 +100,7 @@ class CentreonStatistics extends CentreonWebService
             }
         }
 
+        return $data;
     }
 
     /**
