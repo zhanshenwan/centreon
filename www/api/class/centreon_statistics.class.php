@@ -117,7 +117,8 @@ class CentreonStatistics extends CentreonWebService
                 'centreon-web' => $centreonVersion->getVersion()
             ),
             'modules' => $centreonVersion->getModules(),
-            'widgets' => $centreonVersion->getWidgets()
+            'widgets' => $centreonVersion->getWidgets(),
+            'system' => $centreonVersion->getSystem(),
         );
     }
 
