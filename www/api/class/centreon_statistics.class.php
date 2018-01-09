@@ -66,8 +66,40 @@ class CentreonStatistics extends CentreonWebService
             "FROM host WHERE host_activate = 1 AND host_register = 1";
         $dbResult = $this->pearDB->query($query);
         $data = $dbResult->fetchRow();
+        foreach ($data as $key => $value) {
+            $data[$key] = intval($value);
+        }
+
+        $modulesData = $this->getModulesInfo();
 
         return $data;
+    }
+
+    private function getModulesInfo()
+    {
+        $data = array();
+
+        $res = $this->pearDB->query("SELECT name FROM modules_informations");
+        while ($row = $res->fetchRow()) {
+            $webServicePaths = glob(
+                _CENTREON_PATH_ . '/www/modules/' . $row['name'] . '/webServices/rest/*_statistics.class.php'
+            );
+            foreach ($webServicePaths as $filename) {
+                require_once $filename;
+                $explodedClassName = explode('_', $filename);
+                $className = "";
+                foreach ($explodedClassName as $partClassName) {
+                    $className .= ucfirst(strtolower($partClassName));
+                }
+                if (class_exists($className)) {
+                    $wsObj = new $className();
+                    if (method_exists($wsObj, 'getPlatformInfo')) {
+                        $data = array_merge($data, $wsObj->getPlatformInfo());
+                    }
+                }
+            }
+        }
+
     }
 
     /**
