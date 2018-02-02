@@ -139,7 +139,7 @@ class DowntimeStartAndStopContext extends CentreonContext
     {
         $this->spin(
             function ($context) {
-                if (date("H:i") >= $context->downtimeStartTime) {
+                if (date("H:i", strtotime('1 hour')) >= $context->downtimeStartTime) {
                     return true;
                 }
             },
@@ -171,7 +171,7 @@ class DowntimeStartAndStopContext extends CentreonContext
     {
         $this->spin(
             function ($context) {
-                return date("H:i") >= $context->downtimeEndTime;
+                return date("H:i", strtotime('1 hour')) >= $context->downtimeEndTime;
             },
             'The end of the downtime is too late (' . $this->downtimeEndTime . ').',
             180 // 3 minutes for 2 minutes-long downtimes
