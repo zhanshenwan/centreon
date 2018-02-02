@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InstanceListContainer renders correctly 1`] = `
+<div
+  className="InstanceList-root-1"
+  id="instanceList"
+>
+  <Grid$$1
+    columns={
+      Array [
+        Object {
+          "name": "companyName",
+          "title": "Company name",
+        },
+        Object {
+          "name": "fingerprint",
+          "title": "Fingerprint",
+        },
+        Object {
+          "name": "serverName",
+          "title": "Server name",
+        },
+        Object {
+          "name": "subscriptionState",
+          "title": "Subscription state",
+        },
+        Object {
+          "name": "unlimitedAccess",
+          "title": "Unlimited access",
+        },
+      ]
+    }
+    rows={Array []}
+  >
+    <FilteringState
+      defaultFilters={Array []}
+      onFiltersChange={[Function]}
+    />
+    <PagingState
+      currentPage={0}
+      defaultCurrentPage={0}
+      defaultPageSize={10}
+      onCurrentPageChange={[Function]}
+    />
+    <CustomPaging
+      totalCount={0}
+    />
+    <Table$$1
+      cellComponent={[Function]}
+      messages={Object {}}
+      rowComponent={[Function]}
+    />
+    <TableHeaderRow$$1
+      messages={Object {}}
+    />
+    <PagingPanel$$1
+      messages={Object {}}
+    />
+    <TableFilterRow$$1
+      cellComponent={[Function]}
+      messages={Object {}}
+    />
+  </Grid$$1>
+</div>
+`;

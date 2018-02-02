@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Statistics renders correctly 1`] = `
+<section>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      key="stats0"
+      path="/app/pluginpacks"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="stats1"
+      path="/app/instances"
+    />
+    <Redirect
+      push={false}
+      to="/app/pluginpacks"
+    />
+  </Switch>
+</section>
+`;

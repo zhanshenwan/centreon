@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Plugin Packs Statistics renders correctly 1`] = `
+<div
+  className="PluginPacks-statisticsContainer-1"
+>
+  <div
+    className="PluginPacks-statisticsHeader-2"
+  >
+    <WithStyles(Typography)
+      align="center"
+      className="PluginPacks-title-4"
+      type="display1"
+    >
+      pp2
+    </WithStyles(Typography)>
+  </div>
+  <div
+    className="PluginPacks-chartContainer-3"
+  >
+    <Bar
+      data={
+        Object {
+          "datasets": Array [
+            Object {
+              "backgroundColor": "rgba(142,204,0,0.2)",
+              "borderColor": "rgba(39,101,26,1)",
+              "borderWidth": 1,
+              "data": Array [
+                1,
+                6,
+              ],
+              "hoverBackgroundColor": "rgba(142,204,0,0.4)",
+              "hoverBorderColor": "rgba(39,101,26,1)",
+              "label": "Installation",
+            },
+            Object {
+              "backgroundColor": "rgba(82,172,230,0.2)",
+              "borderColor": "rgba(16,6,159,1)",
+              "borderWidth": 1,
+              "data": Array [
+                0,
+                1,
+              ],
+              "hoverBackgroundColor": "rgba(82,172,230,0.4)",
+              "hoverBorderColor": "rgba(16,6,159,1)",
+              "label": "Update",
+            },
+          ],
+          "labels": Array [
+            "1.0.0",
+            "1.0.1",
+          ],
+          "title": "pp2",
+        }
+      }
+      getElementAtEvent={[Function]}
+      options={
+        Object {
+          "maintainAspectRatio": false,
+          "responsive": true,
+          "scales": Object {
+            "xAxes": Array [
+              Object {
+                "stacked": true,
+                "ticks": Object {
+                  "autoSkip": true,
+                  "maxRotation": 45,
+                  "maxTicksLimit": 11,
+                  "minRotation": 0,
+                },
+              },
+            ],
+            "yAxes": Array [
+              Object {
+                "stacked": true,
+                "ticks": Object {
+                  "beginAtZero": true,
+                },
+              },
+            ],
+          },
+          "tooltips": Object {
+            "mode": "index",
+          },
+        }
+      }
+    />
+  </div>
+</div>
+`;

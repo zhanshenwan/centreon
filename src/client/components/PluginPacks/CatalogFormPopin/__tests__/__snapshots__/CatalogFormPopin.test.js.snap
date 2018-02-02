@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CatalogFormPopin renders correctly 1`] = `
+<WithStyles(Dialog)
+  classes={Object {}}
+  disableBackdropClick={true}
+  disableEscapeKeyDown={true}
+  maxWidth="xs"
+  open={false}
+>
+  <WithStyles(DialogTitle)>
+    Choose catalog access
+  </WithStyles(DialogTitle)>
+  <WithStyles(DialogContent)>
+    <RadioGroup
+      aria-label="level"
+      name="level"
+      onChange={[Function]}
+      value={null}
+    >
+      <WithStyles(FormControlLabel)
+        control={<WithStyles(Radio) />}
+        key="1"
+        label="1 : Free"
+        value="1"
+      />
+      <WithStyles(FormControlLabel)
+        control={<WithStyles(Radio) />}
+        key="2"
+        label="2 : Registered"
+        value="2"
+      />
+      <WithStyles(FormControlLabel)
+        control={<WithStyles(Radio) />}
+        key="3"
+        label="3 : Subscribed"
+        value="3"
+      />
+    </RadioGroup>
+  </WithStyles(DialogContent)>
+  <WithStyles(DialogActions)>
+    <WithStyles(Button)
+      color="primary"
+      id="cancelCatalogFormPopin"
+      onClick={[Function]}
+    >
+      Cancel
+    </WithStyles(Button)>
+    <WithStyles(Button)
+      color="primary"
+      id="confirmCatalogFormPopin"
+      onClick={[Function]}
+    >
+      Confirm
+    </WithStyles(Button)>
+  </WithStyles(DialogActions)>
+</WithStyles(Dialog)>
+`;

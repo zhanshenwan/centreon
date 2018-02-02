@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification renders correctly 1`] = `
+<div>
+  <WithStyles(Snackbar)
+    SnackbarContentProps={
+      Object {
+        "className": "Notification-information-1",
+      }
+    }
+    action={
+      Array [
+        undefined,
+        <WithStyles(IconButton)
+          aria-label="Close"
+          color="inherit"
+          id="closeNotification"
+          onClick={[Function]}
+        >
+          <pure(Close) />
+        </WithStyles(IconButton)>,
+      ]
+    }
+    anchorOrigin={
+      Object {
+        "horizontal": "right",
+        "vertical": "bottom",
+      }
+    }
+    autoHideDuration={3000}
+    key="notification-1"
+    message="test notification"
+    onClose={[Function]}
+    open={true}
+  />
+</div>
+`;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CatalogSelector renders correctly 1`] = `
+<WithStyles(Avatar)
+  className="CatalogSelector-purpleAvatar-3"
+  onClick={[Function]}
+>
+  2
+</WithStyles(Avatar)>
+`;

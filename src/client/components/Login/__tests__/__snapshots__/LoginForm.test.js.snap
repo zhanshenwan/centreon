@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm renders auth form correctly 1`] = `
+<LoginForm
+  classes={
+    Object {
+      "card": "LoginForm-card-6",
+      "errorContainer": "LoginForm-errorContainer-3",
+      "errorText": "LoginForm-errorText-4",
+      "loginButton": "LoginForm-loginButton-2",
+      "loginTitle": "LoginForm-loginTitle-5",
+      "root": "LoginForm-root-1",
+    }
+  }
+  onSubmit={[Function]}
+  user={
+    Object {
+      "password": "password1",
+      "username": "user1",
+    }
+  }
+/>
+`;

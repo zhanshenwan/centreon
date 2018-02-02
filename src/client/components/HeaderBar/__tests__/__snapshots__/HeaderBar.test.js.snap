@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderBar renders correctly 1`] = `
+<WithStyles(AppBar)
+  className="HeaderBar-appBar-1"
+>
+  <WithStyles(Toolbar)
+    className="HeaderBar-toolBar-2"
+  >
+    <WithStyles(Typography)
+      className="HeaderBar-title-3"
+      color="inherit"
+      type="title"
+    />
+    <div>
+      <Connect(AccountMenuContainer) />
+    </div>
+  </WithStyles(Toolbar)>
+</WithStyles(AppBar)>
+`;

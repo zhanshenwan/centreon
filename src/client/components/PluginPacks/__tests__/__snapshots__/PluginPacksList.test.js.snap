@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PluginPacksList renders correctly 1`] = `
+<section>
+  <div
+    className="PluginPacksList-root-1"
+    id="pluginPackList"
+  >
+    <Grid$$1
+      columns={
+        Array [
+          Object {
+            "name": "slug",
+            "title": "Slug",
+          },
+          Object {
+            "name": "name",
+            "title": "Name",
+          },
+          Object {
+            "name": "version",
+            "title": "Version",
+          },
+          Object {
+            "name": "catalog_level",
+            "title": "Catalog",
+          },
+          Object {
+            "name": "released",
+            "title": "Released",
+          },
+        ]
+      }
+      rows={Array []}
+    >
+      <FilteringState
+        defaultFilters={Array []}
+        onFiltersChange={[Function]}
+      />
+      <PagingState
+        currentPage={0}
+        defaultCurrentPage={0}
+        defaultPageSize={10}
+        onCurrentPageChange={[Function]}
+      />
+      <CustomPaging
+        totalCount={0}
+      />
+      <Table$$1
+        cellComponent={[Function]}
+        messages={Object {}}
+        rowComponent={[Function]}
+      />
+      <TableHeaderRow$$1
+        messages={Object {}}
+      />
+      <PagingPanel$$1
+        id="pagingPanel"
+        messages={Object {}}
+      />
+      <TableFilterRow$$1
+        cellComponent={[Function]}
+        messages={
+          Object {
+            "filterPlaceholder": "Filter",
+          }
+        }
+      />
+    </Grid$$1>
+  </div>
+  <Connect(CatalogFormPopinContainer) />
+</section>
+`;
