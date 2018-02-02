@@ -17,12 +17,12 @@ class DowntimeStartAndStopContext extends CentreonContext
     protected $service = 'downtimeService';
     protected $downtimeStartTime;
     protected $downtimeEndTime;
-    protected $downtimeDuration = 20;
+    protected $downtimeDuration = 6000;
 
     public function __construct()
     {
         parent::__construct();
-        $this->downtimeStartTime = date("H:i", strtotime('1 hour'));
+        $this->downtimeStartTime = date("H:i");
         $this->page = '';
         $this->dateStartTimestamp = '';
         $this->dateEndTimestamp = '';
