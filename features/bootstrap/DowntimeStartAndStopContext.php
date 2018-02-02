@@ -86,7 +86,7 @@ class DowntimeStartAndStopContext extends CentreonContext
         $this->submitServiceResult($this->host, $this->service, 0, __FUNCTION__);
 
         $page = new DowntimeConfigurationPage($this);
-        $downtimeEndTime = '+2 minutes';
+        $downtimeEndTime = '+62 minutes';
         $this->downtimeEndTime = date("H:i", strtotime($downtimeEndTime));
         $page->setProperties(array(
             'type' => DowntimeConfigurationPage::TYPE_SERVICE,
