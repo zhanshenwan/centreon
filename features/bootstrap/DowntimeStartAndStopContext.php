@@ -17,7 +17,7 @@ class DowntimeStartAndStopContext extends CentreonContext
     protected $service = 'downtimeService';
     protected $downtimeStartTime;
     protected $downtimeEndTime;
-    protected $downtimeDuration = 20;
+    protected $downtimeDuration = 6000;
 
     public function __construct()
     {
