@@ -3,7 +3,7 @@ import Button from 'material-ui/Button'
 import Grid from 'material-ui/Grid'
 import { withStyles } from 'material-ui/styles'
 import numeral from 'numeral'
-import Avatar from 'material-ui/Avatar';
+import Avatar from 'material-ui/Avatar'
 
 const styles = theme => ({
   status: {
@@ -44,26 +44,26 @@ const styles = theme => ({
   },
 })
 
-const ObjectStatus = ({ classes, object }) => (
-      <Grid item sm={3}>
-        <Avatar
-          alt="centreon object"
-          src={'./img/icons/' + object + '.png'}
-          className={classes.avatar}
-        />
-        <Button variant="fab"
-                className={(classes.status, classes.errorStatus)}>
-          {numeral(5601000).format('0a')}
-        </Button>
-        <Button variant="fab" mini
-                className={( classes.status, classes.warningStatus)}>
-          {numeral(56).format('0a')}
-        </Button>
-        <Button variant="fab" mini color="primary"
-                className={classes.status}>
-          {numeral(500).format('0a')}
-        </Button>
-      </Grid>
-    )
+const ObjectStatus = ({ classes, object, status }) => (
+  <Grid item xs>
+    <Avatar
+      alt="centreon object"
+      src={'./img/icons/' + object + '.png'}
+      className={classes.avatar}
+    />
+    <Button variant="fab"
+            className={(classes.status, classes.errorStatus)}>
+      {numeral(5601000).format('0a')}
+    </Button>
+    <Button variant="fab" mini
+            className={( classes.status, classes.warningStatus)}>
+      {numeral(56).format('0a')}
+    </Button>
+    <Button variant="fab" mini color="primary"
+            className={classes.status}>
+      {numeral(500).format('0a')}
+    </Button>
+  </Grid>
+)
 
 export default withStyles(styles)(ObjectStatus)

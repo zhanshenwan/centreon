@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
-import TopHeader from '../Components/Header/TopHeader'
+import TopHeader from './TopHeader'
 
 
 const theme = createMuiTheme({
@@ -14,19 +14,29 @@ const theme = createMuiTheme({
     openSans: "'Open Sans', Arial, Tahoma, Helvetica, Sans-Serif"
   },
   overrides: {
-    MuiButton: {
-
-    }
+    MuiMenuItem: {
+      root: {
+        height: '18px',
+        fontSize: '0.9rem',
+        font: "'Open Sans', Arial, Tahoma, Helvetica, Sans-Serif",
+        paddingTop: '8px',
+        paddingBottom: '8px',
+      },
+    },
+    MuiPopover: {
+      paper: {
+        padding: '14px'
+      }
+    },
   }
 });
 
 class TopHeaderContainer extends Component {
 
   render = () => {
-    const object = ['host', 'service']
     return (
       <MuiThemeProvider theme={theme}>
-        <TopHeader object={object} />
+        <TopHeader />
       </MuiThemeProvider>
     )
   }

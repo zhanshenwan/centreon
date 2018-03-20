@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
-import ObjectStatus from '../Components/Header/ObjectStatus'
+import ObjectStatus from './ObjectStatus'
 
 class ObjectStatusContainer extends Component {
 
   render = () => {
 
-    const { object } = this.props
-
-    return (
-      <ObjectStatus object={object} />
-    )
+    return <ObjectStatus
+      object='service' />
   }
 }
 

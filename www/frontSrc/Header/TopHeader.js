@@ -5,14 +5,13 @@ import grey from 'material-ui/colors/grey'
 import Typography from 'material-ui/Typography'
 import { withStyles } from 'material-ui/styles'
 import PropTypes from 'prop-types'
-import { ObjectStatus, UserProfile } from 'Components'
+import ObjectStatus from './ObjectStatusContainer'
+import UserProfile from './User/UserProfileContrainer'
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
     zIndex: 1,
-    position: 'relative',
-    display: 'flex',
     fontFamily: theme.font.openSans,
 
   },
@@ -32,19 +31,17 @@ const styles = theme => ({
 
 class TopHeader extends Component {
   render () {
-    const {classes, object} = this.props
+    const {classes} = this.props
     return (
       <div className={classes.root}>
         <AppBar position="static" className={classes.appBar}>
           <Grid container spacing={16}>
-            <Grid item sm={3}>
+            <Grid item xs>
               <Typography variant="title" color="inherit" noWrap>
                 Centreon
               </Typography>
             </Grid>
-            {object.map(obj =>
-              <ObjectStatus object={obj} key={obj}/>
-            )}
+            <ObjectStatus />
             <UserProfile />
           </Grid>
         </AppBar>

@@ -4,12 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  resolve: {
-    alias: {
-      Components: path.resolve(__dirname, 'www/frontSrc/Containers/'),
-      Actions: path.resolve(__dirname, 'www/frontSrc/Actions/'),
-    },
-  },
   entry: './www/index.js',
   plugins: [
     new CleanWebpackPlugin(['dist']),

@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-import UserProfile from '../Components/Header/User/UserProfile'
+import { connect } from 'react-redux'
+import UserProfile from './UserProfile'
+import { getUser } from "../../webservices/userApi"
 
-export default class UserProfileContrainer extends Component {
+class UserProfileContrainer extends Component {
 
   state = {
     anchorEl: null,
+    logoutUrl: 'index.php?disconnect=1'
   };
 
   handleOpen = event => {
@@ -16,6 +19,8 @@ export default class UserProfileContrainer extends Component {
   };
 
   render () {
+
+    console.log(this.props.user)
 
     const { anchorEl } = this.state
     const open = Boolean(anchorEl)
@@ -30,3 +35,13 @@ export default class UserProfileContrainer extends Component {
       )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    user: () => {
+      dispatch(getUser())
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(UserProfileContrainer)
