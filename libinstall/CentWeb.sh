@@ -115,6 +115,7 @@ cp -Rf $TMP_DIR/src/GPL_LIB $TMP_DIR/final
 cp -Rf $TMP_DIR/src/config $TMP_DIR/final
 cp -f $TMP_DIR/src/bootstrap.php $TMP_DIR/final
 cp -f $TMP_DIR/src/composer.json $TMP_DIR/final
+cp -f $TMP_DIR/src/package.json $TMP_DIR/final
 
 ## Create temporary directory
 mkdir -p $TMP_DIR/work/bin >> $LOG_FILE 2>&1
@@ -328,6 +329,9 @@ $CHOWN $WEB_USER:$WEB_GROUP $INSTALL_DIR_CENTREON/bootstrap.php
 
 cp -f $TMP_DIR/final/composer.json $INSTALL_DIR_CENTREON/composer.json >> "$LOG_FILE" 2>&1
 $CHOWN $WEB_USER:$WEB_GROUP $INSTALL_DIR_CENTREON/composer.json
+
+cp -f $TMP_DIR/final/package.json $INSTALL_DIR_CENTREON/package.json >> "$LOG_FILE" 2>&1
+$CHOWN $WEB_USER:$WEB_GROUP $INSTALL_DIR_CENTREON/package.json
 
 $INSTALL_DIR/cinstall $cinstall \
         -u "$CENTREON_USER" -g "$CENTREON_GROUP" -d 775 \
