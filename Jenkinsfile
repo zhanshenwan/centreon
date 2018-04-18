@@ -2,6 +2,6 @@ stage('Test') {
   try {
     sh "exit 1"
   } catch(e) {
-    echo "titi: " + e.getMessage()
+    echo "titi: ${e.getMessage()}"
   }
 }
