@@ -1,6 +1,6 @@
 stage('Test') {
-  sh "echo begin"
+  echo "begin"
   if (env.BRANCH_NAME =~ /^\.+$/) {
-    sh "echo toto"
+    echo "toto"
   }
 }
