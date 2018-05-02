@@ -161,9 +161,9 @@ class CentreonDB extends \PDO
 
     /**
      *
-     * @param type $stmt
-     * @param type $arrayValues
-     * @return type
+     * @param \PDOStatement $stmt
+     * @param array $arrayValues
+     * @return bool
      */
     public function execute($stmt, $arrayValues)
     {

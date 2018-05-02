@@ -98,7 +98,7 @@ class CentreonData
     /**
      * Get a instance of Centreon_Template
      *
-     * @return Centreon_Template
+     * @return CentreonData
      */
     public static function getInstance()
     {

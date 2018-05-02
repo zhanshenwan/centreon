@@ -40,7 +40,7 @@ class CentreonAclGroup
 {
     /**
      *
-     * @var type
+     * @var \CentreonDB
      */
     protected $db;
 

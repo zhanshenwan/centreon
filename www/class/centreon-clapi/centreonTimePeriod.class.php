@@ -66,6 +66,11 @@ class CentreonTimePeriod extends CentreonObject
     protected $include;
 
     /**
+     * @var \Centreon_Object_Timeperiod
+     */
+    protected $object;
+
+    /**
      * Constructor
      *
      * @return void

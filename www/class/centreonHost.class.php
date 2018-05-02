@@ -52,13 +52,13 @@ class CentreonHost
 
     /**
      *
-     * @var type
+     * @var \CentreonInstance
      */
     protected $instanceObj;
 
     /**
      *
-     * @var type
+     * @var \CentreonService
      */
     protected $serviceObj;
 

@@ -36,6 +36,9 @@
 class CentreonUserLog
 {
 
+    /**
+     * @var CentreonUserLog
+     */
     private static $instance;
     private $errorType;
     private $uid;
