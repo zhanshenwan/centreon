@@ -76,11 +76,11 @@ class ServiceGroupConfigurationContext extends CentreonContext
     public function thePropertiesAreUpdated()
     {
         $this->tableau = array();
+        $this->currentPage = new ServiceGroupConfigurationListingPage($this);
+        $this->currentPage = $this->currentPage->inspect($this->updatedProperties['name']);
         try {
             $this->spin(
                 function ($context) {
-                    $this->currentPage = new ServiceGroupConfigurationListingPage($this);
-                    $this->currentPage = $this->currentPage->inspect($this->updatedProperties['name']);
                     $object = $this->currentPage->getProperties();
                     foreach ($this->updatedProperties as $key => $value) {
                         if ($value != $object[$key]) {
