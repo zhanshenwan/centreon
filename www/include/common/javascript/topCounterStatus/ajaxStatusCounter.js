@@ -221,5 +221,5 @@ function reloadStatusCounter(_reload_time) {
     if (handleVisibilityChange()) {
         xhrC.send("&session_expire=" + (_reload_time / 1000));
     }
-    cycleVisibilityChange('reloadStatusCounter("' + _reload_time + '")', _reload_time);
+    // cycleVisibilityChange('reloadStatusCounter("' + _reload_time + '")', _reload_time);
 }
