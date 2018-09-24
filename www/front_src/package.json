@@ -1,6 +1,7 @@
 {
   "name": "centreon-react",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -33,9 +34,9 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "dev": "PUBLIC_URL=\"/_CENTREON_PATH_PLACEHOLDER_/\" webpack --progress --watch",
-    "build": "PUBLIC_URL=\"/_CENTREON_PATH_PLACEHOLDER_/\" webpack --mode production",
-    "start": "PUBLIC_URL=\"/_CENTREON_PATH_PLACEHOLDER_/\" webpack --progress --watch",
+    "dev": "webpack --progress --watch",
+    "build": "npm run build:sass && webpack --mode production && find ../static/css -type f -print0 | xargs -0 sed -i 's@static/media@../../static/media@g'",
+    "start": "webpack --progress --watch",
     "build:sass": "node-sass -r --output-style compressed ./src -o ./src",
     "watch:sass": "npm run build:sass && npm run build:sass -- -w",
     "test": "react-scripts test --env=jsdom",
