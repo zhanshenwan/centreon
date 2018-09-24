@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect, Route } from "react-router-dom";
+import { Redirect, Route, withRouter } from "react-router-dom";
 
 class ClassicRoute extends Component {
   getRoute = renderProps => {
@@ -18,12 +18,16 @@ class ClassicRoute extends Component {
   };
 
   render() {
-    const { component, ...rest } = this.props;
+    const { component, path, ...rest } = this.props;
 
     return (
-      <Route {...rest} render={renderProps => this.getRoute(renderProps)} />
+      <Route
+        {...rest}
+        path={this.props.location.pathname + path}
+        render={renderProps => this.getRoute(renderProps)}
+      />
     );
   }
 }
 
-export default ClassicRoute;
+export default withRouter(ClassicRoute);

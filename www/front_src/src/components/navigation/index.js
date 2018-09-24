@@ -106,6 +106,7 @@ class NavigationComponent extends Component {
 
   render() {
     const { active, menuItems, selectedMenu, initiallyCollapsed } = this.state;
+    console.log(this.props.location.pathname.substring(0, this.props.location.pathname.lastIndexOf('/')));
     const pageId = this.props.location.search.split("=")[1];
     return (
       <nav class={"sidebar" + (active ? " active" : "")} id="sidebar">
@@ -174,7 +175,7 @@ class NavigationComponent extends Component {
                               ) : (
                                 <Link
                                   className="collapsed-level-item-link img-none"
-                                  to={routeMap.module + "?p=" + menuKey}
+                                  to={this.props.location.pathname.substring(0, this.props.location.pathname.lastIndexOf('/')) + routeMap.module + "?p=" + menuKey}
                                 >
                                   {subItem.label}
                                 </Link>

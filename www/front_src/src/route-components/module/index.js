@@ -69,10 +69,10 @@ class ModuleRoute extends Component {
             }}
             scrolling="no"
             style={{ width: "100%", height: `${contentHeight}px` }}
-            src={`/_CENTREON_PATH_PLACEHOLDER_/main.get.php${search}`}
+            src={`.//main.get.php${search}`}
           />
         ) : (
-          <Redirect to={"/_CENTREON_PATH_PLACEHOLDER_/main.php?p=1"} />
+          <Redirect to={"./main.php?p=1"} />
         )}
       </div>
     );

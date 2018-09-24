@@ -3,6 +3,6 @@ import config from "../config";
 
 export default url => {
   return axios.create({
-    baseURL: `${config.apiBase}${url}`
+    baseURL: `./api/${url}`
   });
 };
