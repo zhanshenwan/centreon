@@ -9,11 +9,17 @@ import NavigationComponent from "./components/navigation";
 import Footer from "./components/footer";
 import Fullscreen from 'react-fullscreen-crossbrowser';
 import queryString from 'query-string';
+import axios from './axios';
+
+// TODO: remove this
+import HomeRoute from './route-components/home';
 
 class App extends Component {
 
   state = {
-    isFullscreenEnabled: false
+    isFullscreenEnabled: false,
+    acls: [],
+    aclsLoaded: false
   }
 
   // check in arguments if min=1
@@ -28,11 +34,37 @@ class App extends Component {
     this.setState({ isFullscreenEnabled: true });
   }
 
+  UNSAFE_componentWillMount = () => {
+    axios("internal.php?object=centreon_acl_webservice&action=getCurrentAcl")
+      .get()
+      .then(({data}) => this.setState({acls: data, aclsLoaded: true}))
+  }
+
+  linkRoutesAndComponents = () => {
+    // TODO: set notAllowdComponent instead of HomeRoute component, it's just for testing
+    // TODO: remove HomeRoute component from imports
+    const {acls} = this.state;
+    return routes.map(({ path, comp, ...rest }) => (
+      <ClassicRoute
+        history={history}
+        path={path}
+        component={acls.indexOf(`/${path.split('/_CENTREON_PATH_PLACEHOLDER_/')[1]}`) > -1 ? HomeRoute : comp}
+        {...rest}
+      />
+    ))
+  }
+
   render() {
-    const min = this.getMinArgument()
+    const {aclsLoaded} = this.state;
+    const min = this.getMinArgument();
+    let router = '';
+
+    if (aclsLoaded) {
+      router = this.linkRoutesAndComponents();
+    }
 
     return (
-      <ConnectedRouter history={history}>
+      aclsLoaded && <ConnectedRouter history={history}>
         <div class="wrapper">
           {!min && // do not display menu if min=1
             <NavigationComponent/>
@@ -48,14 +80,7 @@ class App extends Component {
                 <div className="full-screenable-node">
                   <div className="main-content">
                     <Switch>
-                      {routes.map(({ path, comp, ...rest }) => (
-                        <ClassicRoute
-                          history={history}
-                          path={path}
-                          component={comp}
-                          {...rest}
-                        />
-                      ))}
+                      {router}
                     </Switch>
                   </div>
                 </div>
