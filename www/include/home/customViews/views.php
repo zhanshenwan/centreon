@@ -175,13 +175,12 @@ try {
                 jQuery(this).toggleClass("ui-icon-minusthick").toggleClass("ui-icon-plusthick");
                 jQuery(this).parents(".portlet:first").find(".portlet-content").toggle();
             });
-
-            <?php foreach ($widgets as $widgetId => $widget) { ?>
-            jQuery("[name=widget_" + viewId + "_<?php echo $widgetId;?>]").attr(
-                'src',
-                '<?php echo $widget['url']; ?>?widgetId=' +<?php echo $widgetId;?> +'&customViewId=' + viewId
-            );
-            <?php } ?>
+            
+            <?php 
+                $i = 0;
+                foreach ($widgets as $widgetId => $widget) { ?>
+                    createFrame('<?php echo $widget['url']; ?>?widgetId=' +<?php echo $widgetId;?> +'&customViewId=' + viewId,$('#widget_cont_<?php echo $widgetId;?>'),"widget_" + viewId + "_<?php echo $widgetId;?>", <?php echo $i;?>);
+            <?php $i++; } ?>
         }
 
         jQuery(".ui-icon-wrench").each(function (index, element) {
@@ -242,6 +241,16 @@ try {
                 }
             });
         }
+    }
+
+    function createFrame(url, parent,name, idx) {
+                var $frame = $('<iframe/>')
+                .attr('src', url)
+                .attr('name',name)
+                .attr('width','100%');
+
+                parent.append($frame);
+                window.iframes.push($frame);
     }
 
     /**

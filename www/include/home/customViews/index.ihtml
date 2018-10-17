@@ -253,9 +253,24 @@
 <script>
 {literal}
 
+(function($) {
+                $.fn.purgeFrame = function() {
+                    var deferred;
+                    if(this.contentDocument){
+$(this.contentDocument).unbind();    
+    $(this.contentDocument).find('*').unbind();
+                    }
+                    
+                    this.contents().empty();
+                        this.remove();
+                        deferred = $.Deferred();
+                        deferred.resolve();
+                    return deferred;
+                };
+            })(jQuery);
 var rotationTimeout;
 var rotationTimer = {/literal}{$rotationTimer}{literal};
-
+window.iframes = [];
 /* Display or hide the information for add a new view */
 function infoEmptyTab() {
   if (jQuery('#tabs .tabs_header > li').length > 0) {
@@ -285,9 +300,6 @@ function addTab(info, init) {
     jQuery('#tabs').tabs("destroy");
     jQuery("#tabs").tabs({
       ajaxOptions: { async: true },
-      select: function(event, ui) {
-        jQuery('.viewBody').empty();
-      },
       selected: -1,
       load: function () {
         toggleEdit(true);
@@ -306,9 +318,6 @@ function deleteTab(viewId) {
   jQuery('#tabs').tabs("destroy");
   jQuery("#tabs").tabs({
     ajaxOptions: { async: true },
-    select: function(event, ui) {
-      jQuery('.viewBody').empty();
-    },
     selected: -1,
     load: function () {
       toggleEdit(true);
@@ -865,11 +874,21 @@ jQuery(function () {
           active: defaultPosition,
           beforeLoad: function( event, ui ) {
             // prevent memory overflow
-            if (tabLoops > 60 && $(event.target).tabs('option', 'active') == defaultPosition) {
-                window.location.reload();
+            if (tabLoops > 10 && $(event.target).tabs('option', 'active') == defaultPosition) {
+                if(window.parent){
+                  console.log('here')
+                  window.parent.location.reload();
+                }else{
+                  console.log('here2')
+                  window.location.reload();
+                } 
             }
           },
           activate: function( event, ui ) {
+            for(var i=0;i<window.iframes.length;i++){
+	            window.iframes[i].purgeFrame()
+            }
+            window.iframes = [];
             tabLoops++;
             columnClass = null;
             viewId = null;
@@ -879,8 +898,7 @@ jQuery(function () {
             deleteView = function(){};
             deleteWidget = function(){};
             savePositions = function(){};
-            setDefault = function(){};
-            ui.oldPanel.empty();
+            setDefault = function(){}; 
           }
         });
         jQuery("#tabs").tabs('rotate', (rotationTimer * 1000), true);
