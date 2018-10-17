@@ -257,14 +257,13 @@
                 $.fn.purgeFrame = function() {
                     var deferred;
                     if(this.contentDocument){
-$(this.contentDocument).unbind();    
-    $(this.contentDocument).find('*').unbind();
-                    }
-                    
+                    $(this.contentDocument).unbind();    
+                    $(this.contentDocument).find('*').unbind();
+                }  
                     this.contents().empty();
-                        this.remove();
-                        deferred = $.Deferred();
-                        deferred.resolve();
+                    this.remove();
+                    deferred = $.Deferred();
+                    deferred.resolve();
                     return deferred;
                 };
             })(jQuery);
@@ -876,10 +875,8 @@ jQuery(function () {
             // prevent memory overflow
             if (tabLoops > 10 && $(event.target).tabs('option', 'active') == defaultPosition) {
                 if(window.parent){
-                  console.log('here')
                   window.parent.location.reload();
                 }else{
-                  console.log('here2')
                   window.location.reload();
                 } 
             }
