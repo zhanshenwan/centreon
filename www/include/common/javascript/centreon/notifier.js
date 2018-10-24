@@ -102,6 +102,7 @@
                     }
                 });
             });
+          get_new_messages(refresh_rate);
         };
 
         get_new_messages(settings.refresh_rate);
