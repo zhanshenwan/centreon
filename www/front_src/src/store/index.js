@@ -2,17 +2,15 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { routerMiddleware } from "react-router-redux";
 import reducers from "../redux/reducers";
 import thunk from 'redux-thunk';
+import createHistory from 'history/createBrowserHistory';
 
-const createHistory =
-  typeof document !== undefined
-    ? require("history/createBrowserHistory").default
-    : () => {};
-
-export const history = createHistory();
+export const history = createHistory({
+  basename: '/monitoring'
+});
 
 const createAppStore = (options, initialState = {}) => {
   const middlewares = [
-    routerMiddleware(history), 
+    routerMiddleware(history),
     thunk,
   ];
 

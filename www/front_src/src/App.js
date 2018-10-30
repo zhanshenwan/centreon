@@ -70,7 +70,7 @@ class App extends Component {
       <ReactRoute
         history={history}
         path={path}
-        component={acls.includes(`/${path.split('/_CENTREON_PATH_PLACEHOLDER_/')[1]}`) ? comp : NotAllowedPage}
+        component={acls.includes(`${path}`) ? comp : NotAllowedPage}
         {...rest}
       />
     ))
@@ -85,9 +85,10 @@ class App extends Component {
     if (aclsLoaded) {
       reactRouter = this.linkReactRoutesAndComponents();
     }
+    console.log(classicRoutes)
 
     return (
-      <ConnectedRouter history={history}>
+      <ConnectedRouter basename="/monitoring/" history={history}>
         <div class="wrapper">
           {!min && // do not display menu if min=1
             <NavigationComponent/>
