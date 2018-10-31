@@ -91,36 +91,52 @@ if (file_exists("./install/setup.php")) {
  * Install frontend assets if needed
  */
 
-$staticExists = glob('static/css/*.css');
-$newPath = explode('index.php', $_SERVER['REQUEST_URI'])[0];
+$currentUri = explode('index.php', $_SERVER['REQUEST_URI'])[0];
 
-if (!$staticExists) {
-    shell_exec('rm -rf ' . __DIR__ . '/static ');
-    shell_exec('cp -pR ' . __DIR__ . '/template '. __DIR__ . '/static');
-    $allCssFiles = glob('static/css/*');
-    $allJsFiles = glob('static/js/*');
-    $indexFile = glob('index.html');
-    $allFiles = array_merge($allCssFiles, $allJsFiles, $indexFile);
-    foreach ($allFiles as $file){
-        $fc = file_get_contents($file);
-        $newCont = str_replace('/_CENTREON_PATH_PLACEHOLDER_/', $newPath, $fc);
-        file_put_contents($file, $newCont);
+$cssFiles = glob(__DIR__ . '/static/css/*');
+$jsFiles = glob(__DIR__ . '/static/js/*');
+$mediaFiles = glob(__DIR__ . '/static/media/*');
+$allFiles = array_map('basename', array_merge($cssFiles, $jsFiles, $mediaFiles));
+
+// check if infos has changed since last call to index.php
+$shouldCreateStaticDir = false;
+if (file_exists(__DIR__ . '/template/infos.json')) {
+
+    $previousInfos = json_decode(file_get_contents(__DIR__ . '/template/infos.json'), true);
+
+    // check if uri has been updated
+    $previousUri = $previousInfos['uri'];
+    if ($previousUri !== $currentUri) {
+        $shouldCreateStaticDir = true;
+    }
+
+    $diff = array_diff($previousInfos['files'], $allFiles);
+    if (!empty($diff)) {
+        $shouldCreateStaticDir = true;
     }
 } else {
-    $hashStatic = explode('static/css/main.', $staticExists[0]);
-    $hashTemplate = explode('template/css/main.', glob('template/css/*.css')[0]);
-    if ($hashTemplate[1] !== $hashStatic) {
-        shell_exec('rm -rf ' . __DIR__ . '/static ');
-        shell_exec('cp -pR ' . __DIR__ . '/template '. __DIR__ . '/static');
-        $allCssFiles = glob('static/css/*');
-        $allJsFiles = glob('static/js/*');
-        $indexFile = glob('index.html');
-        $allFiles = array_merge($allCssFiles, $allJsFiles, $indexFile);
-        foreach ($allFiles as $file){
-            $fc = file_get_contents($file);
-            $newCont = str_replace('/_CENTREON_PATH_PLACEHOLDER_/', $newPath, $fc);
-            file_put_contents($file, $newCont);
-        }
+    $shouldCreateStaticDir = true;
+}
+
+file_put_contents(
+    __DIR__ . '/template/infos.json',
+    json_encode([
+        'uri' => $currentUri,
+        'files' => $allFiles
+    ])
+);
+
+// if URI has changed, rebuild front app
+if ($shouldCreateStaticDir) {
+    shell_exec('rm -rf ' . __DIR__ . '/static ' . __DIR__ . '/index.html ' . __DIR__ . '/.htaccess');
+
+    shell_exec('cp -pR ' . __DIR__ . '/template/static '. __DIR__ . '/static');
+    shell_exec('cp -pR ' . __DIR__ . '/template/.htaccess '. __DIR__ . '/.htaccess');
+
+    foreach (['index.html', '.htaccess'] as $file) {
+        $content = file_get_contents(__DIR__ . '/template/' . $file);
+        $content = str_replace('/_CENTREON_PATH_PLACEHOLDER_/', $currentUri, $content);
+        file_put_contents(__DIR__ . '/' . $file, $content);
     }
 }
 

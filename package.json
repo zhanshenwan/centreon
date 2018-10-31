@@ -3,20 +3,19 @@
   "version": "18.10.0",
   "description": "centreon web package",
   "scripts": {
-    "build": "npm run build:clean && npm run build:sass && npm run build:app && npm run build:post",
-    "build:clean": "rm -rf www/static && rm -rf www/template",
+    "build": "npm run build:clean && npm run build:sass && npm run build:app",
+    "build:clean": "rm -rf index.html www/template/index.html www/static www/template/static ",
     "build:sass": "node-sass -r --output-style compressed ./www/front_src/src -o ./www/front_src/src",
-    "build:app": "cd ./www/front_src && PUBLIC_URL=\".\" webpack --mode production",
-    "build:post": "mv ./www/static ./www/template",
+    "build:app": "cd ./www/front_src && webpack --mode production",
     "watch:sass": "node-sass -r --output-style compressed ./www/front_src/src -o ./www/front_src/src && npm run build:sass && npm run build:sass -- -w"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.1.0",
     "@babel/polyfill": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.0",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^4.0.0-alpha.2",
     "node-sass": "^4.9.3",
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.8"
