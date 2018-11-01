@@ -164,6 +164,40 @@ class CentreonHomeCustomview extends CentreonWebService
         );
     }
 
+     /**
+     * Get the list of widgets for view
+     *
+     * @return array
+     */
+    public function getListViewsWithWidgets()
+    {
+        global $centreon;
+        $viewObj = new CentreonCustomView($centreon, $this->pearDB);
+        $widgetObj = new CentreonWidget($centreon, $this->pearDB);
+        $tabs = array();
+        $tabsDb = $viewObj->getCustomViews();
+
+        foreach ($tabsDb as $key => $tab) {
+            $widgetsObj = $widgetObj->getWidgetsFromViewId($tab['custom_view_id']);
+            $widgets = array();
+            foreach ($widgetsObj as $key => $widget) {
+                $widgets[] = $widget;
+            }
+            $tabs[] = array(
+                'default' => false,
+                'name' => $tab['name'],
+                'custom_view_id' => $tab['custom_view_id'],
+                'public' => $tab['public'],
+                'nbCols' => $tab['layout'],
+                'widgets' => $widgets
+            );
+        }
+        return array(
+            'current' => $viewObj->getCurrentView(),
+            'tabs' => $tabs
+        );
+    }
+
     /**
      * Get the list of preferences
      * @return array
