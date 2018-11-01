@@ -31,7 +31,15 @@ class WidgetPortlet extends Component {
     }
 
     toggleEditPortlet = () => {
-
+        const { viewId, widgetId} = this.props;
+        let popin = window.jQuery('<div id="config-popin">');
+        const url = `./api/internal.php?object=centreon_home_customview&resultFormat=html&action=preferences&viewId=${viewId}&widgetId=${widgetId}`;
+        popin.centreonPopin({
+            url: url,
+            open: true,
+            ajaxType: 'GET',
+            ajaxDataType: 'html'
+        });
     }
 
     render() {

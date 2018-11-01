@@ -177,6 +177,13 @@ class CentreonHomeCustomview extends CentreonWebService
         $tabs = array();
         $tabsDb = $viewObj->getCustomViews();
 
+        $contactParameters = $centreon->user->getContactParameters($this->pearDB, array('widget_view_rotation'));
+
+        $rotationTimer = 0;
+        if (isset($contactParameters['widget_view_rotation'])) {
+            $rotationTimer = $contactParameters['widget_view_rotation'];
+        }
+
         foreach ($tabsDb as $key => $tab) {
             $widgetsObj = $widgetObj->getWidgetsFromViewId($tab['custom_view_id']);
             $widgets = array();
@@ -194,7 +201,8 @@ class CentreonHomeCustomview extends CentreonWebService
         }
         return array(
             'current' => $viewObj->getCurrentView(),
-            'tabs' => $tabs
+            'tabs' => $tabs,
+            'rotationTimer' => $rotationTimer
         );
     }
 

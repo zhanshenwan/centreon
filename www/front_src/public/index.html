@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/img/favicon.ico">
-    <!--
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/img/favicon.ico" />
+  <link rel="stylesheet" href="%PUBLIC_URL%/Themes/Centreon-2/style.css" />
+  <link rel="stylesheet" href="%PUBLIC_URL%/Themes/Centreon-2/jquery-ui/jquery-ui.css" />
+  <link rel="stylesheet" href="%PUBLIC_URL%/Themes/Centreon-2/jquery-ui/jquery-ui-centreon.css" />
+
+
+  <script type="text/javascript" src="./include/common/javascript/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="./include/common/javascript/jquery/jquery-ui.js"></script>
+  <script type="text/javascript" src="./include/common/javascript/centreon/notifier.js"></script>
+  <script type="text/javascript" src="./include/common/javascript/centreon/multiselectResizer.js"></script>
+  <script type="text/javascript" src="./include/common/javascript/centreon/popin.js"></script>
+  <script type="text/javascript" src="./include/common/javascript/jquery/plugins/jquery.nicescroll.min.js"></script>
+
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -14,11 +27,24 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Centreon - IT &amp; Network Monitoring</title>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-  </head>
-  <body id="root">
-  </body>
+  <title>Centreon - IT &amp; Network Monitoring</title>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <script>
+    function iResize(ifrm, height) {
+      if (height < 150) {
+        height = 150;
+      }
+      if (ifrm) {
+        let iframes = document.querySelectorAll("[name=" + ifrm + "]");
+        if (iframes[0]) {
+          iframes[0].style.height = height;
+        }
+      }
+    }
+  </script>
+</head>
+<body id="root">
+</body>
 </html>
