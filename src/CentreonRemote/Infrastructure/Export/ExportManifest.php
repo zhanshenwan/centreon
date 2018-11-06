@@ -85,7 +85,7 @@ class ExportManifest
             throw new Exception(sprintf('Manifest file %s not found', $file), static::ERR_CODE_MANIFEST_NOT_FOUND);
         }
 
-        $this->data = $this->commitment->getParser()::parse($file);
+        $this->data = $this->commitment->getParser()->parse($file);
         $checkManifestKeys = function(array $data) : array {
             $keys = ['version', 'datetime', 'remote-poller', 'pollers', 'meta', 'exporters', 'exports'];
             $missingKeys = [];
@@ -173,7 +173,7 @@ class ExportManifest
             'exports' => $this->files,
         ];
 
-        $this->commitment->getParser()::dump($data, $this->_getFile());
+        $this->commitment->getParser()->dump($data, $this->_getFile());
     }
 
     private function _removePath(string $file): ?string
