@@ -3,10 +3,13 @@ namespace CentreonRemote\Tests\Infrastructure\Export;
 
 use PHPUnit\Framework\TestCase;
 use Pimple\Container;
+use Pimple\Psr11\ServiceLocator;
 use CentreonRemote\ServiceProvider;
 use Centreon\Test\Mock;
 use CentreonRemote\Domain;
 use CentreonRemote\Infrastructure\Service;
+use CentreonRemote\Domain\Exporter;
+use CentreonACL;
 
 /**
  * @group CentreonRemote
@@ -22,39 +25,86 @@ class ServiceProviderTest extends TestCase
     {
         $this->provider = new ServiceProvider();
         $this->container = new Container;
-//        $this->container['realtime_db'] = new Mock\CentreonDB;
-//        $this->container['configuration_db'] = new Mock\CentreonDB;
-//        $this->container['centreon.db-manager'] = new \Centreon\Infrastructure\Service\CentreonDBManagerService($this->container);
-        $this->container['centreon.webservice'] = $this->container['centreon.clapi'] = new class {
-            public function add($class)
-            {
+        $this->container['centreon.acl'] = $this->getMockBuilder(CentreonACL::class)
+            ->disableOriginalConstructor()
+            ->getMock()
+        ;
 
-            }
-        };
+        $this->container['realtime_db'] = $this->container['configuration_db'] = new Mock\CentreonDB;
+        $this->container['configuration_db']->addResultSet("SELECT * FROM informations WHERE `key` = :key LIMIT 1", []);
         
+        $locator = new ServiceLocator($this->container, [
+            'realtime_db',
+            'configuration_db',
+        ]);
+        $this->container['centreon.db-manager'] = new \Centreon\Infrastructure\Service\CentreonDBManagerService($locator);
+        $this->container['centreon.webservice'] = $this->container['centreon.clapi'] = new class {
+
+                public function add($class)
+                {
+                    
+                }
+            };
+
         $this->provider->register($this->container);
     }
 
     /**
      * @covers \CentreonRemote\ServiceProvider::register
      */
-    public function testNotifyMasterService()
+    public function testCheckServicesByList()
     {
         $services = $this->container->keys();
-        $this->assertTrue(in_array('centreon.notifymaster', $services));
-        $this->assertInstanceOf(Domain\Service\NotifyMasterService::class, $this->container['centreon.notifymaster']);
 
-        $this->assertTrue(in_array('centreon.taskservice', $services));
-//        $this->assertInstanceOf(Domain\Service\TaskService::class, $this->container['centreon.taskservice']);
+        $checkList = [
+            'centreon.notifymaster' => Domain\Service\NotifyMasterService::class,
+            'centreon.taskservice' => Domain\Service\TaskService::class,
+            'centreon_remote.informations_service' => Domain\Service\InformationsService::class,
+            'centreon_remote.remote_connection_service' => Domain\Service\ConfigurationWizard\RemoteConnectionConfigurationService::class,
+            'centreon_remote.poller_connection_service' => Domain\Service\ConfigurationWizard\PollerConnectionConfigurationService::class,
+            'centreon_remote.poller_config_service' => Domain\Service\ConfigurationWizard\LinkedPollerConfigurationService::class,
+            'centreon_remote.poller_config_bridge' => Domain\Service\ConfigurationWizard\PollerConfigurationRequestBridge::class,
 
-        $this->assertTrue(in_array('centreon_remote.export', $services));
-//        $this->assertInstanceOf(Service\ExportService::class, $this->container['centreon_remote.export']);
+            'centreon_remote.export' => Service\ExportService::class,
+            'centreon_remote.exporter' => Service\ExporterService::class,
+            'centreon_remote.exporter.cache' => Service\ExporterCacheService::class,
+        ];
 
-        $this->assertTrue(in_array('centreon_remote.exporter', $services));
-        $this->assertInstanceOf(Service\ExporterService::class, $this->container['centreon_remote.exporter']);
+        // check list of services
+        foreach ($checkList as $serviceName => $className) {
+            $this->assertTrue($this->container->offsetExists($serviceName));
+            
+            $service = $this->container->offsetGet($serviceName);
+            
+            $this->assertInstanceOf($className, $service);
+        }
+    }
 
-        $this->assertTrue(in_array('centreon_remote.exporter.cache', $services));
-        $this->assertInstanceOf(Service\ExporterCacheService::class, $this->container['centreon_remote.exporter.cache']);
+    /**
+     * @covers \CentreonRemote\ServiceProvider::register
+     */
+    public function testCheckExportersByList()
+    {
+        $checkList = [
+            Exporter\CommandExporter::class,
+            Exporter\DowntimeExporter::class,
+            Exporter\GraphExporter::class,
+            Exporter\HostExporter::class,
+            Exporter\MediaExporter::class,
+            Exporter\MetaServiceExporter::class,
+            Exporter\PollerExporter::class,
+            Exporter\ServiceExporter::class,
+            Exporter\TimePeriodExporter::class,
+            Exporter\TrapExporter::class,
+        ];
+        
+        $exporter = $this->container['centreon_remote.exporter'];
+
+        // check list of exporters
+        foreach ($checkList as $className) {
+            $this->assertTrue($exporter->has($className::getName()));
+            $this->assertEquals($className, $exporter->get($className::getName())['classname']);
+        }
     }
 
     /**
@@ -62,7 +112,7 @@ class ServiceProviderTest extends TestCase
      */
     public function testOrder()
     {
-        $services = $this->container->keys();
-        $this->assertTrue($this->provider::order() > 0);
+        $this->assertGreaterThanOrEqual(1, $this->provider::order());
+        $this->assertLessThanOrEqual(20, $this->provider::order());
     }
 }
