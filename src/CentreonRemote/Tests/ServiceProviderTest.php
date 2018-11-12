@@ -102,8 +102,17 @@ class ServiceProviderTest extends TestCase
 
         // check list of exporters
         foreach ($checkList as $className) {
-            $this->assertTrue($exporter->has($className::getName()));
-            $this->assertEquals($className, $exporter->get($className::getName())['classname']);
+            $name = $className::getName();
+
+            $this->assertTrue($exporter->has($name));
+            $data = $exporter->get($className::getName());
+            
+            $this->assertEquals($name, $data['name']);
+            $this->assertEquals($className, $data['classname']);
+            
+            $object = $data['factory']($this->container);
+
+            $this->assertInstanceOf($className, $object);
         }
     }
 
