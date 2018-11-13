@@ -1,6 +1,6 @@
 <?php
 
-namespace CentreonRemote\Tests\Infrastructure\Export;
+namespace CentreonRemote\Tests\Infrastructure\Service;
 
 use PHPUnit\Framework\TestCase;
 use CentreonRemote\Infrastructure\Service\ExporterCacheService;
