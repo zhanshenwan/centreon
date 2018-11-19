@@ -10,6 +10,8 @@
         }
     ],
     "repositories": [
+        { "packagist.org": false },
+        { "type": "composer", "url": "http://ci.int.centreon.com" },
         { "type": "vcs", "url": "https://github.com/centreon/centreon-test-lib" }
     ],
     "config": {
