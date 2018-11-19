@@ -1,5 +1,5 @@
 <?php
-namespace CentreonRemote\Tests\Infrastructure\Export;
+namespace Centreon\Tests\Domain\Repository;
 
 use PHPUnit\Framework\TestCase;
 use \Centreon\Test\Mock\CentreonDB;

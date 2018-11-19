@@ -1,5 +1,5 @@
 <?php
-namespace CentreonRemote\Tests\Infrastructure\Export;
+namespace CentreonRemote\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Pimple\Container;

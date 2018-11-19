@@ -1,5 +1,6 @@
 <?php
-namespace Centreon\Tests\Infrastructure\Export;
+
+namespace Centreon\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Centreon\Test\Mock;
