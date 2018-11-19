@@ -21,6 +21,10 @@
         <fileset dir="tests/php/">
           <include name="**/**/**/*Test.php" />
         </fileset>
+        <fileset dir="src">
+          <include name="**/Tests/*Test.php" />
+          <include name="**/Tests/**/*Test.php" />
+        </fileset>
       </batchtest>
     </phpunit>
   </target>
