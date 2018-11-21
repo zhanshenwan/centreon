@@ -1,0 +1,27 @@
+@media all and(min-width: 767px) {
+	.row {
+    @include flexbox;
+	}
+	[class*="col-"] {
+		margin-right: 20px;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+  @for $flex from 1 through 12 {
+  .col-#{$flex} {
+    flex: $flex;
+  }
+  }
+	.full-width {
+		margin-bottom: 20px;
+		margin-right: 0;
+	}
+	.space-off {
+		margin-bottom: 0;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+

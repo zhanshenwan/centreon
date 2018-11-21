@@ -1,0 +1,42 @@
+// Extensions card
+.card {
+  &-item {
+    padding: 15px 15px 20px 15px;
+    position: relative;
+    border-radius: 5px;
+    &-footer {
+      display: block;
+      position: absolute;
+      bottom: -1px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 10px;
+      line-height: 14px;
+      font-family: $primary-font-regular;
+      color: $white-color;
+      &-green {
+        background-color: $content-green-color;
+      }
+      &-orange {
+        background-color: $content-orange-color;
+      }
+      &-red {
+        background-color: $content-red-color;
+      }
+    }
+    &-bordered {
+      &-orange {
+        border: 1px solid $content-orange-color;
+      }
+      &-green {
+        border: 1px solid $content-green-color;
+      }
+      &-gray {
+        border: 1px solid $content-gray-color;
+      }
+    }
+  }
+}

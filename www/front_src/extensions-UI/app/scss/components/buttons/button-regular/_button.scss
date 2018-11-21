@@ -1,0 +1,60 @@
+// Button
+.button {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: $white-color;
+  text-align: center;
+  font-family: $primary-font-regular;
+  padding: 7px 30px;
+  cursor: pointer;
+  &.linear {
+    @include border-radius(15px);
+  }
+  // Regular button
+  &-regular {
+    &-orange {
+      background-color: $content-orange-color;
+    }
+    &-green {
+      background-color: $content-green-color;
+    }
+    &-blue {
+      background-color: $content-blue-color;
+    }
+    &-red {
+      background-color: $content-red-color;
+    }
+    &-gray {
+      background-color: $content-gray-color;
+    }
+  }
+  // Bordered button
+  &-bordered {
+    background-color: transparent;
+    &-black {
+      color: #373737;
+      border: 1px solid #3e3e3e;
+      background-color: transparent;
+    }
+    &-orange {
+      border: 1px solid $content-orange-color;
+    }
+    &-green {
+      border: 1px solid $content-green-color;
+    }
+    &-blue {
+      border: 1px solid $content-blue-color;
+      color: $content-blue-color;
+    }
+    &-red {
+      border: 1px solid $content-red-color;
+    }
+    &-gray {
+      border: 1px solid $content-gray-color;
+    }
+    &-white {
+      border: 1px solid $white-color;
+    }
+  }
+}

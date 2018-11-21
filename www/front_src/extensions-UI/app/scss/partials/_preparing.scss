@@ -1,0 +1,267 @@
+// Card 
+// .card, 
+// .card-items, 
+// .card-item, 
+// .card-item-footer
+.card {
+  &-items {
+
+  }
+  &-item {
+    &-footer {
+
+    }
+  }
+}
+
+// Buttons
+// .button, 
+// .button ( -small, -medium, -big )
+// .button-linear ( -regular, -bordered )
+// .button-linear ( -orange, -blue, -green )
+// .button-linear-bordered ( -orange, -blue, -green )
+
+.button {
+  // Regular button
+  &-orange {
+    &-linear {
+      @include border-radius(15px);
+    }
+  }
+  &-green {
+    &-linear {
+      @include border-radius(15px);
+    }
+  }
+  &-red {
+    &-linear {
+      @include border-radius(15px);
+    }
+  }
+  &-gray {
+    &-linear {
+      @include border-radius(15px);
+    }
+  }
+  // Bordered button
+  &-bordered {
+    &-orange {
+      &-linear {
+        @include border-radius(15px);
+      }
+    }
+    &-green {
+      &-linear {
+        @include border-radius(15px);
+      }
+    }
+    &-red {
+      &-linear {
+        @include border-radius(15px);
+      }
+    }
+    &-gray {
+      &-linear {
+        @include border-radius(15px);
+      }
+    }
+  }
+  &-action {
+    &-delete {
+
+    }
+  }
+}
+
+// icons actions - .icon, .icon-action ( -update, -add, ... ) 
+// icons regular - .icon, .icon-close ( -small, -big, ... ) 
+// Maybe we will have this kind of icon on some other component that is not a button
+.icon {
+  &-action {
+    &-update {
+
+    }
+    &-add {
+
+    }
+  }
+  &-close {
+    &-small {
+
+    }
+    &-big {
+
+    }
+  }
+  &-add {
+
+  }
+}
+
+// Info icons - .info, .info-state
+.info {
+  &-state {
+
+  }
+}
+
+// Swticher - .switcher, .switch input, .switch .slider
+.switcher {
+  .switch {
+    input {
+
+    }
+    .slider {
+
+    }
+  }
+}
+
+// Search - .search, .search-live
+.search {
+  &-live {
+
+  }
+}
+
+// Title - .card-title, .card-title-icon
+.custom-title {
+  .icon {
+
+  }
+}
+
+// Subtitle
+.custom-subtitle {
+
+}
+
+// Regular Horizontal line
+.hr {
+  
+}
+
+// Content Horizontal line, .hr
+.content-hr {
+
+}
+
+// Popup 
+// .popup, 
+// .popup-content, 
+// .popup-header, 
+// .popup-header-title, 
+// .popup-body, 
+// .popup-footer, 
+// .popup-overlay
+.popup {
+  &-content {
+
+  }
+  &-header {
+    
+  }
+  &-body {
+
+  }
+  &-footer {
+
+  }
+  &-overlay {
+
+  }
+}
+
+// Messages, .message, .message-danger
+.message {
+  &-danger {
+    
+  }
+}
+
+// Slider, 
+// .content-slider, 
+// .content-slider-items, 
+// .content-slider-item, 
+// .content-slider-item-image,
+// .content-slider-controls ; .content-slider-controls .prev ; .content-slider-controls .next
+// .content-slider-indicators, 
+.content-slider {
+  &-items {
+
+  }
+  &-item {
+    &-image {
+
+    }
+  }
+  &-controls {
+    .prev {
+
+    }
+    .next {
+
+    }
+  }
+  &-indicators {
+    
+  }
+}
+
+// Content description
+// .content,
+// .content-description
+// .content-description-date
+// .content-description-title
+// .content-description-text
+// .content-description-release-note
+.content {
+  &-description {
+    &-date {
+
+    }
+    &-title {
+
+    }
+    &-text {
+
+    }
+    &-release-note {
+
+    }
+  }
+}
+
+// File upload
+// .file
+// .file-upload
+// .file-upload-icon
+// .file-items
+// .file-item
+// .file-item-image
+// .file-item-title
+// .file-item-line
+.file {
+  &-upload {
+    &-icon {
+
+    }
+  }
+  &-items {
+
+  }
+  &-item {
+    &-icon {
+
+    }
+    &-title {
+
+    }
+    &-progress {
+
+    }
+    &-info {
+
+    }
+  }
+}
