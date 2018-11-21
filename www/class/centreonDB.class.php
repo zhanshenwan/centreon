@@ -33,7 +33,7 @@
  *
  */
 
-require_once realpath(dirname(__FILE__) . "/../../config/centreon.config.php");
+require_once __DIR__ . "/../../config/centreon.config.php";
 require_once _CENTREON_PATH_ . "/www/class/centreonDBStatement.class.php";
 require_once _CENTREON_PATH_ . "/www/class/centreonLog.class.php";
 
