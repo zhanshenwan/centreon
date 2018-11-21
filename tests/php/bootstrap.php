@@ -15,8 +15,8 @@
  * limitations under the License.
  */
 
-define('_CENTREON_PATH_', realpath('/usr/local/src/centreon-web/'));
-define('_CENTREON_ETC_', realpath('/usr/local/src/centreon-web/'));
+define('_CENTREON_PATH_', '/usr/local/src/centreon-web/');
+define('_CENTREON_ETC_', '/usr/local/src/centreon-web/');
 // Disable warnings for PEAR.
 error_reporting(E_ALL & ~E_STRICT);
 
