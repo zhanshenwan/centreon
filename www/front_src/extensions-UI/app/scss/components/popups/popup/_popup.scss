@@ -1,16 +1,47 @@
 // Extensions popup
-.popup {
-  &-small {
-
+.popup { 
+  // display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  overflow: hidden;
+  outline: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  &-dialog {
+    margin: 20px auto;
+    position: relative;
+    width: auto;
   }
-  &-big {
-    
+  &.popup-small {
+    @media (min-width: 576px) {
+      .popup-dialog {
+        max-width: 300px;
+        width: 100%;
+        @include centerAbsolute();
+      }
+    }
+  }
+  &.popup-big {
+    @media (min-width: 576px) {
+      .popup-dialog {
+        max-width: 780px;
+      }
+    }
   }
   &-content {
-
+    position: relative;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    outline: 0;
+    box-sizing: border-box;
   }
-  &-header {
-    
+  &-header, &-body, &-footer {
+    padding: 25px 80px;
   }
   &-body {
 
@@ -19,6 +50,13 @@
 
   }
   &-overlay {
-
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000;
+    opacity: .7;
   }
 }

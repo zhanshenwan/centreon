@@ -49,23 +49,33 @@
       background-color: transparent;
     }
     &-orange {
+      color: $content-orange-color;
       border: 1px solid $content-orange-color;
+      background-color: transparent;
     }
     &-green {
+      color: $content-green-color;
       border: 1px solid $content-green-color;
+      background-color: transparent;
     }
     &-blue {
+      color: $content-blue-color;
       border: 1px solid $content-blue-color;
       color: $content-blue-color;
     }
     &-red {
+      color: $content-red-color;
       border: 1px solid $content-red-color;
+      background-color: transparent;
     }
     &-gray {
+      color: $content-gray-color;
       border: 1px solid $content-gray-color;
+      background-color: transparent;
     }
     &-white {
       border: 1px solid $white-color;
+      background-color: transparent;
     }
   }
 }
