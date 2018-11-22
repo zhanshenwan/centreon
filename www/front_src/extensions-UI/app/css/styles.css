@@ -1323,7 +1323,9 @@ input[type=checkbox]:checked ~ .custom-control-label::before {
       border: 1px solid #ffffff; }
 
 .button-action {
-  float: right;
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
   cursor: pointer;
   width: 30px;
   height: 30px;
@@ -1345,7 +1347,8 @@ input[type=checkbox]:checked ~ .custom-control-label::before {
 .card-item {
   padding: 15px 15px 20px 15px;
   position: relative;
-  border-radius: 5px; }
+  border-radius: 5px;
+  min-height: 165px; }
   .card-item-footer {
     display: block;
     position: absolute;
@@ -1365,12 +1368,17 @@ input[type=checkbox]:checked ~ .custom-control-label::before {
       background-color: #ff7200; }
     .card-item-footer-red {
       background-color: #e00b3d; }
+    .card-item-footer-blue {
+      background-color: #29d1d4; }
   .card-item-bordered-orange {
     border: 1px solid #ff7200; }
   .card-item-bordered-green {
     border: 1px solid #7fb345; }
   .card-item-bordered-gray {
-    border: 1px solid #a7a9ac; }
+    border: 1px solid #dadada; }
+  .card-item .button {
+    position: absolute;
+    bottom: 20px; }
 
 .content-hr {
   background: url("../img/content-horizontal-line.png") no-repeat 50%; }
@@ -1512,13 +1520,26 @@ input[type=checkbox]:checked ~ .custom-control-label::before {
     margin-bottom: 5px; }
 
 .custom-title {
-  font-size: 22px;
+  font-size: 20px;
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: #29d1d4;
-  font-family: "Roboto Light"; }
+  font-family: "Roboto Light";
+  position: relative; }
+  .custom-title-heading {
+    padding-left: 60px; }
   .custom-title-blue {
     color: #0072aa; }
+  .custom-title-icon {
+    position: absolute;
+    left: -62px;
+    width: 51px;
+    height: 51px;
+    display: inline-block; }
+    .custom-title-icon-puzzle {
+      background: url("../img/icons/icon-title-puzzle.png") no-repeat 50%; }
+    .custom-title-icon-object {
+      background: url("../img/icons/icon-title-object.png") no-repeat 50%; }
 
 html,
 body {

@@ -1,7 +1,9 @@
 // Button action
 .button {
   &-action {
-    float: right;
+    position: absolute;
+    bottom: 20px;
+    right: 15px;
     cursor: pointer;
     width: 30px;
     height: 30px;

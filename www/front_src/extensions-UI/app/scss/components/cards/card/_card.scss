@@ -4,6 +4,7 @@
     padding: 15px 15px 20px 15px;
     position: relative;
     border-radius: 5px;
+    min-height: 165px;
     &-footer {
       display: block;
       position: absolute;
@@ -26,6 +27,9 @@
       &-red {
         background-color: $content-red-color;
       }
+      &-blue {
+        background-color: $content-blue-color;
+      }
     }
     &-bordered {
       &-orange {
@@ -35,8 +39,12 @@
         border: 1px solid $content-green-color;
       }
       &-gray {
-        border: 1px solid $content-gray-color;
+        border: 1px solid #dadada;
       }
+    }
+    .button {
+      position: absolute;
+      bottom: 20px;
     }
   }
 }

@@ -1,11 +1,28 @@
 // Custom title
 .custom-title {
-  font-size: 22px;
+  font-size: 20px;
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: $content-blue-color;
   font-family: $primary-font-light;
+  position: relative;
+  &-heading {
+    padding-left: 60px;
+  }
   &-blue {
     color: #0072aa;
+  }
+  &-icon {
+    position: absolute;
+    left: -62px;
+    width: 51px;
+    height: 51px;
+    display: inline-block;
+    &-puzzle {
+      background: url('../img/icons/icon-title-puzzle.png') no-repeat 50%;
+    }
+    &-object {
+      background: url('../img/icons/icon-title-object.png') no-repeat 50%;
+    }
   }
 }
