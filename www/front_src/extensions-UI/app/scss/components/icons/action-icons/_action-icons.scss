@@ -1,11 +1,18 @@
 // Action icons
 .icon {
   &-action {
+    display: inline-block;
+    position: absolute;
+    right: 6px;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     &-update {
-
+      background: url('../img/icons/icon-button-update.png') no-repeat 50%;
     }
     &-add {
-
+      background: url('../img/icons/icon-add.png') no-repeat 50%;
     }
   }
 }
