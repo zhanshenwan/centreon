@@ -1,8 +1,14 @@
 // Close icon big
 .icon {
   &-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 31px;
+    height: 31px;
+    cursor: pointer;
     &-big {
-
+      background: url('../img/icons/icon-close-big.png') no-repeat 50%;
     }
   }
 }

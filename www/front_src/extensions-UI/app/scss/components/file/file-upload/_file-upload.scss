@@ -1,35 +1,82 @@
 .file {
   &-upload {
-    &-icon {
-
-    }
     &-title {
-
+      color: $white-color;
+      font-size: 14px;
+      line-height: 17px;
+      font-family: $primary-font-light;
+      padding-left: 35px;
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
     }
-  }
-  &-items {
-
-  }
-  &-item {
     &-icon {
-
+      background: url('../img/icons/icon-file-upload.png') no-repeat 50%;
+      width: 27px;
+      height: 22px;
+      display: inline-block;
+      position: absolute;
+      left: 0;
     }
-    &-title {
-
-    }
-    &-progress {
-      &-success {
-
+    &-item {
+      margin-bottom: 15px;
+      position: relative;
+      &-icon {
+        display: inline-block;
+        margin-right: 10px;
+        width: 21px;
+        height: 20px;
+        background-size: contain;
+        vertical-align: middle;
+        &.file {
+          background: url('../img/icons/icon-file-upload-item-file.png') no-repeat 50%;
+        }
+        &.zip {
+          background: url('../img/icons/icon-file-upload-item-zip.png') no-repeat 50%;
+        }
       }
-      &-warning {
-        
+      &-title {
+        font-size: 12px;
+        line-height: 15px;
+        font-family: $primary-font-regular;
+        &.success {
+          color: $content-green-color;
+        }
+        &.warning {
+          color: $content-gray-color;
+        }
+        &.error {
+          color: $content-red-color;
+        }
       }
-      &-error {
-
+      &-progress {
+        height: 3px;
+        display: block;
+        width: 100%;
+        margin-top: 3px;
+        &.success {
+          background-color: $content-green-color;
+        }
+        &.warning {
+          background-color: $content-orange-color;
+        }
+        &.error {
+          background-color: $content-red-color;
+        }
       }
-    }
-    &-info {
-
+      &-info {
+        font-size: 12px;
+        line-height: 15px;
+        font-family: $primary-font-regular;
+        color: $content-green-color;
+        float: right;
+        padding-right: 30px;
+        padding-top: 2px;
+      }
+      .icon-close {
+        top: -6px;
+      }
     }
   }
+  
 }

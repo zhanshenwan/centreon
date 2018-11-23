@@ -2,7 +2,8 @@
 .icon {
   &-close {
     &-small {
-
+      top: -10px;
+      background: url('../img/icons/icon-close-small.png') no-repeat 50%;
     }
   }
 }

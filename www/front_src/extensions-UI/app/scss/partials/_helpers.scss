@@ -4,6 +4,12 @@
 .pt-24 {
   padding-top: 24px;
 }
+.pt-25 {
+  padding-top: 25px;
+}
+.pb-25 {
+  padding-bottom: 25px;
+}
 .list-unstyled {
   list-style: none;
   padding-left: 0;
@@ -12,4 +18,14 @@
 .img-responsive {
   max-width: 100%;
   height: auto;
+}
+
+// Decorators
+.red-decorater {
+  color: $content-red-color;
+}
+
+// Background decorators
+.blue-background-decorater {
+  background-color: $content-blue-color;
 }

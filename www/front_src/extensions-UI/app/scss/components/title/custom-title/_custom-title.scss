@@ -25,4 +25,10 @@
       background: url('../img/icons/icon-title-object.png') no-repeat 50%;
     }
   }
+  &.image {
+    padding-left: 65px;
+    .custom-title-icon {
+      left: 0;
+    }
+  }
 }

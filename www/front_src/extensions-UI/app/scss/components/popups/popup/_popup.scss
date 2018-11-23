@@ -17,6 +17,9 @@
     width: auto;
   }
   &.popup-small {
+    .popup-header, .popup-body, .popup-footer {
+      padding: 25px;
+    }
     @media (min-width: 576px) {
       .popup-dialog {
         max-width: 300px;
@@ -26,10 +29,18 @@
     }
   }
   &.popup-big {
+    .popup-header, .popup-body, .popup-footer {
+      padding: 25px 80px;
+    }
     @media (min-width: 576px) {
       .popup-dialog {
         max-width: 780px;
       }
+    }
+  }
+  &-header {
+    .icon-close-small, .icon-close-middle, .icon-close-big {
+      right: -45px;
     }
   }
   &-content {
@@ -40,14 +51,15 @@
     outline: 0;
     box-sizing: border-box;
   }
-  &-header, &-body, &-footer {
-    padding: 25px 80px;
-  }
-  &-body {
-
-  }
-  &-footer {
-
+  &-message {
+    font-family: $primary-font-regular;
+    display: block;
+    font-size: 13px;
+    line-height: 17px;
+    &.red {
+      color: $content-red-color;
+      font-size: 14px;
+    }
   }
   &-overlay {
     position: fixed;
