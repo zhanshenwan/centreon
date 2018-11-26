@@ -25,14 +25,32 @@
         display: inline-block;
         margin-right: 10px;
         width: 21px;
-        height: 20px;
+        height: 21px;
         background-size: contain;
         vertical-align: middle;
         &.file {
-          background: url('../img/icons/icon-file-upload-item-file.png') no-repeat 50%;
+          background: url('../img/icons/file-upload-file-stripe.png') no-repeat;
+          &.success {
+            background-position: 0 0;
+          }
+          &.warning {
+            background-position: 0 -60px;
+          }
+          &.error {
+            background-position: 0px -129px;
+          }
         }
         &.zip {
-          background: url('../img/icons/icon-file-upload-item-zip.png') no-repeat 50%;
+          background: url('../img/icons/file-upload-zip-stripe.png') no-repeat;
+          &.success {
+            background-position: 0 0;
+          }
+          &.warning {
+            background-position: 0 -60px;
+          }
+          &.error {
+            background-position: 0px -129px;
+          }
         }
       }
       &-title {
@@ -70,11 +88,20 @@
         font-family: $primary-font-regular;
         color: $content-green-color;
         float: right;
-        padding-right: 30px;
+        padding-right: 20px;
         padding-top: 2px;
+        &.success {
+          color: $content-green-color;
+        }
+        &.warning {
+          color: $content-gray-color;
+        }
+        &.error {
+          color: $content-red-color;
+        }
       }
       .icon-close {
-        top: -6px;
+        top: 3px;
       }
     }
   }

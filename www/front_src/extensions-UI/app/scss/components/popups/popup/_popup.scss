@@ -12,9 +12,12 @@
   overflow-x: hidden;
   overflow-y: auto;
   &-dialog {
-    margin: 20px auto;
+    margin: 20px;
     position: relative;
     width: auto;
+    @media (min-width: 576px) {
+      margin: 20px auto;
+    }
   }
   &.popup-small {
     .popup-header, .popup-body, .popup-footer {
@@ -31,6 +34,9 @@
   &.popup-big {
     .popup-header, .popup-body, .popup-footer {
       padding: 25px 80px;
+      @media (max-width: 700px) {
+        padding: 10px 20px;
+      }
     }
     @media (min-width: 576px) {
       .popup-dialog {

@@ -1,6 +1,9 @@
 .mb-2 {
   margin-bottom: 20px;
 }
+.mt-1 {
+  margin-top: 10px;
+}
 .pt-24 {
   padding-top: 24px;
 }
@@ -18,6 +21,14 @@
 .img-responsive {
   max-width: 100%;
   height: auto;
+}
+
+// Text align
+.text-left {
+  text-align-last: left;
+}
+.text-right {
+  text-align: right;
 }
 
 // Decorators

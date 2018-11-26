@@ -11,7 +11,6 @@
     }
     input {
       width: 100%;
-      max-width: 250px;
       height: 40px;
       border-radius: 2px;
       background-color: $white-color;
@@ -19,6 +18,10 @@
       outline: none;
       padding: 10px 15px;
       box-sizing: border-box;
+      margin-bottom: 10px;
+      @media(min-width: 768px){
+        max-width: 250px;
+      }
     }
   }
 }

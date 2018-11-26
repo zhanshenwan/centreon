@@ -4,7 +4,11 @@
     padding: 15px 15px 20px 15px;
     position: relative;
     border-radius: 5px;
-    min-height: 165px;
+    min-height: 185px;
+    box-sizing: border-box;
+    @media (max-width: 767px) { 
+      margin-bottom: 12px;
+    }
     &-footer {
       display: block;
       position: absolute;

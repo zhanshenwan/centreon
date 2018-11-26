@@ -3,7 +3,12 @@
   &-close {
     &-small {
       top: -10px;
-      background: url('../img/icons/icon-close-small.png') no-repeat 50%;
+      background: url('../img/icons/icon-close-small-stripe.png') no-repeat 0 0;
+      width: 12px;
+      height: 12px;
+      &.error {
+        background-position: 0 -77px;
+      }
     }
   }
 }

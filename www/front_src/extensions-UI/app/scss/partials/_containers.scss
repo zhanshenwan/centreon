@@ -3,10 +3,10 @@
     background-color: $gray-centreon-light;
   }
   &-blue {
-
+    background-color: $content-blue-color;
   }
   &-red {
-    
+    background-color: $content-red-color;
   }
 }
 .content {
@@ -15,5 +15,8 @@
     box-sizing: border-box;
     max-width: 1035px;
     margin: 0 auto;
+    @media (max-width: 767px) {
+      padding: 12px;
+    }
   }
 }

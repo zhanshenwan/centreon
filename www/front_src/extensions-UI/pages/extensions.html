@@ -14,20 +14,20 @@
 <body>
   <div class="container container-gray">
     <section class="content-wrapper">
-      <div class="row">
-        <div class="col-3">
+      <div class="container__row">
+        <div class="container__col-md-3 container__col-xs-12">
           <!-- Search live -->
           <div class="search-live">
             <label for="search-live">Name</label>
             <input type="text" id="search-live" name="search-live">
           </div>
         </div>
-        <div class="col-9">
-          <div class="row">
-            <div class="col-6">
-              <div class="row">
+        <div class="container__col-md-9 container__col-xs-12 mt-1">
+          <div class="container__row">
+            <div class="container__col-md-6 container__col-xs-12">
+              <div class="container__row">
                 <!-- Switcher col -->
-                <div class="switcher col-4">
+                <div class="switcher container__col-md-4 container__col-xs-4">
                   <span class="switcher-title">Status: </span>
                   <span class="switcher-status">Not installed</span>
                   <!-- Switcher -->
@@ -37,7 +37,7 @@
                   </label>
                 </div>
                 <!-- Switcher col -->
-                <div class="switcher col-4">
+                <div class="switcher container__col-md-4 container__col-xs-4">
                   <span class="switcher-status pt-24">Installed</span>
                   <!-- Switcher -->
                   <label class="switch">
@@ -46,7 +46,7 @@
                   </label>
                 </div>
                 <!-- Switcher col -->
-                <div class="switcher col-4">
+                <div class="switcher container__col-md-4 container__col-xs-4">
                   <span class="switcher-status pt-24">Update</span>
                   <!-- Switcher -->
                   <label class="switch">
@@ -56,10 +56,9 @@
                 </div>
               </div>
             </div>
-            <!-- Switcher col -->
-            <div class="col-6">
-              <div class="row">
-                <div class="switcher col-3">
+            <div class="container__col-md-6 container__col-xs-12">
+              <div class="container__row">
+                <div class="switcher container__col-sm-3 container__col-xs-4">
                   <span class="switcher-title">Type: </span>
                   <span class="switcher-status">Module</span>
                   <!-- Switcher -->
@@ -69,7 +68,7 @@
                   </label>
                 </div>
                 <!-- Switcher col -->
-                <div class="switcher col-3">
+                <div class="switcher container__col-sm-3 container__col-xs-4">
                   <span class="switcher-status pt-24">Widget</span>
                   <!-- Switcher -->
                   <label class="switch">
@@ -77,7 +76,7 @@
                     <span class="switch-slider switch-round"></span>
                   </label>
                 </div>
-                <div class="switcher col-6 center-vertical">
+                <div class="switcher container__col-sm-6 container__col-xs-12 center-vertical mt-1">
                   <button class="button button-bordered-black linear">Clear Filters</button>
                 </div>
               </div>
@@ -97,42 +96,50 @@
     <!-- Card -->
     <div class="card">
       <div class="card-items">
-        <div class="row">
-          <div class="card-item col-3 card-item-bordered-orange">
-            <span class="info info-state"></span>
-            <div class="custom-title-heading">
-              <h2 class="custom-title"><span class="custom-title-icon custom-title-icon-object"></span>Engine-status</h2>
-              <h4 class="custom-subtitle">by Centreon</h4>
+        <div class="container__row">
+          <div class="container__col-md-3 container__col-sm-6 container__col-xs-12">
+            <div class="card-item  card-item-bordered-orange">
+              <span class="info info-state"></span>
+              <div class="custom-title-heading">
+                <h2 class="custom-title"><span class="custom-title-icon custom-title-icon-object"></span>Engine-status</h2>
+                <h4 class="custom-subtitle">by Centreon</h4>
+              </div>
+              <button class="button button-regular-orange linear">Available 3.1.5<span class="icon-action icon-action-update"></span></button>
+              <span class="card-item-footer card-item-footer-red">Licence expire 12/08/2018</span>
             </div>
-            <button class="button button-regular-orange linear">Available 3.1.5<span class="icon-action icon-action-update"></span></button>
-            <span class="card-item-footer card-item-footer-red">Licence expire 12/08/2018</span>
           </div>
-          <div class="card-item col-3 card-item-bordered-green">
-            <span class="info info-state"></span>
-            <div class="custom-title-heading">
-              <h2 class="custom-title"><span class="custom-title-icon custom-title-icon-object"></span>Engine-status</h2>
-              <h4 class="custom-subtitle">by Centreon</h4>
+          <div class="container__col-md-3 container__col-sm-6 container__col-xs-12">
+            <div class="card-item card-item-bordered-green">
+              <span class="info info-state"></span>
+              <div class="custom-title-heading">
+                <h2 class="custom-title"><span class="custom-title-icon custom-title-icon-object"></span>Engine-status</h2>
+                <h4 class="custom-subtitle">by Centreon</h4>
+              </div>
+              <button class="button button-bordered button-bordered-blue linear">Version 3.1.5</button>
+              <span class="button-action button-action-delete"><span class="button-action-icon-delete"></span></span>
+              <span class="card-item-footer card-item-footer-orange">Licence expire 12/08/2018</span>
             </div>
-            <button class="button button-bordered button-bordered-blue linear">Version 3.1.5</button>
-            <span class="button-action button-action-delete"><span class="button-action-icon-delete"></span></span>
-            <span class="card-item-footer card-item-footer-orange">Licence expire 12/08/2018</span>
           </div>
-          <div class="card-item col-3 card-item-bordered-gray">
-            <div class="custom-title-heading">
-              <h2 class="custom-title"><span class="custom-title-icon custom-title-icon-object"></span>Engine-status</h2>
-              <h4 class="custom-subtitle">by Centreon</h4>
+          <div class="container__col-md-3 container__col-sm-6 container__col-xs-12">
+            <div class="card-item card-item-bordered-gray">
+              <div class="custom-title-heading">
+                <h2 class="custom-title"><span class="custom-title-icon custom-title-icon-object"></span>Engine-status</h2>
+                <h4 class="custom-subtitle">by Centreon</h4>
+              </div>
+              <button class="button button-regular-green linear">Available 3.1.5<span class="icon-action icon-action-add"></span></button>
             </div>
-            <button class="button button-regular-green linear">Available 3.1.5<span class="icon-action icon-action-add"></span></button>
           </div>
-          <div class="card-item col-3 card-item-bordered-gray">
-            <span class="info info-state"></span>
-            <div class="custom-title-heading">
-              <h2 class="custom-title"><span class="custom-title-icon custom-title-icon-object"></span>Engine-status</h2>
-              <h4 class="custom-subtitle">by Centreon</h4>
+          <div class="container__col-md-3 container__col-sm-6 container__col-xs-12">
+            <div class="card-item card-item-bordered-gray">
+              <span class="info info-state"></span>
+              <div class="custom-title-heading">
+                <h2 class="custom-title"><span class="custom-title-icon custom-title-icon-object"></span>Engine-status</h2>
+                <h4 class="custom-subtitle">by Centreon</h4>
+              </div>
+              <button class="button button-regular-green linear">Available 3.1.5<span class="icon-action icon-action-add"></span></button>
             </div>
-            <button class="button button-regular-green linear">Available 3.1.5<span class="icon-action icon-action-add"></span></button>
           </div>
-        </div>
+          </div>
       </div>
     </div>
   </section>
@@ -141,40 +148,48 @@
     <!-- Card -->
     <div class="card">
       <div class="card-items">
-        <div class="row">
-          <div class="card-item col-3 card-item-bordered-orange">
-            <span class="info info-state"></span>
-            <div class="custom-title-heading">
-              <h2 class="custom-title"><span class="custom-title-icon custom-title-icon-puzzle"></span>Plugin pack manager</h2>
-              <h4 class="custom-subtitle">by Centreon</h4>
+        <div class="container__row">
+          <div class="container__col-md-3 container__col-sm-6 container__col-xs-12">
+            <div class="card-item card-item-bordered-orange">
+              <span class="info info-state"></span>
+              <div class="custom-title-heading">
+                <h2 class="custom-title"><span class="custom-title-icon custom-title-icon-puzzle"></span>Plugin pack manager</h2>
+                <h4 class="custom-subtitle">by Centreon</h4>
+              </div>
+              <button class="button button-regular-orange linear">Available 3.1.5<span class="icon-action icon-action-update"></span></button>
+              <span class="card-item-footer card-item-footer-blue">Licence expire 12/08/2018</span>
             </div>
-            <button class="button button-regular-orange linear">Available 3.1.5<span class="icon-action icon-action-update"></span></button>
-            <span class="card-item-footer card-item-footer-blue">Licence expire 12/08/2018</span>
           </div>
-          <div class="card-item col-3 card-item-bordered-green">
-            <span class="info info-state"></span>
-            <div class="custom-title-heading">
-              <h2 class="custom-title"><span class="custom-title-icon custom-title-icon-puzzle"></span>Engine-status</h2>
-              <h4 class="custom-subtitle">by Centreon</h4>
+          <div class="container__col-md-3 container__col-sm-6 container__col-xs-12">
+            <div class="card-item card-item-bordered-green">
+              <span class="info info-state"></span>
+              <div class="custom-title-heading">
+                <h2 class="custom-title"><span class="custom-title-icon custom-title-icon-puzzle"></span>Engine-status</h2>
+                <h4 class="custom-subtitle">by Centreon</h4>
+              </div>
+              <button class="button button-bordered button-bordered-blue linear">Version 3.1.5</button>
+              <span class="button-action button-action-delete"><span class="button-action-icon-delete"></span></span>
+              <span class="card-item-footer card-item-footer-red">Licence expire 12/08/2018</span>
             </div>
-            <button class="button button-bordered button-bordered-blue linear">Version 3.1.5</button>
-            <span class="button-action button-action-delete"><span class="button-action-icon-delete"></span></span>
-            <span class="card-item-footer card-item-footer-red">Licence expire 12/08/2018</span>
           </div>
-          <div class="card-item col-3 card-item-bordered-gray">
-            <div class="custom-title-heading">
-              <h2 class="custom-title"><span class="custom-title-icon custom-title-icon-puzzle"></span>Engine-status</h2>
-              <h4 class="custom-subtitle">by Centreon</h4>
+          <div class="container__col-md-3 container__col-sm-6 container__col-xs-12">
+            <div class="card-item card-item-bordered-gray">
+              <div class="custom-title-heading">
+                <h2 class="custom-title"><span class="custom-title-icon custom-title-icon-puzzle"></span>Engine-status</h2>
+                <h4 class="custom-subtitle">by Centreon</h4>
+              </div>
+              <button class="button button-regular-green linear">Available 3.1.5<span class="icon-action icon-action-add"></span></button>
             </div>
-            <button class="button button-regular-green linear">Available 3.1.5<span class="icon-action icon-action-add"></span></button>
           </div>
-          <div class="card-item col-3 card-item-bordered-gray">
-            <span class="info info-state"></span>
-            <div class="custom-title-heading">
-              <h2 class="custom-title"><span class="custom-title-icon custom-title-icon-puzzle"></span>Engine-status</h2>
-              <h4 class="custom-subtitle">by Centreon</h4>
+          <div class="container__col-md-3 container__col-sm-6 container__col-xs-12">
+            <div class="card-item card-item-bordered-gray">
+              <span class="info info-state"></span>
+              <div class="custom-title-heading">
+                <h2 class="custom-title"><span class="custom-title-icon custom-title-icon-puzzle"></span>Engine-status</h2>
+                <h4 class="custom-subtitle">by Centreon</h4>
+              </div>
+              <button class="button button-regular-green linear">Available 3.1.5<span class="icon-action icon-action-add"></span></button>
             </div>
-            <button class="button button-regular-green linear">Available 3.1.5<span class="icon-action icon-action-add"></span></button>
           </div>
         </div>
       </div>
