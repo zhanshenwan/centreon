@@ -43,6 +43,9 @@
   &-bordered {
     background-color: transparent;
     padding: 7px 28px;
+    @media (max-width: 576px) {
+      padding: 6px 22px;
+    }
     &-black {
       color: #373737;
       border: 1px solid #3e3e3e;
