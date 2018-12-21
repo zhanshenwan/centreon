@@ -95,7 +95,7 @@ try {
     parallel 'centos7': {
       node {
         sh 'setup_centreon_build.sh'
-        sh './centreon-build/jobs/web/18.10/mon-web-acceptance.sh centos7 @critical'
+        sh './centreon-build/jobs/web/18.10/mon-web-acceptance.sh centos7'
         junit 'xunit-reports/**/*.xml'
         if (currentBuild.result == 'UNSTABLE')
           currentBuild.result = 'FAILURE'
