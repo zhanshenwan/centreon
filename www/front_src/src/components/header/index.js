@@ -8,7 +8,9 @@ import UserMenu from "../userMenu";
 import HostMenu from "../hostMenu";
 import ServiceStatusMenu from "../serviceStatusMenu";
 
-import axios from '../../axios'
+import {DynamicComponentPosition} from '@centreon/react-components';
+
+import axios from '../../axios';
 
 class TopHeader extends Component {
 
@@ -38,6 +40,7 @@ class TopHeader extends Component {
             <PollerMenu />
           </div>
           <div class="wrap wrap-right">
+            <DynamicComponentPosition componentName={'topCounterLeft'} />
             <HostMenu />
             <ServiceStatusMenu />
             <UserMenu />
