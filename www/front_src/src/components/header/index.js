@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { setRefreshIntervals } from '../../redux/actions/refreshActions';
 
+import Hook from "../hook"
 import PollerMenu from "../pollerMenu";
 import UserMenu from "../userMenu";
 import HostMenu from "../hostMenu";
@@ -38,6 +39,9 @@ class TopHeader extends Component {
             <PollerMenu />
           </div>
           <div class="wrap wrap-right">
+            <Hook
+              fish="header"
+            />
             <HostMenu />
             <ServiceStatusMenu />
             <UserMenu />

@@ -2,6 +2,7 @@ import React from "react";
 import { Field, reduxForm as connectForm } from "redux-form";
 import {Translate} from 'react-redux-i18n';
 
+import Hook from "../hook"
 import RadioGroupFields from "../form-fields/RadioGroupFields";
 
 const configurationTypes = [
@@ -27,6 +28,9 @@ const ServerConfigurationWizardForm = ({
         <h2 className="form-title"><Translate value="Server Configuration Wizard"/></h2>
         <p className="form-text"><Translate value="Choose a server type"/>:</p>
       </div>
+      <Hook
+        fish="header"
+      />
       <form autocomplete="off" onSubmit={handleSubmit(onSubmit)}>
         <Field
           name="server_type"
