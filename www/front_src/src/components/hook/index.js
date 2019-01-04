@@ -19,7 +19,32 @@ class Hook extends Component {
       })
   }
 
-  getComponents = (type) => {
+  scriptLoaded = (url) => {
+    console.log('loaded')
+    url = './components/hooks/header/index.js'
+    //url = 'BamHeader'
+    //import(url)
+    console.log(window["webpackJsonpBamHeader"])
+    console.log(window["webpackJsonpBamHeader"][0][1])
+    window["webpackJsonpBamHeader"][0][1]["./components/hooks/header/index.js"]()
+  }
+
+  getComponents = (urls) => {
+    for (const url of urls) {
+      let script = document.createElement("script")
+      script.src = url
+      script.onreadystatechange = () => { this.scriptLoaded(url) }
+      script.onload = () => { this.scriptLoaded(url) }
+      document.head.appendChild(script)
+      /*
+      let toto = './components/hooks/header/index.js'
+      toto = 'BamHeader'
+      import(toto).then(() => {
+        console.log('import ok')
+      })
+      */
+    }
+    /*
     fetch(type)
       .then(response => response.text())
       .then(source => {
@@ -34,6 +59,7 @@ class Hook extends Component {
         eval(source)
         this.setState({components: [exports]})
       })
+      */
   }
 
   render() {

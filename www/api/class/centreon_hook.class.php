@@ -58,6 +58,11 @@ class CentreonHook extends CentreonWebService
                 $hooks[] = $directPath . $hook;
             }
         }
+        $hooks = [
+            //'./modules/centreon-bam-server/front_src/dist/header-component.min.js'
+            './modules/centreon-bam-server/front_src/dist/static/js/1.c242e867.chunk.js'
+            //'./modules/centreon-bam-server/front_src/dist/static/js/0.3db496db.chunk.js'
+        ];
 
         return $hooks;
     }
