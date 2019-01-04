@@ -24,9 +24,12 @@ class Hook extends Component {
     url = './components/hooks/header/index.js'
     //url = 'BamHeader'
     //import(url)
+    /*
     console.log(window["webpackJsonpBamHeader"])
     console.log(window["webpackJsonpBamHeader"][0][1])
     window["webpackJsonpBamHeader"][0][1]["./components/hooks/header/index.js"]()
+    */
+    console.log(window["webpackJsonplib"])
   }
 
   getComponents = (urls) => {
