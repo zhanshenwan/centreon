@@ -60,7 +60,10 @@ class CentreonHook extends CentreonWebService
         }
         $hooks = [
             //'./modules/centreon-bam-server/front_src/dist/header-component.min.js'
-            './modules/centreon-bam-server/front_src/dist/1.lib.js'
+            './modules/centreon-bam-server/front_src/dist/0.lib.js',
+            //'./modules/centreon-bam-server/front_src/dist/1.lib.js',
+            //'./modules/centreon-bam-server/front_src/dist/lib.js',
+            //'./modules/centreon-bam-server/front_src/test.js',
             //'./modules/centreon-bam-server/front_src/dist/static/js/0.3db496db.chunk.js'
         ];
 

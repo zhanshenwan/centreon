@@ -20,8 +20,10 @@ class Hook extends Component {
   }
 
   scriptLoaded = (url) => {
-    console.log('loaded')
+    //console.log('loaded')
     url = './components/hooks/header/index.js'
+    url = "./modules/centreon-bam-server/front_src/test.js"
+    //import(url)
     //url = 'BamHeader'
     //import(url)
     /*
@@ -29,7 +31,7 @@ class Hook extends Component {
     console.log(window["webpackJsonpBamHeader"][0][1])
     window["webpackJsonpBamHeader"][0][1]["./components/hooks/header/index.js"]()
     */
-    console.log(window["webpackJsonplib"])
+    //console.log(window["webpackJsonplib"])
   }
 
   getComponents = (urls) => {
