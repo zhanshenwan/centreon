@@ -23,7 +23,7 @@
     "webpack-cli": "^3.0.8"
   },
   "dependencies": {
-    "@centreon/react-components": "file:./react-components",
+    "@centreon/react-components": "next",
     "axios": "^0.18.0",
     "class-name": "^0.1.3",
     "cross-env": "^5.2.0",
