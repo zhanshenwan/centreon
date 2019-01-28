@@ -195,6 +195,7 @@ class CentreonModuleWebservice extends CentreonWebServiceAbstract
      *   path="/internal.php?object=centreon_module&action=details",
      *   description="Get details of modules and widgets",
      *   tags={"centreon_module"},
+     *   security={{"Session": {}}},
      *   @OA\Parameter(
      *       in="query",
      *       name="object",
@@ -284,8 +285,9 @@ class CentreonModuleWebservice extends CentreonWebServiceAbstract
     /**
      * @OA\Post(
      *   path="/internal.php?object=centreon_module&action=install",
-     *   summary="Install module or widget",
+     *   description="Install module or widget",
      *   tags={"centreon_module"},
+     *   security={{"Session": {}}},
      *   @OA\Parameter(
      *       in="query",
      *       name="object",
@@ -376,8 +378,9 @@ class CentreonModuleWebservice extends CentreonWebServiceAbstract
     /**
      * @OA\Post(
      *   path="/internal.php?object=centreon_module&action=update",
-     *   summary="Update module or widget",
+     *   description="Update module or widget",
      *   tags={"centreon_module"},
+     *   security={{"Session": {}}},
      *   @OA\Parameter(
      *       in="query",
      *       name="object",
@@ -468,8 +471,9 @@ class CentreonModuleWebservice extends CentreonWebServiceAbstract
     /**
      * @OA\Delete(
      *   path="/internal.php?object=centreon_module&action=remove",
-     *   summary="Remove module or widget",
+     *   description="Remove module or widget",
      *   tags={"centreon_module"},
+     *   security={{"Session": {}}},
      *   @OA\Parameter(
      *       in="query",
      *       name="object",
