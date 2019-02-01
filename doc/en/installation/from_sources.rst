@@ -385,7 +385,7 @@ Definition of installation paths
 
   Where is PEAR [PEAR.php]
   default to [/usr/share/pear/PEAR.php]
-  >
+  > /usr/share/php/PEAR.php
   Path to /usr/share/php/PEAR.php                            OK
   /usr/bin/perl                                              OK
   Composer dependencies are installed                        OK
@@ -716,7 +716,6 @@ Plugin installation
   ------------------------------------------------------------------------
   	  Starting Centreon Plugins Installation
   ------------------------------------------------------------------------
-  Path /var/lib/centreon/centplugins                         OK
   Path                                                       OK
   Path                                                       OK
 
