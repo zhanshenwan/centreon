@@ -484,6 +484,7 @@ class ExtensionsRoute extends Component {
                 titleIcon={"puzzle"}
                 title="Widgets"
                 type={"widget"}
+                titleColor="blue"
                 updating={extensionsUpdatingStatus}
                 installing={extensionsInstallingStatus}
                 entities={extensions.result.widget.entities}
