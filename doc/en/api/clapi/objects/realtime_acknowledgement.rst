@@ -15,7 +15,7 @@ You can use the value "HOST" to display all the acknowledgement::
 
   [root@centreon ~]# ./centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a show -v "HOST;generic-host"
   id;host_name;entry_time;author;comment_data;sticky;notify_contacts;persistent_comment
-  6;generic-host;2017/09/28 14:21;admin;'generic-comment';1;0;1
+  6;generic-host;2017/09/28 14:21;admin;'generic-comment';2;0;1
 
 Columns are the following :
 
