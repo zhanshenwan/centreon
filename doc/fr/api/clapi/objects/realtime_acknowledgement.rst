@@ -22,9 +22,9 @@ Columns are the following :
 ================================= ==================================================================================
 Column	                          Description
 ================================= ==================================================================================
-Id	                              Id of the acknowledgement
+Id                                Id of the acknowledgement
 
-Host_name	                      Name of the host
+Host_name                         Name of the host
 
 Entry_time                        Beginning of acknowledgement
 
