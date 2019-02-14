@@ -120,7 +120,7 @@ Order     Description
 
 3         Short description of the real time acknowledgement
 
-4         Acknowledgement maintained in case of a change of status (Sticky use 0 or 1)
+4         Acknowledgement maintained in case of a change of status (Sticky use 0 or 2)
 
 5         Notification send to the contacts linked to the object (Notify use 0 or 1)
 
