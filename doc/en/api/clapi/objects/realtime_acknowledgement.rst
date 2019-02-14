@@ -15,7 +15,7 @@ You can use the value "HOST" to display all the acknowledgement::
 
   [root@centreon ~]# ./centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a show -v "HOST;generic-host"
   id;host_name;entry_time;author;comment_data;sticky;notify_contacts;persistent_comment
-  6;generic-host;2017/09/28 14:21;admin;'generic-comment';1;0;1
+  6;generic-host;2017/09/28 14:21;admin;'generic-comment';2;0;1
 
 Columns are the following :
 
@@ -32,7 +32,7 @@ Author	                          Name of the author
 
 Comment_data                      Short description of the acknowledgement
 
-Sticky                            Acknowledgement will be maintained in case of a change of Not-OK status (0/1)
+Sticky                            Acknowledgement will be maintained in case of a change of Not-OK status (0/2)
 
 Notify_contacts                   Notification send to the contacts linked to the object (0/1)
 
@@ -48,7 +48,7 @@ You can use the value "SVC" to display all the acknowledgement::
 
   [root@centreon ~]# ./centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a show -v "SVC;generic-host,generic-service"
   id;host_name;service_name;entry_time;author;comment_data;sticky;notify_contacts;persistent_comment
-  42;generic-host;generic-service;2017/09/28 14:21;admin;'generic-comment';1;0;1
+  42;generic-host;generic-service;2017/09/28 14:21;admin;'generic-comment';2;0;1
 
 Columns are the following :
 
@@ -67,7 +67,7 @@ Author	                          Name of the author
 
 Comment_data                      Short description of the acknowledgement
 
-Sticky                            Acknowledgement will be maintained in case of a change of Not-OK status (0/1)
+Sticky                            Acknowledgement will be maintained in case of a change of Not-OK status (0/2)
 
 Notify_contacts                   Notification send to the contacts linked to the object (0/1)
 
@@ -80,7 +80,7 @@ Real time Acknowledgement for : Addhost
 
 If you want to associate a host to a real time acknowledgement, use the **ADD** action::
 
-  [root@centreon ~]# ./centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a add -v "HOST;central;my comments;1;0;1"
+  [root@centreon ~]# ./centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a add -v "HOST;central;my comments;2;0;1"
 
 The required parameters are the following :
 

@@ -107,7 +107,7 @@ Real time Acknowledgement for : addservice
 
 If you want to associate a service or service group to a real time acknowledgement, use the **ADD** action::
 
-  [root@centreon ~]# ./centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a add -v "SVC;central,ping|central,memory;my comments;1;0;1"
+  [root@centreon ~]# ./centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a add -v "SVC;central,ping|central,memory;my comments;2;0;1"
 
 The required parameters are the following :
 
@@ -120,7 +120,7 @@ Order     Description
 
 3         Short description of the real time acknowledgement
 
-4         Acknowledgement maintained in case of a change of status (Sticky use 0 or 1)
+4         Acknowledgement maintained in case of a change of status (Sticky use 0 or 2)
 
 5         Notification send to the contacts linked to the object (Notify use 0 or 1)
 
