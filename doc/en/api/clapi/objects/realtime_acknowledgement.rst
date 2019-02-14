@@ -80,7 +80,7 @@ Real time Acknowledgement for : Addhost
 
 If you want to associate a host to a real time acknowledgement, use the **ADD** action::
 
-  [root@centreon ~]# ./centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a add -v "HOST;central;my comments;1;0;1"
+  [root@centreon ~]# ./centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a add -v "HOST;central;my comments;2;0;1"
 
 The required parameters are the following :
 
