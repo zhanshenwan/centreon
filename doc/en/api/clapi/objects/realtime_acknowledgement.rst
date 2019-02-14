@@ -67,7 +67,7 @@ Author	                          Name of the author
 
 Comment_data                      Short description of the acknowledgement
 
-Sticky                            Acknowledgement will be maintained in case of a change of Not-OK status (0/1)
+Sticky                            Acknowledgement will be maintained in case of a change of Not-OK status (0/2)
 
 Notify_contacts                   Notification send to the contacts linked to the object (0/1)
 
