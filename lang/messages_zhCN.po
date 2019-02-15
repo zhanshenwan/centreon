@@ -1,0 +1,6194 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-10-13 03:00+0200\n"
+"PO-Revision-Date: 2016-10-25 16:09+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh\n"
+"X-Generator: Poedit 1.8.10\n"
+
+msgid " Required fields"
+msgstr "请求字段"
+
+msgid "$HOSTADDRESS$"
+msgstr "$HOSTADDRESS$"
+
+msgid "%s is downloaded."
+msgstr "%s 已下载"
+
+msgid "%s patch is installed."
+msgstr "%s patch已安装"
+
+msgid "<= 1 min"
+msgstr "<= 1 分钟"
+
+msgid "<= 15 min"
+msgstr "<= 15 分钟"
+
+msgid "<= 5 min"
+msgstr "<= 5 分钟"
+
+msgid "<= 60 min"
+msgstr "<= 60 分钟"
+
+msgid ""
+"<b><i>Help :</i></b> In this tab, you will be able to select hosts and hostgroups "
+"that you want to shared to people present in group selected on the previous tab. "
+"You have also the possibilty to exclude host on selected hostgroup. You can also "
+"do filters on selected hosts services. If you select a service category, user "
+"will only see only services of the selected categories."
+msgstr ""
+"<b><i>Help :</i></b> 在此选项卡，你可以选择主机和主机组，将它们共享给在前一个选项"
+"卡中选中的组中当前所有人。也可以从选中的主机组中排除某台主机。而且你还可以在选中的"
+"主机服务中做一些过滤。如果你选择一个服务类别，用户将只能看到选中类别中的服务。"
+
+msgid "<br><b>Centreon : </b>A reload signal has been sent to "
+msgstr "<br><b>Centreon : </b> 重载配置的命令将发送到"
+
+msgid "<br><b>Centreon : </b>A restart signal has been sent to "
+msgstr "<br><b>Centreon : </b>重启命令将发送到"
+
+msgid "<br><b>Centreon : </b>All configuration files copied with success."
+msgstr "<br><b>Centreon : </b>全部配置文件复制成功."
+
+msgid "<br><b>Centreon : </b>All configuration will be send to "
+msgstr "<br><b>Centreon : </b>所有的配置将被发送到"
+
+msgid ""
+"<br><i><b><font color=\"#B22222\">Notes </font>:</b></i><br>&nbsp;&nbsp;&nbsp;- "
+"Do not mix metrics of different sources.<br>&nbsp;&nbsp;&nbsp;- Only aggregation "
+"functions work in VDEF rpn expressions."
+msgstr ""
+"<br><i><b><font color=\"#B22222\">Notes </font>:</b></i><br>&nbsp;&nbsp;&nbsp;- "
+"Do not mix metrics of different sources.<br>&nbsp;&nbsp;&nbsp;- Only aggregation "
+"functions work in VDEF rpn expressions."
+
+msgid ""
+"A host can have multiple templates, their orders have a significant importance"
+msgstr "主机可以有多个模板，它们的顺序有着显著的重要性"
+
+msgid "ACKNOWLEDGED"
+msgstr "已确认"
+
+msgid "ACL"
+msgstr "访问控制表"
+
+msgid "ACL Definition"
+msgstr "定义访问控制表"
+
+msgid "ACL reloaded"
+msgstr "访问控制表已加载"
+
+msgid "ALL"
+msgstr "全部"
+
+msgid "About"
+msgstr "关于"
+
+msgid "Access"
+msgstr "访问"
+
+msgid "Access Groups"
+msgstr "访问组"
+
+msgid "Access List"
+msgstr "访问列表"
+
+msgid "Access list groups"
+msgstr "访问列表组"
+
+msgid "Access lists"
+msgstr "访问列表"
+
+msgid "Accessible Pages"
+msgstr "可访问页面"
+
+msgid "Acknowledge Host Problem"
+msgstr "已确认主机问题"
+
+msgid "Acknowledge Service Problem"
+msgstr "已确认服务务问题"
+
+msgid "Acknowledge a Service"
+msgstr "已确认服务"
+
+msgid "Acknowledge a host"
+msgstr "已确认主机"
+
+msgid "Acknowledge host or service Color"
+msgstr "已确认的主机或服务颜色"
+
+msgid "Acknowledge problem"
+msgstr "已确认的问题"
+
+msgid "Acknowledge problems"
+msgstr "已确认的问题"
+
+msgid "Acknowledge selected problems"
+msgstr "选择已确认的问题"
+
+msgid "Acknowledge services attached to hosts"
+msgstr "应答服务附加到主机"
+
+msgid "Acknowledge/Disacknowledge a service"
+msgstr "已确认/未确认服务"
+
+msgid "Acknowledge/Disaknowledge a host"
+msgstr "已确认/未确认主机"
+
+msgid "Acknowledged"
+msgstr "已确认"
+
+msgid "Acknowledged by %s"
+msgstr "由 %s 确认"
+
+msgid "Action"
+msgstr "动作"
+
+msgid "Action 1 : Submit result to Nagios"
+msgstr "动作1:提交结果至Nagios"
+
+msgid "Action 2 : Force rescheduling of service check"
+msgstr "动作2:强制重新调度服务检查"
+
+msgid "Action 3 : Execute a Command"
+msgstr "动作3: 执行命令"
+
+msgid "Action Name"
+msgstr "行为名"
+
+msgid "Action URL"
+msgstr "动作网址"
+
+msgid "Action access list link"
+msgstr "动作访问列表链接"
+
+msgid "Actions"
+msgstr "动作"
+
+msgid "Actions Access"
+msgstr "行为规则"
+
+msgid "Actions access"
+msgstr "行为规则"
+
+msgid "Active"
+msgstr "主动"
+
+msgid "Active Check"
+msgstr "主动检测"
+
+msgid "Active Checks"
+msgstr "主动检测"
+
+msgid "Active Checks Enabled"
+msgstr "主动检测已启用"
+
+msgid "Active Directory :"
+msgstr "现用目录 :"
+
+msgid "Actively Checked"
+msgstr "主动检测"
+
+msgid "Actual"
+msgstr "目前"
+
+msgid "Add"
+msgstr "添加"
+
+msgid "Add Comment for this host"
+msgstr "添加该主机的备注"
+
+msgid "Add Data Processing"
+msgstr "添加数据处理"
+
+msgid "Add Image(s)"
+msgstr "添加图片"
+
+msgid "Add Vendor"
+msgstr "添加提供商"
+
+msgid "Add a CGI Configuration File"
+msgstr "添加CGI配置文件"
+
+msgid "Add a Command"
+msgstr "添加命令"
+
+msgid "Add a Command Category"
+msgstr "添加命令类别"
+
+msgid "Add a Contact Group"
+msgstr "添加联系人组"
+
+msgid "Add a Data Source Template"
+msgstr "添加数据源模板"
+
+msgid "Add a Dependency"
+msgstr "添加依赖"
+
+msgid "Add a Graph Template"
+msgstr "添加图形模板"
+
+msgid "Add a Group"
+msgstr "添加组"
+
+msgid "Add a Host"
+msgstr "添加主机"
+
+msgid "Add a Host Extended Info"
+msgstr "添加主机扩展信息"
+
+msgid "Add a Host Group"
+msgstr "添加主机组"
+
+msgid "Add a Host Template"
+msgstr "添加主机模板"
+
+msgid "Add a Host downtime"
+msgstr "添加该主机的停机时间"
+
+msgid "Add a Meta Service"
+msgstr "添加元服务"
+
+msgid "Add a Meta Service indicator"
+msgstr "Add a Meta Service indicator"
+
+msgid "Add a Nagios Configuration File"
+msgstr "添加nagios配置"
+
+msgid "Add a Resource"
+msgstr "添加资源"
+
+msgid "Add a Service"
+msgstr "添加服务"
+
+msgid "Add a Service Category"
+msgstr "添加服务类别"
+
+msgid "Add a Service Group"
+msgstr "添加服务组"
+
+msgid "Add a Service Template Model"
+msgstr "添加服务模板模型"
+
+msgid "Add a Service downtime"
+msgstr "添加该服务的停机时间"
+
+msgid "Add a Template Deletion Policy"
+msgstr "添加模板删除策略"
+
+msgid "Add a Time Period"
+msgstr "添加时间段"
+
+msgid "Add a Trap definition"
+msgstr "添加陷井定义"
+
+msgid "Add a User"
+msgstr "添加用户"
+
+msgid "Add a Virtual Metric"
+msgstr "添加 Virtual Metric"
+
+msgid "Add a comment for Host"
+msgstr "添加该主机备注"
+
+msgid "Add a comment for Service"
+msgstr "添加该服务的备注"
+
+msgid "Add a comment for this service"
+msgstr "添加该服务的备注"
+
+msgid "Add a host category"
+msgstr "添加主机类别"
+
+msgid "Add a ndo2db Configuration File"
+msgstr "添加ndo2db配置文件"
+
+msgid "Add a ndomod Configuration File"
+msgstr "添加ndomod配置文件"
+
+msgid "Add a new broker module"
+msgstr "添加新的中间商模块"
+
+msgid "Add a new macro"
+msgstr "添加新宏"
+
+msgid "Add a new matching rule"
+msgstr "添加新的匹配规则"
+
+msgid "Add a new view"
+msgstr "添加视图"
+
+msgid "Add a poller"
+msgstr "添加一个轮询"
+
+msgid "Add a template"
+msgstr "添加模板"
+
+msgid "Add an ACL"
+msgstr "添加访问控制表"
+
+msgid "Add an Action"
+msgstr "添加行为"
+
+msgid "Add an Escalation"
+msgstr "添加升级"
+
+msgid "Add an Extended Info"
+msgstr "添加扩展信息"
+
+msgid "Add macros"
+msgstr "添加宏"
+
+msgid "Add relations"
+msgstr "添加关联"
+
+msgid "Add view"
+msgstr "添加视图"
+
+msgid "Add/Delete a comment for a host"
+msgstr "添加/删除主机的一个注释"
+
+msgid "Add/Delete a comment for a service"
+msgstr "添加/删除服务的一个注释"
+
+msgid "Additional Addresses"
+msgstr "附加地址"
+
+msgid "Additional Information"
+msgstr "附加信息"
+
+msgid "Additional freshness latency"
+msgstr "附加刷新延迟 "
+
+msgid "Additionnal Information"
+msgstr "附加信息"
+
+msgid "Address"
+msgstr "地址"
+
+msgid "Address1"
+msgstr "地址1"
+
+msgid "Address2"
+msgstr "地址2"
+
+msgid "Address3"
+msgstr "地址3"
+
+msgid "Address4"
+msgstr "地址4"
+
+msgid "Address5"
+msgstr "地址5"
+
+msgid "Address6"
+msgstr "地址6"
+
+msgid "Admin"
+msgstr "管理"
+
+msgid "Administration"
+msgstr "管理"
+
+msgid "Administrator Email Address"
+msgstr "管理员邮件地址"
+
+msgid "Administrator Pager"
+msgstr "管理员页面"
+
+msgid "Advanced Logs"
+msgstr "高级日志"
+
+msgid "Advanced matching mode"
+msgstr "高级匹配模式"
+
+msgid "Advanced matching rules"
+msgstr "高级匹配规则"
+
+msgid "Advanced parameters"
+msgstr "高级参数"
+
+msgid "After"
+msgstr "后"
+
+msgid "Aggressive Host Checks"
+msgstr "攻击主机检测"
+
+msgid "Alert"
+msgstr "报警"
+
+msgid "Alerts"
+msgstr "警告"
+
+msgid "Alias"
+msgstr "别名"
+
+msgid "Alias / Description"
+msgstr "别名/描述"
+
+msgid "Alias / Login"
+msgstr "别名/登陆"
+
+msgid "Alias already exists"
+msgstr "别名已存在"
+
+msgid "Alias/Login"
+msgstr "别名/登陆"
+
+msgid "All"
+msgstr "全部"
+
+msgid "All Comments for this service"
+msgstr "所有服务的备注信息"
+
+msgid "All Graphs"
+msgstr "所有图表"
+
+msgid "All Logs"
+msgstr "所有日志"
+
+msgid "All Nagios Servers"
+msgstr "全部服务"
+
+msgid "All Pollers"
+msgstr "所有轮询"
+
+msgid "All Services"
+msgstr "所有服务"
+
+msgid "Already exists"
+msgstr "已经存在"
+
+msgid "Alt icon"
+msgstr "Alt图标"
+
+msgid "And the others..."
+msgstr "以及其他人..."
+
+msgid "Append"
+msgstr "追加"
+
+msgid "Apply"
+msgstr "应用"
+
+msgid "Archive Nagios Logs"
+msgstr "nagios日志归档"
+
+msgid "Archives"
+msgstr "归档"
+
+msgid "Are you sure you want to detach the service ?"
+msgstr "你确定分离这个服务？"
+
+msgid "Area color"
+msgstr "区域颜色"
+
+msgid "Args"
+msgstr "参数"
+
+msgid "Argument"
+msgstr "参数"
+
+msgid "Argument Descriptions"
+msgstr "参数描述"
+
+msgid "Argument Example"
+msgstr "参数举例"
+
+msgid "Arguments"
+msgstr "参数"
+
+msgid "Arrow color"
+msgstr "箭头颜色"
+
+msgid "Ascending"
+msgstr "升序"
+
+msgid "Authentication Source"
+msgstr "验证来源"
+
+msgid "Authentication Usage"
+msgstr "使用验证"
+
+msgid "Authentication debug"
+msgstr "认证 debug"
+
+msgid "Authentification properties"
+msgstr "认证属性"
+
+msgid "Author"
+msgstr "录入者"
+
+msgid "Auto Rescheduling"
+msgstr "自动重调度"
+
+msgid "Auto-Rescheduling Interval"
+msgstr "自动重调度时间间隔"
+
+msgid "Auto-Rescheduling Option"
+msgstr "自动重调度选项"
+
+msgid "Auto-Rescheduling Window"
+msgstr "自动重新调度窗口"
+
+msgid "Automatic State Retention Update Interval"
+msgstr "状态保存自动更新间隔"
+
+msgid "Availability: %s%%"
+msgstr "可用性: %s%%"
+
+msgid "Available"
+msgstr "可用"
+
+msgid "Average"
+msgstr "平均"
+
+msgid "Axis Properties"
+msgstr "坐标轴"
+
+msgid "Back"
+msgstr "后退"
+
+msgid "Background color"
+msgstr "背景颜色"
+
+msgid "Base"
+msgstr "Base"
+
+msgid "Base release"
+msgstr "基础发行版"
+
+msgid "Basic Settings"
+msgstr "基本设置"
+
+msgid "Basic information"
+msgstr "基本信息"
+
+msgid ""
+"Be careful: the interval lenght is different between your Nagios pollers! This "
+"can lead to difficulties in configuring your services."
+msgstr "小心:检测间隔小于nagios的轮询间隔,肯能会导致服务检测问题."
+
+msgid "Before"
+msgstr "前"
+
+msgid "Begin date"
+msgstr "开始时间"
+
+msgid "Bin"
+msgstr "Bin"
+
+msgid "Bin Deletion"
+msgstr "Bin Deletion"
+
+msgid "Bottom color"
+msgstr "底部颜色"
+
+msgid "Broker Module"
+msgstr "中间商模块"
+
+msgid "Broker Module Options"
+msgstr "中间商模块选项"
+
+msgid "Buffer File"
+msgstr "缓冲区文件"
+
+msgid "Buffer Usage"
+msgstr "Buffer Usage"
+
+msgid "Buffer size of the interface"
+msgstr "端口的缓冲区大小"
+
+msgid "Bug Tracker"
+msgstr "Bug 跟踪"
+
+msgid "By Host"
+msgstr "按主机"
+
+msgid "By Host Group"
+msgstr "按主机组"
+
+msgid "By Service Group"
+msgstr "按服务组"
+
+msgid "By Status"
+msgstr "按状态"
+
+msgid "CGI File Name"
+msgstr "CGI文件名"
+
+msgid "CGI Refresh Rate"
+msgstr "CGI刷新速率"
+
+msgid "CRITICAL"
+msgstr "重大错误"
+
+msgid "CRITICAL Alerts"
+msgstr "重大错误警报"
+
+msgid "CRITICAL Mean Time"
+msgstr "CRITICAL Mean Time"
+
+msgid "CRITICAL Time"
+msgstr "重大错误时间"
+
+msgid "CSS"
+msgstr "CSS"
+
+msgid "CSS File"
+msgstr "CSS文件"
+
+msgid "CSS configuration"
+msgstr "CSS配置"
+
+msgid "Cached Check"
+msgstr "缓存检测"
+
+msgid "Cached Host Check"
+msgstr "缓存主机检测"
+
+msgid "Cached Service Check"
+msgstr "缓存服务检测"
+
+msgid "Calculation Type"
+msgstr "计算类型"
+
+msgid "Can't access to needed file"
+msgstr "无权限访问所需的文件"
+
+msgid "Can't execute binary"
+msgstr "不能执行二进制文件"
+
+msgid "Can't get file'"
+msgstr "不能获得文件"
+
+msgid "Can't get list of files."
+msgstr "不能获得文件列表。"
+
+msgid "Can't open configuration file : /etc/oreon.conf"
+msgstr "不能打开配置文件: /etc/oreon.conf"
+
+msgid "Can't open patch"
+msgstr "不能打开补丁"
+
+msgid "Can't read in directory"
+msgstr "不能访问该目录"
+
+msgid "Can't write in directory"
+msgstr "此目录无法写入"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Cannot get last version"
+msgstr "不能获得最新版本"
+
+msgid "Categories"
+msgstr "类别"
+
+msgid "Category Name"
+msgstr "类别名称"
+
+msgid "Censtorage Core Options"
+msgstr "Censtorage核心配置选项"
+
+msgid "CentStorage"
+msgstr "CentStorage"
+
+msgid "Centreon"
+msgstr "Centreon"
+
+msgid "Centreon Authentication"
+msgstr "Centreon验证"
+
+msgid "Centreon Autologin URL"
+msgstr "Centreon自动登录URL"
+
+msgid "Centreon Web Directory"
+msgstr "网站目录"
+
+msgid "Centreon information"
+msgstr "网站信息"
+
+msgid "Centreon is updated."
+msgstr "Centreon已更新"
+
+msgid "Centstorage Configuration"
+msgstr "Centstorage 配置"
+
+msgid "Change my settings"
+msgstr "修改设置"
+
+msgid "Change update options"
+msgstr "修改更新设置"
+
+msgid "Check"
+msgstr "检查"
+
+msgid "Check Beta"
+msgstr "检查Beta"
+
+msgid "Check Command"
+msgstr "检测命令"
+
+msgid "Check Duration"
+msgstr "检查时间"
+
+msgid "Check Execution Time"
+msgstr "检查执行时间"
+
+msgid "Check Freshness"
+msgstr "刷新检测"
+
+msgid "Check Latency"
+msgstr "检查延迟"
+
+msgid "Check Options"
+msgstr "检测选项"
+
+msgid "Check Period"
+msgstr "检查周期"
+
+msgid "Check Release candidate"
+msgstr "检查候选发布版"
+
+msgid "Check Result Reaper Frequency"
+msgstr "Check Result Reaper Frequency"
+
+msgid "Check Version"
+msgstr "检查版本"
+
+msgid "Check command"
+msgstr "检查命令"
+
+msgid "Check information"
+msgstr "检测信息"
+
+msgid "Check output"
+msgstr "检测输出"
+
+msgid "Check patches"
+msgstr "检查更新补丁"
+
+msgid "Check result"
+msgstr "检测结果"
+
+msgid "Check result directory"
+msgstr "检测结果目录"
+
+msgid "Check secu-patches"
+msgstr "检查安全补丁更新"
+
+msgid "Check stable versions"
+msgstr "检查稳定版本"
+
+msgid "Checks"
+msgstr "检查"
+
+msgid "Checks Enabled"
+msgstr "检查程序启用"
+
+msgid "Checks for this service"
+msgstr "对该服务进行检查"
+
+msgid "Child Hosts"
+msgstr "子主机"
+
+msgid "Child processes fork twice"
+msgstr "子进程运行两次"
+
+msgid "Choose a host, then its associated service."
+msgstr "选择一个主机，使之与服务关联"
+
+msgid "Choose the source"
+msgstr "选择源"
+
+msgid "Choose the source to graph"
+msgstr "选择一个资源到图表"
+
+msgid "Circular Definition"
+msgstr "循环定义"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Cmd"
+msgstr "命令"
+
+msgid "Color for host Down (Service view)"
+msgstr "宕机颜色(服务视图)"
+
+msgid "Color for host Unreachable (Service view)"
+msgstr "主机不可达颜色(服务视图)"
+
+msgid "Colors"
+msgstr "颜色"
+
+msgid "Command"
+msgstr "命令"
+
+msgid "Command Line"
+msgstr "命令行"
+
+msgid "Command Name"
+msgstr "命令名"
+
+msgid "Command Options"
+msgstr "命令参数"
+
+msgid "Command Type"
+msgstr "命令类型"
+
+msgid "Command execution problem"
+msgstr "命令执行问题"
+
+msgid "Command history retention"
+msgstr "命令历史记录保留"
+
+msgid "Command sent"
+msgstr "发送命令"
+
+msgid "Commands"
+msgstr "命令"
+
+msgid "Commands definitions can contain Macros but they have to be valid."
+msgstr "命令定义可以包含宏指令，但他们必须是有效的"
+
+msgid "Commands in buffer"
+msgstr "缓冲区的命令数"
+
+msgid "Comment"
+msgstr "备注"
+
+msgid "Comment is required"
+msgstr "评论"
+
+msgid "Comments"
+msgstr "备注"
+
+msgid "Compulsory Address"
+msgstr "强制地址"
+
+msgid "Compulsory Alias"
+msgstr "Compulsory 别名"
+
+msgid "Compulsory Command"
+msgstr "强制命令"
+
+msgid "Compulsory Command Line"
+msgstr "强制命令行"
+
+msgid "Compulsory Contact"
+msgstr "强制联系"
+
+msgid "Compulsory Contact Group"
+msgstr "强制联络组"
+
+msgid "Compulsory Description"
+msgstr "强制描述"
+
+msgid "Compulsory Field"
+msgstr "强制域"
+
+msgid "Compulsory Groups"
+msgstr "强制组"
+
+msgid "Compulsory Name"
+msgstr "强制名字"
+
+msgid "Compulsory Option"
+msgstr "强制选项"
+
+msgid "Compulsory Period"
+msgstr "强制时间段"
+
+msgid "Compulsory alias"
+msgstr "强制别名"
+
+msgid "Compulsory image name"
+msgstr "强制图片名称"
+
+msgid "Compulsory name"
+msgstr "强制命名"
+
+msgid "Config information"
+msgstr "配置信息"
+
+msgid "Configuration"
+msgstr "配置"
+
+msgid "Configuration Information Access"
+msgstr "配置信息访问"
+
+msgid "Configuration Name"
+msgstr "配置文件名"
+
+msgid "Configure host"
+msgstr "主机配置"
+
+msgid "Configure host %s"
+msgstr "配置该主机 %s"
+
+msgid "Configure service"
+msgstr "服务配置"
+
+msgid "Confirm Password"
+msgstr "确认密码"
+
+msgid "Confirm password"
+msgstr "确认密码"
+
+msgid "Connected"
+msgstr "已连接"
+
+msgid "Connected users"
+msgstr "已连接用户"
+
+msgid "Connection Error to NDO DataBase ! \n"
+msgstr "连接NDO 数据库失败! \n"
+
+msgid "Connection failed, please contact your administrator"
+msgstr "连接失败，请与管理员联系"
+
+msgid "Contact"
+msgstr "联系"
+
+msgid "Contact Group Name"
+msgstr "联系人组名称"
+
+msgid "Contact Groups"
+msgstr "联系人组"
+
+msgid "Contact Name"
+msgstr "联系人"
+
+msgid "Contact already exists"
+msgstr "联系人已存在"
+
+msgid "Contacts"
+msgstr "联系人"
+
+msgid "Contacts / Users"
+msgstr "联系人/用户"
+
+msgid "Contributors"
+msgstr "贡献者"
+
+msgid "Convert Trap information for Nagios"
+msgstr "Nagios的转换陷井信息"
+
+msgid "Could not create file"
+msgstr "不能创建文件"
+
+msgid "Could not find macro "
+msgstr "无法找到macro"
+
+msgid "Could not write in file"
+msgstr "文件不能写入"
+
+msgid "Create"
+msgstr "创建"
+
+msgid "Create New Directory"
+msgstr "创建新目录"
+
+msgid "Create Services linked to the Template too"
+msgstr "创建与模板关联的服务"
+
+msgid "Critical"
+msgstr "错误"
+
+msgid "Critical Alert"
+msgstr "重大错误警报"
+
+msgid "Critical Level"
+msgstr "重大错误级别"
+
+msgid "Critical Mean Time"
+msgstr "Critical Mean Time"
+
+msgid "Current Activation"
+msgstr "当前活动检测"
+
+msgid "Current Attempt"
+msgstr "当前尝试"
+
+msgid "Current Notification Number"
+msgstr "当前通知编号"
+
+msgid "Current State Duration"
+msgstr "当前状态的持续时间"
+
+msgid "Currently running?"
+msgstr "当前是否运行?"
+
+msgid "Curves"
+msgstr "曲线"
+
+msgid "Custom Views"
+msgstr "自定义视图"
+
+msgid "Custom macros"
+msgstr "自定义宏"
+
+msgid "DEF Type"
+msgstr "DEF 类型"
+
+msgid "DOWN"
+msgstr "宕机"
+
+msgid "Daily"
+msgstr "天"
+
+msgid "Dashboard"
+msgstr "控制面板"
+
+msgid "Data"
+msgstr "数据"
+
+msgid "Data Count"
+msgstr "数据统计"
+
+msgid "Data Processing"
+msgstr "数据处理"
+
+msgid "Data Source Choice"
+msgstr "数据源选择"
+
+msgid "Data Source List"
+msgstr "数据源列表"
+
+msgid "Data Source Name"
+msgstr "数据源名称"
+
+msgid "Data Sources"
+msgstr "数据源"
+
+msgid "Data processing options"
+msgstr "数据处理选项"
+
+msgid "Data recovery KO"
+msgstr "数据恢复成功"
+
+msgid "Data recovery OK"
+msgstr "数据恢复成功"
+
+msgid "DataBase Statistics"
+msgstr "数据库状态"
+
+msgid "Database"
+msgstr "数据库"
+
+msgid "Database Disconnexions"
+msgstr "数据库未连接"
+
+msgid "Database Hoster"
+msgstr "数据库主机名"
+
+msgid "Database Information for ndo2db"
+msgstr "ndo2db的数据库信息"
+
+msgid "Database Name"
+msgstr "数据库名"
+
+msgid "Database Type"
+msgstr "数据库类型"
+
+msgid "Databases"
+msgstr "数据库"
+
+msgid "Date"
+msgstr "时间"
+
+msgid "Date Format"
+msgstr "日期格式"
+
+msgid "Day"
+msgstr "日期"
+
+msgid "Days"
+msgstr "天数"
+
+msgid "Debug"
+msgstr "调试"
+
+msgid "Debug Configuration"
+msgstr "调试配置"
+
+msgid "Debug Level"
+msgstr "调试级别"
+
+msgid "Debug Properties"
+msgstr "调试属性"
+
+msgid "Debug Verbosity"
+msgstr "调试信息"
+
+msgid "Debug file (Directory + File)"
+msgstr "调试文件(目录+文件)"
+
+msgid "Debug file Maximum Size"
+msgstr "调试文件最大容量"
+
+msgid "Default"
+msgstr "默认"
+
+msgid "Default Centreon Graph Template"
+msgstr "默认Centreon Graph 模板"
+
+msgid "Default LDAP filter"
+msgstr "默认LDAP过滤"
+
+msgid "Default Language"
+msgstr "默认语言"
+
+msgid "Default Status"
+msgstr "默认状态"
+
+msgid "Default Statusmap Layout Method"
+msgstr "默认Statusmap 布局方法"
+
+msgid "Default Statuswrl Layout Method"
+msgstr "默认Statuswrl布局方法"
+
+msgid "Default User Name"
+msgstr "默认用户名"
+
+msgid "Default timezone"
+msgstr "默认时区"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Delete Problem Acknowledgement"
+msgstr "删除已确认问题"
+
+msgid "Delete all configuration for the chosen type of files"
+msgstr "删除所选择的配置文件类型"
+
+msgid "Delete this broker module"
+msgstr "删除此中间商模块"
+
+msgid "Dependencies Management"
+msgstr "依赖管理"
+
+msgid "Dependent Host Groups Name"
+msgstr "相关的主机组名称"
+
+msgid "Dependent Host Names"
+msgstr "依赖主机名"
+
+msgid "Dependent Meta Service Names"
+msgstr "依赖元服务名"
+
+msgid "Dependent Service Group Names"
+msgstr "独立服务组名称"
+
+msgid "Dependent Services"
+msgstr "相关的服务"
+
+msgid "Descending"
+msgstr "降序"
+
+msgid "Describe arguments"
+msgstr "参数描述"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "Destination directory"
+msgstr "目标目录"
+
+msgid "Detach"
+msgstr "分离"
+
+msgid "Detach host group services"
+msgstr "拆分主机组的服务"
+
+msgid "Detailed Graph"
+msgstr "详细的图"
+
+msgid "Details"
+msgstr "详细"
+
+msgid "Developers"
+msgstr "开发者"
+
+msgid "Directories"
+msgstr "目录"
+
+msgid "Directory"
+msgstr "目录"
+
+msgid "Directory + Mailer Binary"
+msgstr "Directory + Mailer Binary"
+
+msgid "Directory + RRDTOOL Binary"
+msgstr "目录+RRDTool Binary"
+
+msgid "Directory name"
+msgstr "目录名"
+
+msgid "Directory of traps configuration files"
+msgstr "陷井配置文件目录"
+
+msgid "Disable"
+msgstr "关闭"
+
+msgid "Disable Active Checks"
+msgstr "关闭主动检测"
+
+msgid "Disable Event Handler"
+msgstr "关闭事件处理"
+
+msgid "Disable Flap Detection"
+msgstr "关闭抖动检测"
+
+msgid "Disable Host Notifications"
+msgstr "关闭主机的通知"
+
+msgid "Disable Obsess Over Host"
+msgstr "Disable Obsess Over Host"
+
+msgid "Disable Obsess Over Service"
+msgstr "Disable Obsess Over Service"
+
+msgid "Disable Passive Checks"
+msgstr "关闭被动检测"
+
+msgid "Disable Service Notifications"
+msgstr "关闭该服务的通知"
+
+msgid "Disable all service checks on this host"
+msgstr "关闭该主机的所有服务的检查"
+
+msgid "Disable all service notifications on this host"
+msgstr "关闭该主机所有服务的通知"
+
+msgid "Disable event handlers"
+msgstr "关闭事件处理"
+
+msgid "Disable flap detection"
+msgstr "关闭抖动检测"
+
+msgid "Disable notifications"
+msgstr "关闭通知"
+
+msgid "Disable performance data"
+msgstr "关闭性能数据收集"
+
+msgid "Disabled"
+msgstr "关闭"
+
+msgid "Disabled HostGroups"
+msgstr "禁用主机组"
+
+msgid "Disabled Hosts"
+msgstr "禁用主机"
+
+msgid "Discovery"
+msgstr "识别"
+
+msgid "Display Autologin shortcut"
+msgstr "显示自动登陆快捷键"
+
+msgid "Display Options"
+msgstr "显示选项"
+
+msgid "Display Poller Listing"
+msgstr "显示轮询器列表"
+
+msgid "Display Status"
+msgstr "显示状态"
+
+msgid "Display Template"
+msgstr "显示模板"
+
+msgid "Display Top Counter"
+msgstr "显示顶部菜单"
+
+msgid "Display Top Counter pollers statistics"
+msgstr "显示顶部轮询器状态"
+
+msgid "Do you confirm  the duplication ?"
+msgstr "你确认要复制？"
+
+msgid "Do you confirm the deletion ?"
+msgstr "您是否确认删除?"
+
+msgid "Do you confirm the duplication ?"
+msgstr "你确认重复吗 ?"
+
+msgid "Do you confirm this deletion?"
+msgstr "你确认此删除?"
+
+msgid "Do you really wish to remove this entry?"
+msgstr "你真的希望移除该条目？"
+
+msgid "Documentation"
+msgstr "文档"
+
+msgid "Donate"
+msgstr "捐赠"
+
+msgid "Down"
+msgstr "宕机"
+
+msgid "Down Alert"
+msgstr "宕机警报"
+
+msgid "Down Alerts"
+msgstr "宕机警告"
+
+msgid "Down Mean Time"
+msgstr "Down Mean Time"
+
+msgid "Down Time"
+msgstr "宕机时间"
+
+msgid "Downtime"
+msgstr "宕机时间"
+
+msgid "Downtime Scheduled"
+msgstr "计划宕机时间"
+
+msgid "Downtime host or service Color"
+msgstr "主机或服务宕机时间颜色"
+
+msgid "Downtime set by %s"
+msgstr "停机时间设置 %s"
+
+msgid "Downtimes"
+msgstr "宕机时间"
+
+msgid "Drop Data in another file"
+msgstr "删除另一个文件中的数据"
+
+msgid "Drop file"
+msgstr "删除文件"
+
+msgid "Drop possibility after parsing performance data"
+msgstr "Drop possibility after parsing performance data"
+
+msgid "Duplicate"
+msgstr "重复"
+
+msgid "Duration"
+msgstr "时间"
+
+msgid "ERROR"
+msgstr "错误"
+
+msgid "Email"
+msgstr "邮箱"
+
+msgid "Embedded Perl initialisation file"
+msgstr "嵌入式Perl的初始化文件"
+
+msgid "Empty all Service Data"
+msgstr "清空所有服务的数据"
+
+msgid "Empty directory"
+msgstr "空目录"
+
+msgid "Enable"
+msgstr "开启"
+
+msgid "Enable Active Checks"
+msgstr "启用主动检测"
+
+msgid "Enable Autologin"
+msgstr "启用自动登陆"
+
+msgid "Enable Event Handler"
+msgstr "启用事件处理"
+
+msgid "Enable Flap Detection"
+msgstr "启用抖动检测"
+
+msgid "Enable Host Notifications"
+msgstr "启用主机的通知"
+
+msgid "Enable LDAP authentification"
+msgstr "启用LDAP认证"
+
+msgid "Enable LDAP over SSL"
+msgstr "启用SSL LDAP"
+
+msgid "Enable Obsess Over Host"
+msgstr "Enable Obsess Over Host"
+
+msgid "Enable Obsess Over Service"
+msgstr "Enable Obsess Over Service"
+
+msgid "Enable Passive Checks"
+msgstr "启用被动检测"
+
+msgid "Enable Service Notifications"
+msgstr "启用服务通知"
+
+msgid "Enable Timezone management"
+msgstr "启用时区管理"
+
+msgid "Enable all service checks on this host"
+msgstr "启用该主机的所有服务的检查"
+
+msgid "Enable all service notifications on this host"
+msgstr "启用该主机所有服务的通知"
+
+msgid "Enable embedded Perl"
+msgstr "启用嵌入式Perl"
+
+msgid "Enable environment macros"
+msgstr "启用宏环境"
+
+msgid "Enable event handlers"
+msgstr "开启事件处理"
+
+msgid "Enable flap detection"
+msgstr "开启抖动检测"
+
+msgid "Enable notifications"
+msgstr "启用通知"
+
+msgid "Enable performance data"
+msgstr "开启性能数据收集"
+
+msgid "Enable/Disable Checks for a host"
+msgstr "启用/禁用主机检查"
+
+msgid "Enable/Disable Checks for a service"
+msgstr "启用/禁用服务检查程序"
+
+msgid "Enable/Disable Checks services of a host"
+msgstr "启用/禁用主机服务检查"
+
+msgid "Enable/Disable Event Handler for a host"
+msgstr "启用/禁用主机事件处理程序"
+
+msgid "Enable/Disable Event Handler for a service"
+msgstr "启用/禁用服务事务处理程序"
+
+msgid "Enable/Disable Event Handlers"
+msgstr "启用/禁用事件处理程序"
+
+msgid "Enable/Disable Flap Detection"
+msgstr "启用/禁用 Flap检测"
+
+msgid "Enable/Disable Flap Detection for a host"
+msgstr "启用/禁用主机Flap检测"
+
+msgid "Enable/Disable Flap Detection of a service"
+msgstr "启用/禁用服务Flap检测"
+
+msgid "Enable/Disable Notifications for a host"
+msgstr "启用/禁用主机通知"
+
+msgid "Enable/Disable Notifications for a service"
+msgstr "启用/禁用服务通知"
+
+msgid "Enable/Disable Notifications services of a host"
+msgstr "启用/禁用主机服务通知"
+
+msgid "Enable/Disable Obsessive host checks"
+msgstr "启用/禁用强迫主机检查"
+
+msgid "Enable/Disable Obsessive service checks"
+msgstr "启用/禁用强制服务检查"
+
+msgid "Enable/Disable Performance Data"
+msgstr "启用/禁用 性能数据"
+
+msgid "Enable/Disable host checks"
+msgstr "启用/禁用主机检查程序"
+
+msgid "Enable/Disable notifications"
+msgstr "启用/禁用通知"
+
+msgid "Enable/Disable passive checks of a service"
+msgstr "启用/禁用服务被动检查"
+
+msgid "Enable/Disable passive host checks"
+msgstr "启用/禁用被动主机检查"
+
+msgid "Enable/Disable passive service checks"
+msgstr "启用/禁用被动服务检查程序"
+
+msgid "Enable/Disable service checks"
+msgstr "启用/禁用服务检查程序"
+
+msgid "Enabled"
+msgstr "启用"
+
+msgid "Enabled HostGroups"
+msgstr "启用主机组"
+
+msgid "Enabled Hosts"
+msgstr "启用主机"
+
+msgid "End Hour"
+msgstr "结束小时"
+
+msgid "End Minute"
+msgstr "结束分钟"
+
+msgid "End Time"
+msgstr "结束时间"
+
+msgid "End date"
+msgstr "结束时间"
+
+msgid "Engine Directories"
+msgstr "引擎目录"
+
+msgid "Entries are registered"
+msgstr "项目注册"
+
+msgid "Entry Time"
+msgstr "录入时间"
+
+msgid "Error in hour definition"
+msgstr "时间定义错误"
+
+msgid "Error when installing patch : %s."
+msgstr "安装补丁时报错: %s."
+
+msgid "Errors"
+msgstr "错误"
+
+msgid "Escalation Name"
+msgstr "升级名称"
+
+msgid "Escalation Period"
+msgstr "升级时间段"
+
+msgid "Escalations"
+msgstr "升级"
+
+msgid "Escalations View"
+msgstr "升级预览"
+
+msgid "Event"
+msgstr "事件"
+
+msgid "Event Handler"
+msgstr "事件处理"
+
+msgid "Event Handler Enabled"
+msgstr "事件处理已启用"
+
+msgid "Event Handler Logging Option"
+msgstr "事件处理日志记录选项"
+
+msgid "Event Handler Option"
+msgstr "事件处理参数"
+
+msgid "Event Handler Timeout"
+msgstr "事件处理超时"
+
+msgid "Event Handlers Enabled?"
+msgstr "事件处理是否启用?"
+
+msgid "Event Logs"
+msgstr "事件日志"
+
+msgid "Event broker information"
+msgstr "事件代理信息"
+
+msgid "Event history retention"
+msgstr "事件历史记录保留"
+
+msgid "Event retention"
+msgstr "事件记录保留"
+
+msgid "Example"
+msgstr "实例"
+
+msgid "Exclude Timeperiods"
+msgstr "排除的时间段"
+
+msgid "Exclude hosts from selected host groups"
+msgstr "从选定的主机组排除主机"
+
+msgid "Execute special command"
+msgstr "执行特殊命令"
+
+msgid "Execution Failure Criteria"
+msgstr "执行失败的标准"
+
+msgid "Execution Time"
+msgstr "执行时间"
+
+msgid "Execution end"
+msgstr "执行结束"
+
+msgid "Execution start"
+msgstr "开始执行"
+
+msgid "Existing or new directory"
+msgstr "现有的或新目录"
+
+msgid "Export"
+msgstr "导出"
+
+msgid "Export Options"
+msgstr "导出选项"
+
+msgid "Export configuration files"
+msgstr "导出配置文件"
+
+msgid "Export in CSV format"
+msgstr "以CSV形式导出"
+
+msgid "{t}Export CSV{/t}"
+msgstr "导出为CSV"
+
+msgid "Export in XML too"
+msgstr "导出为XML"
+
+msgid "{t}Export XML{/t}"
+msgstr "导出为XML"
+
+msgid "Extended Information"
+msgstr "扩展信息"
+
+msgid "Extended Settings"
+msgstr "扩展设置"
+
+msgid "External Command"
+msgstr "执行命令"
+
+msgid "External Command Buffer Slots"
+msgstr "外部命令缓冲个数"
+
+msgid "External Command Check Interval"
+msgstr "外部命令检查间隔"
+
+msgid "External Command Check Option"
+msgstr "外部命令检测参数"
+
+msgid "External Command File"
+msgstr "外部命令文件"
+
+msgid "External Command Logging Option"
+msgstr "外部命令执行记录参数"
+
+msgid "External Commands"
+msgstr "外部命令"
+
+msgid "Failed to execute command"
+msgstr "执行命令失败"
+
+msgid "Field Name"
+msgstr "字段名"
+
+msgid "Field Value"
+msgstr "字段值"
+
+msgid "File (.mib)"
+msgstr "文件(.mib)"
+
+msgid "File (zip, tar or cfg)"
+msgstr "文件类型(zip,tar or cfg"
+
+msgid "File Type"
+msgstr "文件类型"
+
+msgid "File loading KO"
+msgstr "文件载入成功"
+
+msgid "File loading OK"
+msgstr "文件载入成功"
+
+msgid "Files"
+msgstr "文件"
+
+msgid "Filling"
+msgstr "填充"
+
+msgid "Filter Examples"
+msgstr "过滤实例"
+
+msgid "Final release"
+msgstr "最终发行版"
+
+msgid "First Notification"
+msgstr "首次通知"
+
+msgid "First Refresh delay for monitoring"
+msgstr "监控的首次刷新延迟"
+
+msgid "First Refresh delay for statistics"
+msgstr "状态的首次刷新延迟"
+
+msgid "First notification delay"
+msgstr "首次通知延迟"
+
+msgid "First page"
+msgstr "首页"
+
+msgid "Fixed"
+msgstr "固定"
+
+msgid "Flap Detection"
+msgstr "抖动检测"
+
+msgid "Flap Detection Enabled"
+msgstr "允许Flap检测"
+
+msgid "Flap Detection Option"
+msgstr "Flap 检测选项"
+
+msgid "Flap detection enabled?"
+msgstr "是否启用抖动检测?"
+
+msgid "Flapping"
+msgstr "抖动"
+
+msgid "Flapping Options"
+msgstr "抖动选项"
+
+msgid "Flapping options"
+msgstr "抖动选项"
+
+msgid "Folders"
+msgstr "文件夹"
+
+msgid "Font"
+msgstr "字体"
+
+msgid "Font size"
+msgstr "字体大小"
+
+msgid ""
+"For archive upload, be sure that the first line of each file has no importance "
+"because it is not handled.<br />Avoid to begin with a definition."
+msgstr ""
+"存档上传,确保每个文件的第一行并不重要,因为它不处理.<br />避免一开始就有一个定义."
+
+msgid "Force active check"
+msgstr "活跃检查"
+
+msgid "Force active checks"
+msgstr "强制主动检测"
+
+msgid "Form"
+msgstr "Form"
+
+msgid "Forum"
+msgstr "论坛"
+
+msgid "Free child process memory"
+msgstr "自由子进程的内存"
+
+msgid "Freshness"
+msgstr "刷新"
+
+msgid "Freshness Control options"
+msgstr "刷新率配置"
+
+msgid "Freshness Threshold"
+msgstr "阙值"
+
+msgid "Friday"
+msgstr "星期五"
+
+msgid "From"
+msgstr "从"
+
+msgid "Full Name"
+msgstr "全名"
+
+msgid "Function"
+msgstr "功能"
+
+msgid "Function enter/exit information"
+msgstr "函数 入口/出口信息"
+
+msgid "GMT is activated on your system. Exceptions will not be generated."
+msgstr "系统GMT已激活，不会产生异常"
+
+msgid "General"
+msgstr "基本"
+
+msgid "General Information"
+msgstr "基本信息"
+
+msgid "General Options"
+msgstr "基本选项"
+
+msgid "Generate"
+msgstr "生成"
+
+msgid "Generate Configuration Files"
+msgstr "生成配置文件"
+
+msgid "Generate Files"
+msgstr "生成文件"
+
+msgid "Generate configuration files for SNMP Traps"
+msgstr "生成SNMP 陷阱配置文件"
+
+msgid "Global Community"
+msgstr "全球社区"
+
+msgid "Global Fonctionnalities Access"
+msgstr "Global Fonctionnalities Access"
+
+msgid "Global Health"
+msgstr "整体状态绘图"
+
+msgid "Global Host Command Access"
+msgstr "全局主机命令访问"
+
+msgid "Global Host Event Handler"
+msgstr "全局主机事件处理"
+
+msgid "Global Host Information Access"
+msgstr "全局主机信息访问"
+
+msgid "Global Nagios Actions (External Process Commands)"
+msgstr "Nagios全局动作(外部处理命令)"
+
+msgid "Global Service Command Access"
+msgstr "全局服务命令访问"
+
+msgid "Global Service Event Handler"
+msgstr "全局服务事件处理"
+
+msgid "Global Service Information Access"
+msgstr "全局服务信息访问"
+
+msgid "Go"
+msgstr "转到"
+
+msgid "Graph"
+msgstr "图表"
+
+msgid "Graph Choice"
+msgstr "图表选择"
+
+msgid "Graph List"
+msgstr "图表列表"
+
+msgid "Graph Period"
+msgstr "图形时间周期"
+
+msgid "Graph Template"
+msgstr "图形模板"
+
+msgid "Graph template"
+msgstr "图形模板"
+
+msgid "Graphs"
+msgstr "图表"
+
+msgid "Grid background color"
+msgstr "网络背景色"
+
+msgid "Group Name"
+msgstr "组名"
+
+msgid "Group"
+msgstr "组"
+
+msgid "Group ndo2db"
+msgstr "ndo2db组"
+
+msgid "H:i:s"
+msgstr "H:i:s"
+
+msgid "HARD"
+msgstr "硬态"
+
+msgid "Hard Only"
+msgstr "只有硬态"
+
+msgid "Hard State Duration"
+msgstr "硬状态的持续时间"
+
+msgid "Height"
+msgstr "高度"
+
+msgid "Help"
+msgstr "帮助"
+
+msgid "Here is a self explanatory image."
+msgstr "这是一个自我说明图形"
+
+msgid "Hidden"
+msgstr "隐藏"
+
+msgid "Hidden Graph And Legend"
+msgstr "隐藏图表和说明"
+
+msgid "Hide Footer"
+msgstr "隐藏页脚"
+
+msgid "Hide graphs of selected Services"
+msgstr "隐藏选中服务的图形"
+
+msgid "High Flap Threshold"
+msgstr "Flap阀值高限"
+
+msgid "High Host Flap Threshold"
+msgstr "Host Flap阀值高限"
+
+msgid "High Service Flap Threshold"
+msgstr "Service Flap阀值高限"
+
+msgid "Highly detailed information"
+msgstr "非常详细的信息"
+
+msgid "History Options"
+msgstr "历史选项"
+
+msgid "Home"
+msgstr "首页"
+
+msgid "Host"
+msgstr "主机"
+
+msgid "Host / Service Data Source"
+msgstr "主机/服务 数据源"
+
+msgid "Host Categories Access"
+msgstr "主机类别访问"
+
+msgid "Host Category Name"
+msgstr "主机类别名"
+
+msgid "Host category"
+msgstr "主机类别名"
+
+msgid "Host Categories"
+msgstr "主机类别"
+
+msgid "Host Informations"
+msgstr "主机信息"
+
+msgid "Host Check Execution Option"
+msgstr "主机检测参数"
+
+msgid "Host Check Execution Time"
+msgstr "主机检查执行时间"
+
+msgid "Host Check Options"
+msgstr "主机检测选项"
+
+msgid "Host Check Properties"
+msgstr "主机检查属性"
+
+msgid "Host Check Scheduling Options"
+msgstr "主机检测调度选项"
+
+msgid "Host Check Timeout"
+msgstr "主机检测超时"
+
+msgid "Host Checks Being Executed?"
+msgstr "主机检查被执行？"
+
+msgid "Host Commands"
+msgstr "主机命令"
+
+msgid "Host Configuration"
+msgstr "主机配置"
+
+msgid "Host DOWN Color"
+msgstr "主机宕机颜色"
+
+msgid "Host Definition Deletion"
+msgstr "主机定义删除"
+
+msgid "Host Down Sound"
+msgstr "主机宕机报警声音"
+
+msgid "Host Extended Infos"
+msgstr "主机扩展信息"
+
+msgid "Host Freshness Check Interval"
+msgstr "主机刷新检测间隔"
+
+msgid "Host Freshness Check Option"
+msgstr "主机刷新检测选项"
+
+msgid "Host Group"
+msgstr "主机组"
+
+msgid "Host Group Name"
+msgstr "主机组名称"
+
+msgid "Host Groups"
+msgstr "主机组"
+
+msgid "Host Groups Name"
+msgstr "主机组名称"
+
+msgid "Host Information"
+msgstr "主机信息"
+
+msgid "Host Inter-Check Delay Method"
+msgstr "主机检测延迟"
+
+msgid "Host Name"
+msgstr "主机名"
+
+msgid "Host Name Search Key"
+msgstr "主机名搜索关键字"
+
+msgid "Host Names"
+msgstr "主机名称"
+
+msgid "Host Notification Commands"
+msgstr "主机通知命令"
+
+msgid "Host Notification Options"
+msgstr "主机通知选项"
+
+msgid "Host Notification Period"
+msgstr "主机通知时间段"
+
+msgid "Host Parallel Templates"
+msgstr "主机并行模板"
+
+msgid "Host Performance Data File"
+msgstr "主机性能数据文件"
+
+msgid "Host Performance Data File Mode"
+msgstr "主机性能数据文件模式"
+
+msgid "Host Performance Data File Processing Command"
+msgstr "主机性能数据文件处理命令"
+
+msgid "Host Performance Data File Processing Interval"
+msgstr "主机性能数据文件处理时间间隔"
+
+msgid "Host Performance Data File Template"
+msgstr "主机性能数据文件模板"
+
+msgid "Host Performance Data Processing Command"
+msgstr "主机性能数据处理命令"
+
+msgid "Host Problems"
+msgstr "主机问题"
+
+msgid "Host Retry Logging Option"
+msgstr "主机检查重试记录选项"
+
+msgid "Host Service Descriptions"
+msgstr "主机服务描述"
+
+msgid "Host Shortcuts"
+msgstr "主机快捷方式"
+
+msgid "Host Status"
+msgstr "主机状态"
+
+msgid "Host Template"
+msgstr "主机模板"
+
+msgid "Host template"
+msgstr "主机模板"
+
+msgid "Host Template Name"
+msgstr "主机模板名称"
+
+msgid "Host Templates"
+msgstr "主机模板"
+
+msgid "Host Templates name"
+msgstr "主机模板名称"
+
+msgid "Host UNREACHABLE Color"
+msgstr "主机不可达颜色"
+
+msgid "Host 	 Color"
+msgstr "主机运行时颜色"
+
+msgid "Host Unreachable Sound"
+msgstr "主机不可达报警声音"
+
+msgid "Host check latency"
+msgstr "主机检测延迟"
+
+msgid "Host check retention"
+msgstr "主机检查记录保留"
+
+msgid "Host name"
+msgstr "主机名"
+
+msgid "Host name is already in use"
+msgstr "主机名已使用"
+
+msgid "Host state"
+msgstr "主机状态"
+
+msgid "Host status"
+msgstr "主机状态"
+
+msgid "Host/Service"
+msgstr "主机/服务"
+
+msgid "Host/service check information"
+msgstr "主机/服务检测信息"
+
+msgid "HostGroup"
+msgstr "主机组"
+
+msgid "HostGroup or Host Required"
+msgstr "主机组或主机请求"
+
+msgid "HostGroups"
+msgstr "主机组"
+
+msgid "Hostgroup"
+msgstr "主机组"
+
+msgid "Hostgroups Escalation"
+msgstr "主机组升级"
+
+msgid "Hosts"
+msgstr "主机"
+
+msgid "Hosts : Acknowledge"
+msgstr "主机 : 已确认"
+
+msgid "Hosts : Disable Check"
+msgstr "主机: 关闭检测"
+
+msgid "Hosts : Disable Notification"
+msgstr "主机 : 关闭通知"
+
+msgid "Hosts : Disacknowledge"
+msgstr "主机 : 未确认"
+
+msgid "Hosts : Enable Check"
+msgstr "主机: 启用检测"
+
+msgid "Hosts : Enable Notification"
+msgstr "主机 : 启用通知"
+
+msgid "Hosts : Set Downtime"
+msgstr "主机: 设置停机时间"
+
+msgid "Hosts Actions Access"
+msgstr "主机操作规则配置"
+
+msgid "Hosts Actively Checked"
+msgstr "主机主动检测"
+
+msgid "Hosts Checked"
+msgstr "主机检测"
+
+msgid "Hosts Comments"
+msgstr "主机备注"
+
+msgid "Hosts Downtimes"
+msgstr "主机的停机时间"
+
+msgid "Hosts Escalation"
+msgstr "主机升级"
+
+msgid "Hosts Escalation Options"
+msgstr "主机升级选项"
+
+msgid "Hosts Group"
+msgstr "主机组"
+
+msgid "Hosts Groups Shared"
+msgstr "主机组共享"
+
+msgid "Hosts Resources"
+msgstr "主机资源"
+
+msgid "Hosts Status"
+msgstr "主机状态"
+
+msgid "Hosts group state"
+msgstr "主机组状态"
+
+msgid "Hosts status colors"
+msgstr "主机状态颜色"
+
+msgid "Hourly"
+msgstr "小时"
+
+msgid "Monitoring Engine PID"
+msgstr "监控引擎PID"
+
+msgid "IP Address"
+msgstr "IP 地址"
+
+msgid "IP Address / DNS"
+msgstr "IP地址/域名"
+
+msgid "Icon"
+msgstr "图标"
+
+msgid "Illegal Macro Output Characters"
+msgstr "非法宏输出字符"
+
+msgid "Illegal Object Name Characters"
+msgstr "非法对象名字符"
+
+msgid "Image"
+msgstr "图片"
+
+msgid "Image Name"
+msgstr "图片名"
+
+msgid "Image Type"
+msgstr "图片类型"
+
+msgid "Image or archive"
+msgstr "图片或档案"
+
+msgid "Images"
+msgstr "图片"
+
+msgid "Images Directory"
+msgstr "图片目录"
+
+msgid "Implied Contact Groups"
+msgstr "隐含的联络组"
+
+msgid "Implied Contacts"
+msgstr "隐含的联系人"
+
+msgid "Implied Host Groups"
+msgstr "隐含主机组"
+
+msgid "Implied Hosts"
+msgstr "隐含主机"
+
+msgid "Implied Meta Services"
+msgstr "隐含的元服务"
+
+msgid "Implied Resources"
+msgstr "隐式资源"
+
+msgid "Implied Server"
+msgstr "隐含服务"
+
+msgid "Implied Service Groups"
+msgstr "隐含服务组"
+
+msgid "Implied Services"
+msgstr "隐含服务"
+
+msgid "Implied page"
+msgstr "隐式页面"
+
+msgid "Import"
+msgstr "导入"
+
+msgid "Import SNMP traps from MIB file"
+msgstr "从MIB文件中导入SNMP traps"
+
+msgid "Impossible"
+msgstr "不可能"
+
+msgid "Impossible to validate, one or more field is incorrect"
+msgstr "无法验证，一个或多个字段不正解"
+
+msgid "In Scheduled Downtime?"
+msgstr "在计划停机时间"
+
+msgid "In Use"
+msgstr "正在使用"
+
+msgid ""
+"In order to complete your upgrade (%s), unzip the downloaded file, and follow the "
+"instructions in README\n"
+msgstr "为了完成您的升级(%s),请解压下载的文件，然后按照readme文件里的说明操作\n"
+
+msgid "Include Comments"
+msgstr "包含以下注释"
+
+msgid "Include Host Groups -> Hosts"
+msgstr "包含主机组-> 主机"
+
+msgid "Include Timeperiods"
+msgstr "包含的时间段"
+
+msgid "Include comments"
+msgstr "包括注释"
+
+msgid "Incremental"
+msgstr "增量"
+
+msgid ""
+"Indeed, it's the only way to make a difference between Check and Notification "
+"Commands."
+msgstr "事实上,这是唯一区别检测命令和通知的方法."
+
+msgid "Info"
+msgstr "信息"
+
+msgid "Information"
+msgstr "信息"
+
+msgid "Information command"
+msgstr "信息命令"
+
+msgid "Informations"
+msgstr "信息"
+
+msgid "Initial State Logging Option"
+msgstr "Initial 状态记录参数"
+
+msgid "Input treatment options"
+msgstr "输入解决选项"
+
+msgid "Install Module"
+msgstr "安装模块"
+
+msgid "Installed"
+msgstr "已安装"
+
+msgid "Instance Name"
+msgstr "实例名称"
+
+msgid "Inter-Check Sleep Time"
+msgstr "除睡眠时间检查"
+
+msgid "Interface Type"
+msgstr "端口类型"
+
+msgid "Invalid information entered"
+msgstr "输入的信息无效"
+
+msgid "Invert"
+msgstr "反转"
+
+msgid "Is This Host Flapping?"
+msgstr "该主机处于抖动中"
+
+msgid "Is This Service Flapping?"
+msgstr "该服务处于抖动状态中?"
+
+msgid "Is Volatile"
+msgstr "是否反复"
+
+msgid "Is running ?"
+msgstr "正在运行 ?"
+
+msgid "Is volatile"
+msgstr "是不稳定的"
+
+msgid ""
+"It is recommanded to upload all the Command definitions first by specifying their "
+"types."
+msgstr ""
+"这是推荐上传的所有命令定义首先通过指定 ""类型."
+
+msgid "Jobs"
+msgstr "任务"
+
+msgid "Kick User"
+msgstr "踢用户"
+
+msgid "LDAP"
+msgstr "LDAP认证配置"
+
+msgid "LDAP Base DN"
+msgstr "基于DN的LDAP"
+
+msgid "LDAP DN (Distinguished Name)"
+msgstr "LDAP DN (Distinguished Name)"
+
+msgid "LDAP Import"
+msgstr "LDAP导入"
+
+msgid "LDAP Login Attribute"
+msgstr "LDAP 登陆属性"
+
+msgid "LDAP Port"
+msgstr "LDAP端口"
+
+msgid "LDAP Properties"
+msgstr "LDAP 属性"
+
+msgid "LDAP Search Information"
+msgstr "LDAP搜索信息"
+
+msgid "LDAP Search Size Limit"
+msgstr "LDAP查询大小限制"
+
+msgid "LDAP Server"
+msgstr "LDAP 服务"
+
+msgid "LDAP information"
+msgstr "LDAP 信息"
+
+msgid "LDAP search timeout"
+msgstr "LDAP查询超时时间"
+
+msgid "Language"
+msgstr "语言"
+
+msgid "Last 12 Hours"
+msgstr "过去的12个小时"
+
+msgid "Last 14 Days"
+msgstr "过去14天"
+
+msgid "Last 2 Days"
+msgstr "过去2天"
+
+msgid "Last 2 Months"
+msgstr "过去2个月"
+
+msgid "Last 24 Hours"
+msgstr "过去的24小时"
+
+msgid "Last 28 Days"
+msgstr "过去28天"
+
+msgid "Last 3 Days"
+msgstr "最近3天"
+
+msgid "Last 3 Hours"
+msgstr "过去的3个小时"
+
+msgid "Last 3 hours"
+msgstr "过去的3个小时"
+
+msgid "Last 30 Days"
+msgstr "过去30天"
+
+msgid "Last 31 Days"
+msgstr "过去31天"
+
+msgid "Last 4 Days"
+msgstr "过去4天"
+
+msgid "Last 4 Months"
+msgstr "过去4个月"
+
+msgid "Last 4 days"
+msgstr "过去的4天"
+
+msgid "Last 5 Days"
+msgstr "最近5天"
+
+msgid "Last 6 Hours"
+msgstr "过去的6个小时"
+
+msgid "Last 6 Months"
+msgstr "过去6个月"
+
+msgid "Last 6 months"
+msgstr "过去的6个月"
+
+msgid "Last 7 Days"
+msgstr "过去7天"
+
+msgid "Last Check"
+msgstr "上一次检测"
+
+msgid "Last Check Type"
+msgstr "最后检查类型"
+
+msgid "Last External Command Check:"
+msgstr "最后外部命令检查:"
+
+msgid "Last Log File Rotation:"
+msgstr "上一次的LOG轮询:"
+
+msgid "Last Month"
+msgstr "上个月"
+
+msgid "Last Notification"
+msgstr "最后通知"
+
+msgid "Last Service Notification"
+msgstr "最后一个服务通知"
+
+msgid "Last State Change"
+msgstr "最后改变的状态"
+
+msgid "Last Status Change"
+msgstr "上一次的状态更新"
+
+msgid "Last Update"
+msgstr "最后更新"
+
+msgid "Last Year"
+msgstr "去年"
+
+msgid "Last check"
+msgstr "最后检查"
+
+msgid "Last critical time"
+msgstr "上一次严重错误状态的时间"
+
+msgid "Last modified"
+msgstr "最后的修改"
+
+msgid "Last month"
+msgstr "上个月"
+
+msgid "Last ok time"
+msgstr "上次的正常时间"
+
+msgid "Last page"
+msgstr "最后一页"
+
+msgid "Last request"
+msgstr "最后一次请求"
+
+msgid "Last time down"
+msgstr "上次关闭时间"
+
+msgid "Last time unreachable"
+msgstr "上次不可达时间"
+
+msgid "Last time up"
+msgstr "上次启动时间"
+
+msgid "Last unknown time"
+msgstr "上次未知状态的时间"
+
+msgid "Last warning time"
+msgstr "上次的警告状态时间"
+
+msgid "Last week"
+msgstr "上周"
+
+msgid "Last year"
+msgstr "去年"
+
+msgid "Latency"
+msgstr "延迟"
+
+msgid ""
+"Latency detected on your platform; check configuration for better optimisation"
+msgstr "延迟你的平台上检测，检查更好的优化配置"
+
+msgid "Legend"
+msgstr "说明"
+
+msgid "Legend Properties"
+msgstr "说明"
+
+msgid "Rrdcached configuration : work only with Centreon Broker"
+msgstr "RRD缓存配置:只在代理中运行"
+
+msgid "Enable RRDCached"
+msgstr "开启RRD缓存"
+
+msgid "Watermark Properties"
+msgstr "水印"
+
+msgid "Length"
+msgstr "长度"
+
+msgid "Limit per page (default)"
+msgstr "限制每个页面(默认)"
+
+msgid "Limit per page for Monitoring"
+msgstr "限制每个页面监测"
+
+msgid "Line color"
+msgstr "线条颜色"
+
+msgid "Linked Contact Groups"
+msgstr "关联至联络人组"
+
+msgid "Linked Contacts"
+msgstr "关联至联系人"
+
+msgid "Linked Groups"
+msgstr "关联至组"
+
+msgid "Linked Host Group Services"
+msgstr "关联至主机组服务"
+
+msgid "Linked Host Groups"
+msgstr "关联至主机组"
+
+msgid "Linked Host Services"
+msgstr "关联至主机服务"
+
+msgid "Linked Host Template"
+msgstr "关联至主机模板"
+
+msgid "Linked Hosts"
+msgstr "关联至主机"
+
+msgid "Linked Nagios Server"
+msgstr "连接 Nagios 服务"
+
+msgid "Linked Service Templates"
+msgstr "关联的服务模板"
+
+msgid "Linked Services Templates"
+msgstr "关联的服务模板"
+
+msgid "Linked services"
+msgstr "关联的服务"
+
+msgid "Linked service templates"
+msgstr "关联的服务模版"
+
+msgid "Linked to Contact Groups"
+msgstr "与联络组关联的"
+
+msgid "Linked to host templates"
+msgstr "与主机模板关联"
+
+msgid "Linked with Host Groups"
+msgstr "关联至主机组"
+
+msgid "Linked with Hosts"
+msgstr "关联至主机"
+
+msgid "Linked with Services"
+msgstr "关联至服务"
+
+msgid "Linked with Service Groups"
+msgstr "关联至服务组"
+
+msgid "Links Management"
+msgstr "关联管理"
+
+msgid "Links"
+msgstr "链接"
+
+msgid "List"
+msgstr "列出"
+
+msgid "Listening Port"
+msgstr "监听端口"
+
+msgid "Load"
+msgstr "读取"
+
+msgid "Localhost"
+msgstr "本机"
+
+msgid "Localhost ?"
+msgstr "本机 ?"
+
+msgid "Lock File"
+msgstr "锁文件"
+
+msgid "Lock Services"
+msgstr "锁定服务"
+
+msgid "Locked"
+msgstr "锁定"
+
+msgid "Log Archive Path"
+msgstr "日志压缩路径"
+
+msgid "Log Options"
+msgstr "日志选项"
+
+msgid "Log Period"
+msgstr "日志周期"
+
+msgid "Log Rotation Method"
+msgstr "日志轮询"
+
+msgid "Log everything"
+msgstr "记录所有日志"
+
+msgid "Log file"
+msgstr "日志文件"
+
+msgid "Log nothing (default)"
+msgstr "不记录日志(默认)"
+
+msgid "Logging Options"
+msgstr "登陆选项"
+
+msgid "Logout"
+msgstr "注销"
+
+msgid "Logs"
+msgstr "日志"
+
+msgid "Logs Directory"
+msgstr "日志目录"
+
+msgid "Logs Integration Properties"
+msgstr "整合日志的属性"
+
+msgid "Logs for "
+msgstr "logs for"
+
+msgid "Logs retention duration"
+msgstr "日志保留时间"
+
+msgid "Lotus Domino :"
+msgstr "Lotus Domino :"
+
+msgid "Low Flap Threshold"
+msgstr "Flap阀值低限"
+
+msgid "Low Flap threshold"
+msgstr "Flap阀值低限"
+
+msgid "Low Host Flap Threshold"
+msgstr "Host Flap阀值低限"
+
+msgid "Low Service Flap Threshold"
+msgstr "Service Flap阀值低限"
+
+msgid "Lower Limit"
+msgstr "下限"
+
+msgid "MACRO Expression"
+msgstr "宏表达式"
+
+msgid "MIBs"
+msgstr "MIBs"
+
+msgid "Macro name"
+msgstr "宏名称"
+
+msgid "Macro value"
+msgstr "宏值"
+
+msgid "Macros"
+msgstr "宏"
+
+msgid "Mail Type"
+msgstr "邮箱类型"
+
+msgid "Mailer path"
+msgstr "邮箱路径"
+
+msgid "Main Configuration File Location"
+msgstr "主配置文件位置"
+
+msgid "Main Menu"
+msgstr "主菜单"
+
+msgid "Main"
+msgstr "主要"
+
+msgid "Advanced"
+msgstr "高级"
+
+msgid "Main grid color"
+msgstr "主网络颜色"
+
+msgid "Main information"
+msgstr "主要信息"
+
+msgid "Manage"
+msgstr "管理"
+
+msgid "Manual Filling"
+msgstr "手工填写"
+
+msgid "Manual filling OK"
+msgstr "手工填写正确"
+
+msgid "Manufacturer"
+msgstr "制造商"
+
+msgid "Map Icon"
+msgstr "Map图标"
+
+msgid "Massive Change"
+msgstr "Massive Change"
+
+msgid "Max"
+msgstr "最大"
+
+msgid "Max Check Attempts"
+msgstr "尝试检查最大次数"
+
+msgid "Max Check Result File Age"
+msgstr "Max Check Result File Age"
+
+msgid "Max Used"
+msgstr "最多使用"
+
+msgid "Maximum Concurrent Service Checks"
+msgstr "最大并发服务检查"
+
+msgid "Maximum Host Check Spread"
+msgstr "最大主机检查扩展"
+
+msgid "Maximum Service Check Spread"
+msgstr "最大服务检查扩展"
+
+msgid "Maximum page size"
+msgstr "页面的最大值"
+
+msgid "Mean Time"
+msgstr "Mean时间"
+
+msgid "Media"
+msgstr "媒介"
+
+msgid "Media Detection"
+msgstr "介质检测"
+
+msgid "Member of Host Groups"
+msgstr "主机组成员列表"
+
+msgid "Menu"
+msgstr "菜单"
+
+msgid "Menu access"
+msgstr "菜单访问控制"
+
+msgid "Menus Access"
+msgstr "菜单访问控制"
+
+msgid "Message Type"
+msgstr "信息类型"
+
+msgid "Meta Service"
+msgstr "元服务"
+
+msgid "Meta Service Name"
+msgstr "元服务名称"
+
+msgid "Meta Service Names"
+msgstr "元服务名"
+
+msgid "Meta Service State"
+msgstr "元服务状态"
+
+msgid "Meta Services"
+msgstr "元服务"
+
+msgid "Meta Services Escalation"
+msgstr "元服务升级"
+
+msgid "Meta services"
+msgstr "元服务"
+
+msgid "Method"
+msgstr "方法"
+
+msgid "Metric"
+msgstr "度量"
+
+msgid "Metric Definition Deletion"
+msgstr "度量定义删除"
+
+msgid "Metric Name"
+msgstr "度量名称"
+
+msgid "Metric Unit"
+msgstr "十进制单位"
+
+msgid "Metrics"
+msgstr "度量"
+
+msgid "Min"
+msgstr "最小"
+
+msgid "Misc"
+msgstr "杂项"
+
+msgid "Misc Options"
+msgstr "杂项"
+
+msgid "Miscellaneous"
+msgstr "杂项"
+
+msgid "Miscelleneous"
+msgstr "杂项"
+
+msgid "Modify"
+msgstr "修改"
+
+msgid "Modify Data Processing"
+msgstr "修改数据处理"
+
+msgid "Modify General Options"
+msgstr "修改基本选项"
+
+msgid "Modify Image"
+msgstr "修改图片"
+
+msgid "Modify Vendor"
+msgstr "修改提供商"
+
+msgid "Modify a  host category"
+msgstr "修改主机类别"
+
+msgid "Modify a CGI Configuration File"
+msgstr "修改CGI配置文件"
+
+msgid "Modify a Command"
+msgstr "修改命令"
+
+msgid "Modify a Command Category"
+msgstr "修改命令类别"
+
+msgid "Modify a Contact Group"
+msgstr "修改联系人组"
+
+msgid "Modify a Data Source Template"
+msgstr "修改数据源模板"
+
+msgid "Modify a Dependency"
+msgstr "修改依赖"
+
+msgid "Modify a Graph Template"
+msgstr "修改图形模板"
+
+msgid "Modify a Group"
+msgstr "修改组"
+
+msgid "Modify a Host"
+msgstr "修改主机"
+
+msgid "Modify a Host Extended Info"
+msgstr "修改主机扩展信息"
+
+msgid "Modify a Host Group"
+msgstr "修改主机组"
+
+msgid "Modify a Host Template"
+msgstr "修改主机模板"
+
+msgid "Modify a Meta Service"
+msgstr "修改元服务"
+
+msgid "Modify a Meta Service indicator"
+msgstr "Modify a Meta Service indicator"
+
+msgid "Modify a Nagios Configuration File"
+msgstr "修改nagios配置"
+
+msgid "Modify a Resource"
+msgstr "修改资源"
+
+msgid "Modify a Service"
+msgstr "修改服务"
+
+msgid "Modify a Service Category"
+msgstr "修改服务类别"
+
+msgid "Modify a Service Group"
+msgstr "修改服务组"
+
+msgid "Modify a Service Template Model"
+msgstr "修改服务模板模型"
+
+msgid "Modify a Template Deletion Policy"
+msgstr "修改模板删除策略"
+
+msgid "Modify a Time Period"
+msgstr "修改时间段"
+
+msgid "Modify a Trap definition"
+msgstr "修改陷井定义"
+
+msgid "Modify a User"
+msgstr "修改用户"
+
+msgid "Modify a Virtual Metric"
+msgstr "修改Virtual Metric"
+
+msgid "Modify a ndo2db Configuration File"
+msgstr "修改ndo2db配置文件"
+
+msgid "Modify a ndomod Configuration File"
+msgstr "修改ndomod配置文件"
+
+msgid "Modify a poller Configuration"
+msgstr "修改轮询配置"
+
+msgid "Modify an ACL"
+msgstr "修改访问控制表"
+
+msgid "Modify an Action"
+msgstr "修改动作"
+
+msgid "Modify an Escalation"
+msgstr "修改升级"
+
+msgid "Modify an Extended Info"
+msgstr "修改扩展信息"
+
+msgid "Modify directory"
+msgstr "修改目录"
+
+msgid "Modify macros"
+msgstr "修改宏"
+
+msgid "Modify relations"
+msgstr "修改主机关联"
+
+msgid "Module Information"
+msgstr "模块信息"
+
+msgid "Module installed and registered"
+msgstr "模埠已安装注册"
+
+msgid "Modules"
+msgstr "模块"
+
+msgid "Monday"
+msgstr "星期一"
+
+msgid "Monitored from"
+msgstr "监控自"
+
+msgid "Monitoring"
+msgstr "状态"
+
+msgid "Monitoring Engine"
+msgstr "监控引擎"
+
+msgid "Monitoring Engines"
+msgstr "监控引擎"
+
+msgid "Monitoring engine"
+msgstr "监控引擎"
+
+msgid "Monthly"
+msgstr "月"
+
+msgid "More Actions"
+msgstr "更多动作"
+
+msgid "More actions"
+msgstr "其他..."
+
+msgid "More actions..."
+msgstr "更多操作..."
+
+msgid "More detailed information"
+msgstr "更多细节信息"
+
+msgid "Move Export Files"
+msgstr "将导出文件....?"
+
+msgid "Move files to directory"
+msgstr "移动文件到目录"
+
+msgid "Move host group's services to hosts"
+msgstr "移动主机组的服务至主机"
+
+msgid "Move images"
+msgstr "移动图片"
+
+msgid "Multiple Broker Module"
+msgstr "多代理模块"
+
+msgid "My Account"
+msgstr "帐户信息"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "NA"
+msgstr "NA"
+
+msgid "Nagios"
+msgstr "Nagios"
+
+msgid "2d Coords"
+msgstr "平面位置"
+
+msgid "3d Coords"
+msgstr "地理位置"
+
+msgid "Nagios Configuration Files Export"
+msgstr "导出Nagios 配置"
+
+msgid "Nagios Configuration Upload"
+msgstr "上传nagios配置文件"
+
+msgid "Nagios Group"
+msgstr "Nagios Group"
+
+msgid "Nagios Import debug"
+msgstr "Nagios Import debug"
+
+msgid "Nagios Information"
+msgstr "Nagios 信息"
+
+msgid "Nagios Init Script"
+msgstr "Nagios 主进程"
+
+msgid "Nagios PID"
+msgstr "Nagios PID"
+
+msgid "Nagios Performance Information"
+msgstr "Nagios 进程信息"
+
+msgid "Nagios Process Check Command"
+msgstr "Nagios进程检测命令"
+
+msgid "Nagios Process Information"
+msgstr "Nagios 进程信息"
+
+msgid "Nagios Server"
+msgstr "Nagios 服务器"
+
+msgid "Nagios Statistics"
+msgstr "nagios 状态"
+
+msgid "Nagios Status Map Image"
+msgstr "Nagios 状态图"
+
+msgid "Status Map Image"
+msgstr "状态图"
+
+msgid "Nagios User"
+msgstr "Nagios 用户"
+
+msgid "Nagios config directory %s does not exist!"
+msgstr "没找到Nagios的配置文件目录."
+
+msgid "Nagios config directory %s is not writable for webserver's user!"
+msgstr "运行webserver的用户无可写入nagios配置文件目录的权限 !"
+
+msgid "Nagios current log file to parse"
+msgstr "解析nagios当前日志文件"
+
+msgid "Nagios information"
+msgstr "Nagios信息"
+
+msgid "Nagios/Centreon Server"
+msgstr "Nagios/Centreon 服务器"
+
+msgid "Name"
+msgstr "名字"
+
+msgid "Name already in use"
+msgstr "名字已使用"
+
+msgid "Name already in use for this Host/Service"
+msgstr "名字已经在主机/服务中使用"
+
+msgid "Name is already in use"
+msgstr "这个名字已被使用"
+
+msgid "Ndo2db Informations"
+msgstr "Ndo2db信息"
+
+msgid "Ndo2db execution access"
+msgstr "Ndo2db执行访问"
+
+msgid "Next Check"
+msgstr "下一个检测"
+
+msgid "Next Notification"
+msgstr "下一个通知"
+
+msgid "Next Scheduled Active Check"
+msgstr "下一个计划中的主动检查"
+
+msgid "Next page"
+msgstr "下一页"
+
+msgid "No"
+msgstr "否"
+
+msgid "No Comment for hosts."
+msgstr "该主机没有无备注"
+
+msgid "No Comment for services."
+msgstr "没有评论服务"
+
+msgid "No Step"
+msgstr "无步骤"
+
+msgid "No argument found for this command"
+msgstr "没有发现此命令的参数"
+
+msgid "No command selected"
+msgstr "无命令被选中"
+
+msgid "No downtime scheduled for hosts"
+msgstr "所有主机未设定停机时间"
+
+msgid "No downtime scheduled for services"
+msgstr "所有服务未设定停机时间"
+
+msgid "No modification was made."
+msgstr "没有做出修改."
+
+msgid "No poller selected. Please selection a poller to see reports."
+msgstr "没有轮询选择。请选择一个轮询?"
+
+msgid "No stats available for this poller. Is it currently running?"
+msgstr "没有统计轮询可用。它当前是否正在运行?"
+
+msgid "No unhandled host problem"
+msgstr "未处理的主机问题"
+
+msgid "No unhandled service problem"
+msgstr "未处理的服务问题"
+
+msgid "No version defined."
+msgstr "未定义版本。"
+
+msgid "None"
+msgstr "无"
+
+msgid "Normal Check Interval"
+msgstr "正常检查间隔"
+
+msgid "Not Acknowledged"
+msgstr "未确认"
+
+msgid "Not link with period, ALL Host + Service + Metric + bin + raw"
+msgstr "与时间段无关的，所有主机+服务+度量+二进制+行"
+
+msgid "Not link with period, ALL Service + Metric + bin + raw"
+msgstr "与时间段无关的，所有服务+度量+二进制+行"
+
+msgid "Not link with period, ALL metric + bin"
+msgstr "与时间段无关的，所有度量+二进制"
+
+msgid "Not supported extension"
+msgstr "不支持此扩展"
+
+msgid "Notes"
+msgstr "便签"
+
+msgid "Notes URL"
+msgstr "便签网址"
+
+msgid "Notif"
+msgstr "通知"
+
+msgid "Notification"
+msgstr "通知"
+
+msgid "Notification Command"
+msgstr "发送通知的命令"
+
+msgid "Notification Enabled"
+msgstr "通知功能已启用"
+
+msgid "Notification Failure Criteria"
+msgstr "通知失败标准"
+
+msgid "Notification Information"
+msgstr "通知信息"
+
+msgid "Notification Interval"
+msgstr "通知时间间隔"
+
+msgid "Notification Logging Option"
+msgstr "通知日志记录的参数"
+
+msgid "Notification Option"
+msgstr "通知选项"
+
+msgid "Notification Options"
+msgstr "通知选项"
+
+msgid "Notification Period"
+msgstr "通知时间段"
+
+msgid "Notification Timeout"
+msgstr "通知超时"
+
+msgid "Notification Type"
+msgstr "通知类型"
+
+msgid "Notification command"
+msgstr "通知命令"
+
+msgid "Notification information"
+msgstr "通知信息"
+
+msgid "Notification interval in case of disconnection"
+msgstr "连接断开后通知的时间间隔"
+
+msgid "Notifications"
+msgstr "通知"
+
+msgid "Notifications enabled?"
+msgstr "通知功能是否打开?"
+
+msgid "Notify"
+msgstr "通知"
+
+msgid "Number of entries"
+msgstr "条目数"
+
+msgid "Number of linked commands"
+msgstr "关联的命令个数"
+
+msgid "Number of linked services"
+msgstr "关联服务数量"
+
+msgid "Number of values"
+msgstr "值的个数"
+
+msgid "OID"
+msgstr "OID"
+
+msgid "Ok"
+msgstr "OK"
+
+msgid "Ok/Up"
+msgstr "Ok/Up"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "OK : all database poller updates are active"
+msgstr "OK : 所有数据库轮询更新正常"
+
+msgid "OK : all pollers are running"
+msgstr "OK : 所有的轮询正在运行"
+
+msgid "OK : no latency detected on your platform"
+msgstr "OK : 在平台上无检测延迟"
+
+msgid "OK Alert"
+msgstr "OK 警报"
+
+msgid "OK Alerts"
+msgstr "OK 警报"
+
+msgid "OK Mean Time"
+msgstr "OK Mean Time"
+
+msgid "OK Time"
+msgstr "OK时间"
+
+msgid "Object"
+msgstr "对象"
+
+msgid "Object Cache File"
+msgstr "检测对象缓存文件"
+
+msgid "Object Configuration Directory"
+msgstr "检测对象配置文件目录"
+
+msgid "Object ID"
+msgstr "对象 ID"
+
+msgid "Object Type"
+msgstr "对象类型"
+
+msgid "Object name : "
+msgstr "对象名 :"
+
+msgid "Object type : "
+msgstr "对象类型"
+
+msgid "Obsess Over Host"
+msgstr "Obsess Over Host"
+
+msgid "Obsess Over Hosts Option"
+msgstr "Obsess Over Hosts Option"
+
+msgid "Obsess Over Service"
+msgstr "Obsess Over Service"
+
+msgid "Obsess Over Services Option"
+msgstr "忽略所有的服务检测选项"
+
+msgid "Obsessing Over Hosts?"
+msgstr "是否忽略所有的主机检测?"
+
+msgid "Obsessing Over Services?"
+msgstr "是否忽略所有的服务检测?"
+
+msgid "Obsessive Compulsive Host Processor Command"
+msgstr "Obsessive Compulsive Host Processor Command"
+
+msgid "Obsessive Compulsive Host Processor Timeout"
+msgstr "强迫性的主机超时"
+
+msgid "Obsessive Compulsive Service Processor Command"
+msgstr "Obsessive Compulsive Service Processor Command"
+
+msgid "Obsessive Compulsive Service Processor Timeout"
+msgstr "强迫性的服务处理器超时"
+
+msgid "On Problem Host"
+msgstr "问题主机"
+
+msgid "Only bin rows according to the retention period"
+msgstr "Only bin rows according to the retention period"
+
+msgid "Only raw rows according to the retention period"
+msgstr "Only raw rows according to the retention period"
+
+msgid "OpenLDAP :"
+msgstr "OpenLDAP"
+
+msgid "Optimization"
+msgstr "优化"
+
+msgid "Optimize"
+msgstr "优化"
+
+msgid "Options"
+msgstr "参数"
+
+msgid "Order"
+msgstr "顺序"
+
+msgid "Orphan Hosts"
+msgstr "Orphan Hosts"
+
+msgid "Orphan hosts"
+msgstr "独立的主机"
+
+msgid "Orphaned Host Check Option"
+msgstr "独立的主机检测选项"
+
+msgid "Orphaned Service Check Option"
+msgstr "独立的服务检测选项"
+
+msgid "Outline color"
+msgstr "大纲颜色"
+
+msgid "Output"
+msgstr "输出"
+
+msgid "Output Message"
+msgstr "导出信息"
+
+msgid "Output format string (printf-style)"
+msgstr "输出形式字符串(输出样式)"
+
+msgid "Output options"
+msgstr "导出选项"
+
+msgid "PHP file included"
+msgstr "包含php文件"
+
+msgid "(Max file size 2M)"
+msgstr "(文件最大为2M)"
+
+msgid "Page"
+msgstr "页面"
+
+msgid "Pager"
+msgstr "页面"
+
+msgid "Parallel Check"
+msgstr "并行检查"
+
+msgid "Parent Host Groups"
+msgstr "父主机组"
+
+msgid "Parent Hosts"
+msgstr "父主机"
+
+msgid "Parent Service Groups"
+msgstr "父服务组"
+
+msgid "Parent Template"
+msgstr "父模板"
+
+msgid "Parent Templates"
+msgstr "父模板"
+
+msgid "Parent relationship"
+msgstr "父子关联"
+
+msgid "Passive"
+msgstr "被动"
+
+msgid "Passive Check Logging Option"
+msgstr "被动检测记录参数"
+
+msgid "Passive Checks"
+msgstr "被动检测"
+
+msgid "Passive Checks Enabled"
+msgstr "被动检测已启用"
+
+msgid "Passive Host Check Acceptance Option"
+msgstr "接受主机被动检测结果的参数"
+
+msgid "Passive Host Checks Are SOFT Option"
+msgstr "被动主机检测是软选项"
+
+msgid "Passive Host Checks Being Accepted?"
+msgstr "被动主机检查被接受？"
+
+msgid "Passive Service Check Acceptance Option"
+msgstr "接受服务被动检测结果的参数"
+
+msgid "Passive Service Checks Being Accepted?"
+msgstr "被动服务检查被接受？"
+
+msgid "Passive host checking Options"
+msgstr "被动主机检查选项"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Passwords do not match"
+msgstr "密码不匹配"
+
+msgid "Patch Download path"
+msgstr "更新下载的更新"
+
+msgid "Path"
+msgstr "路径"
+
+msgid "Path to RRDTool Database For Metrics"
+msgstr "RRDTool 数据库度量路径"
+
+msgid "Path to RRDTool Database For Nagios Statistics"
+msgstr "RRDTool数据库nagios状态的路径"
+
+msgid "Path to RRDTool Database For Status"
+msgstr "RRDTool数据库状态的路径"
+
+msgid "Pending"
+msgstr "未决"
+
+msgid "People linked to this Access list"
+msgstr "与此访问列表关联的用户"
+
+msgid "Percent State Change"
+msgstr "状态变化百分比"
+
+msgid "Perfdata"
+msgstr "Perfdata"
+
+msgid "Perfdata Options"
+msgstr "Perfdata Options"
+
+msgid "Perfdata file"
+msgstr "性能信息文件"
+
+msgid "Performance Data"
+msgstr "性能数据"
+
+msgid "Performance Data Being Processed?"
+msgstr "是否启用性能数据收集?"
+
+msgid "Performance Data Processing Option"
+msgstr "性能数据处理选项"
+
+msgid "Performance Data Processor Command Timeout"
+msgstr "性能数据处理命令超时"
+
+msgid "Performance Info"
+msgstr "性能信息"
+
+msgid "Performance data"
+msgstr "性能数据"
+
+msgid "Period :"
+msgstr "时期"
+
+msgid "Perl"
+msgstr "Perl"
+
+msgid "Perl library directory"
+msgstr "Perl库文件目录"
+
+msgid "Persistent"
+msgstr "保持"
+
+msgid "Physical HTML Path"
+msgstr "物理HTML路径"
+
+msgid "Pick a color"
+msgstr "提取颜色"
+
+msgid "Ping"
+msgstr "Ping"
+
+msgid "Ping Syntax"
+msgstr "Ping 命令"
+
+msgid "Please correct these fields"
+msgstr "请修正这些字段"
+
+msgid "Please enter a comment"
+msgstr "请输入备注信息"
+
+msgid "Please wait..."
+msgstr "请等待..."
+
+msgid "Plugin Help"
+msgstr "插件帮助"
+
+msgid "Plugin Test"
+msgstr "插件测试"
+
+msgid "Plugin has to be in : "
+msgstr "插件必须是在:"
+
+msgid "Plugin test"
+msgstr "插件测试"
+
+msgid "Plugins"
+msgstr "插件"
+
+msgid "Plugins Directory"
+msgstr "插件目录"
+
+msgid "Policy Name"
+msgstr "策略名"
+
+msgid "Poller"
+msgstr "轮询"
+
+msgid "Poller :"
+msgstr "轮询"
+
+msgid "Poller States"
+msgstr "轮询状态"
+
+msgid "Pollers"
+msgstr "轮询"
+
+msgid "Position"
+msgstr "位置"
+
+msgid "Post Check"
+msgstr "状态检测"
+
+msgid "Post Validation"
+msgstr "Post 验证"
+
+msgid "Pre-Update"
+msgstr "预更新"
+
+msgid "Precached Object File"
+msgstr "预缓存配置文件"
+
+msgid "Predictive Host Dependency Checks"
+msgstr "预测主机依赖性检测"
+
+msgid "Predictive Service Dependency Checks"
+msgstr "预测服务依赖性检测"
+
+msgid "Prefix"
+msgstr "前缀"
+
+msgid "Previous page"
+msgstr "前一页"
+
+msgid "Print Average"
+msgstr "输出平均值"
+
+msgid "Print Last Value"
+msgstr "打印最新值"
+
+msgid "Print Max value"
+msgstr "输出最大值"
+
+msgid "Print Min value"
+msgstr "输出最小值"
+
+msgid "Problem display properties"
+msgstr "告警显示配置"
+
+msgid "Display properties"
+msgstr "显示配置"
+
+msgid "Problems"
+msgstr "问题"
+
+msgid "Process Commands"
+msgstr "处理命令"
+
+msgid "Process Info"
+msgstr "进程信息"
+
+msgid "Process Perf Data"
+msgstr "Process Perf Data"
+
+msgid "Process information"
+msgstr "进程信息"
+
+msgid "Program Start Time"
+msgstr "程序启动时间"
+
+msgid "Program Version"
+msgstr "程序版本"
+
+msgid "Project Leaders"
+msgstr "项目列表"
+
+msgid "Properties"
+msgstr "属性"
+
+msgid "Protocol version"
+msgstr "协议版本"
+
+msgid "Purge check interval"
+msgstr "清除检查间隔"
+
+msgid "Purge options"
+msgstr "清除选项"
+
+msgid "Quick Search"
+msgstr "快速搜索"
+
+msgid "RPN (Reverse Polish Notation) Function"
+msgstr "RPN功能"
+
+msgid "RPN Function"
+msgstr "RPN 功能"
+
+msgid "RRDTool"
+msgstr "RRDTool"
+
+msgid "RRDTool & MySQL"
+msgstr "RRDTool & MySql"
+
+msgid "RRDTool Configuration"
+msgstr "RRDTool配置"
+
+msgid "RRDTool Properties"
+msgstr "RRDTool 属性"
+
+msgid "RRDTool Version"
+msgstr "RRDTool 版本"
+
+msgid "RRDTool auto delete"
+msgstr "RRDTool 自动清除"
+
+msgid "RRDTool database size"
+msgstr "RRDTool 数据库大小"
+
+msgid "RRDTool debug"
+msgstr "RRDTool 调试"
+
+msgid "Raw"
+msgstr "Raw"
+
+msgid "Raw Deletion"
+msgstr "Raw Deletion"
+
+msgid "Re-schedule the next check for a service"
+msgstr "重新调度下一个服务检查程序"
+
+msgid "Re-schedule the next check for a service (Forced)"
+msgstr "重新调度下一个服务检查程序(强制)"
+
+msgid "Re-schedule the next check for this service"
+msgstr "重新定制该服务的下一次检测时间"
+
+msgid "Re-schedule the next check for this service (forced)"
+msgstr "重新定制该服务的下一次强制检测时间"
+
+msgid "Reach Centreon Front-end"
+msgstr "到达Centreon前端"
+
+msgid "Real name"
+msgstr "真实名称"
+
+msgid "Rebuild RRD Database"
+msgstr "重建RRD 数据库"
+
+msgid "Rebuild Waiting"
+msgstr "等待重置"
+
+msgid "Reconnection interval"
+msgstr "重连接时间间隔"
+
+msgid "Recovery"
+msgstr "恢复"
+
+msgid "Recovery Step"
+msgstr "恢复步骤"
+
+msgid "Refresh Interval"
+msgstr "刷新间隔"
+
+msgid "Refresh Interval for monitoring"
+msgstr "监控的刷新间隔"
+
+msgid "Refresh Interval for statistics"
+msgstr "状态刷新间隔"
+
+msgid "Refresh Properties"
+msgstr "刷新配置"
+
+msgid "Regexp"
+msgstr "正则表达式"
+
+msgid "Regular Expression Matching Option"
+msgstr "一般正则表达式匹配选项"
+
+msgid "Relations"
+msgstr "关联"
+
+msgid "Relations between Elements"
+msgstr "Relations between Elements"
+
+msgid "Release"
+msgstr "发行版"
+
+msgid "Reload"
+msgstr "重新加载(配置文件)"
+
+msgid "Reload ACL"
+msgstr "重新加载访问控制表"
+
+msgid "Remove"
+msgstr "移除"
+
+msgid "Replacement"
+msgstr "替换"
+
+msgid "Report Templates"
+msgstr "报告模板"
+
+msgid "Report View"
+msgstr "报告查看"
+
+msgid "Reporting"
+msgstr "报告"
+
+msgid "Reporting Period"
+msgstr "报告时间段"
+
+msgid "Reporting time period"
+msgstr "报告时间段"
+
+msgid "Requester"
+msgstr "请求者"
+
+msgid "Required"
+msgstr "已请求"
+
+msgid "Required Field"
+msgstr "必填"
+
+msgid "Required Field 'Service' list"
+msgstr "请求'Service'列表 "
+
+msgid "Required Fields 'Host' and 'Service' list"
+msgstr "请求'Host' 和 'Service'列表"
+
+msgid "Required field"
+msgstr "请求字段"
+
+msgid "Required fields"
+msgstr "必须字段"
+
+msgid "Reschedule associated services"
+msgstr "重新安排相关服务"
+
+msgid "Reset"
+msgstr "重设"
+
+msgid "Resource Name"
+msgstr "资源名称"
+
+msgid "Resource View"
+msgstr "资源视图"
+
+msgid "Resources"
+msgstr "资源"
+
+msgid "Resources Access"
+msgstr "资源访问"
+
+msgid "Resources access"
+msgstr "资源入口"
+
+msgid "Resources access list link"
+msgstr "资源访问列表链接"
+
+msgid "Restart"
+msgstr "重启"
+
+msgid "Restart Monitoring Engine"
+msgstr "重启监测引擎"
+
+msgid "Restart Nagios"
+msgstr "重启 Nagios"
+
+msgid "Restart the Nagios process"
+msgstr "重启Nagios进程"
+
+msgid "Result"
+msgstr "结果"
+
+msgid "Result Cache"
+msgstr "结果缓存"
+
+msgid "Retain Non Status Information"
+msgstr "保留无状态信息"
+
+msgid "Retain Satus Information"
+msgstr "保留状态信息"
+
+msgid "Retain Status Information"
+msgstr "保持状态信息"
+
+msgid "Retention"
+msgstr "保留"
+
+msgid "Retention Duration for Data in MySQL"
+msgstr "Mysql中数据的保留时间"
+
+msgid "Retention Informations For Ndo2db"
+msgstr "保留Ndo2db 信息"
+
+msgid "Retention Period"
+msgstr "保留时间段"
+
+msgid "Retention durations"
+msgstr "保留时间"
+
+msgid "Retry"
+msgstr "重试"
+
+msgid "Retry Check Interval"
+msgstr "重试检查间隔"
+
+msgid "Return to list"
+msgstr "返回至列表"
+
+msgid "Rotation command"
+msgstr "保留命令"
+
+msgid "Rotation interval"
+msgstr "保留的时间间隔"
+
+msgid "Rotation timeout"
+msgstr "保留的超时时间"
+
+msgid "Rotations"
+msgstr "关联"
+
+msgid "Rotation"
+msgstr "轮询时间"
+
+msgid "Row Color for Service CRITICAL"
+msgstr "Service CRITICAL时行颜色"
+
+msgid "Rows"
+msgstr "行"
+
+msgid "Run Nagios debug (-v)"
+msgstr "进入nagios 调试模式(参数: -v)"
+
+msgid "Run monitoring engine debug (-v)"
+msgstr "运行监测引擎调试"
+
+msgid "SCHEDULED DOWNTIME"
+msgstr "计划宕机时间"
+
+msgid "Scheduled downtime"
+msgstr "计划宕机时间"
+
+msgid "SNMP"
+msgstr "SNMP"
+
+msgid "SNMP Community"
+msgstr "SNMP社区"
+
+msgid "SNMP Traps"
+msgstr "SNMP陷阱"
+
+msgid "SNMP Traps Genaration"
+msgstr "创建SNMP 陷阱"
+
+msgid "SNMP information"
+msgstr "SNMP 信息"
+
+msgid "SNMPTT log file"
+msgstr "SNMPTT日志文件"
+
+msgid "SOFT"
+msgstr "软态"
+
+msgid "SQL LIKE-clause expression"
+msgstr "SQL LIKE子句表达式"
+
+msgid "SQL debug"
+msgstr "SQL 调试"
+
+msgid "SQL file included"
+msgstr "包含SQL文件"
+
+msgid "SQL matching"
+msgstr "SQL匹配"
+
+msgid "SSH Information"
+msgstr "SSH 信息"
+
+msgid "SSH Private key"
+msgstr "SSH 私有key"
+
+msgid "SSH port"
+msgstr "SSH 端口"
+
+msgid "Satellite configuration"
+msgstr "Satellite 配置"
+
+msgid "Satellites"
+msgstr "附属"
+
+msgid "Sattelite Name"
+msgstr "附属名"
+
+msgid "Saturday"
+msgstr "星期六"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Schedule an immediate check of all services on this host"
+msgstr "立即进行该主机的所有服务检测"
+
+msgid "Schedule an immediate check of all services on this host (forced)"
+msgstr "立即进行该主机的所有服务的强制检测"
+
+msgid "Schedule downtime for a host"
+msgstr "调度主机宕机时间"
+
+msgid "Schedule downtime for a service"
+msgstr "调度服务宕机时间"
+
+msgid "Schedule downtime for this host"
+msgstr "定义该主机的停机时间"
+
+msgid "Schedule downtime for this service"
+msgstr "安排该服务的停机时间"
+
+msgid "Schedule immediate check"
+msgstr "附表立即检查"
+
+msgid "Schedule immediate check (Forced)"
+msgstr "附表立即检查 (强制)"
+
+msgid "Schedule the check for a host"
+msgstr "调度主机检查"
+
+msgid "Schedule the check for a host (Forced)"
+msgstr "调度主机检查(强制)"
+
+msgid "Scheduled event information"
+msgstr "调度事件信息"
+
+msgid "Scheduling"
+msgstr "调度"
+
+msgid "Scheduling Queue"
+msgstr "调度队列"
+
+msgid "Search"
+msgstr "查找"
+
+msgid "Search Filter"
+msgstr "查询过滤"
+
+msgid "Search Options"
+msgstr "查询选项"
+
+msgid "Search Result"
+msgstr "查询结果"
+
+msgid "Secondary grid color"
+msgstr "二级网格颜色"
+
+msgid "Security patch available"
+msgstr "安全补丁"
+
+msgid "Selected"
+msgstr "已选择"
+
+msgid "Selection Mode"
+msgstr "选择模式"
+
+msgid "Server Information"
+msgstr "服务信息"
+
+msgid "Server Status"
+msgstr "服务器状态"
+
+msgid "Service"
+msgstr "服务"
+
+msgid "Service CRITICAL Color"
+msgstr "Service CRITICAL颜色"
+
+msgid "Service Categories"
+msgstr "服务类别"
+
+msgid "Service Categories Access"
+msgstr "服务类别访问"
+
+msgid "Service Check Execution Option"
+msgstr "服务检测参数"
+
+msgid "Service Check Execution Time"
+msgstr "服务检查时间"
+
+msgid "Service Check Options"
+msgstr "服务检测选项"
+
+msgid "Service Check Retry Logging Option"
+msgstr "服务检查重试记录选项"
+
+msgid "Service Check Scheduling Options"
+msgstr "服务检测调度选项"
+
+msgid "Service Check Timeout"
+msgstr "服务检测超时"
+
+msgid "Service Checks Being Executed?"
+msgstr "服务检查是否被执行？"
+
+msgid "Service Commands"
+msgstr "服务命令"
+
+msgid "Service Configuration"
+msgstr "服务配置"
+
+msgid "Service Critical Sound"
+msgstr "服务发生重大错误报警声音"
+
+msgid "Service Definition Deletion"
+msgstr "服务定义删除"
+
+msgid "Service Description"
+msgstr "服务描述"
+
+msgid "Service Description Search Key"
+msgstr "服务描述搜索关键字"
+
+msgid "Service Extended Info"
+msgstr "服务扩展信息"
+
+msgid "Service Freshness Check Interval"
+msgstr "服务刷新检测间隔 "
+
+msgid "Service Freshness Check Option"
+msgstr "服务刷新检测选项 "
+
+msgid "Service Group"
+msgstr "服务组"
+
+msgid "Service Group Name"
+msgstr "服务组名"
+
+msgid "Service Group Names"
+msgstr "服务组名"
+
+msgid "Service Groups"
+msgstr "服务组"
+
+msgid "Service Inter-Check Delay Method"
+msgstr "服务检测延迟"
+
+msgid "Service Interleave Factor"
+msgstr "服务交错因子"
+
+msgid "Service List"
+msgstr "服务列表"
+
+msgid "Service Name"
+msgstr "服务名"
+
+msgid "Service Notification Commands"
+msgstr "服务通知命令"
+
+msgid "Service Notification Options"
+msgstr "服务通知选项"
+
+msgid "Service Notification Period"
+msgstr "服务通知时间段"
+
+msgid "Service Notifications"
+msgstr "服务通知"
+
+msgid "Service OK Color"
+msgstr "服务正常颜色"
+
+msgid "Service PENDING Color"
+msgstr "Service PENDING Color"
+
+msgid "Service Performance Data File"
+msgstr "服务性能数据文件"
+
+msgid "Service Performance Data File Mode"
+msgstr "服务性能数据文件模式"
+
+msgid "Service Performance Data File Processing Command"
+msgstr "服务性能数据文件处理命令"
+
+msgid "Service Performance Data File Processing Interval"
+msgstr "服务性能数据文件处理时间间隔"
+
+msgid "Service Performance Data File Template"
+msgstr "服务性能数据文件模板"
+
+msgid "Service Performance Data Processing Command"
+msgstr "服务性能数据处理命令"
+
+msgid "Service Problems"
+msgstr "服务问题"
+
+msgid "Service Shortcuts"
+msgstr "服务快捷方式"
+
+msgid "Service State"
+msgstr "服务状态"
+
+msgid "Service Status"
+msgstr "服务状态"
+
+msgid "Service Template"
+msgstr "服务模板"
+
+msgid "Service Template Descriptions"
+msgstr "服务模板描述"
+
+msgid "Service Template Model"
+msgstr "服务模板模型"
+
+msgid "Service Template Name"
+msgstr "服务模板名称"
+
+msgid "Service Templates names"
+msgstr "服务模板名称"
+
+msgid "Service UNKNOWN Color"
+msgstr "未知服务颜色"
+
+msgid "Service Unknown Sound"
+msgstr "服务未知状态报警声音"
+
+msgid "Service WARNING Color"
+msgstr "服务警告颜色"
+
+msgid "Service Warning Sound"
+msgstr "服务警告报警声音"
+
+msgid "Service check latency"
+msgstr "服务检测延迟"
+
+msgid "Service check retention"
+msgstr "服务检查记录保留"
+
+msgid "Service group state"
+msgstr "服务组状态"
+
+msgid "Service state"
+msgstr "服务状态"
+
+msgid "Service status"
+msgstr "服务状态"
+
+msgid "ServiceGroup"
+msgstr "服务组"
+
+msgid "ServiceGroups"
+msgstr "服务组"
+
+msgid "Servicegroups Escalation"
+msgstr "服务组升级"
+
+msgid "Services"
+msgstr "服务"
+
+msgid "Services : Acknowledge"
+msgstr "服务 : 已确认"
+
+msgid "Services : Disable Check"
+msgstr "服务 : 关闭检测"
+
+msgid "Services : Disable Notification"
+msgstr "服务 : 关闭通知"
+
+msgid "Services : Disacknowledge"
+msgstr "服务 : 未确认"
+
+msgid "Services : Enable Check"
+msgstr "服务 : 启用检测"
+
+msgid "Services : Enable Notification"
+msgstr "服务 : 启用通知"
+
+msgid "Services : Set Downtime"
+msgstr "服务 : 设置宕机时间"
+
+msgid "Services Actions Access"
+msgstr "服务操作规则配置"
+
+msgid "Services Actively Checked"
+msgstr "服务主动检测"
+
+msgid "Services Checked"
+msgstr "服务检测"
+
+msgid "Services Comments"
+msgstr "服务备注"
+
+msgid "Services Downtimes"
+msgstr "全部服务的停机时间"
+
+msgid "Services Escalation"
+msgstr "服务升级"
+
+msgid "Services Escalation Options"
+msgstr "服务升级选项"
+
+msgid "Services Filters"
+msgstr "服务过滤"
+
+msgid "Services Notification Period"
+msgstr "服务通知时间段"
+
+msgid "Services Resources"
+msgstr "服务资源"
+
+msgid "Services Status"
+msgstr "服务状态"
+
+msgid "Services by Host"
+msgstr "由主机服务"
+
+msgid "Services by host"
+msgstr "主机的服务"
+
+msgid "Services by host group"
+msgstr "主机组的服务"
+
+msgid "Services status colors"
+msgstr "服务状态颜色"
+
+msgid "Sessions"
+msgstr "会话"
+
+msgid "Sessions Expiration Time"
+msgstr "会话失效时间"
+
+msgid "Sessions Properties"
+msgstr "会话配置"
+
+msgid "Set downtime"
+msgstr "设置停机时间"
+
+msgid "Set downtimes"
+msgstr "设置停机时间"
+
+msgid "Set downtimes on services attached to hosts"
+msgstr "设置该服务的停机时间并附加到所属主机"
+
+msgid "Setup"
+msgstr "安装"
+
+msgid "Shared Resouces"
+msgstr "共享资源"
+
+msgid "Shutdown Nagios"
+msgstr "关闭Nagios"
+
+msgid "Shutdown the Nagios process"
+msgstr "关闭Nagios进程"
+
+msgid "Size"
+msgstr "大小"
+
+msgid "Sleep Time"
+msgstr "休眠时间"
+
+msgid "Socket Name"
+msgstr "Socket名"
+
+msgid "Socket Type"
+msgstr "Socket类型"
+
+msgid "Soft Service Dependencies Option"
+msgstr "软服务依赖选项"
+
+msgid "Some database poller updates are not active; check your nagios platform"
+msgstr "有些数据库轮询更新不积极，检查您的Nagios平台"
+
+msgid "Sorry, your command line does not contain any $ARGn$ macro."
+msgstr "对不起，你的命令行不包含任何$ARGn$宏"
+
+msgid "Sort by Host Name"
+msgstr "由主机名排序"
+
+msgid "Sort by Name"
+msgstr "由名字排序"
+
+msgid "Sort by Status"
+msgstr "由状态信息排序"
+
+msgid "Sort by host name"
+msgstr "根据主机名排序"
+
+msgid "Sort by last change date"
+msgstr "由最后的改变时间排序"
+
+msgid "Sort by last check"
+msgstr "由上一次的检测结果排序"
+
+msgid "Sort by last hard state change date"
+msgstr "由硬状态排序"
+
+msgid "Sort by plugin output"
+msgstr "由插件输出排序"
+
+msgid "Sort by retries number"
+msgstr "由重试数排序"
+
+msgid "Sort by service description"
+msgstr "由服务描述排序"
+
+msgid "Sort by status"
+msgstr "由状态排序"
+
+msgid "Sort results (ascendant)"
+msgstr "排序结果,先知先觉??"
+
+msgid "Sort results (descendant)"
+msgstr "排序结果,后知后觉?"
+
+msgid "Special Command"
+msgstr "特殊命令"
+
+msgid "Specifics for hosts"
+msgstr "特定的主机"
+
+msgid "Split Components"
+msgstr "部件拆分"
+
+msgid "Stacking"
+msgstr "堆叠"
+
+msgid "Stalking Options"
+msgstr "跟踪选项"
+
+msgid "Start Hour"
+msgstr "起始小时"
+
+msgid "Start Minute"
+msgstr "起始分钟"
+
+msgid "Start Time"
+msgstr "开始时间"
+
+msgid "Start accepting passive host checks"
+msgstr "开启接受该主机的被动检查结果"
+
+msgid "Start accepting passive service checks"
+msgstr "启用接受该服务的被动检测结果"
+
+msgid "Start executing host checks"
+msgstr "开始执行该主机检查"
+
+msgid "Start executing service checks"
+msgstr "开始执行服务检查"
+
+msgid "Start obsessing over hosts"
+msgstr "开始该主机的obsessing over"
+
+msgid "Start obsessing over services"
+msgstr "开启该服务的obsessing over"
+
+msgid "Start the Nagios process"
+msgstr "开启Nagios进程"
+
+msgid "Start time"
+msgstr "启动时间"
+
+msgid "Started"
+msgstr "开始"
+
+msgid "State"
+msgstr "状态"
+
+msgid "State Breakdowns For Host Services"
+msgstr "主机服务中断状态"
+
+msgid "State Retention File"
+msgstr "状态保持文件"
+
+msgid "State Retention Option"
+msgstr "状态保持参数"
+
+msgid "State Type"
+msgstr "状态类型"
+
+msgid "States Retention"
+msgstr "状态保留"
+
+msgid "Status"
+msgstr "状态信息"
+
+msgid "Status Color Properties"
+msgstr "状态颜色属性"
+
+msgid "Status Details"
+msgstr "状态信息"
+
+msgid "Status Graph"
+msgstr "状态图"
+
+msgid "Status Information"
+msgstr "状态信息"
+
+msgid "Status Output"
+msgstr "状态输出"
+
+msgid "Status information"
+msgstr "状态信息"
+
+msgid "Statusmap CGI Background Image"
+msgstr "Statusmap CGI背景图片"
+
+msgid "Statuswrl CGI Include World"
+msgstr "Statuswrl CGI Include World"
+
+msgid "Sticky"
+msgstr "Sticky"
+
+msgid "Stop accepting passive host checks"
+msgstr "关闭接受该主机的被动检查结果"
+
+msgid "Stop accepting passive service checks"
+msgstr "关闭接受该服务的被动检测结果"
+
+msgid "Stop executing host checks"
+msgstr "停止执行该主机检查"
+
+msgid "Stop executing service checks"
+msgstr "关闭执行服务检查"
+
+msgid "Stop hiding graphs of selected Services"
+msgstr "取消选中服务的图形的隐藏"
+
+msgid "Stop obsessing over hosts"
+msgstr "停止该主机的obsessing over"
+
+msgid "Stop obsessing over services"
+msgstr "停止该服务的obsessing over"
+
+msgid "Stop rebuilding RRD Databases"
+msgstr "停止重建RRD 数据库"
+
+msgid "Storage Type"
+msgstr "存储类型"
+
+msgid "Storage folders"
+msgstr "存储文件夹"
+
+msgid "String"
+msgstr "String"
+
+msgid "Submit command?"
+msgstr "提交命令?"
+
+msgid "Submit result"
+msgstr "提交结果"
+
+msgid "Submit result for a service"
+msgstr "提交服务"
+
+msgid "Submit result for this host"
+msgstr "提交此主机结果"
+
+msgid "Submit result for this service"
+msgstr "提交该服务的检测结果"
+
+msgid "Sum"
+msgstr "和"
+
+msgid "Summary"
+msgstr "摘要"
+
+msgid "Sunday"
+msgstr "星期日"
+
+msgid "Support"
+msgstr "支持"
+
+msgid "Synchronize Media Directory"
+msgstr "同步媒体目录"
+
+msgid "Syslog Logging Option"
+msgstr "Syslog 日志选项"
+
+msgid "System/Process Command Access"
+msgstr "系统/进程命令访问"
+
+msgid "System/Process Information Access"
+msgstr "系统/进程信息访问"
+
+msgid "TCP Port"
+msgstr "TCP端口"
+
+msgid "Tactical Overview"
+msgstr "故障预览"
+
+msgid "Temp File"
+msgstr "临时文件"
+
+msgid "Temp directory"
+msgstr "临时文件目录"
+
+msgid "Template"
+msgstr "模板"
+
+msgid "Template Name"
+msgstr "模板名称"
+
+msgid "Template based method file"
+msgstr "基于模板的文件"
+
+msgid "Template name is already in use"
+msgstr "模板名称已使用"
+
+msgid "Templates"
+msgstr "模板"
+
+msgid "Test the plugin"
+msgstr "测试此插件"
+
+msgid "Text color"
+msgstr "文本颜色"
+
+msgid "The directory isn't valid"
+msgstr "此目录无效"
+
+msgid "The same OID element already exists"
+msgstr "相同的OID元素已存在"
+
+msgid "Thickness"
+msgstr "厚度"
+
+msgid "This Month"
+msgstr "本月"
+
+msgid "This Week"
+msgstr "本星期"
+
+msgid "This Year"
+msgstr "今年"
+
+msgid ""
+"This description is in conflict with another one that is already defined in the "
+"selected relation(s)"
+msgstr "描述与另一个已经在选中的关联中定义的描述冲突"
+
+msgid ""
+"This directive can be used multiple times, see nagios documentation.<BR>NDO use "
+"the broker module directive."
+msgstr "本指令可以多次使用，请参阅Nagios的文档。<BR>NDO 使用此中间商模块指令"
+
+msgid "Thursday"
+msgstr "星期四"
+
+msgid "Time"
+msgstr "时间"
+
+msgid "Time Frame"
+msgstr "时间段定义"
+
+msgid "Time Period Name"
+msgstr "时间段名称"
+
+msgid "Time Periods"
+msgstr "时间段"
+
+msgid "Time Period"
+msgstr "时间段"
+
+msgid "Periods"
+msgstr "时间段"
+
+msgid "Period"
+msgstr "时间段"
+
+msgid "Period 1"
+msgstr "时间段1"
+
+msgid "Period 2"
+msgstr "时间段2"
+
+msgid "Period 3"
+msgstr "时间段3"
+
+msgid "Period 4"
+msgstr "时间段4"
+
+msgid "Period 5"
+msgstr "时间段5"
+
+msgid "Period 6"
+msgstr "时间段6"
+
+msgid "Time Range"
+msgstr "时间范围"
+
+msgid "Time Range exceptions"
+msgstr "时间范围异常"
+
+msgid "Time Unit"
+msgstr "时间单元"
+
+msgid "Time Zone"
+msgstr "时区配置"
+
+msgid "Timezone"
+msgstr "时区"
+
+msgid "Timeouts"
+msgstr "超时"
+
+msgid "Timezone / Location"
+msgstr "时区/地域"
+
+msgid "Timing Interval Length"
+msgstr "时间间隔"
+
+msgid "Title Properties"
+msgstr "标题"
+
+msgid "To"
+msgstr "到"
+
+msgid "Today"
+msgstr "今天"
+
+msgid "Today's Host log"
+msgstr "今天的主机日志"
+
+msgid "Tools"
+msgstr "工具"
+
+msgid "Top color"
+msgstr "顶部颜色"
+
+msgid "Topology"
+msgstr "拓扑"
+
+msgid "Total"
+msgstr "总计"
+
+msgid "Total Available"
+msgstr "总的可用"
+
+msgid "Total Time"
+msgstr "全部时间"
+
+msgid "Traceroute"
+msgstr "跟踪路由"
+
+msgid "Tracert"
+msgstr "跟踪路由"
+
+msgid "Translate Passive Host Checks Option"
+msgstr "转化被动主机检查选项"
+
+msgid "Transparency"
+msgstr "透明度"
+
+msgid "Trap description"
+msgstr "陷井描述"
+
+msgid "Trap name"
+msgstr "陷井名称"
+
+msgid "Trash"
+msgstr "垃圾站"
+
+msgid "Tries"
+msgstr "尝试"
+
+msgid "True Regular Expression Matching Option"
+msgstr "正确正则表达式匹配选项"
+
+msgid "Tuesday"
+msgstr "星期二"
+
+msgid "Tuning"
+msgstr "调整"
+
+msgid "Type"
+msgstr "类型"
+
+msgid "UNDETERMINED"
+msgstr "未确定"
+
+msgid "UNDETERMINED Alerts"
+msgstr "未确定的警报"
+
+msgid "UNDETERMINED Mean Time"
+msgstr "未确定 Mean 时间"
+
+msgid "UNDETERMINED Time"
+msgstr "未确定时间"
+
+msgid "UNKNOWN"
+msgstr "未知"
+
+msgid "UNKNOWN Alerts"
+msgstr "未知警报"
+
+msgid "UNKNOWN Mean Time"
+msgstr "未知 Mean 时间"
+
+msgid "UNKNOWN Time"
+msgstr "未知时间"
+
+msgid "UNREACHABLE"
+msgstr "不可达"
+
+msgid "UP"
+msgstr "运行"
+
+msgid "URL"
+msgstr "网址"
+
+msgid "URL HTML Path"
+msgstr "URL HTML路径"
+
+msgid "Unable to install module"
+msgstr "不能安装此模块"
+
+msgid "Undetermined"
+msgstr "未确定"
+
+msgid "Undetermined Time"
+msgstr "未确定时间"
+
+msgid "Unhandled"
+msgstr "未处理"
+
+msgid "Unhandled Host problems"
+msgstr "未处理的主机问题"
+
+msgid "Unhandled Problems"
+msgstr "未解决的问题"
+
+msgid "Unhandled Service problems"
+msgstr "未处理的服务问题"
+
+msgid "Uninstall Module"
+msgstr "卸载模块"
+
+msgid "Unit"
+msgstr "单元"
+
+msgid "Unit Properties"
+msgstr "单元格"
+
+msgid "Unknown"
+msgstr "未知"
+
+msgid "Unknown Alert"
+msgstr "未知警报"
+
+msgid "Unknown Mean Time"
+msgstr "未知 Mean 时间"
+
+msgid "Unlock Services"
+msgstr "服务解锁"
+
+msgid "Unreachable"
+msgstr "不可达"
+
+msgid "Unreachable Alert"
+msgstr "不可达警报"
+
+msgid "Unreachable Alerts"
+msgstr "不可达警报"
+
+msgid "Unreachable Mean Time"
+msgstr "不可达 Mean 时间"
+
+msgid "Unreachable Time"
+msgstr "不可达时间"
+
+msgid "Up"
+msgstr "运行"
+
+msgid "Up Alert"
+msgstr "运行警报"
+
+msgid "Up Alerts"
+msgstr "运行警报"
+
+msgid "Up Mean Time"
+msgstr "Up Mean 时间"
+
+msgid "Up Time"
+msgstr "运行时间"
+
+msgid "Update definition in case of double definition"
+msgstr "Update definition in case of double definition"
+
+msgid "Update mode"
+msgstr "更新模式"
+
+msgid "Update patch available"
+msgstr "更新补丁"
+
+msgid "Upgrade"
+msgstr "升级"
+
+msgid "Upgrade Information"
+msgstr "升级信息"
+
+msgid "Upload Options"
+msgstr "上传参数"
+
+msgid "Upper Limit"
+msgstr "上限"
+
+msgid "Retained Service Attribute Mask"
+msgstr "保留的服务属性掩码"
+
+msgid "Retained Host Attribute Mask"
+msgstr "保留主机属性掩码 "
+
+msgid "Retained Process Service Attribute Mask"
+msgstr "保留过程服务属性掩码"
+
+msgid "Retained Process Host Attribute Mask"
+msgstr "保留过程主机属性掩码"
+
+msgid "Retained Contact Service Attribute Mask"
+msgstr "保持联络服务属性掩码"
+
+msgid "Retained Contact Host Attribute Mask"
+msgstr "保持接触主机属性掩码"
+
+msgid "Use Retained Program State Option"
+msgstr "保留程序状态选项"
+
+msgid "Use Retained Program Info Option"
+msgstr "保留节目信息选项"
+
+msgid "Use Retained Scheduling Info Option"
+msgstr "Use Retained Program Info Option"
+
+msgid "Use embedded Perl implicitly"
+msgstr "使用隐式嵌入式Perl"
+
+msgid "Use large installation tweaks"
+msgstr "使用安装调整工具"
+
+msgid "User"
+msgstr "用户"
+
+msgid "User kicked"
+msgstr "用户被踢出"
+
+msgid "User ndo2db"
+msgstr "ndo2db用户"
+
+msgid "User to search (anonymous if empty)"
+msgstr "搜索用户(如果空则为匿名用户)"
+
+msgid "Users"
+msgstr "用户"
+
+msgid "Using a Template Model allows you to have multi-level Template connections"
+msgstr "使用模板模型可以让你有多层次模板的连接"
+
+msgid "Using a Template allows you to have multi-level Template connection"
+msgstr "使用模板可以让你有多级模板连接"
+
+msgid "Using a Template exempts you to fill required fields"
+msgstr "使用模板免填必填的字段"
+
+msgid "VRML Image"
+msgstr "VRML 图像"
+
+msgid "Valid Email"
+msgstr "有效的Email"
+
+msgid "Valid for an upgrade"
+msgstr "有效升级"
+
+msgid "Value"
+msgstr "值"
+
+msgid "Values"
+msgstr "值"
+
+msgid "Vendor Name"
+msgstr "提供商名称"
+
+msgid "Verification Check"
+msgstr "验证检查"
+
+msgid "Verification Check (Forced)"
+msgstr "验证检查（强制）"
+
+msgid "Version"
+msgstr "版本"
+
+msgid "Vertical Label"
+msgstr "垂直标签"
+
+msgid "View"
+msgstr "查看"
+
+msgid "View Data Processing"
+msgstr "查看数据处理"
+
+msgid "View Image"
+msgstr "查看图片名"
+
+msgid "View Resource"
+msgstr "查看资源"
+
+msgid "View Vendor"
+msgstr "查看提供商"
+
+msgid "View a  host category"
+msgstr "查看主机类别"
+
+msgid "View a CGI Configuration File"
+msgstr "查看CGI配置文件"
+
+msgid "View a Command"
+msgstr "查看命令"
+
+msgid "View a Command Category"
+msgstr "查看命令类别"
+
+msgid "View a Contact Group"
+msgstr "查看联系人组"
+
+msgid "View a Data Source Template"
+msgstr "查看数据源模板"
+
+msgid "View a Dependency"
+msgstr "查看依赖"
+
+msgid "View a Graph Template"
+msgstr "查看图形模板"
+
+msgid "View a Group"
+msgstr "查看组"
+
+msgid "View a Host"
+msgstr "查看主机"
+
+msgid "View a Host Extended Info"
+msgstr "查看主机扩展信息"
+
+msgid "View a Host Group"
+msgstr "查看主机组"
+
+msgid "View a Host Template"
+msgstr "查看主机模板"
+
+msgid "View a Meta Service"
+msgstr "查看元服务"
+
+msgid "View a Meta Service indicator"
+msgstr "View a Meta Service indicator"
+
+msgid "View a Nagios Configuration File"
+msgstr "查看nagios配置"
+
+msgid "View a Service"
+msgstr "查看服务"
+
+msgid "View a Service Category"
+msgstr "查看服务类别"
+
+msgid "View a Service Group"
+msgstr "查看服务组"
+
+msgid "View a Service Template Model"
+msgstr "查看服务模板模型"
+
+msgid "View a Template Deletion Policy"
+msgstr "查看模板删除策略"
+
+msgid "View a Time Period"
+msgstr "查看时间段"
+
+msgid "View a Trap definition"
+msgstr "查看陷井定义"
+
+msgid "View a User"
+msgstr "查看用户"
+
+msgid "View a Virtual Metric"
+msgstr "查看Virtual Metric"
+
+msgid "View a ndo2db Configuration File"
+msgstr "查看ndo2db配置文件"
+
+msgid "View a ndomod Configuration File"
+msgstr "查看ndomod配置文件"
+
+msgid "View a poller Configuration"
+msgstr "查看轮询配置"
+
+msgid "View an ACL"
+msgstr "查看访问控制表"
+
+msgid "View an Action"
+msgstr "查看动作"
+
+msgid "View an Escalation"
+msgstr "查看升级"
+
+msgid "View an Extended Info"
+msgstr "查看扩展信息"
+
+msgid "View command definition"
+msgstr "查看命令定义"
+
+msgid "View comments of hosts"
+msgstr "查看主机备注"
+
+msgid "View comments of services"
+msgstr "查看该服务的备注"
+
+msgid "View downtimes of hosts"
+msgstr "查看全部主机的停机时间设置"
+
+msgid "View downtimes of services"
+msgstr "查看全部服务的停机时间"
+
+msgid "View graphs for host %s"
+msgstr "查看该主机的所有图形"
+
+msgid "View host status page"
+msgstr "查看该主机的状态页"
+
+msgid "View logs for host %s"
+msgstr "查看该主机的日志 %s"
+
+msgid "View logs for service %s"
+msgstr "查看所有服务的日志 %s"
+
+msgid "View macros"
+msgstr "查看宏"
+
+msgid "View relations"
+msgstr "查看关联"
+
+msgid "View report for host %s"
+msgstr "查看该主机的报表 %s"
+
+msgid "View report for service %s"
+msgstr "查看所有服务的报表 %s"
+
+msgid "View status of all services on host %s"
+msgstr "查看该主机所有服务的状态 %s"
+
+msgid "Views"
+msgstr "视图"
+
+msgid "Viewers"
+msgstr "视图"
+
+msgid "Viewer Groups"
+msgstr "视图组"
+
+msgid "User Group List"
+msgstr "用户组列表"
+
+msgid "Share"
+msgstr "共享"
+
+msgid "Deleting this view might impact other users. Are you sure you want to do it?"
+msgstr "删除该视图可能影响其他用户,你确定吗?"
+
+msgid "Locked?"
+msgstr "锁住?"
+
+msgid "Visible page"
+msgstr "显式页面"
+
+msgid "WARNING"
+msgstr "警告"
+
+msgid "WARNING Alerts"
+msgstr "警告警报"
+
+msgid "WARNING Mean Time"
+msgstr "警告的平均时间"
+
+msgid "WARNING Time"
+msgstr "警告时间"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Warning Alert"
+msgstr "警告警报"
+
+msgid "Warning Level"
+msgstr "警告级别"
+
+msgid "Warning Mean Time"
+msgstr "警告的平均时间"
+
+msgid "Warning: "
+msgstr "警告"
+
+msgid "Warnings"
+msgstr "警告"
+
+msgid "Web Site"
+msgstr "站点"
+
+msgid "Wednesday"
+msgstr "星期三"
+
+msgid "Weekly"
+msgstr "周"
+
+msgid "Width"
+msgstr "宽"
+
+msgid "Wiki"
+msgstr "WiKi"
+
+msgid "Write"
+msgstr "写"
+
+msgid "Y/m/d"
+msgstr "Y/m/d"
+
+msgid "Y/m/d - H:i:s"
+msgstr "Y/m/d - H:i:s"
+
+msgid "Y/m/d G:i"
+msgstr "Y/m/d G:i"
+
+msgid "Yearly"
+msgstr "年"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "Yesterday"
+msgstr "昨天"
+
+msgid "You are"
+msgstr "你是"
+
+msgid "You are not allowed to reach this page"
+msgstr "此页面不允许访问"
+
+msgid "You are not in an access group"
+msgstr "你没有权限访问这个组"
+
+msgid "You have to keep at least one contact to access to Centreon"
+msgstr "你必须保持至少一个联系人能访问Centreon"
+
+msgid ""
+"You have to move centreon configuration file from temporary directory to final "
+"directory"
+msgstr "你必须要将centreon配置文件从临时目录中移到它的安装目录下"
+
+msgid "You must either fill all the arguments or leave them all empty"
+msgstr "你必须填写所有的参数，或者全部为空"
+
+msgid "Your command has been sent"
+msgstr "你的命令已被发送"
+
+msgid "_Module_ is not a legal expression"
+msgstr "_Module_不是一个合法的表达式"
+
+msgid "bytes"
+msgstr "字节"
+
+msgid " Level"
+msgstr "等级"
+
+msgid "Extra"
+msgstr "附加"
+
+msgid "command"
+msgstr "命令"
+
+msgid "comment"
+msgstr "备注"
+
+msgid "contact"
+msgstr "联系人"
+
+msgid "contactgroup"
+msgstr "联系人组"
+
+msgid "d/m/Y H:i"
+msgstr "d/m/Y H:i"
+
+msgid "d/m/Y H:i:s"
+msgstr "d/m/Y H:i:s"
+
+msgid "days"
+msgstr "天数"
+
+msgid "error"
+msgstr "错误"
+
+msgid "escalation"
+msgstr "升级"
+
+msgid "Escalation"
+msgstr "升级"
+
+msgid "graph on"
+msgstr "graph on"
+
+msgid "host"
+msgstr "主机"
+
+msgid "host dependency"
+msgstr "主机依赖"
+
+msgid "hostgroup"
+msgstr "主机组"
+
+msgid "hostgroup dependency"
+msgstr "主机组依赖"
+
+msgid "impossible to validate, one or more field is incorrect"
+msgstr "无法验证，一个或多个字段错误"
+
+msgid "launch %s with root permissions.\n"
+msgstr "以root权限运行 $s .\n"
+
+msgid "minutes"
+msgstr "分钟"
+
+msgid "movement"
+msgstr "活动"
+
+msgid "nagios Binary"
+msgstr "nagios binary"
+
+msgid "nagios.cfg"
+msgstr "nagios.cfg"
+
+msgid "nagiostats Binary"
+msgstr "nagiostats Binary"
+
+msgid "ndo2db configuration"
+msgstr "ndo2db配置"
+
+msgid "Expiration date"
+msgstr "到期日期"
+
+msgid "ndomod configuration"
+msgstr "ndomod配置"
+
+msgid "Title"
+msgstr "标题"
+
+msgid "notify"
+msgstr "通知"
+
+msgid "on host"
+msgstr "on host "
+
+msgid "or"
+msgstr "或"
+
+msgid "persistent"
+msgstr "保持"
+
+msgid "Process Control"
+msgstr "过程控制"
+
+msgid "resources"
+msgstr "资源"
+
+msgid "Scheduling Process Information"
+msgstr "计划过程信息"
+
+msgid "Restart the Monitoring Engine process"
+msgstr "重启监控引擎"
+
+msgid "Shutdown the Monitoring Engine process"
+msgstr "关闭监控引擎"
+
+msgid "sec"
+msgstr "秒"
+
+msgid "seconds"
+msgstr "秒"
+
+msgid "service"
+msgstr "服务"
+
+msgid "service dependency"
+msgstr "服务依赖"
+
+msgid "servicegroup"
+msgstr "服务组"
+
+msgid "servicegroup dependency"
+msgstr "服务组依赖"
+
+msgid "snmp traps"
+msgstr "snmp 陷井"
+
+msgid "snmpttconvertmib Directory + Binary"
+msgstr "snmpttconvertmib Directory + Binary"
+
+msgid "start Time"
+msgstr "开始时间"
+
+msgid "sticky"
+msgstr "sticky"
+
+msgid "timeperiod"
+msgstr "时间段"
+
+msgid "to"
+msgstr "到"
+
+msgid "topology_name"
+msgstr "拓扑名"
+
+msgid "Widget Title"
+msgstr "Widget标题"
+
+msgid "Widget Information"
+msgstr "Widget信息"
+
+msgid "Add a new widget"
+msgstr "添加widget"
+
+msgid "Layout"
+msgstr "布局"
+
+msgid "View name"
+msgstr "视图名称"
+
+msgid "Submit"
+msgstr "提交"
+
+msgid "1 Column"
+msgstr "1列"
+
+msgid "2 Columns"
+msgstr "2列"
+
+msgid "3 Columns"
+msgstr "3列"
+
+msgid "Set this view as your default view?"
+msgstr "设此视图为默认视图"
+
+msgid "Set default"
+msgstr "默认视图"
+
+msgid "Edit view"
+msgstr "编辑视图"
+
+msgid "Share view"
+msgstr "共享视图"
+
+msgid "Delete view"
+msgstr "删除视图"
+
+msgid "Add widget"
+msgstr "添加widget"
+
+msgid "Monitoring Engine Statistics"
+msgstr "监控引擎状态"
+
+msgid "Unhandled Host problems (last 100)"
+msgstr "未处理的主机问题(最后100个)"
+
+msgid "Unhandled Service problems (last 100)"
+msgstr "未处理的服务问题(最后100个)"
+
+msgid "Services information"
+msgstr "服务信息"
+
+msgid "Services informations"
+msgstr "服务信息"
+
+msgid "Servicegroups / Hosts"
+msgstr "服务组 / 主机"
+
+msgid "Hostgroups / Hosts"
+msgstr "主机组 / 主机"
+
+msgid "Animation effects"
+msgstr "动画效果"
+
+msgid "Engine Status"
+msgstr "引擎状态"
+
+msgid "Enable Centstorage Engine (require restart of centstorage)"
+msgstr "允许Centstorage引擎(要求重启Centstorage)"
+
+msgid "Default host timezone"
+msgstr "默认主机时区"
+
+msgid "Batch configuration"
+msgstr "批量配置"
+
+msgid "Cache path"
+msgstr "缓存路径"
+
+msgid "Group Relations"
+msgstr "组关联"
+
+msgid "Enable Notifications"
+msgstr "启用通知"
+
+msgid "Contact template used"
+msgstr "使用所含的模板"
+
+msgid "Autologin Key"
+msgstr "自动登录秘钥"
+
+msgid "Is this contact a template ?"
+msgstr "是否包含一个模板?"
+
+msgid "Weekly basis"
+msgstr "每周"
+
+msgid "Monthly basis"
+msgstr "每月"
+
+msgid "Specific date"
+msgstr "具体日期"
+
+msgid "Seconds"
+msgstr "秒"
+
+msgid "Downtime type"
+msgstr "宕机时间类型"
+
+msgid "Flexible"
+msgstr "灵活"
+
+msgid "Dependencies"
+msgstr "附加"
+
+msgid "Extended status information"
+msgstr "扩展状态信息"
+
+msgid "Extended Status Information"
+msgstr "扩展状态信息"
+
+msgid "Service groups"
+msgstr "服务组"
+
+msgid "Monitoring Engine Configuration Files Export"
+msgstr "导出监控引擎配置文件"
+
+msgid "Virtuals"
+msgstr "虚拟"
+
+msgid "Import behavior"
+msgstr "进口行为"
+
+msgid "Behavior on duplicate names"
+msgstr "在重复的名称的行为"
+
+msgid "Replace"
+msgstr "替换"
+
+msgid "Increment"
+msgstr "增加"
+
+msgid "Create new object with prefix"
+msgstr "用前缀创建新对象"
+
+msgid "Replace existing ones"
+msgstr "取代现有的"
+
+msgid "Run debug (-v)"
+msgstr "运行调试 (-v)"
+
+msgid "Group member update behavior"
+msgstr "组成员更新的行为"
+
+msgid "Monitoring Engine configuration upload"
+msgstr "监控引擎配置上传"
+
+msgid "Modify a Monitoring Engine Configuration File"
+msgstr "修改监控引擎配置文件"
+
+msgid "Object Configuration File"
+msgstr "对象的配置文件"
+
+msgid "Status file"
+msgstr "状态文件"
+
+msgid "Status File Update Interval"
+msgstr "状态文件更新间隔"
+
+msgid "Instance"
+msgstr "实例"
+
+msgid "Acrion URL target"
+msgstr "acrion URL目标"
+
+msgid "Notes URL target"
+msgstr "注释URL目标"
+
+msgid "Escape HTML tags"
+msgstr "Escape HTML标签"
+
+msgid "Lock author names"
+msgstr "锁定作者姓名"
+
+msgid "Monitoring Engine process check command"
+msgstr "监测引擎过程检查命令"
+
+msgid "Criticality level"
+msgstr "临界水平"
+
+msgid "Enable shell"
+msgstr "允许命令行"
+
+msgid "Connectors"
+msgstr "连接器"
+
+msgid "Convert Trap information"
+msgstr "转换陷阱信息"
+
+msgid "Action 1 : Submit result to Monitoring Engine"
+msgstr "动作1:提交结果到监控引擎"
+
+msgid "Linked poller"
+msgstr "轮询链接"
+
+msgid "Monitoring system User"
+msgstr "监控系统用户"
+
+msgid "Monitoring system Group"
+msgstr "监控系统组"
+
+msgid "Daemon core dumps"
+msgstr "守护进程的核心转储"
+
+msgid "Display Finished Downtime:"
+msgstr "显示完成宕机时间"
+
+msgid "Display Downtime Cycle:"
+msgstr "显示宕机时间周期"
+
+msgid "Host Categories Relations"
+msgstr "主机种类关联"
+
+msgid "Parent Host Categories"
+msgstr "父主机类别"
+
+msgid "Broker Statistics"
+msgstr "代理统计"
+
+msgid "Performance broker page work only with Centreon Broker."
+msgstr "只有完成Centreon代理页工作才能显示."
+
+msgid "Poller Statistics"
+msgstr "轮询器状态"
+
+msgid "Metaservices"
+msgstr "元服务"
+
+msgid "Performances"
+msgstr "性能图表"
+
+msgid "Apply Period"
+msgstr "应用"
+
+msgid "Select all"
+msgstr "全选"
+
+msgid "Connected Users"
+msgstr "在线用户"
+
+msgid "Parameters"
+msgstr "环境参数"
+
+msgid "Extensions"
+msgstr "扩展配置"
+
+msgid "ACL Group"
+msgstr "访问控制表组"
+
+msgid "System Logs"
+msgstr "系统日志"
+
+msgid "Add a service downtime"
+msgstr "添加服务停机时间"
+
+msgid "Add a host downtime"
+msgstr "添加主机停机时间"
+
+msgid "Display Finished Downtime"
+msgstr "显示已完成停机"
+
+msgid "Display Downtime Cycle"
+msgstr "显示停机周期"
+
+msgid "Host basic information"
+msgstr "主机基本信息"
+
+msgid "Host check options"
+msgstr "主机检测配置"
+
+msgid "Scheduling options"
+msgstr "调度配置"
+
+msgid "Service Scheduling Options"
+msgstr "服务调度配置"
+
+msgid "Linked with Servicegroups"
+msgstr "关联服务组"
+
+msgid "Service Trap Relation"
+msgstr "关联SNMP陷阱"
+
+msgid " + Add a new entry"
+msgstr " + 添加模版"
+
+msgid "Notification receivers"
+msgstr "通知目标"
+
+msgid "When enabled, the contact definition will not override the definitions on template levels, it will be appended instead."
+msgstr "当启用时，联系人定义将不会覆盖模板级别的定义，它将被添加而不是。"
+
+msgid "Hostgroup Relations"
+msgstr "主机组关联"
+
+msgid "Contact Templates"
+msgstr "联系人模版"
+
+msgid "Contact template"
+msgstr "联系人模版"
+
+msgid "Contact group"
+msgstr "联系组"
+
+msgid "View contact notifications"
+msgstr "查看联系人通知"
+
+msgid "View contact group notifications"
+msgstr "查看联系组通知"
+
+msgid "Timeperiod"
+msgstr "时间周期"
+
+msgid "Conf Changed"
+msgstr "配置是否更改"
+
+msgid "Engine configuration"
+msgstr "引擎配置"
+
+msgid "Broker configuration"
+msgstr "代理配置"
+
+msgid "Apply configuration"
+msgstr "应用配置"
+
+msgid "Hosts Groups"
+msgstr "主机组"
+
+msgid "Services Groups"
+msgstr "服务组"
+
+msgid "Add a Service comment"
+msgstr "添加服务注释"
+
+msgid "Add a Host comment"
+msgstr "添加主机注释"
+
+msgid "Authors"
+msgstr "作者"
+
+msgid "Entry time"
+msgstr "录入时间"
+
+msgid "Services Grid"
+msgstr "服务网格化"
+
+msgid "Display details"
+msgstr "显示详细"
+
+msgid "Display"
+msgstr "显示"
+
+msgid "Services by Hostgroup"
+msgstr "主机组的服务"
+
+msgid "Services by Servicegroup"
+msgstr "服务组的服务"
+
+msgid "Hostgroups Summary"
+msgstr "主机组摘要信息"
+
+msgid "Servicegroup"
+msgstr "服务组"
+
+msgid "element(s) found"
+msgstr "元素"
+
+msgid "No results found"
+msgstr "没有找到结果"
+
+msgid "Split"
+msgstr "分离图形"
+
+msgid "Host Uses"
+msgstr "主机使用数"
+
+msgid "Services Uses"
+msgstr "服务使用数"
+
+msgid "Macros Descriptions"
+msgstr "宏描述"
+
+msgid "Advanced matching behavior"
+msgstr "高级匹配状态"
+
+msgid "Snmp Traps"
+msgstr "SNMP陷阱"
+
+msgid "Snmp trap Groups"
+msgstr "SNMP陷阱组"
+
+msgid "Add Group"
+msgstr "添加组"
+
+msgid "Traps"
+msgstr "陷阱"
+
+msgid "SNMP Trap Generation"
+msgstr "SNMP陷阱生成"
+
+msgid "Send signal"
+msgstr "发送操作"
+
+msgid "Apply configurations"
+msgstr "应用配置"
+
+msgid "Generate trap database"
+msgstr "生成陷阱数据库"
+
+msgid "Snmp trap manufacturer"
+msgstr "关键字"
+
+msgid "Poller Name"
+msgstr "轮询器名"
+
+msgid "Is default poller ?"
+msgstr "是否默认轮询器"
+
+msgid "Monitoring Engine Information"
+msgstr "监控引擎信息"
+
+msgid "Monitoring Engine Init Script"
+msgstr "监控引擎程序初始化脚本路径"
+
+msgid "Monitoring Engine Binary"
+msgstr "监控引擎Binary路径"
+
+msgid "Monitoring Engine Statistics Binary"
+msgstr "监控引擎状态Binary路径"
+
+msgid "Centreon Broker"
+msgstr "Centreon代理"
+
+msgid "Centreon Broker configuration path"
+msgstr "代理器路径"
+
+msgid "Centreon Broker modules path"
+msgstr "代理器模块路径"
+
+msgid "Centreon Connector"
+msgstr "Centreon 连接器"
+
+msgid "Centreon Connector path"
+msgstr "连接器路径"
+
+msgid "Centreon Trap Collector"
+msgstr "Centreon 陷阱配置"
+
+msgid "Centreontrapd init script path"
+msgstr "初始化脚本路径"
+
+msgid "Directory of light database for traps"
+msgstr "陷阱数据库目录路径"
+
+msgid "Post-Restart command"
+msgstr "启动命令"
+
+msgid "Add with wizard"
+msgstr "添加向导"
+
+msgid "Associated pollers"
+msgstr "关联的轮询器"
+
+msgid "Downtime Configuration"
+msgstr "宕机周期配置"
+
+msgid "Add new period"
+msgstr "添加周期"
+
+msgid "Add a downtime"
+msgstr "添加配置"
+
+msgid "Time period"
+msgstr "周期"
+
+msgid "Service category"
+msgstr "服务类别"
+
+msgid "Inclusion"
+msgstr "包含"
+
+msgid "Exceptions"
+msgstr "例外"
+
+msgid "Escalated Services"
+msgstr "升级的服务"
+
+msgid "Escalated Hosts"
+msgstr "升级的主机"
+
+msgid "Service escalations"
+msgstr "服务升级"
+
+msgid "Host escalations"
+msgstr "主机升级"
+
+msgid "Host notifications"
+msgstr "主机通知"
+
+msgid "Service notifications"
+msgstr "服务通知"
+
+msgid "Linked ACL groups"
+msgstr "关联至访问控制表组"
+
+msgid "Group Information"
+msgstr "组信息"
+
+msgid "Authorizations information"
+msgstr "授权配置"
+
+msgid "Menu access list link"
+msgstr "菜单访问列表链接"
+
+msgid "All Hosts"
+msgstr "所有主机"
+
+msgid "All Hostgroups"
+msgstr "所有主机组"
+
+msgid "All Servicegroups"
+msgstr "所有服务组"
+
+msgid "Check User View"
+msgstr "查看用户视图"
+
+msgid "Access list name"
+msgstr "访问控制表名"
+
+msgid "ACL Resource"
+msgstr "ACL资源"
+
+msgid "Shared Resources"
+msgstr "共享的资源"
+
+msgid "Include all hosts"
+msgstr "包括所有主机"
+
+msgid "Include all hostgroups"
+msgstr "包括所有主机组"
+
+msgid "Include all servicegroups"
+msgstr "包括所有服务组"
+
+msgid "Filters"
+msgstr "筛选"
+
+msgid "Poller Filter"
+msgstr "轮询器筛选"
+
+msgid "Host Category Filter"
+msgstr "主机类别筛选"
+
+msgid "Service Category Filter"
+msgstr "服务类别筛选"
+
+msgid "Global Functionalities Access"
+msgstr "全局访问配置"
+
+msgid "Global Monitoring Engine Actions (External Process Commands)"
+msgstr "全局监控引擎动作 (外部程序命令)"
+
+msgid "Shutdown Monitoring Engine"
+msgstr "关闭监控引擎"
+
+msgid "Acknowledge a service"
+msgstr "已确认服务"
+
+msgid "Disacknowledge a service"
+msgstr "未确认服务"
+
+msgid "Disaknowledge a host"
+msgstr "未确认主机"
+
+msgid "Submit result for a host"
+msgstr "提交主机的结果"
+
+msgid "Add a Monitoring Engine Configuration File"
+msgstr "添加监控引擎配置文件"
+
+msgid "Nothing here, use the 'Add' button"
+msgstr "没有模版，请添加模版"
+
+msgid "Template inheritance"
+msgstr "Template inheritance"
+
+msgid "Command inheritance"
+msgstr "Command inheritance"
+
+msgid "Contact additive inheritance"
+msgstr "强制下级继承用户"
+
+msgid "Contact group additive inheritance"
+msgstr "强制下级继承用户组"
+
+msgid "Performance Management"
+msgstr "性能管理配置"
+
+msgid "Performance Data Management"
+msgstr "性能数据管理"
+
+msgid "Centreon UI"
+msgstr "界面配置"
+
+msgid "Graph per page for Performances"
+msgstr "每页图表数"
+
+msgid "Number of elements loaded in select"
+msgstr "加载元素数量"
+
+msgid "Sort by"
+msgstr "默认排序"
+
+msgid "Order sort"
+msgstr "排序方式"
+
+msgid "Sort problems by"
+msgstr "默认告警排序"
+
+msgid "Order sort problems"
+msgstr "告警排序方式"
+
+msgid "Authentication properties"
+msgstr "身份认证配置"
+
+msgid "Enable SSO authentication"
+msgstr "SSO 认证启用"
+
+msgid "SSO mode"
+msgstr "SSO 模式"
+
+msgid "SSO only"
+msgstr "唯一的  "
+
+msgid "Mixed"
+msgstr "混合的"
+
+msgid "SSO trusted client addresses"
+msgstr "SSO 信任客户端地址"
+
+msgid "SSO blacklist client addresses"
+msgstr "SSO 客户端地址黑名单 "
+
+msgid "SSO login header"
+msgstr "SSO 登录头信息"
+
+msgid "SSO pattern matching login"
+msgstr "SSO模式匹配的登录"
+
+msgid "SSO pattern replace login"
+msgstr "SSO pattern replace login"
+
+msgid "Support Information"
+msgstr "技术支持配置"
+
+msgid "Centreon Support Email"
+msgstr "技术支持邮箱"
+
+msgid "General information"
+msgstr "基本信息"
+
+msgid "UI notifications"
+msgstr "界面通知效果配置"
+
+msgid "Show Up status"
+msgstr "显示运行状态"
+
+msgid "Show Down status"
+msgstr "显示宕机状态"
+
+msgid "Show Unreachable status"
+msgstr "显示不可达状态"
+
+msgid "Show OK status"
+msgstr "显示OK状态"
+
+msgid "Show Warning status"
+msgstr "显示告警状态"
+
+msgid "Show Critical status"
+msgstr "显示错误状态"
+
+msgid "Show Unknown status"
+msgstr "显示未知状态"
+
+msgid "Sound for Up status"
+msgstr "运行状态声音配置"
+
+msgid "Sound for Down status"
+msgstr "宕机状态声音配置"
+
+msgid "Sound for Unreachable status"
+msgstr "不可达状态声音配置"
+
+msgid "Sound for OK status"
+msgstr "OK状态声音配置"
+
+msgid "Sound for Warning status"
+msgstr "告警状态声音配置"
+
+msgid "Sound for Critical status"
+msgstr "错误状态声音配置"
+
+msgid "Sound for Unknown status"
+msgstr "未知状态声音配置"
+
+msgid "Host commands and shortcuts"
+msgstr "主机快捷操作命令"
+
+msgid "Contact groups notified for this host"
+msgstr "该主机告警至联系人组"
+
+msgid "Contacts notified for this host"
+msgstr "该主机告警至联系人"
+
+msgid "Contact groups notified for this service "
+msgstr "该服务告警至联系人组"
+
+msgid "Contacts notified for this service "
+msgstr "该服务告警至联系人"
